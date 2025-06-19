@@ -1,4 +1,3 @@
-import styles from './_appFooter.module.scss';
 import { Content, Grid, Column } from '@carbon/react';
 import { BlockList } from '../BlockList';
 import { ContactButton } from '../ContactButton';
@@ -53,7 +52,7 @@ const AppFooter = () => {
   };
 
   return (
-    <footer className={clsx(styles.footer, 'app-footer')}>
+    <footer className={clsx('enj-AppFooter')}>
       <Content>
         <Grid className="app-footer__wrapper">
           {/* Col 1: Logo */}

@@ -12,7 +12,7 @@ interface BlockListProps {
 
 const BlockList = ({ title, h, list }: BlockListProps) => {
   return (
-    <section className={clsx(styles.blockList, 'block-list')}>
+    <section className={clsx('enj-BlockList', 'block-list')}>
       {h === 'h1' && <h1>{title}</h1>}
       {h === 'h2' && <h2>{title}</h2>}
       {h === 'h3' && <h3>{title}</h3>}

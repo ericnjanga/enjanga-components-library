@@ -1,5 +1,5 @@
-import styles from './_brandName.module.scss';
 import clsx from 'clsx';
+// Styles are imported globally
 
 const BrandName = () => {
 
@@ -8,7 +8,7 @@ const BrandName = () => {
   };
 
   return (
-    <span className={clsx(styles.brandName, 'brand-name')}>{mockData.brandName}</span>
+    <span className={clsx('enj-BrandName')}>{mockData.brandName}</span>
   );
 };
 

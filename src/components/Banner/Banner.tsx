@@ -1,6 +1,6 @@
 import { subscribe } from 'diagnostics_channel';
-import styles from './_banner.module.scss';
 import clsx from 'clsx';
+// Styles are imported globally
 import { Grid, Column } from '@carbon/react';
 
 interface BannerProps {
@@ -10,7 +10,7 @@ interface BannerProps {
 
 const Banner = ({ title, subtitle }: BannerProps) => {
   return (
-    <header className={clsx(styles.banner, 'banner')}>
+    <header className={clsx('enj-Banner')}>
       <Grid fullWidth>
         <Column lg={8} md={6} sm={4}>
           <h1>{title}</h1>
