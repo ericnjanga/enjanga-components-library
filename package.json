@@ -1,0 +1,127 @@
+{
+  "name": "enjanga-next-3-components-lib",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericnjanga/enjanga-next-3-components-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ericnjanga/enjanga-next-3-components-lib/issues"
+  },
+  "homepage": "https://github.com/ericnjanga/enjanga-next-3-components-lib#readme",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint && tsc --noEmit",
+    "ci-check": "yarn format:diff",
+    "clean": "yarn cache clean && yarn install",
+    "format": "prettier --write \"**/*.{js,ts,md,scss}\"",
+    "format:diff": "prettier --list-different \"**/*.{js,ts,md,scss}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@carbon/pictograms-react": "^11.79.0",
+    "@carbon/react": "^1.84.0",
+    "carbon-components": "^10.58.15",
+    "carbon-components-react": "^8.67.0",
+    "clsx": "^2.1.1",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.9",
+    "next": "^15.3.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "1.63.6",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.0.0",
+    "@commitlint/cli": "7.5.2",
+    "@commitlint/config-conventional": "7.5.0",
+    "@mdx-js/react": "^3.1.0",
+    "@storybook/addon-a11y": "^9.0.11",
+    "@storybook/addon-docs": "^9.0.12",
+    "@storybook/addon-essentials": "^9.0.0-alpha.12",
+    "@storybook/addon-interactions": "^9.0.0-alpha.10",
+    "@storybook/addon-links": "9.0.11",
+    "@storybook/addon-mdx-gfm": "^8.6.14",
+    "@storybook/addon-themes": "^9.0.11",
+    "@storybook/addon-vitest": "^9.0.11",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/builder-webpack5": "^9.0.11",
+    "@storybook/manager-api": "^8.6.14",
+    "@storybook/nextjs": "9.0.11",
+    "@storybook/nextjs-vite": "9.0.11",
+    "@storybook/theming": "^8.6.14",
+    "@storybook/types": "^8.6.14",
+    "@types/css-modules": "^1.0.5",
+    "@types/node": "^24.0.3",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/smoothscroll-polyfill": "^0.3.4",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint-plugin-storybook": "^9.0.11",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "playwright": "^1.53.0",
+    "prettier": "^2.8.8",
+    "storybook": "^9.0.11",
+    "typescript": "^5.0.0",
+    "vitest": "^3.2.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "prettier --cache --write",
+      "git add"
+    ],
+    "*.{scss,css}": [
+      "prettier --cache --write",
+      "git add"
+    ],
+    "*.md": [
+      "prettier --cache --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}

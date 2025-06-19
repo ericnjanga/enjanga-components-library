@@ -1,0 +1,23 @@
+/* Custom styling for docs page */
+.docs-toc-link {
+  color: #0f62fe;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.docs-toc-link:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 2rem 0;
+}
+ 
+section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 2rem; /* Helps with anchor link positioning */
+}

@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started/Feature Flags" />
+
+# Using Feature Flags
+
+Feature flags let you toggle components safely. Information about upcoming feature flags will be presented here.
+
+### How to Enable a Flag  
+```jsx
+// In your app's config
+const config = {
+  features: {
+    newButton: true  // Toggle this in LaunchDarkly
+  }
+};

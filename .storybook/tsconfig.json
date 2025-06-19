@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": ["@storybook/nextjs", "@storybook/addon-docs"],
+    "esModuleInterop": true,
+    "paths": {
+      "*": ["./../src/*"]
+    }
+  },
+  "include": ["../src/**/*", "../index.ts"]
+}

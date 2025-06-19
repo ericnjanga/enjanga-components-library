@@ -1,0 +1,26 @@
+# Framework-specific
+.next
+src/app
+public
+next-env.d.ts
+
+# Storybook
+.storybook
+stories
+doctor-storybook.log
+
+# Testing
+*.test.*
+*.spec.*
+vitest.config.ts
+vitest.shims.d.ts
+
+# Configs
+*.config.js
+*.config.ts
+
+# General
+node_modules
+yarn.lock
+README.md
+.gitignore
