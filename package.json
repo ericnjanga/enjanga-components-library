@@ -34,7 +34,8 @@
   },
   "homepage": "https://github.com/ericnjanga/enjanga-next-3-components-lib#readme",
   "scripts": {
-    "build": "tsup src/index.tsx --dts --format esm,cjs --out-dir dist",
+    "build": "yarn build:css && tsup src/index.ts --dts --format esm,cjs --out-dir dist --external:./**/*.scss",
+    "build:css": "sass src/components:dist/styles --no-source-map",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint && tsc --noEmit",
@@ -45,6 +46,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "style": "dist/styles.css",
   "peerDependencies": {
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
     "react": "^17.0.0 || ^18.0.0",
@@ -56,7 +58,7 @@
     "carbon-components": "^10.58.15",
     "carbon-components-react": "^8.67.0",
     "clsx": "^2.1.1",
-    "sass": "1.63.6",
+    "sass": "^1.89.2",
     "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
