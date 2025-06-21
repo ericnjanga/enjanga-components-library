@@ -1,8 +1,8 @@
 # Eric Njanga Portfolio – Component Library
 
-This is a React component library built for Eric Njanga’s portfolio. The library is designed for **consumption only** — JavaScript and CSS files are minified and optimized for external use.
+This is a [React component library](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2) built for Eric Njanga’s portfolio. The library is designed for **consumption only** — JavaScript and CSS files are minified and optimized for external use.
 
-> ⚠️ **Important:** This library depends on the [IBM Carbon Design System](https://carbondesignsystem.com/). It uses Carbon’s components, patterns, and styles. To work correctly, **Carbon must be installed and configured** in the consuming project.
+> ⚠️ **Important:** This library depends on the [IBM Carbon Design System](https://carbondesignsystem.com/). It leverages Carbon’s components, patterns, and styles. To function correctly, **Carbon must be installed and configured** in the consuming project.
 
 ---
 
@@ -13,6 +13,7 @@ This is a React component library built for Eric Njanga’s portfolio. The libra
 - **IBM Carbon Design System**
 - **SASS**
 - **Storybook**
+- **Chromatic CLI** (for live Storybook deployment)
 - **React Testing Library**
 
 ---
@@ -21,10 +22,22 @@ This is a React component library built for Eric Njanga’s portfolio. The libra
 
 ### Storybook for UI Development
 
-Storybook is used to build and test components in isolation. The development environment closely mirrors production by:
+Storybook is used to develop and test components in isolation. The development environment mirrors production by:
 
 - Injecting Carbon styles via `.storybook/preview.ts`
-- Including only the library’s component styles in the final npm package (not Carbon’s) to avoid duplication and reduce package size
+- Including **only** the component styles from this library in the npm package (not Carbon’s), to reduce duplication and keep the package lightweight
+
+---
+
+## 📘 Live Storybook
+
+View the published version of this component library on [Chromatic](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2).
+
+---
+
+## 📦 Getting Started
+
+1. **Install the library** (coming soon):
 
 ------------ (the part below needs refinement | last uodate: Jun 21, 2024) ------------
 
