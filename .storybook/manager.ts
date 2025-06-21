@@ -18,7 +18,8 @@ const theme = create({
 
 addons.setConfig({
   sidebar: {
-    renderLabel: ({ name }) => name === 'getting-started' ? 'Getting Started' : name,
+    renderLabel: ({ name }) =>
+      name === 'getting-started' ? 'Getting Started' : name,
   },
-  theme
+  theme,
 });
