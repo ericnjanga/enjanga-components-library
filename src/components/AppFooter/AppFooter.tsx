@@ -1,5 +1,5 @@
 import { Content, Grid, Column } from '@carbon/react';
-import { BlockList } from '../BlockList';
+import { HeadlinedList } from '../HeadlinedList';
 import { ContactButton } from '../ContactButton';
 import { BrandName } from '../BrandName';
 import clsx from 'clsx';
@@ -64,77 +64,50 @@ const AppFooter = () => {
           <Column lg={12} md={5} sm={4} className="app-footer__col2">
             <Grid className="">
               {/* Col 2: Row 1 */}
-              <Column
-                lg={12}
-                md={4}
-                sm={4}
-                className="app-footer__col2-row1">
+              <Column lg={12} md={4} sm={4} className="app-footer__col2-row1">
                 <Grid>
                   {/* Col 2: Row 1: Col 1 */}
-                  <Column
-                    lg={4}
-                    md={4}
-                    sm={4}
-                    className="">
-                    <BlockList
-                      title="Main Navigation"
-                      h="h4"
-                      list={mockData.listMainNav}
+                  <Column lg={4} md={4} sm={4} className="">
+                    <HeadlinedList
+                      heading={{ content: 'Main Navigation', h: 'h4' }}
+                      list={{ content: mockData.listMainNav }}
                     />
                   </Column>
 
                   {/* Col 2: Row 1: Col 2 */}
-                  <Column
-                    lg={4}
-                    md={4}
-                    sm={4}
-                    className="">
-                    <BlockList title="Professional Links" h="h4" list={mockData.proLinks} />
+                  <Column lg={4} md={4} sm={4} className="">
+                    <HeadlinedList
+                      heading={{ content: 'Professional Links', h: 'h4' }}
+                      list={{ content: mockData.proLinks }}
+                    />
                   </Column>
 
                   {/* Col 2: Row 1: Col 3 */}
-                  <Column
-                    lg={4}
-                    md={4}
-                    sm={4}
-                    className="">
-                    <BlockList title="Blog" h="h4" list={mockData.blogLinks} />
+                  <Column lg={4} md={4} sm={4} className="">
+                    <HeadlinedList
+                      heading={{ content: 'Blog', h: 'h4' }}
+                      list={{ content: mockData.proLinks }}
+                    />
                   </Column>
                 </Grid>
               </Column>
 
               {/* Col 2: Row 1 */}
-              <Column
-                lg={12}
-                md={4}
-                sm={4}
-                className="">
+              <Column lg={12} md={4} sm={4} className="">
                 <hr />
               </Column>
 
               {/* Col 2: Row 2 */}
-              <Column
-                lg={12}
-                md={4}
-                sm={4}
-                className="">
+              <Column lg={12} md={4} sm={4} className="">
                 <Grid className="tabs-group-content">
                   {/* Col 2: Row 2: Col 1 */}
-                  <Column
-                    lg={8}
-                    md={4}
-                    sm={4}
-                    className="">
+                  <Column lg={8} md={4} sm={4} className="">
                     <b>Copyright: </b> Cupcake ipsum dolor sit amet. Lemon drops
                     croissant.
                   </Column>
 
                   {/* Col 2: Row 2: Col 2 */}
-                  <Column
-                    lg={4}
-                    md={4}
-                    sm={4}
-                    className="">
+                  <Column lg={4} md={4} sm={4} className="">
                     <ContactButton />
                   </Column>
                 </Grid>
