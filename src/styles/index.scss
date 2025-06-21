@@ -1,9 +1,9 @@
 // src/styles/index.scss
-@use '../components/AppFooter/_AppFooter.scss';
-@use '../components/AppHeader/_AppHeader.scss';
-@use '../components/Banner/_Banner.scss';
-@use '../components/BlockList/_BlockList.scss';
-@use '../components/BrandName/_BrandName.scss';
-@use '../components/CustomIcon/_CustomIcon.scss';
-@use '../components/CustomTile/_CustomTile.scss';
-@use '../components/SkipNavigationLink/_SkipNavigationLink.scss';
+@use '../components/AppFooter/AppFooter';
+@use '../components/AppHeader/AppHeader';
+@use '../components/Banner/Banner';
+@use '../components/HeadlinedList/HeadlinedList';
+@use '../components/BrandName/BrandName';
+@use '../components/CustomIcon/CustomIcon';
+@use '../components/CustomTile/CustomTile';
+@use '../components/SkipNavigationLink/SkipNavigationLink';
