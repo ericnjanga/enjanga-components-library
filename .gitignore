@@ -1,1 +1,4 @@
 node_modules
+
+# No need to have the distribution folder here
+dist
