@@ -8,7 +8,7 @@ This is a React component library built for Eric Njanga’s portfolio. The libra
 
 ## 🚀 Stack & Features
 
-- **Next.js**
+- **Next.js (React)**
 - **TypeScript**
 - **IBM Carbon Design System**
 - **SASS**
