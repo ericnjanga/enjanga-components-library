@@ -35,6 +35,26 @@ View the published version of this component library on [Chromatic](https://www.
 
 ---
 
+## 📁 Project Structure
+
+...
+
+## 📦 Getting Started
+
+...
+
+## 🧪 Testing
+
+...
+
+## 📚 Component Library
+
+...
+
+## 📄 License
+
+...
+
 ## 📦 Getting Started
 
 1. **Install the library** (coming soon):
