@@ -63,6 +63,18 @@ View the published version of this component library on [Chromatic](https://www.
 
 # Philosophy
 
+A few observations on what's the thoughts behind the creation of this components' library
+
+## Carbon's Selective implementation
+
+[Carbon](https://carbondesignsystem.com/) is a toolbox from which I pick my library's features. It is the design prototypes that drive my implementation decisions. For example, the "ContactButton" component will always be a primary, or secondary button at most and will always display a select number of icons related to the action of connecting with someone (email, chat, ...). Therefore, the component will have limited properties, options, and the story will have limites edge cases (no need of a "ContactButton" story with no icons, or in danger mode). See the component story for illustration.
+
+the component will only offer the following possibilities to consummers:
+
+- text: (string)
+- kind: 'primary' | 'secondary' (Optional and 'primary' by default)
+- size: 'sm' | 'md' (Optional and 'md' by default)
+
 ## Scalabiity
 
 This component library follows the following principles:
@@ -97,12 +109,9 @@ Run the commands:
 
 - yarn install (All hey dependencies will be installed)
 
-# List of components
+# List of exported components
 
-- ...
-- ...
-- ...
-- ...
+- See the list on: src/components/index.ts
 
 ## Ready for export after changes
 
