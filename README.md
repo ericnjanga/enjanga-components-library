@@ -37,6 +37,69 @@ View the published version of this component library on [Chromatic](https://www.
 
 ## 📁 Project Structure
 
+eric-njanga-component-library/
+├── .next/ # Next.js configuration
+├── .storybook/ # Storybook configuration
+├── src/
+│ ├── app/ # ...
+│ ├── components/ # All React components
+│ │ ├── ContactButton/ # Example component (contains both public & internal)
+│ │ │ ├── ContactButton.tsx # Component implementation
+│ │ │ ├── \_ContactButton.scss # Component styles
+│ │ │ └── index.ts # Component exporting file
+│ │ ├── ... # Other components follow same pattern
+│ │ └── index.ts # Public API (exports only public components)
+│ ├── stories/ # Storybook stories
+│ │ ├── components/ # All React components
+│ │ │ ├── ContactButton.stories.tsx # Component implementation
+│ │ │ ├── \*\*\*.stories.tsx # Other stories
+│ ├── tests/ # Components tests
+│ ├── styles/ # Global styles and SASS utilities
+│ └── utils/ # Shared utility functions
+├── package.json
+└── tsconfig.json
+
+### Component Visibility
+
+The library maintains two types of components:
+
+1. **Public Components**
+
+   - Exported in `src/components/index.ts`
+   - Available for external consumption
+   - Fully documented in Storybook
+   - Type definitions automatically generated
+
+2. **Internal Components**
+   - Used only by other components in the library
+   - Not exported in the public API
+   - Example: `ContactModal` (used internally but not exposed externally)
+
+### Key Implementation Details
+
+- **Carbon Integration**: All components build upon IBM Carbon's design system
+- **Scoped Styles**: Each component manages its own styles via SASS modules
+- **Type Safety**: Full TypeScript support with generated type definitions
+- **Testing**: Components include React Testing Library unit tests and accessibility checks
+
+### Using the Library
+
+1. Install the library:
+
+   ```bash
+   npm install eric-njanga-component-library
+   # or
+   yarn add eric-njanga-component-library
+   ```
+
+2. Ensure [Carbon Design System](https://carbondesignsystem.com/) is properly configured in your project
+
+3. Import components from the public API:
+   ```ts
+   import { ContactButton } from 'eric-njanga-component-library';
+   ```
+
+------------ (the part below needs refinement | last uodate: Jun 23, 2024) ------------
 ...
 
 ## 📦 Getting Started
@@ -58,8 +121,6 @@ View the published version of this component library on [Chromatic](https://www.
 ## 📦 Getting Started
 
 1. **Install the library** (coming soon):
-
------------- (the part below needs refinement | last uodate: Jun 21, 2024) ------------
 
 # Philosophy
 
@@ -108,10 +169,6 @@ Most components can be imported in their .
 Run the commands:
 
 - yarn install (All hey dependencies will be installed)
-
-# List of exported components
-
-- See the list on: src/components/index.ts
 
 ## Ready for export after changes
 
