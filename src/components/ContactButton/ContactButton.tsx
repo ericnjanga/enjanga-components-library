@@ -14,13 +14,14 @@ import {
   FormGroup,
   Stack,
 } from '@carbon/react';
-import type { CarbonIconType } from '@carbon/icons-react';
 import {
+  CarbonIconType,
   Email,
   Chat,
   CustomerService,
   CommunicationUnified,
 } from '@carbon/icons-react';
+import { ContactModal } from '../ContactModal';
 
 export interface ContactButtonProps {
   btnText: string;
@@ -79,6 +80,16 @@ const ContactButton = ({
         {btnText}
       </Button>
 
+      <ContactModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        modalLabel={modalLabel}
+        modalHeading={modalHeading}
+        modalSubHeading={modalSubHeading}
+        modalPrimaryButtonText={modalPrimaryButtonText}
+        modalSecondaryButtonText={modalSecondaryButtonText}
+      />
+      {/* 
       <Modal
         open={isOpen}
         modalLabel={modalLabel}
@@ -122,7 +133,7 @@ const ContactButton = ({
             </FormGroup>
           </Stack>
         </Form>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
