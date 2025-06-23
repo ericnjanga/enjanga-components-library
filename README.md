@@ -18,7 +18,9 @@ This is a [React component library](https://www.chromatic.com/library?appId=6856
 - **Chromatic CLI** (for live Storybook deployment)
 - **React Testing Library**
 
----
+## <br />
+
+<br />
 
 ## 🛠 Development Workflow
 
@@ -29,13 +31,17 @@ Storybook is used to develop and test components in isolation. The development e
 - Injecting Carbon styles via `.storybook/preview.ts`
 - Including **only** the component styles from this library in the npm package (not Carbon’s), to reduce duplication and keep the package lightweight
 
----
+## <br />
+
+<br />
 
 ## 📘 Live Storybook
 
 View the published version of this component library on [Chromatic](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2).
 
----
+## <br />
+
+<br />
 
 ## 📁 Project Structure
 
@@ -63,6 +69,8 @@ eric-njanga-component-library/
 └── tsconfig.json
 ```
 
+<br />
+
 ### Component Visibility
 
 The library maintains two types of components:
@@ -79,12 +87,16 @@ The library maintains two types of components:
    - Not exported in the public API
    - Example: `ContactModal` (used internally but not exposed externally)
 
+<br />
+
 ### Key Implementation Details
 
 - **Carbon Integration**: All components build upon IBM Carbon's design system
 - **Scoped Styles**: Each component manages its own styles via SASS modules
 - **Type Safety**: Full TypeScript support with generated type definitions
 - **Testing**: Components include React Testing Library unit tests and accessibility checks
+
+<br />
 
 ### Using the Library
 
