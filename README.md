@@ -4,7 +4,9 @@ This is a [React component library](https://www.chromatic.com/library?appId=6856
 
 > ⚠️ **Important:** This library depends on the [IBM Carbon Design System](https://carbondesignsystem.com/). It leverages Carbon’s components, patterns, and styles. To function correctly, **Carbon must be installed and configured** in the consuming project.
 
----
+## <br />
+
+<br />
 
 ## 🚀 Stack & Features
 
