@@ -3,16 +3,19 @@ import { Hills, AppDeveloper, Leadership } from '@carbon/pictograms-react';
 import type { ComponentType, SVGProps } from 'react';
 
 export interface CustomIconProps {
-  name: 'Hills' | 'App Developer' | 'Leadership'
-  className?: string
-};
+  name: 'Hills' | 'App Developer' | 'Leadership';
+  className?: string;
+}
 
-export const customIconOptions = ['Hills', 'App Developer', 'Leadership'];
+export const customIconsList = ['Hills', 'App Developer', 'Leadership'];
 
-const pictogramMap: Record<CustomIconProps['name'], ComponentType<SVGProps<SVGSVGElement>>> = {
+const pictogramMap: Record<
+  CustomIconProps['name'],
+  ComponentType<SVGProps<SVGSVGElement>>
+> = {
   Hills,
   'App Developer': AppDeveloper,
-  Leadership
+  Leadership,
 };
 
 /**

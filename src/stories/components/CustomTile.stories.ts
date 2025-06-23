@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CustomTile from '../../components/CustomTile/CustomTile';
+import { customIconsList } from '../../components/CustomIcon/CustomIcon';
 
 const meta: Meta<typeof CustomTile> = {
   title: 'Components/CustomTile',
@@ -7,7 +8,7 @@ const meta: Meta<typeof CustomTile> = {
   argTypes: {
     iconName: {
       control: 'select',
-      options: ['Hills', 'App Developer', 'Leadership'], // <-- your pictogram names
+      options: [...customIconsList],
     },
   },
   args: {

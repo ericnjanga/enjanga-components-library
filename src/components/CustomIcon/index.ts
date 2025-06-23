@@ -2,5 +2,5 @@
  * Custom Icon
  * ...
  */
-export { default, customIconOptions } from './CustomIcon';
+export { default, customIconsList } from './CustomIcon';
 export type { CustomIconProps } from './CustomIcon';
