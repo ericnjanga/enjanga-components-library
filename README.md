@@ -37,6 +37,7 @@ View the published version of this component library on [Chromatic](https://www.
 
 ## 📁 Project Structure
 
+```txt
 eric-njanga-component-library/
 ├── .next/ # Next.js configuration
 ├── .storybook/ # Storybook configuration
@@ -58,6 +59,7 @@ eric-njanga-component-library/
 │ └── utils/ # Shared utility functions
 ├── package.json
 └── tsconfig.json
+```
 
 ### Component Visibility
 
