@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import HeadlinedList from '../../components/HeadlinedList';
 
 const meta: Meta<typeof HeadlinedList> = {
-  title: 'Components/HeadlinedList',
+  title: 'External Components/HeadlinedList',
   component: HeadlinedList,
   args: {
     wrapper: {

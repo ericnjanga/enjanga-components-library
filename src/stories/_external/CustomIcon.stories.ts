@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import CustomIcon, { CustomIconProps, customIconOptions } from '../../components/CustomIcon/CustomIcon';
+import CustomIcon from '../../components/CustomIcon/CustomIcon';
 
 const meta: Meta<typeof CustomIcon> = {
-  title: 'Components/CustomIcon',
+  title: 'External Components/CustomIcon',
   component: CustomIcon,
   argTypes: {
     name: {

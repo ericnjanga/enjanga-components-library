@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import List from '../../components/List';
 
 const meta: Meta<typeof List> = {
-  title: 'Components/List',
+  title: 'External Components/List',
   component: List,
   args: {
     type: 'ordered',

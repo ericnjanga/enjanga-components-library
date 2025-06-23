@@ -88,6 +88,7 @@
     "@storybook/nextjs-vite": "9.0.12",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^9.0.12",
+    "@storybook/test": "^8.6.14",
     "@storybook/theming": "^9.0.12",
     "@storybook/types": "^9.0.12",
     "@types/css-modules": "^1.0.5",

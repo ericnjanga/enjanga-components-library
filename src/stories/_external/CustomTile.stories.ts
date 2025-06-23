@@ -3,7 +3,7 @@ import CustomTile from '../../components/CustomTile/CustomTile';
 import { customIconsList } from '../../components/CustomIcon/CustomIcon';
 
 const meta: Meta<typeof CustomTile> = {
-  title: 'Components/CustomTile',
+  title: 'External Components/CustomTile',
   component: CustomTile,
   argTypes: {
     iconName: {

@@ -5,15 +5,7 @@
  * The process for now is a contact form modal.
  */
 import { useState } from 'react';
-import {
-  Button,
-  Modal,
-  TextInput,
-  TextArea,
-  Form,
-  FormGroup,
-  Stack,
-} from '@carbon/react';
+import { Button } from '@carbon/react';
 import {
   CarbonIconType,
   Email,

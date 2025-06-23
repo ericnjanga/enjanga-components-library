@@ -6,7 +6,7 @@ import ContactButton, {
 } from '../../components/ContactButton/ContactButton';
 
 const meta: Meta<typeof ContactButton> = {
-  title: 'Components/ContactButton',
+  title: 'External Components/ContactButton',
   component: ContactButton,
   argTypes: {
     btnText: { control: 'text' },
