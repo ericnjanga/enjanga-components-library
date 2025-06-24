@@ -73,7 +73,7 @@ eric-njanga-component-library/
 
 ### Component Visibility
 
-The library maintains two types of components:
+The library maintains two types of components ([see live implementation](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2)):
 
 1. **Public Components**
 
