@@ -25,7 +25,7 @@ const meta: Meta<typeof ContactButton> = {
     // Modal controls...
   },
   args: {
-    btnText: 'Contact Us',
+    btnText: 'Get in touch with me',
     btnIcon: 'Email',
     btnKind: 'primary',
     btnSize: 'md',
