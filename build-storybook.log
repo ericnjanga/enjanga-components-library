@@ -1,16 +1,16 @@
 yarn run v1.22.22
-$ storybook build --output-dir=/var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--67581-4GzTnmCq5erS
+$ storybook build --output-dir=/var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--94010-h136fegMNUuC
 [1mstorybook v9.0.12
 [22m
-info => Cleaning outputDir: [36m../../../../var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--67581-4GzTnmCq5erS[39m
+info => Cleaning outputDir: [36m../../../../var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--94010-h136fegMNUuC[39m
 info => Loading presets
 info => Building manager..
 info => Building preview..
 info Addon-docs: using MDX3
 info => Using implicit CSS loaders
 info => Using SWC as compiler
-info => Copying static files: [36mpublic[39m at [36m../../../../var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--67581-4GzTnmCq5erS[39m
+info => Copying static files: [36mpublic[39m at [36m../../../../var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--94010-h136fegMNUuC[39m
 info => Using default Webpack5 setup
 info Using tsconfig paths for react-docgen
-info => Output directory: /var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--67581-4GzTnmCq5erS
-Done in 12.34s.
+info => Output directory: /var/folders/l4/k4dn_1_577j0ht0g64fpnqg00000gr/T/chromatic--94010-h136fegMNUuC
+Done in 11.44s.
