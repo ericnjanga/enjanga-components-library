@@ -1,3 +1,9 @@
+/**
+ * Banner:
+ * ---------------
+ * The Banner ...
+ */
+
 import { subscribe } from 'diagnostics_channel';
 import clsx from 'clsx';
 // Styles are imported globally

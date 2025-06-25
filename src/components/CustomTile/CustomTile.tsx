@@ -1,3 +1,9 @@
+/**
+ * CustomTile:
+ * ---------------
+ * The CustomTile ...
+ */
+
 import { Tile } from '@carbon/react';
 import clsx from 'clsx';
 // Styles are imported globally
@@ -37,8 +43,11 @@ const CustomTile = ({
   return (
     <Tile
       className={clsx('enj-CustomTile', `enj-customTile--${stackOrder}`)}
-      aria-label={`${title} tile`}>
-      {iconName && <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />}
+      aria-label={`${title} tile`}
+    >
+      {iconName && (
+        <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />
+      )}
 
       <h3 className={clsx('enj-CustomTile-title')}>{title}</h3>
       <p className={clsx('enj-CustomTile-text')}>{trimmedText}</p>

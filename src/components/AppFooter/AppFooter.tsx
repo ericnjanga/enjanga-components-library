@@ -1,12 +1,18 @@
+/**
+ * AppFooter:
+ * ---------------
+ * The App Footer ...
+ */
+
 import { Content, Grid, Column } from '@carbon/react';
 import { HeadlinedList } from '../HeadlinedList';
 import { ContactButton } from '../ContactButton';
-import { BrandName } from '../BrandName';
+import { BrandLogo } from '../BrandLogo';
 import clsx from 'clsx';
 
 const AppFooter = () => {
   const mockData = {
-    brandName: '**** ******',
+    BrandLogo: '**** ******',
     listMainNav: [
       {
         name: 'Link 1',
@@ -57,7 +63,7 @@ const AppFooter = () => {
         <Grid className="app-footer__wrapper">
           {/* Col 1: Logo */}
           <Column lg={4} md={3} sm={4} className="app-footer__col1">
-            <BrandName />
+            <BrandLogo />
           </Column>
 
           {/* Col 2: Nav + copyright */}

@@ -1,13 +1,9 @@
 /**
- * Block list:
+ * HeadlinedList:
  * --------------
- * - Renders a heading and a list
- * - Offers lots of flexibility
- *
- * ### Performance Optimization
- * - Use `MemoizedHeadlinedList` if the component re-renders frequently with the same props.
- * - Use `HeadlinedList` (default) if props change often or memoization isn't needed.
+ * ...
  */
+
 import clsx from 'clsx';
 import List, { ListType } from '../List/List';
 

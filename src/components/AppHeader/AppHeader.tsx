@@ -1,4 +1,15 @@
-'use client';
+/**
+ * App Header:
+ * ---------------
+ * The App Header has 3 main props, they are ReactNodes and can be anything we want: string, number, JSX, component, etc ...
+ * - brand
+ * - navigation
+ * - globalBarItems
+ *
+ * The 2 other props deal with the brand's routing and accessibility labelling
+ * brandLabel: Brand ARIA label for accessibility
+ * brandRoute: string representing the route to which the brand points to
+ */
 
 import {
   Header,
@@ -14,19 +25,6 @@ import {
 } from '@carbon/react';
 
 import Link from 'next/link';
-
-/**
- * App Header:
- * ---------------
- * The App Header has 3 main props, they are ReactNodes and can be anything we want: string, number, JSX, component, etc ...
- * - brand
- * - navigation
- * - globalBarItems
- *
- * The 2 other props deal with the brand's routing and accessibility labelling
- * brandLabel: Brand ARIA label for accessibility
- * brandRoute: string representing the route to which the brand points to
- */
 
 interface HeaderContainerType {
   isSideNavExpanded: boolean;

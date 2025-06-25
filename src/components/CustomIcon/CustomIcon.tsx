@@ -1,3 +1,9 @@
+/**
+ * CustomIcon:
+ * ---------------
+ * The CustomIcon ...
+ */
+
 import clsx from 'clsx';
 import { Hills, AppDeveloper, Leadership } from '@carbon/pictograms-react';
 import type { ComponentType, SVGProps } from 'react';
