@@ -13,22 +13,45 @@ import {
   HeaderSideNavItems,
 } from '@carbon/react';
 
-import Navigation from './Navigation';
-import ActionItems from './ActionItems';
-import { BrandName } from '../BrandName';
-
 import Link from 'next/link';
+
+/**
+ * App Header:
+ * ---------------
+ * The App Header has 3 main props, they are ReactNodes and can be anything we want: string, number, JSX, component, etc ...
+ * - brand
+ * - navigation
+ * - globalBarItems
+ *
+ * The 2 other props deal with the brand's routing and accessibility labelling
+ * brandLabel: Brand ARIA label for accessibility
+ * brandRoute: string representing the route to which the brand points to
+ */
 
 interface HeaderContainerType {
   isSideNavExpanded: boolean;
   onClickSideNavExpand: () => void;
 }
- 
 
-const AppHeader = () => {
-  const mockData = {
-    brandName: '**** ******',
-  };
+interface AppHeaderProps {
+  brandLabel: string;
+  brandRoute: string;
+  // ReactNode can be anything we want: string, number, JSX, component, etc ...
+  brand: React.ReactNode;
+  navigation: React.ReactNode;
+  globalBarItems: React.ReactNode;
+}
+
+const AppHeader = ({
+  brand,
+  brandLabel,
+  brandRoute = '/',
+  navigation,
+  globalBarItems,
+}: AppHeaderProps) => {
+  // ARIA labels
+  const labelOpenMenu = 'Open menu';
+  const labelSideNav = 'Side navigation';
 
   return (
     <HeaderContainer
@@ -36,32 +59,29 @@ const AppHeader = () => {
         isSideNavExpanded,
         onClickSideNavExpand,
       }: HeaderContainerType) => (
-        <Header aria-label={mockData.brandName}>
+        <Header aria-label={brandLabel}>
           <SkipToContent />
           <HeaderMenuButton
-            aria-label="Open menu"
+            aria-label={labelOpenMenu}
             onClick={onClickSideNavExpand}
             isActive={isSideNavExpanded}
           />
-          <HeaderName prefix="" as={Link} href="/" passHref>
-            <BrandName />
+          <HeaderName prefix="" as={Link} href={brandRoute} passHref>
+            {brand}
           </HeaderName>
-          <HeaderNavigation aria-label={mockData.brandName}>
-            <Navigation />
+          <HeaderNavigation aria-label={brandLabel}>
+            {navigation}
           </HeaderNavigation>
           <SideNav
-            aria-label="Side navigation"
+            aria-label={labelSideNav}
             expanded={isSideNavExpanded}
-            isPersistent={false}>
+            isPersistent={false}
+          >
             <SideNavItems>
-              <HeaderSideNavItems>
-                <Navigation />
-              </HeaderSideNavItems>
+              <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
             </SideNavItems>
           </SideNav>
-          <HeaderGlobalBar>
-            <ActionItems />
-          </HeaderGlobalBar>
+          <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar>
         </Header>
       )}
     />
