@@ -5,7 +5,8 @@ import ContactButton, { contactButtonIconsList } from './ContactButton';
  * ----------------
  * The list of components that the library exposes to the outside world
  */
-export { BrandName } from './BrandName';
+export { AppHeader } from './AppHeader';
+export { BrandLogo } from './BrandLogo';
 export { Banner } from './Banner';
 export { default as ContactButton } from './ContactButton';
 export { default as CustomIcon } from './CustomIcon';

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BrandName } from '../../components/BrandName';
+import { BrandLogo } from '../../components/BrandLogo';
 
-const meta: Meta<typeof BrandName> = {
-  title: 'External Components/BrandName',
-  component: BrandName,
+const meta: Meta<typeof BrandLogo> = {
+  title: 'External Components/BrandLogo',
+  component: BrandLogo,
 };
 
 export default meta;
-type Story = StoryObj<typeof BrandName>;
+type Story = StoryObj<typeof BrandLogo>;
 
 export const Default: Story = {};
