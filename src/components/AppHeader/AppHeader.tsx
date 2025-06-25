@@ -1,14 +1,16 @@
 /**
  * App Header:
  * ---------------
- * The App Header has 3 main props, they are ReactNodes and can be anything we want: string, number, JSX, component, etc ...
- * - brand
- * - navigation
- * - globalBarItems
+ * The AppHeader component shows how to balance Carbon’s rigor with real-world flexibility:
+ * 🔹 Smart architecture:
+ *  ✔️ Extends Carbon’s UIShell.Header
+ *  ✔️ Exposes logo, nav, and actions as ReactNode props
+ *  ✔️ Maintains Carbon’s spacing/accessibility guarantees
  *
- * The 2 other props deal with the brand's routing and accessibility labelling
- * brandLabel: Brand ARIA label for accessibility
- * brandRoute: string representing the route to which the brand points to
+ * 🔹 Consumer benefits:
+ *  ✔️ Render anything – SVG logos, custom nav components, etc.
+ *  ✔️ Zero wrapper hell – No nested prop-drilling
+ *  ✔️ Type-safe – children validated via TypeScript
  */
 
 import {
