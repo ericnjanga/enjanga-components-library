@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Reusable component library for Next.js 13+ projects with Carbon design system.",
   "main": "dist/index.js",
+  "style": "dist/styles.css",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -17,12 +18,17 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./*.css": "./dist/*.css"
   },
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "private": false,
   "license": "Apache-2.0",
   "repository": {
@@ -35,10 +41,10 @@
   "homepage": "https://github.com/ericnjanga/enjanga-next-3-components-lib#readme",
   "scripts": {
     "build": "yarn build:css && tsup src/index.ts --dts --dts-resolve --format esm,cjs --out-dir dist --external react --external @carbon/react --external clsx",
-    "build:css": "sass -I node_modules --no-source-map --style=compressed src/styles/index.scss dist/index.css",
+    "build:css": "sass -I node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
     "watch:ts": "tsup src/index.ts --dts --dts-resolve --format esm,cjs --out-dir dist --watch --external react --external @carbon/react --external clsx",
-    "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/index.css",
+    "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint && tsc --noEmit",
@@ -50,7 +56,6 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_7ebec659e451720"
   },
-  "style": "dist/styles.css",
   "peerDependencies": {
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
     "react": "^17.0.0 || ^18.0.0",
