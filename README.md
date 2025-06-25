@@ -164,7 +164,7 @@ This component library follows the following principles:
 
 - Type Safety: Component props are strictly typed with TypeScript
 
-## Flexibility
+## Flexibility Through Polymorphism
 
 - Flexible value props: Making component flexible enough to accept different types of value props
 - Flexible rendering: Some components support dynamic wrapper tags (div/section, ul/ol, ...)
