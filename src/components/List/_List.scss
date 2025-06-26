@@ -1,3 +1,10 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+
 .enj-list {
   // ...
+  li {
+    line-height: $spacing-06;
+    background-color: $gray-20;
+  }
 }

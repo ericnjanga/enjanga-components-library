@@ -23,7 +23,7 @@ export interface ListProps {
   }[];
 }
 
-const List = ({ type = 'ordered', cssClass, content }: ListProps) => {
+const List = ({ type = 'unordered', cssClass, content }: ListProps) => {
   const ListWrapper = type === 'unordered' ? 'ul' : 'ol'; // Dynamically creating the list tag
 
   return (
