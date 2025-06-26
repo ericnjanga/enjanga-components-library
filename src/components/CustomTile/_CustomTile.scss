@@ -1,5 +1,81 @@
-
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/colors' as *;
 
 .enj-CustomTile {
+  position: relative;
   /***/
+
+  &:hover {
+    cursor: pointer;
+    background-color: $gray-30;
+  }
+
+  // Variables ...
+  --enj-CustomTile-gap: #{$spacing-06};
+
+  &--vertical {
+    // Variables ...
+    display: flex;
+    --enj-CustomTile-v-padd: #{$spacing-06};
+
+    // Declarations ...
+    padding: var(--enj-CustomTile-v-padd);
+    gap: $spacing-06;
+
+    .content {
+      flex: 1;
+      padding-right: var(--enj-CustomTile-v-padd);
+    }
+    .enj-icon {
+      bottom: $spacing-06;
+      right: $spacing-06;
+    }
+    border: 3px solid rgb(247, 0, 255);
+  }
+
+  &--horizontal {
+    // Variables ...
+    --enj-CustomTile-flex-dir: column;
+    --enj-CustomTile-h-padd: #{$spacing-06};
+
+    // Declarations ...
+    padding: var(--enj-CustomTile-h-padd);
+    border: 3px solid orange;
+
+    .enj-CustomTile-icon {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      padding-right: $spacing-13;
+      flex-direction: var(--enj-CustomTile-flex-dir);
+      gap: var(--enj-CustomTile-gap);
+      .enj-CustomTile-title {
+        // max-width: 290px;
+      }
+    }
+    .enj-icon {
+      bottom: var(--enj-CustomTile-h-padd);
+      right: var(--enj-CustomTile-h-padd);
+    }
+
+    @include breakpoint('md') {
+      border: 4px solid blue;
+      --enj-CustomTile-flex-dir: row;
+      --enj-CustomTile-h-padd: #{$spacing-08};
+      --enj-CustomTile-gap: #{$spacing-08};
+    }
+
+    @include breakpoint('lg') {
+      border: 4px solid rgb(255, 128, 0);
+      --enj-CustomTile-h-padd: #{$spacing-09};
+      --enj-CustomTile-gap: #{$spacing-12};
+    }
+  }
+
+  .enj-icon {
+    position: absolute;
+  }
 }

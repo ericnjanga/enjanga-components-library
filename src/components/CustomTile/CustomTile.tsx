@@ -1,7 +1,10 @@
 /**
  * CustomTile:
  * ---------------
- * The CustomTile ...
+ * CustomTile is meant to be clicked on:
+ * 🔹 It has a hover state and an -> arrow (because it's meant to be interacted with, clicked on)
+ * 🔹 stackOrder: Dictates in which direction its content flows (vertically or horizontaly)
+ *
  */
 
 import { Tile } from '@carbon/react';
@@ -9,6 +12,7 @@ import clsx from 'clsx';
 // Styles are imported globally
 import { useMemo } from 'react';
 import CustomIcon, { CustomIconProps } from '../CustomIcon';
+import { ArrowRight } from '@carbon/icons-react';
 
 interface CustomTileProps {
   title: string;
@@ -42,15 +46,25 @@ const CustomTile = ({
 
   return (
     <Tile
-      className={clsx('enj-CustomTile', `enj-customTile--${stackOrder}`)}
+      className={clsx('enj-CustomTile', `enj-CustomTile--${stackOrder}`)}
       aria-label={`${title} tile`}
     >
       {iconName && (
         <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />
       )}
 
-      <h3 className={clsx('enj-CustomTile-title')}>{title}</h3>
-      <p className={clsx('enj-CustomTile-text')}>{trimmedText}</p>
+      <div className="content">
+        <h3 className={clsx('enj-CustomTile-title')}>{title}</h3>
+        <p className={clsx('enj-CustomTile-text')}>{trimmedText}</p>
+      </div>
+
+      <ArrowRight
+        className="enj-icon"
+        width="1.3rem"
+        height="1.3rem"
+        aria-label={`${name} pictogram`}
+        aria-hidden="true"
+      />
     </Tile>
   );
 };

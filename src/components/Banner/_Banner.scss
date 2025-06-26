@@ -1,5 +1,7 @@
-@use '@carbon/react/scss/colors';
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/spacing' as *;
 
 .enj-Banner {
-  background-color: colors.$gray-20;
+  background-color: $gray-20;
+  padding: $spacing-12 0 #{$spacing-08 + $spacing-12 + $spacing-13} 0;
 }
