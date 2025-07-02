@@ -1,15 +1,7 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
 import { ArrowRight } from '@carbon/icons-react';
-
-interface CustomTileContentProps {
-  title: string;
-  text: string;
-  textLength?: number;
-}
-interface CustomTileIconProps {
-  title: string;
-}
+import { CustomTileIconProps, CustomTileContentProps } from './ct-types';
 
 /**
  * Optimized text trimmer hook

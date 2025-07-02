@@ -39,22 +39,12 @@
 
 import React from 'react';
 import { Tile } from '@carbon/react';
-import clsx from 'clsx';
-// Styles are imported globally
-import CustomIcon, { CustomIconProps } from '../CustomIcon';
-import { CustomTileContent, CustomTileIcon } from './CustomTileContent';
-import Link from 'next/link';
-
-export interface CustomTileProps {
-  title: string;
-  text: string;
-  textLength?: number;
-  stackOrder?: 'vertical' | 'horizontal';
-  iconName?: CustomIconProps['name'];
-  route?: string;
-  target?: '_blank' | '_self' | '_parent' | '_top';
-  isExternal?: boolean; // Flag to indicate external links
-}
+import {
+  getTileContent,
+  getCustomTileCSSClasses,
+  getLinkWrapper,
+} from './parts/ct-core-parts';
+import { CustomTileProps } from './parts/ct-types';
 
 const CustomTile = ({
   iconName,
@@ -66,53 +56,14 @@ const CustomTile = ({
   target = '_self',
   isExternal = false,
 }: CustomTileProps) => {
-  const tileContent = (
-    <>
-      {iconName && (
-        <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />
-      )}
-      <CustomTileContent title={title} text={text} textLength={textLength} />
-      <CustomTileIcon title={title} />
-    </>
-  );
-
-  // Component's CSS classes
-  const tileClassNames = clsx(
-    'enj-CustomTile',
-    `enj-CustomTile--${stackOrder}`,
-    {
-      'enj-CustomTile--link': route,
-      'enj-CustomTile--external': isExternal && route, // Only apply if route exists
-    }
-  );
-
-  // LinkWrapper pattern for cleanliness and maintainability of all functionality
-  const LinkWrapper = route ? (
-    isExternal ? (
-      <a
-        href={route}
-        target={target}
-        rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-        className="enj-CustomTile-link"
-        aria-label={`Navigate to ${title}${
-          target === '_blank' ? ' (opens in new tab)' : ''
-        }`}
-      />
-    ) : (
-      <Link
-        href={route}
-        passHref
-        legacyBehavior
-        target={target}
-        className="enj-CustomTile-link"
-        aria-label={`Navigate to ${title}${
-          target === '_blank' ? ' (opens in new tab)' : ''
-        }`}
-      />
-    )
-  ) : (
-    <></>
-  );
+  // ...
+  const tileClassNames = getCustomTileCSSClasses({
+    stackOrder,
+    route,
+    isExternal,
+  });
+  const tileContent = getTileContent({ iconName, title, text, textLength });
+  const LinkWrapper = getLinkWrapper({ title, route, isExternal, target });
 
   return (
     <Tile className={tileClassNames} aria-label={`${title} tile`}>
