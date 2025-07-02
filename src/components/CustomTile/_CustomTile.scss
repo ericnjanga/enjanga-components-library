@@ -2,13 +2,19 @@
 @use '@carbon/react/scss/breakpoint' as *;
 @use '@carbon/react/scss/colors' as *;
 
+@mixin customTile-hover {
+  cursor: pointer;
+  background-color: $gray-30;
+}
+
 .enj-CustomTile {
   position: relative;
+  transition: all 0.2s ease;
   /***/
 
-  &:hover {
-    cursor: pointer;
-    background-color: $gray-30;
+  // Apply the same hover effect for non-link components
+  &:not(.enj-CustomTile--link):hover {
+    @include customTile-hover;
   }
 
   // Variables ...
@@ -77,5 +83,17 @@
 
   .enj-icon {
     position: absolute;
+  }
+}
+
+.enj-CustomTile--link {
+  a.enj-CustomTile-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      @include customTile-hover;
+    }
   }
 }

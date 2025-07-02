@@ -177,6 +177,7 @@ Most components can be imported in their .
 
 - HeadlinedList
 - List
+- CustomTile
   Note: Lightweight components unusally don't need to be memoized
 
 # How to use this component library
