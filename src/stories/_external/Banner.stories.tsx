@@ -14,6 +14,7 @@ const meta: Meta<typeof Banner> = {
     business requirements into intuitive, high-performance web applications. 
     I lead end-to-end UX and front-end development through agile, cross-functional 
     collaboration—delivering results that drive business impact.`,
+    isJumbtron: true,
   },
 };
 

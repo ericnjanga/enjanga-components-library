@@ -3,25 +3,58 @@
 @use '@carbon/react/scss/breakpoint' as *;
 
 .enj-Banner {
+  /**
+   * Default banner
+   * ------------------
+  */
   // Variables ...
-  --enj-Banner-padd: #{$spacing-09} 0 #{$spacing-13} 0;
+  --enj-Banner-gap: #{$spacing-09};
+  --enj-Banner-padd: var(--enj-Banner-gap) 0 var(--enj-Banner-gap) 0;
 
   // Declarations ...
   background-color: $gray-20;
   padding: var(--enj-Banner-padd);
 
   @include breakpoint('md') {
-    border: 5px solid orange;
-    --enj-Banner-padd: #{$spacing-11} 0 #{$spacing-06 + $spacing-13} 0;
+    // border: 5px solid orange;
+    --enj-Banner-gap: #{$spacing-11};
   }
 
   @include breakpoint('lg') {
-    border: 5px solid rgb(94, 255, 0);
-    --enj-Banner-padd: #{$spacing-11} 0 #{$spacing-06 + $spacing-13} 0;
+    // border: 5px solid rgb(94, 255, 0);
+    --enj-Banner-gap: #{$spacing-11};
   }
 
   @include breakpoint('xlg') {
-    --enj-Banner-padd: #{$spacing-12} 0 #{$spacing-08 + $spacing-12 + $spacing-13}
-      0;
+    --enj-Banner-gap: #{$spacing-12};
+  }
+
+  /**
+   * Bigger banner
+   * ------------------
+  */
+  &.enj-Banner--jumbotron {
+    // Variables ...
+    --enj-Banner-padd-bot: #{$spacing-13};
+    --enj-Banner-jumbotron-padd: var(--enj-Banner-gap) 0
+      var(--enj-Banner-padd-bot) 0;
+
+    // Declarations ...
+    padding: var(--enj-Banner-jumbotron-padd);
+
+    // Declarations ...
+    @include breakpoint('md') {
+      // border: 5px solid orange;
+      --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13};
+    }
+
+    @include breakpoint('lg') {
+      // border: 5px solid rgb(94, 255, 0);
+      --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13};
+    }
+
+    @include breakpoint('xlg') {
+      --enj-Banner-padd-bot: #{$spacing-08 + $spacing-12 + $spacing-13};
+    }
   }
 }
