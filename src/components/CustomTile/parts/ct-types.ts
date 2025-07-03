@@ -38,11 +38,6 @@ export interface CustomTileIconProps {
   title: string;
 }
 
-// export type LinkWrapperTypes =
-// | React.ReactElement<{ className: string; 'aria-label': string}>
-// | React.ReactElement<typeof Link>
-// | React.ReactElement<typeof React.Fragment>;
-
 export type LinkWrapperType = React.ReactElement<{
   className: string;
   'aria-label': string;
