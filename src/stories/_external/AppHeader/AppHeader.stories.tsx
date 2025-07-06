@@ -1,18 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AppHeader from '../../components/AppHeader/AppHeader';
+import AppHeader from '../../../components/AppHeader/AppHeader';
 import {
   Navigation1,
   Navigation2,
   GlobalBarItems1,
   GlobalBarItems2,
   ClickableComponent,
-} from './utils';
+} from '../utils';
 
 const meta: Meta<typeof AppHeader> = {
   title: 'External Components/AppHeader',
   component: AppHeader,
+  tags: [],
   argTypes: {
     brand: {
+      description: '...description coming soon...',
       // string, number, JSX, component, etc ...
       control: 'select',
       options: ['text', 'number', 'jsx', 'component'],
@@ -35,6 +37,7 @@ const meta: Meta<typeof AppHeader> = {
       },
     },
     navigation: {
+      description: '...description coming soon...',
       control: 'select',
       options: ['Using Carbon HeaderMenuItem', 'Using custom components'],
       mapping: {
@@ -43,6 +46,7 @@ const meta: Meta<typeof AppHeader> = {
       },
     },
     globalBarItems: {
+      description: '...description coming soon...',
       control: 'select',
       options: ['Using Carbon HeaderGlobalAction', 'Using custom components'],
       mapping: {
@@ -50,8 +54,14 @@ const meta: Meta<typeof AppHeader> = {
         'Using custom components': <GlobalBarItems2 />,
       },
     },
-    brandLabel: { control: 'text' },
-    brandRoute: { control: 'text' },
+    brandLabel: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    brandRoute: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
   },
   args: {
     brand: 'text',

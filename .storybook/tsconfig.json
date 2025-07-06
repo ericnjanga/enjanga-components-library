@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["@storybook/nextjs", "@storybook/addon-docs"],
+    "types": ["@storybook/nextjs", "@storybook/addon-docs", "@storybook/types"],
     "esModuleInterop": true,
     "paths": {
       "*": ["./../src/*"]

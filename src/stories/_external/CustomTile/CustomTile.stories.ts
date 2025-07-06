@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import CustomTile from '../../components/CustomTile/CustomTile';
-import { customIconsList } from '../../components/CustomIcon/CustomIcon';
+import CustomTile from '../../../components/CustomTile/CustomTile';
+import { customIconsList } from '../../../components/CustomIcon/CustomIcon';
 
 const meta: Meta<typeof CustomTile> = {
   title: 'External Components/CustomTile',

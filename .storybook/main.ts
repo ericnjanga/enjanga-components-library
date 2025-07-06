@@ -9,10 +9,11 @@ const config: StorybookConfig = {
 
     // 2) External/public components
     // (Story files are not encapsulated with component to avoid polluting exported files)
-    '../src/stories/_external/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../src/stories/_external/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../src/stories/_external/**/*.docs.mdx', // Explicit docs files
 
     // 3) Internal/private components (optional - you might exclude these)
-    '../src/stories/_internal/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../src/stories/_internal/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     '@storybook/addon-docs', // ← required for MDX support
@@ -38,6 +39,15 @@ const config: StorybookConfig = {
       '@': path.resolve(__dirname, '../src'),
     };
     return config;
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    },
   },
 };
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import List from '../../components/List';
+import List from '../../../components/List';
 
 const meta: Meta<typeof List> = {
   title: 'External Components/List',

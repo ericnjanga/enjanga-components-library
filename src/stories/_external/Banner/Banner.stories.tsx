@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Banner from '../../components/Banner/Banner';
+import Banner from '../../../components/Banner/Banner';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
   component: Banner,
+  tags: [], // Keep this enabled
   argTypes: {
     title: { control: 'text' },
     subtitle: { control: 'text' },

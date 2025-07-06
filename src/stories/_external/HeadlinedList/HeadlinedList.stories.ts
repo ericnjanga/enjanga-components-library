@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import HeadlinedList from '../../components/HeadlinedList';
+import HeadlinedList from '../../../components/HeadlinedList';
 
 const meta: Meta<typeof HeadlinedList> = {
   title: 'External Components/HeadlinedList',

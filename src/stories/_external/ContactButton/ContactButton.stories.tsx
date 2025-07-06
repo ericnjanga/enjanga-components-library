@@ -3,7 +3,7 @@ import ContactButton, {
   contactButtonIconsList,
   contactButtonKindProps,
   contactButtonSizeProps,
-} from '../../components/ContactButton/ContactButton';
+} from '../../../components/ContactButton/ContactButton';
 
 const meta: Meta<typeof ContactButton> = {
   title: 'External Components/ContactButton',
