@@ -2,6 +2,9 @@ import type { StorybookConfig } from '@storybook/nextjs';
 import path from 'path';
 
 const config: StorybookConfig = {
+  docs: {
+    defaultName: 'Overview', // 👈 This changes ALL "Docs" to "Overview"
+  },
   stories: [
     // 1) Listing MDX files in explicit order
     '../src/stories/getting-started/Welcome.mdx',
