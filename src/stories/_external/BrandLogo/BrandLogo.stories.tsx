@@ -46,7 +46,6 @@ type Story = StoryObj<typeof BrandLogo>;
 
 export const Default: Story = {
   render: (args) => {
-    // You can transform args here if needed
     return <BrandLogo {...args} />;
   },
 };
