@@ -21,11 +21,12 @@ export const CustomTileContent = ({
   text,
   textLength,
 }: CustomTileContentProps) => {
+  const trimmedTitle = useTextTrimmer(text, textLength);
   const trimmedText = useTextTrimmer(text, textLength);
 
   return (
     <div className="content">
-      <h3 className={clsx('enj-CustomTile-title')}>{title}</h3>
+      <h3 className={clsx('enj-CustomTile-title')}>{trimmedTitle}</h3>
       <p className={clsx('enj-CustomTile-text')}>{trimmedText}</p>
     </div>
   );
