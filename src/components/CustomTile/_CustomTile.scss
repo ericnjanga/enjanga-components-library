@@ -7,9 +7,29 @@
   background-color: $gray-30;
 }
 
+@mixin customTile-decoration-hotizontal {
+  // Variables ...
+  --enj-CustomTile-h-padd: #{$spacing-06};
+
+  // Declarations ...
+  padding: var(--enj-CustomTile-h-padd);
+
+  @include breakpoint('md') {
+    --enj-CustomTile-h-padd: #{$spacing-08};
+    --enj-CustomTile-gap: #{$spacing-08};
+  }
+
+  @include breakpoint('lg') {
+    --enj-CustomTile-h-padd: #{$spacing-09};
+    --enj-CustomTile-gap: #{$spacing-12};
+  }
+}
+
 .enj-CustomTile {
   position: relative;
   transition: all 0.2s ease;
+  padding: 0; // We cancel all padding by default
+
   /***/
 
   // Apply the same hover effect for non-link components
@@ -21,6 +41,8 @@
   --enj-CustomTile-gap: #{$spacing-06};
 
   &--vertical {
+    border: 3px solid rgb(247, 0, 255);
+
     // Variables ...
     display: flex;
     --enj-CustomTile-v-padd: #{$spacing-06};
@@ -28,6 +50,7 @@
     // Declarations ...
     padding: var(--enj-CustomTile-v-padd);
     gap: $spacing-06;
+    max-width: 400px;
 
     .content {
       flex: 1;
@@ -37,16 +60,26 @@
       bottom: $spacing-06;
       right: $spacing-06;
     }
-    border: 3px solid rgb(247, 0, 255);
   }
 
   &--horizontal {
+    &:not(.enj-CustomTile--link):hover {
+      @include customTile-decoration-hotizontal;
+    }
+
+    &.enj-CustomTile--link {
+      a.enj-CustomTile-link {
+        border: 3px dashed black;
+        @include customTile-decoration-hotizontal;
+      }
+    }
+
     // Variables ...
     --enj-CustomTile-flex-dir: column;
-    --enj-CustomTile-h-padd: #{$spacing-06};
+    // --enj-CustomTile-h-padd: #{$spacing-06};
 
     // Declarations ...
-    padding: var(--enj-CustomTile-h-padd);
+    // padding: var(--enj-CustomTile-h-padd);
     border: 3px solid orange;
 
     .enj-CustomTile-icon {
@@ -70,14 +103,10 @@
     @include breakpoint('md') {
       border: 4px solid blue;
       --enj-CustomTile-flex-dir: row;
-      --enj-CustomTile-h-padd: #{$spacing-08};
-      --enj-CustomTile-gap: #{$spacing-08};
     }
 
     @include breakpoint('lg') {
       border: 4px solid rgb(255, 128, 0);
-      --enj-CustomTile-h-padd: #{$spacing-09};
-      --enj-CustomTile-gap: #{$spacing-12};
     }
   }
 

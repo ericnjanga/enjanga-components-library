@@ -1,31 +1,31 @@
 /**
  * CustomTile:
  * ---------------------------------------------
- * A customizable tile component that can optionally link to internal or external routes
+ * A customizable tile component that can optionally link to internal or external links
  * 
  * @param {string} title - The main title/text of the tile
  * @param {string} text - Descriptive text content
  * @param {number} [textLength] - Optional character limit for text
  * @param {'vertical'|'horizontal'} [stackOrder='vertical'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
- * @param {string} [route] - Optional route/link destination
- * @param {'_blank'|'_self'|'_parent'|'_top'} [target='_self'] - Link target behavior
- * @param {boolean} [isExternal=false] - Whether the link is external
+ * @param {string} [linksTo] - Optional linksTo/link destination
+ * @param {'_blank'|'_self'|'_parent'|'_top'} [linkTarget='_self'] - Link linkTarget behavior
+ * @param {boolean} [linkIsExternal=false] - Whether the link is external
  * 
  * Usage Examples:
  * ---------------
- * // Internal route (default)
+ * // Internal link (default)
   <CustomTile 
-    route="/dashboard" 
+    linksTo="/dashboard" 
     title="Dashboard" 
     text="Go to your dashboard"
   />
 
   // External link with new tab
   <CustomTile
-    route="https://external.site"
-    isExternal
-    target="_blank"
+    linksTo="https://external.site"
+    linkIsExternal
+    linkTarget="_blank"
     title="External Site"
     text="Visit our partner site"
   />
@@ -47,27 +47,33 @@ import {
 import { CustomTileProps } from './parts/ct-types';
 
 const CustomTile = ({
+  stackOrder = 'vertical',
+  textLength,
   iconName,
+  opensModal,
   title,
   text,
-  textLength,
-  stackOrder = 'vertical',
-  route,
-  target = '_self',
-  isExternal = false,
+  linksTo,
+  linkTarget = '_self',
+  linkIsExternal = false,
 }: CustomTileProps) => {
   // ...
   const tileClassNames = getCustomTileCSSClasses({
     stackOrder,
-    route,
-    isExternal,
+    linksTo,
+    linkIsExternal,
   });
   const tileContent = getTileContent({ iconName, title, text, textLength });
-  const LinkWrapper = getLinkWrapper({ title, route, isExternal, target });
+  const LinkWrapper = getLinkWrapper({
+    title,
+    linksTo,
+    linkIsExternal,
+    linkTarget,
+  });
 
   return (
     <Tile className={tileClassNames} aria-label={`${title} tile`}>
-      {route ? (
+      {linksTo ? (
         <>{React.cloneElement(LinkWrapper, {}, tileContent)}</>
       ) : (
         tileContent

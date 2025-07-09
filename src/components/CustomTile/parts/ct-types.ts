@@ -2,29 +2,38 @@ import React from 'react';
 import { CustomIconProps } from '../../CustomIcon';
 import Link from 'next/link';
 
+export type CustomTileStackOrder = {
+  name: 'vertical' | 'horizontal';
+};
+
 // Interface ...
 export interface CustomTileProps {
+  stackOrder?: CustomTileStackOrder['name'];
+  textLength?: number;
+  iconName?: CustomIconProps['name'];
+  opensModal?: {
+    iconName?: CustomIconProps['name'];
+    title: string;
+    text: string;
+  };
   title: string;
   text: string;
-  textLength?: number;
-  stackOrder?: 'vertical' | 'horizontal';
-  iconName?: CustomIconProps['name'];
-  route?: string;
-  target?: '_blank' | '_self' | '_parent' | '_top';
-  isExternal?: boolean; // Flag to indicate external links
+  linksTo?: string;
+  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
+  linkIsExternal?: boolean; // Flag to indicate external links
 }
 
 export interface CustomTileCSSClassesProps {
-  stackOrder?: 'vertical' | 'horizontal';
-  route?: string;
-  isExternal?: boolean; // Flag to indicate external links
+  stackOrder?: CustomTileStackOrder['name'];
+  linksTo?: string;
+  linkIsExternal?: boolean; // Flag to indicate external links
 }
 
 export interface CustomTileLinkWrapperProps {
   title: string;
-  route?: string;
-  isExternal?: boolean; // Flag to indicate external links
-  target?: '_blank' | '_self' | '_parent' | '_top';
+  linksTo?: string;
+  linkIsExternal?: boolean; // Flag to indicate external links
+  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
 }
 
 export interface CustomTileContentProps {
