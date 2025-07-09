@@ -13,6 +13,9 @@ export interface CustomIconProps {
   className?: string;
 }
 
+export const isValidIconName = (name: unknown): boolean =>
+  customIconsList.includes(name as string);
+
 export const customIconsList = ['Hills', 'App Developer', 'Leadership'];
 
 const pictogramMap: Record<
