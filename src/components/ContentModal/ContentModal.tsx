@@ -72,15 +72,23 @@ export const ContentModal = ({
   onSecondaryButtonClick,
   children,
 }: ContentModalProps) => {
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       {setIsOpen !== undefined && (
         <ComposedModal
           open={isOpen}
-          onClose={() => setIsOpen(false)}
+          onClose={handleClose}
           size="md" // Medium-sized modal (options: 'xs' | 'sm' | 'md' | 'lg')
         >
-          <ModalHeader label={modalLabel} title={modalHeading} />
+          <ModalHeader
+            label={modalLabel}
+            title={modalHeading}
+            closeModal={handleClose}
+          />
 
           <ModalBody>
             {modalSubHeading && (

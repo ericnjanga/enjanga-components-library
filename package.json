@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@carbon/pictograms-react": "^11.79.0",
-    "@carbon/react": "^1.84.0",
+    "@carbon/react": "^1.85.1",
     "carbon-components": "^10.58.15",
     "carbon-components-react": "^8.67.0",
     "clsx": "^2.1.1",

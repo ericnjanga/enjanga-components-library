@@ -966,10 +966,34 @@
     "@ibm/telemetry-js" "^1.5.0"
     prop-types "^15.8.1"
 
-"@carbon/react@^1.67.0", "@carbon/react@^1.84.0":
+"@carbon/react@^1.67.0":
   version "1.85.0"
   resolved "https://registry.yarnpkg.com/@carbon/react/-/react-1.85.0.tgz#dd589bfcafdaf75d8b007cfad7fbf457e613e66f"
   integrity sha512-ePrQKO0cqh5n2wVH5isf5fEkC1yZFD0kq8XBIcD3rYcJ+fSdfucBHOrX8Hco+LST2tKZzb1gmm55QA0Ld/qAkQ==
+  dependencies:
+    "@babel/runtime" "^7.27.3"
+    "@carbon/feature-flags" "^0.27.0"
+    "@carbon/icons-react" "^11.62.0"
+    "@carbon/layout" "^11.36.0"
+    "@carbon/styles" "^1.84.0"
+    "@carbon/utilities" "^0.7.0"
+    "@floating-ui/react" "^0.27.4"
+    "@ibm/telemetry-js" "^1.5.0"
+    classnames "2.5.1"
+    copy-to-clipboard "^3.3.1"
+    downshift "9.0.9"
+    es-toolkit "^1.27.0"
+    flatpickr "4.6.13"
+    invariant "^2.2.3"
+    prop-types "^15.8.1"
+    react-fast-compare "^3.2.2"
+    tabbable "^6.2.0"
+    window-or-global "^1.0.1"
+
+"@carbon/react@^1.85.1":
+  version "1.85.1"
+  resolved "https://registry.yarnpkg.com/@carbon/react/-/react-1.85.1.tgz#a95ca31c44092f5fb29334fda6d5aaa629b5b3be"
+  integrity sha512-1OhvSHqMGmMNG6bQojZ9Bp0jdLdpsMd3noGGv2ZZ0xti5jb8CogrQ7j8HbKhHVgFU4WJMQp7bipPYdt53bZhZA==
   dependencies:
     "@babel/runtime" "^7.27.3"
     "@carbon/feature-flags" "^0.27.0"
