@@ -69,7 +69,7 @@ export const WhenStacked: Story = {
   },
 };
 
-export const WithExternalLink: Story = {
+export const OpensExternalLinkUp: Story = {
   args: {
     ...sharedArgs,
     linksTo: 'https://carbondesignsystem.com',
@@ -78,14 +78,14 @@ export const WithExternalLink: Story = {
   },
 };
 
-export const WithLocallink: Story = {
+export const OpensLocalLinkUp: Story = {
   args: {
     ...sharedArgs,
     linksTo: 'link/param',
   },
 };
 
-export const WithModal: Story = {
+export const OpensModalUp: Story = {
   args: {
     ...sharedArgs,
   },
