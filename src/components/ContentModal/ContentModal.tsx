@@ -46,8 +46,8 @@ import {
 export interface ContentModalProps {
   /** Controls whether the modal is visible */
   isOpen: boolean;
-  /** State setter for modal visibility */
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  /** State setter for modal visibility (Component won't be rendered is prop is not provided) */
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
   /** Optional label text displayed above the title */
   modalLabel?: string;
   /** Main modal heading/title */
@@ -62,7 +62,7 @@ export interface ContentModalProps {
   children?: React.ReactNode;
 }
 
-export default function ContentModal({
+export const ContentModal = ({
   isOpen,
   setIsOpen,
   modalLabel,
@@ -71,33 +71,39 @@ export default function ContentModal({
   modalSecondaryButtonText,
   onSecondaryButtonClick,
   children,
-}: ContentModalProps) {
+}: ContentModalProps) => {
   return (
-    <ComposedModal
-      open={isOpen}
-      onClose={() => setIsOpen(false)}
-      size="md" // Medium-sized modal (options: 'xs' | 'sm' | 'md' | 'lg')
-    >
-      <ModalHeader label={modalLabel} title={modalHeading} />
-
-      <ModalBody>
-        {modalSubHeading && (
-          <p style={{ marginBottom: '1rem' }}>{modalSubHeading}</p>
-        )}
-        {children}
-      </ModalBody>
-
-      <ModalFooter>
-        <Button
-          kind="secondary"
-          onClick={() => {
-            onSecondaryButtonClick?.();
-            setIsOpen(false);
-          }}
+    <>
+      {setIsOpen !== undefined && (
+        <ComposedModal
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+          size="md" // Medium-sized modal (options: 'xs' | 'sm' | 'md' | 'lg')
         >
-          {modalSecondaryButtonText}
-        </Button>
-      </ModalFooter>
-    </ComposedModal>
+          <ModalHeader label={modalLabel} title={modalHeading} />
+
+          <ModalBody>
+            {modalSubHeading && (
+              <p style={{ marginBottom: '1rem' }}>{modalSubHeading}</p>
+            )}
+            {children}
+          </ModalBody>
+
+          <ModalFooter>
+            <Button
+              kind="secondary"
+              onClick={() => {
+                onSecondaryButtonClick?.();
+                setIsOpen(false);
+              }}
+            >
+              {modalSecondaryButtonText}
+            </Button>
+          </ModalFooter>
+        </ComposedModal>
+      )}
+    </>
   );
-}
+};
+
+export default ContentModal;

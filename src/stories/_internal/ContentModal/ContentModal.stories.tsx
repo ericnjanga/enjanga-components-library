@@ -10,12 +10,30 @@ const meta: Meta<typeof ContentModal> = {
       control: 'select',
       options: [true, false],
     },
+
+    // The group of events ...
     setIsOpen: {
-      action: 'setIsOpen', // This will show the calls in the actions panel
+      action: 'setIsOpen',
       table: {
-        disable: true, // Hides from controls table since it's not configurable
+        category: 'Events',
+        type: {
+          summary: 'React.Dispatch<SetStateAction<boolean | undefined>>',
+        },
       },
+      description: `Callback to update the modal's visibility state (Component won't be rendered is prop is not provided)`,
     },
+    onSecondaryButtonClick: {
+      action: 'onSecondaryButtonClick',
+      table: {
+        category: 'Events',
+        type: {
+          summary: '() => void',
+        },
+      },
+      description: 'Callback the handle the clicl on the secondary button',
+    },
+    // The group of events ...
+
     modalLabel: { control: 'text' },
     modalHeading: { control: 'text' },
     modalSubHeading: { control: 'text' },

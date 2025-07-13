@@ -36,7 +36,7 @@
     text="Static content tile"
   />
  */
-
+import { useState } from 'react';
 import React from 'react';
 import { Tile } from '@carbon/react';
 import {
@@ -45,12 +45,13 @@ import {
   getLinkWrapper,
 } from './parts/ct-core-parts';
 import { CustomTileProps } from './parts/ct-types';
+import { ContentModal } from '../ContentModal/ContentModal';
 
 const CustomTile = ({
   stackOrder = 'vertical',
   textLength,
   iconName,
-  opensModal,
+  showsModal,
   title,
   text,
   linksTo,
@@ -70,15 +71,46 @@ const CustomTile = ({
     linkIsExternal,
     linkTarget,
   });
+  // State is only created if showsModal is provided
+  const [isOpen, setIsOpen] = useState(
+    showsModal !== undefined ? false : undefined
+  );
+
+  const handleClick = () => {
+    if (showsModal !== undefined) {
+      setIsOpen(true);
+      // ...
+      // ...
+    }
+  };
 
   return (
-    <Tile className={tileClassNames} aria-label={`${title} tile`}>
-      {linksTo ? (
-        <>{React.cloneElement(LinkWrapper, {}, tileContent)}</>
-      ) : (
-        tileContent
+    <>
+      <Tile
+        className={tileClassNames}
+        aria-label={`${title} tile`}
+        onClick={handleClick}
+      >
+        {linksTo ? (
+          <>{React.cloneElement(LinkWrapper, {}, tileContent)}</>
+        ) : (
+          tileContent
+        )}
+      </Tile>
+      {showsModal && isOpen !== undefined && (
+        <ContentModal
+          isOpen={isOpen}
+          modalHeading={title}
+          modalSecondaryButtonText="Cancel"
+          setIsOpen={setIsOpen}
+        >
+          <div>
+            <h3>{title}</h3>
+            <article>{title}</article>
+          </div>
+        </ContentModal>
       )}
-    </Tile>
+    </>
   );
 };
 

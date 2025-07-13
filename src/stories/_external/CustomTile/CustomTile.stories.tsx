@@ -11,6 +11,7 @@ const sharedArgs = {
   linksTo: undefined,
   linkTarget: undefined,
   linkIsExternal: undefined,
+  showsModal: undefined,
   title:
     'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
   text: 'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
@@ -37,6 +38,10 @@ const meta: Meta<typeof CustomTile> = {
       options: ['_blank', '_self', '_parent', '_top'],
     },
     linkIsExternal: {
+      control: 'select',
+      options: [true, false],
+    },
+    showsModal: {
       control: 'select',
       options: [true, false],
     },
@@ -88,5 +93,6 @@ export const OpensLocalLinkUp: Story = {
 export const OpensModalUp: Story = {
   args: {
     ...sharedArgs,
+    showsModal: true,
   },
 };

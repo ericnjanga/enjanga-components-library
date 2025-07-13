@@ -11,11 +11,7 @@ export interface CustomTileProps {
   stackOrder?: CustomTileStackOrder['name'];
   textLength?: number;
   iconName?: CustomIconProps['name'];
-  opensModal?: {
-    iconName?: CustomIconProps['name'];
-    title: string;
-    text: string;
-  };
+  showsModal?: boolean;
   title: string;
   text: string;
   linksTo?: string;
