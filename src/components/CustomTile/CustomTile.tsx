@@ -8,9 +8,13 @@
  * @param {number} [textLength] - Optional character limit for text
  * @param {'vertical'|'horizontal'} [stackOrder='vertical'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
+ * 
+ * EITHER:
+ * @param {boolean} [showsModal] - When true, clicking opens a modal
+ * 
+ * OR:
  * @param {string} [linksTo] - Optional linksTo/link destination
- * @param {'_blank'|'_self'|'_parent'|'_top'} [linkTarget='_self'] - Link linkTarget behavior
- * @param {boolean} [linkIsExternal=false] - Whether the link is external
+ * @param {'_blank'|'_self'} [linkTarget='_self'] - Link linkTarget behavior (We won't be using |'_parent'|'_top' as they deal with legacy frames/iframes)
  * 
  * Usage Examples:
  * ---------------
@@ -24,7 +28,6 @@
   // External link with new tab
   <CustomTile
     linksTo="https://external.site"
-    linkIsExternal
     linkTarget="_blank"
     title="External Site"
     text="Visit our partner site"
@@ -44,8 +47,64 @@ import {
   getCustomTileCSSClasses,
   getLinkWrapper,
 } from './parts/ct-core-parts';
-import { CustomTileProps } from './parts/ct-types';
+import { CustomIconProps } from '../CustomIcon';
+import {
+  CustomTileStackOrder,
+  LinkTargetType,
+  CustomTileExclusiveProps,
+} from './parts/ct-types';
 import { ContentModal } from '../ContentModal/ContentModal';
+
+export type CustomTileProps = {
+  /**
+   * Layout direction for tile content
+   * @default 'vertical'
+   */
+  stackOrder?: CustomTileStackOrder['name'];
+
+  /**
+   * Maximum character count for text content
+   * @remarks Truncates with ellipsis if exceeded
+   */
+  textLength?: number;
+
+  /**
+   * Icon identifier (matches CustomIcon component)
+   * @see {@link CustomIconProps}
+   */
+  iconName?: CustomIconProps['name'];
+
+  /**
+   * Enables modal behavior when tile is clicked. If "true", "title" and "text" props will be rendered as modal content.
+   * @remarks Modal content will show the tile's title and text
+   */
+  showsModal?: boolean;
+
+  /**
+   * Primary heading text
+   * @required
+   */
+  title: string;
+
+  /**
+   * Descriptive content text
+   * @required
+   */
+  text: string;
+
+  /**
+   * Destination URL/path when tile is clickable
+   * @remarks Requires either linksTo or showsModal
+   */
+  linksTo?: string;
+
+  /**
+   * Link target behavior
+   * @default '_self'
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target}
+   */
+  linkTarget?: LinkTargetType['name'];
+} & CustomTileExclusiveProps;
 
 const CustomTile = ({
   stackOrder = 'vertical',
@@ -55,20 +114,18 @@ const CustomTile = ({
   title,
   text,
   linksTo,
-  linkTarget = '_self',
-  linkIsExternal = false,
+  linkTarget = '_self' as LinkTargetType['name'],
 }: CustomTileProps) => {
   // ...
   const tileClassNames = getCustomTileCSSClasses({
     stackOrder,
     linksTo,
-    linkIsExternal,
+    linkTarget,
   });
   const tileContent = getTileContent({ iconName, title, text, textLength });
   const LinkWrapper = getLinkWrapper({
     title,
     linksTo,
-    linkIsExternal,
     linkTarget,
   });
   // State is only created if showsModal is provided
@@ -83,6 +140,12 @@ const CustomTile = ({
       // ...
     }
   };
+
+  if (linksTo && linkTarget && showsModal !== undefined) {
+    throw new Error(
+      `Invalid props: CustomTile cannot be both a link and a modal trigger. Use either "showsModal" OR "linksTo", never both.`
+    );
+  }
 
   return (
     <>

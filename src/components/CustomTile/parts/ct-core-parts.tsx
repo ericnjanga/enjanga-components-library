@@ -14,24 +14,24 @@ import { CustomTileContent, CustomTileIcon } from './ct-atom-parts';
 export const getCustomTileCSSClasses = ({
   stackOrder,
   linksTo,
-  linkIsExternal,
+  linkTarget,
 }: CustomTileCSSClassesProps) =>
   clsx('enj-CustomTile', `enj-CustomTile--${stackOrder}`, {
     'enj-CustomTile--link': linksTo,
-    'enj-CustomTile--external': linksTo && linkIsExternal, // Only apply if link exists
+    'enj-CustomTile--external': linksTo && linkTarget === '_blank', // Only apply if link exists
   });
 
 // LinkWrapper pattern for cleanliness and maintainability of all functionality
 export const getLinkWrapper = ({
   title,
   linksTo,
-  linkIsExternal,
   linkTarget,
 }: CustomTileLinkWrapperProps): LinkWrapperType => {
+  const linkIsExternal = linksTo && linkTarget && linkTarget === '_blank';
   const customProps = {
     className: 'enj-CustomTile-link',
     'aria-label': `Navigate to ${title}${
-      linkTarget === '_blank' ? ' (opens in new tab)' : ''
+      linkIsExternal ? ' (opens in new tab)' : ''
     }`,
   };
 

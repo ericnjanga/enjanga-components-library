@@ -2,15 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import CustomTile from '../../../components/CustomTile/CustomTile';
 import { Grid, Column } from '@carbon/react';
 import { customIconsList } from '../../../components/CustomIcon/CustomIcon';
-import { CustomTileStackOrder } from '@/components/CustomTile/parts/ct-types';
+import {
+  CustomTileStackOrder,
+  LinkTargetType,
+} from '@/components/CustomTile/parts/ct-types';
 
 const sharedArgs = {
   stackOrder: 'vertical' as CustomTileStackOrder['name'],
   textLength: 100,
   iconName: undefined,
   linksTo: undefined,
-  linkTarget: undefined,
-  linkIsExternal: undefined,
+  linkTarget: '_self' as LinkTargetType['name'],
   showsModal: undefined,
   title:
     'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
@@ -35,11 +37,7 @@ const meta: Meta<typeof CustomTile> = {
     },
     linkTarget: {
       control: 'select',
-      options: ['_blank', '_self', '_parent', '_top'],
-    },
-    linkIsExternal: {
-      control: 'select',
-      options: [true, false],
+      options: ['_blank', '_self'],
     },
     showsModal: {
       control: 'select',
@@ -78,8 +76,7 @@ export const OpensExternalLinkUp: Story = {
   args: {
     ...sharedArgs,
     linksTo: 'https://carbondesignsystem.com',
-    linkIsExternal: true,
-    linkTarget: '_blank',
+    linkTarget: '_blank' as LinkTargetType['name'],
   },
 };
 
@@ -93,6 +90,9 @@ export const OpensLocalLinkUp: Story = {
 export const OpensModalUp: Story = {
   args: {
     ...sharedArgs,
+    // TypeScript will flag this as an error unless we nullify this prop
+    // (See CustomTileExclusiveProps for more info)
+    linkTarget: undefined,
     showsModal: true,
   },
 };

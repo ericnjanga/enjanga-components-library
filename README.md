@@ -39,8 +39,6 @@ Storybook is used to develop and test components in isolation. The development e
 
 View the published version of this component library on [Chromatic](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2).
 
-<b>Note:</b> <b>CustomTile</b> is the most complex story
-
 ## <br />
 
 <br />
@@ -165,6 +163,7 @@ This component library follows the following principles:
 ## Robustness
 
 - Type Safety: Component props are strictly typed with TypeScript
+- Props validation: Props validations help enfore props rules during development --TypeScript errors-- or at runtime --Storybook and client errors-- (See CustomTile for example).
 
 ## Flexibility Through Polymorphism
 

@@ -1,35 +1,39 @@
 import React from 'react';
 import { CustomIconProps } from '../../CustomIcon';
-import Link from 'next/link';
+
+/**
+ * Props validations rules
+ * ----------
+ * If "linksTo" and "linkTarget" are provided, "showsModal" cannot be provided and vice versa
+ * Note: TypeScript will flag validation errors
+ **/
+export type CustomTileExclusiveProps =
+  | {
+      linksTo?: string;
+      linkTarget?: LinkTargetType['name'];
+      showsModal?: never;
+    }
+  | { linksTo?: never; linkTarget?: never; showsModal?: boolean };
 
 export type CustomTileStackOrder = {
   name: 'vertical' | 'horizontal';
 };
 
 // Interface ...
-export interface CustomTileProps {
-  stackOrder?: CustomTileStackOrder['name'];
-  textLength?: number;
-  iconName?: CustomIconProps['name'];
-  showsModal?: boolean;
-  title: string;
-  text: string;
-  linksTo?: string;
-  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
-  linkIsExternal?: boolean; // Flag to indicate external links
-}
+export type LinkTargetType = {
+  name?: '_blank' | '_self';
+};
 
 export interface CustomTileCSSClassesProps {
   stackOrder?: CustomTileStackOrder['name'];
   linksTo?: string;
-  linkIsExternal?: boolean; // Flag to indicate external links
+  linkTarget?: LinkTargetType['name'];
 }
 
 export interface CustomTileLinkWrapperProps {
   title: string;
   linksTo?: string;
-  linkIsExternal?: boolean; // Flag to indicate external links
-  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
+  linkTarget?: LinkTargetType['name'];
 }
 
 export interface CustomTileContentProps {
