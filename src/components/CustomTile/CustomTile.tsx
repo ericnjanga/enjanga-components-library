@@ -1,10 +1,11 @@
 /**
  * CustomTile:
  * ---------------------------------------------
- * A customizable tile component that can optionally link to internal or external links
+ * A customizable tile component that can optionally link to internal (arrow right) or external links (arrow up right)
  * 
  * @param {string} title - The main title/text of the tile
  * @param {string} text - Descriptive text content
+ * @param {number} [titleLength] - Optional character limit for title
  * @param {number} [textLength] - Optional character limit for text
  * @param {'vertical'|'horizontal'} [stackOrder='vertical'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
@@ -63,6 +64,12 @@ export type CustomTileProps = {
   stackOrder?: CustomTileStackOrder['name'];
 
   /**
+   * Maximum character count for title content
+   * @remarks Truncates with ellipsis if exceeded
+   */
+  titleLength?: number;
+
+  /**
    * Maximum character count for text content
    * @remarks Truncates with ellipsis if exceeded
    */
@@ -108,6 +115,7 @@ export type CustomTileProps = {
 
 const CustomTile = ({
   stackOrder = 'vertical',
+  titleLength,
   textLength,
   iconName,
   showsModal,
@@ -122,11 +130,21 @@ const CustomTile = ({
     linksTo,
     linkTarget,
   });
-  const tileContent = getTileContent({ iconName, title, text, textLength });
+  const linkIsExternal =
+    linksTo && linkTarget && linkTarget === '_blank' ? true : false;
+  const tileContent = getTileContent({
+    iconName,
+    title,
+    text,
+    titleLength,
+    textLength,
+    linkIsExternal,
+  });
   const LinkWrapper = getLinkWrapper({
     title,
     linksTo,
     linkTarget,
+    linkIsExternal,
   });
   // State is only created if showsModal is provided
   const [isOpen, setIsOpen] = useState(

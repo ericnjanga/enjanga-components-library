@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
-import { ArrowRight } from '@carbon/icons-react';
+import { ArrowRight, ArrowUpRight } from '@carbon/icons-react';
 import { CustomTileIconProps, CustomTileContentProps } from './ct-types';
 
 /**
@@ -19,9 +19,10 @@ const useTextTrimmer = (text: string, length?: number): string => {
 export const CustomTileContent = ({
   title,
   text,
+  titleLength,
   textLength,
 }: CustomTileContentProps) => {
-  const trimmedTitle = useTextTrimmer(text, textLength);
+  const trimmedTitle = useTextTrimmer(title, titleLength);
   const trimmedText = useTextTrimmer(text, textLength);
 
   return (
@@ -32,9 +33,13 @@ export const CustomTileContent = ({
   );
 };
 
-export const CustomTileIcon = ({ title }: CustomTileIconProps) => {
+export const CustomTileIcon = ({
+  title,
+  linkIsExternal,
+}: CustomTileIconProps) => {
+  const C = linkIsExternal ? ArrowUpRight : ArrowRight;
   return (
-    <ArrowRight
+    <C
       className="enj-icon"
       width="1.3rem"
       height="1.3rem"

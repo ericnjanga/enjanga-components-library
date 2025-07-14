@@ -35,17 +35,27 @@ export interface CustomTileLinkWrapperProps {
   title: string;
   linksTo?: string;
   linkTarget?: LinkTargetType['name'];
+  linkIsExternal: boolean;
+}
+
+export interface CustomTileGlobalContentProps {
+  title: string;
+  text: string;
+  iconName?: CustomIconProps['name'];
+  titleLength?: number;
+  textLength?: number;
+  linkIsExternal: boolean;
 }
 
 export interface CustomTileContentProps {
   title: string;
   text: string;
-  iconName?: CustomIconProps['name'];
+  titleLength?: number;
   textLength?: number;
 }
-
 export interface CustomTileIconProps {
   title: string;
+  linkIsExternal: boolean;
 }
 
 export type LinkWrapperType = React.ReactElement<{

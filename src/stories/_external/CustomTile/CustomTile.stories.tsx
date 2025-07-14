@@ -10,6 +10,7 @@ import {
 
 const sharedArgs = {
   stackOrder: 'vertical' as CustomTileStackOrder['name'],
+  titleLength: 50,
   textLength: 100,
   iconName: undefined,
   linksTo: undefined,
@@ -27,6 +28,10 @@ const meta: Meta<typeof CustomTile> = {
     stackOrder: {
       control: 'select',
       options: ['vertical', 'horizontal'],
+    },
+    titleLength: {
+      control: 'select',
+      options: [50, 100, 200, 500, 1000],
     },
     textLength: {
       control: 'select',

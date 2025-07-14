@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import {
+  CustomTileGlobalContentProps,
   CustomTileContentProps,
   CustomTileCSSClassesProps,
   CustomTileLinkWrapperProps,
@@ -26,34 +27,22 @@ export const getLinkWrapper = ({
   title,
   linksTo,
   linkTarget,
+  linkIsExternal,
 }: CustomTileLinkWrapperProps): LinkWrapperType => {
-  const linkIsExternal = linksTo && linkTarget && linkTarget === '_blank';
   const customProps = {
-    className: 'enj-CustomTile-link',
+    className: 'enj-CustomTile-anchor-tag',
     'aria-label': `Navigate to ${title}${
       linkIsExternal ? ' (opens in new tab)' : ''
     }`,
   };
 
-  console.log(`.....${linksTo}....${linkIsExternal}....`);
-
   return linksTo ? (
-    linkIsExternal ? (
-      <a
-        href={linksTo}
-        target={linkTarget}
-        rel={linkTarget === '_blank' ? 'noopener noreferrer' : undefined}
-        {...customProps}
-      />
-    ) : (
-      <Link
-        href={linksTo}
-        passHref
-        legacyBehavior
-        target={linkTarget}
-        {...customProps}
-      />
-    )
+    <a
+      href={linksTo}
+      target={linkTarget}
+      rel={linkIsExternal ? 'noopener noreferrer' : undefined}
+      {...customProps}
+    />
   ) : (
     <></>
   );
@@ -64,17 +53,24 @@ export const getTileContent = ({
   iconName,
   title,
   text,
+  titleLength,
   textLength,
-}: CustomTileContentProps) => {
+  linkIsExternal,
+}: CustomTileGlobalContentProps) => {
   const iconNameIsValid = isValidIconName(iconName);
 
   return (
-    <div>
+    <>
       {iconName && iconNameIsValid && (
         <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />
       )}
-      <CustomTileContent title={title} text={text} textLength={textLength} />
-      <CustomTileIcon title={title} />
-    </div>
+      <CustomTileContent
+        title={title}
+        text={text}
+        titleLength={titleLength}
+        textLength={textLength}
+      />
+      <CustomTileIcon title={title} linkIsExternal={linkIsExternal} />
+    </>
   );
 };
