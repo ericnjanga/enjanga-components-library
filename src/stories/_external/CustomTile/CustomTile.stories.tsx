@@ -5,6 +5,7 @@ import { customIconsList } from '../../../components/CustomIcon/CustomIcon';
 import {
   CustomTileStackOrder,
   LinkTargetType,
+  LinkTargetList,
 } from '@/components/CustomTile/parts/ct-types';
 
 const sharedArgs = {
@@ -37,7 +38,7 @@ const meta: Meta<typeof CustomTile> = {
     },
     linkTarget: {
       control: 'select',
-      options: ['_blank', '_self'],
+      options: [...LinkTargetList],
     },
     showsModal: {
       control: 'select',
@@ -53,24 +54,6 @@ export default meta;
 type Story = StoryObj<typeof CustomTile>;
 
 export const Default: Story = {};
-
-export const WhenStacked: Story = {
-  render: (args) => {
-    return (
-      <Grid className="">
-        <Column lg={5} md={4} sm={4}>
-          <CustomTile {...args} />
-        </Column>
-        <Column lg={5} md={4} sm={4}>
-          <CustomTile {...args} />
-        </Column>
-        <Column lg={5} md={4} sm={4}>
-          <CustomTile {...args} />
-        </Column>
-      </Grid>
-    );
-  },
-};
 
 export const OpensExternalLinkUp: Story = {
   args: {
