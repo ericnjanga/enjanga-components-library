@@ -23,6 +23,7 @@ export type CustomTileStackOrder = {
 export type LinkTargetType = {
   name?: '_blank' | '_self';
 };
+export const LinkTargetList = ['_blank', '_self'];
 
 export interface CustomTileCSSClassesProps {
   stackOrder?: CustomTileStackOrder['name'];
