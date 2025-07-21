@@ -1,4 +1,17 @@
 // src/styles/index.scss
+
+/**
+ * Global styles affect go beyond compnents' boundaries as they affect 
+ * every DOM elements and have influence over patterns found everywhere.
+*/
+@use '../styles/global/typography';
+
+/**
+ * Component-level styles deal mostly with structure and layout. It is
+ * up to consummer developers override global styles assigning custiom
+ * classes to the component using "className" prop
+ * 
+*/
 @use '../components/AppHeader/AppHeader';
 @use '../components/Banner/Banner';
 @use '../components/HeadlinedList/HeadlinedList';

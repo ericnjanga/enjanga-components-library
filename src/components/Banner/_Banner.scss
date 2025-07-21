@@ -1,6 +1,7 @@
 @use '@carbon/react/scss/colors' as *;
 @use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/type' as *;
 
 .enj-Banner {
   /**
@@ -41,6 +42,15 @@
 
     // Declarations ...
     padding: var(--enj-Banner-jumbotron-padd);
+
+    p {
+      @include breakpoint('lg') {
+        font-size: map-get(
+          $heading-03,
+          'font-size'
+        ); // Explicitly get font-size
+      }
+    }
 
     // Declarations ...
     @include breakpoint('md') {

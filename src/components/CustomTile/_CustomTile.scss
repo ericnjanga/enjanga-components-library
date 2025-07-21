@@ -2,6 +2,10 @@
 @use '@carbon/react/scss/breakpoint' as *;
 @use '@carbon/react/scss/colors' as *;
 
+:root {
+  --enj-CustomTile-br-col: #{$gray-60};
+}
+
 @mixin customTile-hover {
   cursor: pointer;
   background-color: $gray-30;
@@ -66,6 +70,7 @@
   position: relative;
   transition: all 0.2s ease;
   padding: 0; // We cancel all padding by default
+  border: 1px solid var(--enj-CustomTile-br-col);
 
   // Variables ...
   --enj-CustomTile-gap: #{$spacing-06};
