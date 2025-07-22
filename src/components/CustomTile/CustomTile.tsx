@@ -2,7 +2,8 @@
  * CustomTile:
  * ---------------------------------------------
  * A customizable tile component that can optionally link to internal (arrow right) or external links (arrow up right)
- * 
+ *  
+ * @param {string} className - Custom CSS class
  * @param {string} title - The main title/text of the tile
  * @param {string} text - Descriptive text content
  * @param {number} [titleLength] - Optional character limit for title
@@ -57,6 +58,10 @@ import {
 import { ContentModal } from '../ContentModal/ContentModal';
 
 export type CustomTileProps = {
+  /**
+   * Custom CSS class
+   */
+  className?: string;
   /**
    * Layout direction for tile content
    * @default 'vertical'
@@ -114,6 +119,7 @@ export type CustomTileProps = {
 } & CustomTileExclusiveProps;
 
 const CustomTile = ({
+  className,
   stackOrder = 'vertical',
   titleLength,
   textLength,
@@ -168,7 +174,7 @@ const CustomTile = ({
   return (
     <>
       <Tile
-        className={tileClassNames}
+        className={`${tileClassNames} ${className}`}
         aria-label={`${title} tile`}
         onClick={handleClick}
       >
