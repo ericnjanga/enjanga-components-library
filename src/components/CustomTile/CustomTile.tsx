@@ -96,13 +96,13 @@ export type CustomTileProps = {
    * Primary heading text
    * @required
    */
-  title: string;
+  title?: string;
 
   /**
    * Descriptive content text
    * @required
    */
-  text: string;
+  text?: string;
 
   /**
    * Destination URL/path when tile is clickable
@@ -184,7 +184,7 @@ const CustomTile = ({
           tileContent
         )}
       </Tile>
-      {showsModal && isOpen !== undefined && (
+      {showsModal && title && isOpen !== undefined && (
         <ContentModal
           isOpen={isOpen}
           modalHeading={title}
@@ -193,7 +193,7 @@ const CustomTile = ({
         >
           <div>
             <h3>{title}</h3>
-            <article>{title}</article>
+            <article>{text}</article>
           </div>
         </ContentModal>
       )}

@@ -33,6 +33,21 @@ export const CustomTileContent = ({
   );
 };
 
+export const CustomTileSkeletonContent = () => (
+  <div className="content">
+    <div className="enj-CustomTile-title">
+      <h3 className={clsx('skeleton skeleton-title')}></h3>
+      <h3 className={clsx('skeleton skeleton-title')}></h3>
+    </div>
+    <div className="enj-CustomTile-text">
+      <p className={clsx('skeleton skeleton-text')}></p>
+      <p className={clsx('skeleton skeleton-text')}></p>
+      <p className={clsx('skeleton skeleton-text')}></p>
+      <p className={clsx('skeleton skeleton-text')}></p>
+    </div>
+  </div>
+);
+
 export const CustomTileIcon = ({
   title,
   linkIsExternal,

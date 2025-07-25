@@ -32,15 +32,15 @@ export interface CustomTileCSSClassesProps {
 }
 
 export interface CustomTileLinkWrapperProps {
-  title: string;
+  title?: string;
   linksTo?: string;
   linkTarget?: LinkTargetType['name'];
   linkIsExternal: boolean;
 }
 
 export interface CustomTileGlobalContentProps {
-  title: string;
-  text: string;
+  title?: string;
+  text?: string;
   iconName?: CustomIconProps['name'];
   titleLength?: number;
   textLength?: number;

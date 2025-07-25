@@ -60,6 +60,14 @@ type Story = StoryObj<typeof CustomTile>;
 
 export const Default: Story = {};
 
+export const Skeleton: Story = {
+  args: {
+    title: undefined,
+    text: undefined,
+    // The animated skeleton will show up if "title" or "text" props are undefined
+  },
+};
+
 export const OpensExternalLinkUp: Story = {
   args: {
     ...sharedArgs,

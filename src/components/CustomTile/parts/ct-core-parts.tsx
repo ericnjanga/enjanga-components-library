@@ -9,7 +9,11 @@ import {
 } from './ct-types';
 import CustomIcon from '@/components/CustomIcon';
 import { isValidIconName } from '@/components/CustomIcon/CustomIcon';
-import { CustomTileContent, CustomTileIcon } from './ct-atom-parts';
+import {
+  CustomTileContent,
+  CustomTileSkeletonContent,
+  CustomTileIcon,
+} from './ct-atom-parts';
 
 // Component's CSS classes
 export const getCustomTileCSSClasses = ({
@@ -58,6 +62,10 @@ export const getTileContent = ({
   linkIsExternal,
 }: CustomTileGlobalContentProps) => {
   const iconNameIsValid = isValidIconName(iconName);
+
+  if (!title || !text) {
+    return <CustomTileSkeletonContent />;
+  }
 
   return (
     <>
