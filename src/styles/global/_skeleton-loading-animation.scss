@@ -1,7 +1,9 @@
+@use '@carbon/react/scss/colors' as *;
+
 /* Base skeleton effect */
 .skeleton {
   display: inline-block;
-  background-color: #e0e0e0;
+  background-color: $gray-40;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
@@ -35,6 +37,12 @@
   width: 70%;
   height: 24px;
   margin-bottom: 12px;
+}
+
+.skeleton-text-wrapper {
+  .skeleton-text {
+    margin-bottom: 3px;
+  }
 }
 
 .skeleton-text {
