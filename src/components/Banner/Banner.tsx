@@ -35,11 +35,12 @@
 
 import clsx from 'clsx';
 import { Grid, Column } from '@carbon/react';
+import BannerSkeleton from './parts/BannerSkeleton';
 
 interface BannerProps {
   isJumbtron?: boolean;
-  title: string;
-  subtitle?: string;
+  title?: string;
+  subtitle?: string | 'none';
   className?: string;
 }
 
@@ -52,13 +53,23 @@ const Banner = ({
   const cssClasses = clsx('enj-Banner', className, {
     'enj-Banner--jumbotron': isJumbtron,
   });
+  const displaySubtitle = subtitle !== undefined && subtitle !== 'none';
+
+  if (!title) {
+    return (
+      <BannerSkeleton
+        className={cssClasses}
+        subtitleIsVisible={displaySubtitle}
+      />
+    );
+  }
 
   return (
     <header className={cssClasses}>
       <Grid fullWidth>
         <Column lg={8} md={6} sm={4}>
           <h1>{title}</h1>
-          {subtitle && <p>{subtitle}</p>}
+          {displaySubtitle && <p>{subtitle}</p>}
         </Column>
       </Grid>
     </header>
