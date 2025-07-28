@@ -9,11 +9,9 @@ import {
 } from './ct-types';
 import CustomIcon from '@/components/CustomIcon';
 import { isValidIconName } from '@/components/CustomIcon/CustomIcon';
-import {
-  CustomTileContent,
-  CustomTileSkeletonContent,
-  CustomTileIcon,
-} from './ct-atom-parts';
+import { CustomTileContent, CustomTileIcon } from './ct-atom-parts';
+
+import CustomTileSkeleton from './CustomTileSkeleton';
 
 // Component's CSS classes
 export const getCustomTileCSSClasses = ({
@@ -64,7 +62,7 @@ export const getTileContent = ({
   const iconNameIsValid = isValidIconName(iconName);
 
   if (!title || !text) {
-    return <CustomTileSkeletonContent />;
+    return <CustomTileSkeleton />;
   }
 
   return (

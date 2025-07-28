@@ -60,7 +60,7 @@ type Story = StoryObj<typeof CustomTile>;
 
 export const Default: Story = {};
 
-export const Skeleton: Story = {
+export const SkeletonLoader: Story = {
   args: {
     title: undefined,
     text: undefined,
