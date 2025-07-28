@@ -1,0 +1,39 @@
+@use '@carbon/react/scss/colors' as *;
+
+.enj-CMSRichText {
+  // Variables ...
+  --enj-CMSRichText-ul-pad-left: 1.4rem;
+  --enj-CMSRichText-ul-mb: 1.4rem;
+  --enj-CMSRichText-hr-gap: 1.7rem;
+
+  ul {
+    // border: 1px solid red;
+    list-style: disc;
+    padding-left: var(--enj-CMSRichText-ul-pad-left);
+    margin-bottom: var(--enj-CMSRichText-ul-mb);
+
+    li {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+  p {
+    border: 1px solid transparent;
+    margin-bottom: var(--enj-CMSRichText-ul-mb);
+  }
+
+  blockquote {
+    border-left: 0.6rem solid $gray-40;
+    padding-left: 1rem;
+    margin-bottom: var(--enj-CMSRichText-ul-mb);
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  hr {
+    margin: var(--enj-CMSRichText-hr-gap) 0;
+  }
+}
