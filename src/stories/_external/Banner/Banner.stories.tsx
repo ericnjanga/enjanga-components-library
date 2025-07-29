@@ -1,25 +1,39 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Banner from '../../../components/Banner/Banner';
+import { infoBlock } from '@/mockData/infoBlock';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
   component: Banner,
   tags: [], // Keep this enabled
   argTypes: {
-    title: { control: 'text' },
-    subtitle: { control: 'text' },
-    isJumbtron: {
+    isHuge: {
       control: 'select',
       options: [true, false],
     },
+    showPlainDescription: {
+      control: 'select',
+      options: [true, false],
+    },
+    showRichDescription: {
+      control: 'select',
+      options: [true, false],
+    },
+    title: { control: 'text' },
+    plainDescription: { control: 'text' },
+    richDescription: { control: 'object' },
+    className: { control: 'text' },
   },
   args: {
+    isHuge: false,
+    showPlainDescription: false,
+    showRichDescription: false,
     title: 'Toffee jujubes candy jujubes bears',
-    subtitle: `Gingerbread cupcake candy canes sugar plum I love soufflé.
-                  Jelly beans sweet roll shortbread wafer shortbread. Shortbread
-                  caramels I love I love bear claw jelly beans. Danish liquorice
-                  halvah brownie I love cookie dessert brownie jelly beans.`,
-    isJumbtron: true,
+    plainDescription: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
+    richDescription: {
+      ...infoBlock.description,
+    },
+    className: '',
   },
 };
 
@@ -27,59 +41,96 @@ export default meta;
 
 type Story = StoryObj<typeof Banner>;
 
-export const Default: Story = {};
+export const SmallBanner: Story = {};
 
-export const DefaultNoSubtitle: Story = {
+export const SmallBannerWithPlainDescription: Story = {
   args: {
-    subtitle: `none`,
+    showPlainDescription: true,
   },
 };
 
-export const SmallBanner: Story = {
+export const SmallBannerWithRichDescription: Story = {
   args: {
-    isJumbtron: false,
-    title: 'Toffee jujubes candy jujubes bears',
-    subtitle: `Gingerbread cupcake candy canes sugar plum I love soufflé.
-                  Jelly beans sweet roll shortbread wafer shortbread.`,
+    showRichDescription: true,
   },
 };
 
-export const SmallBannerNoSubtitle: Story = {
+export const hugeBanner: Story = {
   args: {
-    isJumbtron: false,
-    title: 'Toffee jujubes candy jujubes bears',
-    subtitle: `none`,
+    isHuge: true,
   },
 };
 
-export const SkeletonLoaderDefault: Story = {
+export const hugeBannerWithPlainDescription: Story = {
   args: {
-    title: undefined,
-    // The animated skeleton will show up if "title" props are undefined
+    isHuge: true,
+    showPlainDescription: true,
   },
 };
 
-export const SkeletonLoaderDefaultNoSubtitle: Story = {
+export const hugeBannerWithRichDescription: Story = {
   args: {
-    title: undefined,
-    subtitle: `none`,
-    // The animated skeleton will show up if "title" props are undefined
+    isHuge: true,
+    showRichDescription: true,
   },
 };
 
-export const SkeletonLoaderSmall: Story = {
+export const smallBannerSkeleton: Story = {
   args: {
     title: undefined,
-    isJumbtron: false,
-    // The animated skeleton will show up if "title" props are undefined
   },
 };
 
-export const SkeletonLoaderSmallNoSubtitle: Story = {
+export const smallBannerSkeletonWithDescription: Story = {
   args: {
     title: undefined,
-    isJumbtron: false,
-    subtitle: `none`,
-    // The animated skeleton will show up if "title" props are undefined
+    showPlainDescription: true, // || showRichDescription (either or both)
   },
 };
+
+export const hugeBannerSkeleton: Story = {
+  args: {
+    isHuge: true,
+    title: undefined,
+  },
+};
+
+export const hugeBannerSkeletonWithDescription: Story = {
+  args: {
+    isHuge: true,
+    title: undefined,
+    showPlainDescription: true, // || showRichDescription (either or both)
+  },
+};
+
+// export const SkeletonLoaderDefault: Story = {
+//   args: {
+//     title: undefined,
+//     // The animated skeleton will show up if "title" props are undefined
+//   },
+// };
+
+// export const SkeletonLoaderDefaultNoSubtitle: Story = {
+//   args: {
+//     title: undefined,
+//     description: `none`,
+//     // The animated skeleton will show up if "title" props are undefined
+//   },
+// };
+
+// export const SkeletonLoaderSmall: Story = {
+//   args: {
+//     title: undefined,
+//     isHuge: false,
+//     // The animated skeleton will show up if "title" props are undefined
+//   },
+// };
+
+// export const SkeletonLoaderSmallNoSubtitle: Story = {
+//   args: {
+//     title: undefined,
+//     isHuge: false,
+//     description: `none`,
+//     // The animated skeleton will show up if "title" props are undefined
+//   },
+// };

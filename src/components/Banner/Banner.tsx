@@ -5,13 +5,15 @@
  *
  * Features:
  * - Responsive grid layout (using Carbon's Grid/Column)
- * - Optional subtitle
+ * - Optional plainDescription
  * - Jumbotron styling toggle
  * - Custom class support
  *
- * @param {boolean} [isJumbtron=true] - Determines whether to apply jumbotron styling (larger, more prominent display)
+ * @param {boolean} [isHuge=true] - Determines whether to apply jumbotron styling (larger, more prominent display)
+ * @param {boolean} [showPlainDescription] - ...
+ * @param {boolean} [showRichDescription] - ...
  * @param {string} title - Main heading text (required)
- * @param {string} [subtitle] - Optional supporting text displayed below the title
+ * @param {string} [plainDescription] - Optional supporting text displayed below the title
  * @param {string} [className] - Additional custom CSS classes to apply
  *
  * Usage Examples:
@@ -19,12 +21,12 @@
  * // Default jumbotron banner
  * <Banner
  *   title="Welcome to our Platform"
- *   subtitle="Discover amazing features"
+ *   plainDescription="Discover amazing features"
  * />
  *
  * // Standard banner (non-jumbotron)
  * <Banner
- *   isJumbtron={false}
+ *   isHuge={false}
  *   title="Account Settings"
  *   className="custom-banner-style"
  * />
@@ -36,30 +38,37 @@
 import clsx from 'clsx';
 import { Grid, Column } from '@carbon/react';
 import BannerSkeleton from './parts/BannerSkeleton';
+import { CMSRichText } from '../CMSRichText';
+import type { Node } from '@contentful/rich-text-types';
 
 interface BannerProps {
-  isJumbtron?: boolean;
+  isHuge?: boolean;
+  showPlainDescription?: boolean;
+  showRichDescription?: boolean;
   title?: string;
-  subtitle?: string | 'none';
+  plainDescription?: string | 'none';
+  richDescription?: { json: { content: Node[] } };
   className?: string;
 }
 
 const Banner = ({
-  isJumbtron = true,
+  isHuge = false, // Small banner by default
+  showPlainDescription = false, // Do not show the plainDescription by default
+  showRichDescription = false, // Do not show the richDescription by default
   title,
-  subtitle,
+  plainDescription,
+  richDescription,
   className,
 }: BannerProps) => {
   const cssClasses = clsx('enj-Banner', className, {
-    'enj-Banner--jumbotron': isJumbtron,
+    'enj-Banner--jumbotron': isHuge,
   });
-  const displaySubtitle = subtitle !== undefined && subtitle !== 'none';
 
   if (!title) {
     return (
       <BannerSkeleton
         className={cssClasses}
-        subtitleIsVisible={displaySubtitle}
+        showDescription={showPlainDescription || showRichDescription}
       />
     );
   }
@@ -69,7 +78,12 @@ const Banner = ({
       <Grid fullWidth>
         <Column lg={8} md={6} sm={4}>
           <h1>{title}</h1>
-          {displaySubtitle && <p>{subtitle}</p>}
+          {showPlainDescription && plainDescription && (
+            <p>{plainDescription}</p>
+          )}
+          {showRichDescription && richDescription && (
+            <CMSRichText data={richDescription} />
+          )}
         </Column>
       </Grid>
     </header>
