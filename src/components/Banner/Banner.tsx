@@ -1,38 +1,75 @@
 /**
  * Banner:
  * ---------------
- * A flexible header component that can serve as either a standard banner or jumbotron-style hero section.
+ * A flexible and reusable header component that functions as either a compact banner or a jumbotron-style hero section.
  *
  * Features:
- * - Responsive grid layout (using Carbon's Grid/Column)
- * - Optional plainDescription
- * - Jumbotron styling toggle
- * - Custom class support
+ * - Responsive layout using Carbon's Grid/Column
+ * - Supports both plain text and rich text descriptions
+ * - Toggleable jumbotron mode (`isHuge`)
+ * - Displays skeleton fallback when `title` is not provided
+ * - Accepts custom CSS classes via `className`
  *
- * @param {boolean} [isHuge=true] - Determines whether to apply jumbotron styling (larger, more prominent display)
- * @param {boolean} [showPlainDescription] - ...
- * @param {boolean} [showRichDescription] - ...
- * @param {string} title - Main heading text (required)
- * @param {string} [plainDescription] - Optional supporting text displayed below the title
- * @param {string} [className] - Additional custom CSS classes to apply
+ * Props:
+ * -------
+ * @param {boolean} [isHuge=false]
+ *   - Enables jumbotron styling with a larger and more prominent visual appearance.
+ *   - Default is `false`, rendering a standard banner.
+ *
+ * @param {boolean} [showPlainDescription=false]
+ *   - Controls whether the `plainDescription` is rendered.
+ *   - Default is `false`.
+ *
+ * @param {boolean} [showRichDescription=false]
+ *   - Controls whether the `richDescription` (Contentful Rich Text) is rendered using `CMSRichText`.
+ *   - Default is `false`.
+ *
+ * @param {string} [title]
+ *   - The main heading text for the banner.
+ *   - If not provided, a skeleton version of the banner is rendered instead.
+ *
+ * @param {string | 'none'} [plainDescription]
+ *   - Optional plain text displayed below the title.
+ *   - Rendered only when `showPlainDescription` is `true` and a valid value is provided.
+ *
+ * @param {{ json: { content: Node[] } }} [richDescription]
+ *   - Optional rich text content (in Contentful Rich Text format) displayed below the title.
+ *   - Rendered only when `showRichDescription` is `true`.
+ *
+ * @param {string} [className]
+ *   - Additional custom CSS classes to apply to the banner container.
+ *
+ * Behavior:
+ * ---------
+ * - If `title` is not set, `BannerSkeleton` is rendered in place of the main content.
+ * - If both `showPlainDescription` and `showRichDescription` are true, both descriptions will appear in order under the title.
  *
  * Usage Examples:
  * ---------------
  * // Default jumbotron banner
  * <Banner
+ *   isHuge
  *   title="Welcome to our Platform"
  *   plainDescription="Discover amazing features"
+ *   showPlainDescription
  * />
  *
- * // Standard banner (non-jumbotron)
+ * // Standard banner with custom class
  * <Banner
  *   isHuge={false}
  *   title="Account Settings"
  *   className="custom-banner-style"
  * />
  *
- * // Minimal implementation
- * <Banner title="Announcements" />
+ * // Banner with rich content
+ * <Banner
+ *   title="Our Story"
+ *   showRichDescription
+ *   richDescription={...}
+ * />
+ *
+ * // Fallback state (skeleton)
+ * <Banner />
  */
 
 import clsx from 'clsx';

@@ -102,35 +102,3 @@ export const hugeBannerSkeletonWithDescription: Story = {
     showPlainDescription: true, // || showRichDescription (either or both)
   },
 };
-
-// export const SkeletonLoaderDefault: Story = {
-//   args: {
-//     title: undefined,
-//     // The animated skeleton will show up if "title" props are undefined
-//   },
-// };
-
-// export const SkeletonLoaderDefaultNoSubtitle: Story = {
-//   args: {
-//     title: undefined,
-//     description: `none`,
-//     // The animated skeleton will show up if "title" props are undefined
-//   },
-// };
-
-// export const SkeletonLoaderSmall: Story = {
-//   args: {
-//     title: undefined,
-//     isHuge: false,
-//     // The animated skeleton will show up if "title" props are undefined
-//   },
-// };
-
-// export const SkeletonLoaderSmallNoSubtitle: Story = {
-//   args: {
-//     title: undefined,
-//     isHuge: false,
-//     description: `none`,
-//     // The animated skeleton will show up if "title" props are undefined
-//   },
-// };
