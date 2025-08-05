@@ -14,6 +14,13 @@ import { CustomTileContent, CustomTileIcon } from './ct-atom-parts';
 import CustomTileSkeleton from './CustomTileSkeleton';
 
 // Component's CSS classes
+/**
+ * APPLY ONLY HOVER CLASS WHEN:
+ * 1) THE COMPONENT NEEDS AN ARTIFICIAL HOVER STATE
+ * 2) THERE IS VALID REASON TO CLICK
+ *
+ * ..... enj-CustomTile-has-hover-effect
+ */
 export const getCustomTileCSSClasses = ({
   stackOrder,
   linksTo,
@@ -57,7 +64,7 @@ export const getTileContent = ({
   text,
   titleLength,
   textLength,
-  linkIsExternal,
+  link,
 }: CustomTileGlobalContentProps) => {
   const iconNameIsValid = isValidIconName(iconName);
 
@@ -76,7 +83,9 @@ export const getTileContent = ({
         titleLength={titleLength}
         textLength={textLength}
       />
-      <CustomTileIcon title={title} linkIsExternal={linkIsExternal} />
+      {link.isActive && (
+        <CustomTileIcon title={title} linkIsExternal={link.isExternal} />
+      )}
     </>
   );
 };

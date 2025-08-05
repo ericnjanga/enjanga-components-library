@@ -136,15 +136,23 @@ const CustomTile = ({
     linksTo,
     linkTarget,
   });
+
+  // ...
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
+  const linkIsActive = showsModal !== undefined || linksTo !== undefined;
+
+  // ...
   const tileContent = getTileContent({
     iconName,
     title,
     text,
     titleLength,
     textLength,
-    linkIsExternal,
+    link: {
+      isActive: linkIsActive,
+      isExternal: linkIsExternal,
+    },
   });
   const LinkWrapper = getLinkWrapper({
     title,

@@ -11,7 +11,7 @@ import {
 const sharedArgs = {
   stackOrder: 'vertical' as CustomTileStackOrder['name'],
   titleLength: 50,
-  textLength: 100,
+  textLength: 300,
   iconName: undefined,
   linksTo: undefined,
   linkTarget: '_self' as LinkTargetType['name'],
@@ -31,11 +31,11 @@ const meta: Meta<typeof CustomTile> = {
     },
     titleLength: {
       control: 'select',
-      options: [50, 100, 200, 500, 1000],
+      options: [50, 100, 200, 300, 500, 1000],
     },
     textLength: {
       control: 'select',
-      options: [50, 100, 200, 500, 1000],
+      options: [50, 100, 200, 300, 500, 1000],
     },
     iconName: {
       control: 'select',
@@ -58,12 +58,35 @@ const meta: Meta<typeof CustomTile> = {
 export default meta;
 type Story = StoryObj<typeof CustomTile>;
 
-export const Default: Story = {};
+export const VerticalNoIconNoImgNoLinking: Story = {};
 
-export const SkeletonLoader: Story = {
+export const VerticalIconNoImgNoLinking: Story = {
+  args: {
+    ...sharedArgs,
+    iconName: 'Hills',
+  },
+};
+
+export const HorizontalNoIconNoImgNoLinking: Story = {
+  args: {
+    ...sharedArgs,
+    stackOrder: 'horizontal',
+  },
+};
+
+export const SkeletonVerticalNoIconNoImg: Story = {
   args: {
     title: undefined,
     text: undefined,
+    // The animated skeleton will show up if "title" or "text" props are undefined
+  },
+};
+
+export const SkeletonHorizontalNoIconNoImg: Story = {
+  args: {
+    title: undefined,
+    text: undefined,
+    stackOrder: 'horizontal',
     // The animated skeleton will show up if "title" or "text" props are undefined
   },
 };

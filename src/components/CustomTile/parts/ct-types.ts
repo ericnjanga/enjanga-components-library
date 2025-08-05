@@ -44,7 +44,10 @@ export interface CustomTileGlobalContentProps {
   iconName?: CustomIconProps['name'];
   titleLength?: number;
   textLength?: number;
-  linkIsExternal: boolean;
+  link: {
+    isActive: boolean;
+    isExternal: boolean;
+  };
 }
 
 export interface CustomTileContentProps {

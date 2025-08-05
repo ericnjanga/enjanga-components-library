@@ -23,9 +23,11 @@
 
   .content {
     padding-right: var(--enj-CustomTile-h-content-padd-r);
+    align-items: center;
 
     .enj-CustomTile-title {
       flex: var(--enj-CustomTile-h-content-title-flex);
+      margin-bottom: 0;
     }
     .enj-CustomTile-text {
       flex: var(--enj-CustomTile-h-content-text-flex);
@@ -66,6 +68,11 @@
   }
 }
 
+// Apply the same hover effect for non-link components
+.enj-CustomTile-has-hover-effect {
+  @include customTile-hover;
+}
+
 .enj-CustomTile {
   position: relative;
   transition: all 0.2s ease;
@@ -76,11 +83,6 @@
   --enj-CustomTile-gap: #{$spacing-06};
 
   /***/
-
-  // Apply the same hover effect for non-link components
-  &:not(.enj-CustomTile--link):hover {
-    @include customTile-hover;
-  }
 
   /**
    * We must only apply padding once. Therefore, if the component is linking locally/externally, 
