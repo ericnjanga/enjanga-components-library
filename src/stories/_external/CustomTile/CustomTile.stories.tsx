@@ -7,7 +7,9 @@ import {
   LinkTargetType,
   LinkTargetList,
 } from '@/components/CustomTile/parts/ct-types';
+import { project } from '@/mockData/project';
 
+const activeLang = 'en';
 const sharedArgs = {
   stackOrder: 'vertical' as CustomTileStackOrder['name'],
   titleLength: 50,
@@ -20,6 +22,7 @@ const sharedArgs = {
     'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
   blurb:
     'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+  plainDescription: undefined,
 };
 
 const meta: Meta<typeof CustomTile> = {
@@ -107,12 +110,59 @@ export const OpensLocalLinkUp: Story = {
   },
 };
 
-export const OpensModalUp: Story = {
+export const OpensModalUpWithPlainText: Story = {
   args: {
     ...sharedArgs,
-    // TypeScript will flag this as an error unless we nullify this prop
-    // (See CustomTileExclusiveProps for more info)
-    linkTarget: undefined,
+    // The modal will display plain text
+    plainDescription:
+      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+    richDescription: undefined, // Must remain undefined when "plainDescription" is specified
+    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
     showsModal: true,
+    linkTarget: undefined, // Must remain undefined when "showsModal" is specified
+    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
   },
 };
+
+export const OpensModalUpWithRichText: Story = {
+  args: {
+    ...sharedArgs,
+    // The modal will display rich text
+    plainDescription: undefined, // Must remain undefined when "plainDescription" is specified
+    richDescription: project?.data[activeLang]?.description,
+    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
+    showsModal: true,
+    linkTarget: undefined, // Must remain undefined when "showsModal" is specified
+    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
+  },
+};
+
+/**
+ * Props validation errors
+ * ---------------
+ */
+export const ErrorsModalProps: Story = {
+  args: {
+    ...sharedArgs,
+    // An error will be thrown because both "plainDescription" and "richDescription" have been provided
+    plainDescription:
+      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+    richDescription: project?.data[activeLang]?.description,
+    showsModal: true,
+    linkTarget: undefined,
+  },
+};
+export const ErrorsLinkAndModalProps: Story = {
+  args: {
+    ...sharedArgs,
+    // An error will be thrown because both "plainDescription" and "richDescription" have been provided
+    plainDescription:
+      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+    richDescription: undefined,
+    showsModal: true,
+    linksTo: 'https://carbondesignsystem.com',
+    linkTarget: '_blank' as LinkTargetType['name'],
+  },
+};
+
+// linksTo && linkTarget && showsModal !== undefined

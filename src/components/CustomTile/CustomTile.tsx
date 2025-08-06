@@ -3,11 +3,13 @@
  * ---------------------------------------------
  * A customizable tile component that can optionally link to internal (arrow right) or external links (arrow up right)
  *  
- * @param {string} className - Custom CSS class
- * @param {string} title - The main title/text of the tile
- * @param {string} blurb - Text content's blurb
- * @param {number} [titleLength] - Optional character limit for title
- * @param {number} [blurbLength] - Optional character limit for text
+ * @param {string} className  - Custom CSS class
+ * @param {string} title      - The main title/text of the tile
+ * @param {string} blurb      - Text content's blurb
+ * @param {string} plainDescription   - Text content's description (in string format)
+ * @param {json} richDescription      - Text content's description (in rich format from a headless CMS like ContentFul)
+ * @param {number} [titleLength]      - Optional character limit for title
+ * @param {number} [blurbLength]      - Optional character limit for text
  * @param {'vertical'|'horizontal'} [stackOrder='vertical'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
  * 
@@ -22,23 +24,7 @@
  * ---------------
  * // Internal link (default)
   <CustomTile 
-    linksTo="/dashboard" 
-    title="Dashboard" 
-    blurb="Go to your dashboard"
-  />
-
-  // External link with new tab
-  <CustomTile
-    linksTo="https://external.site"
-    linkTarget="_blank"
-    title="External Site"
-    blurb="Visit our partner site"
-  />
-
-  // Regular tile without link
-  <CustomTile
-    title="Information"
-    blurb="Static content tile"
+    ...
   />
  */
 import { useState } from 'react';
@@ -56,6 +42,8 @@ import {
   CustomTileExclusiveProps,
 } from './parts/ct-types';
 import { ContentModal } from '../ContentModal/ContentModal';
+import type { Node } from '@contentful/rich-text-types';
+import CustomTileDescription from '../CMSRichText/parts/CustomTileDescription';
 
 export type CustomTileProps = {
   /**
@@ -105,6 +93,18 @@ export type CustomTileProps = {
   blurb?: string;
 
   /**
+   * Text content's description (in string format)
+   * @required
+   */
+  plainDescription?: string;
+
+  /**
+   * Text content's description (in rich format from a headless CMS like ContentFul)
+   * @required
+   */
+  richDescription?: { json: { content: Node[] } };
+
+  /**
    * Destination URL/path when tile is clickable
    * @remarks Requires either linksTo or showsModal
    */
@@ -127,6 +127,8 @@ const CustomTile = ({
   showsModal,
   title,
   blurb,
+  plainDescription,
+  richDescription,
   linksTo,
   linkTarget = '_self' as LinkTargetType['name'],
 }: CustomTileProps) => {
@@ -200,8 +202,10 @@ const CustomTile = ({
           setIsOpen={setIsOpen}
         >
           <div>
-            <h3>{title}</h3>
-            {/* <article>{text}</article> */}
+            <CustomTileDescription
+              plainDescription={plainDescription}
+              richDescription={richDescription}
+            />
           </div>
         </ContentModal>
       )}
