@@ -16,7 +16,7 @@
   --enj-CustomTile-h-padd: #{$spacing-06};
   --enj-CustomTile-h-content-padd-r: 0;
   --enj-CustomTile-h-content-title-flex: unset;
-  --enj-CustomTile-h-content-text-flex: unset;
+  --enj-CustomTile-h-content-blurb-flex: unset;
 
   // Declarations ...
   padding: var(--enj-CustomTile-h-padd);
@@ -29,8 +29,8 @@
       flex: var(--enj-CustomTile-h-content-title-flex);
       margin-bottom: 0;
     }
-    .enj-CustomTile-text {
-      flex: var(--enj-CustomTile-h-content-text-flex);
+    .enj-CustomTile-blurb {
+      flex: var(--enj-CustomTile-h-content-blurb-flex);
     }
   }
 
@@ -38,14 +38,14 @@
     --enj-CustomTile-h-padd: #{$spacing-08};
     --enj-CustomTile-gap: #{$spacing-08};
     --enj-CustomTile-h-content-title-flex: 1;
-    --enj-CustomTile-h-content-text-flex: 1;
+    --enj-CustomTile-h-content-blurb-flex: 1;
   }
 
   @include breakpoint('lg') {
     --enj-CustomTile-h-padd: #{$spacing-09};
     --enj-CustomTile-gap: #{$spacing-12};
     --enj-CustomTile-h-content-title-flex: 0.5;
-    --enj-CustomTile-h-content-text-flex: 1;
+    --enj-CustomTile-h-content-blurb-flex: 1;
     --enj-CustomTile-h-content-padd-r: #{$spacing-13};
   }
 }
@@ -188,8 +188,8 @@
     }
   }
 }
-.enj-CustomTile-text {
-  .skeleton-text {
+.enj-CustomTile-blurb {
+  .skeleton-blurb {
     &:first-of-type {
       width: 70%;
     }

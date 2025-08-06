@@ -61,14 +61,14 @@ export const getLinkWrapper = ({
 export const getTileContent = ({
   iconName,
   title,
-  text,
+  blurb,
   titleLength,
-  textLength,
+  blurbLength,
   link,
 }: CustomTileGlobalContentProps) => {
   const iconNameIsValid = isValidIconName(iconName);
 
-  if (!title || !text) {
+  if (!title || !blurb) {
     return <CustomTileSkeleton />;
   }
 
@@ -79,9 +79,9 @@ export const getTileContent = ({
       )}
       <CustomTileContent
         title={title}
-        text={text}
+        blurb={blurb}
         titleLength={titleLength}
-        textLength={textLength}
+        blurbLength={blurbLength}
       />
       {link.isActive && (
         <CustomTileIcon title={title} linkIsExternal={link.isExternal} />

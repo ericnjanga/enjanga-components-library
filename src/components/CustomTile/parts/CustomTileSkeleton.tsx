@@ -6,7 +6,7 @@ const CustomTileSkeleton = () => (
       <SkeletonAnimation part="heading" />
       <SkeletonAnimation part="heading" />
     </div>
-    <SkeletonAnimation className="enj-CustomTile-text" part="body" />
+    <SkeletonAnimation className="enj-CustomTile-blurb" part="body" />
   </div>
 );
 

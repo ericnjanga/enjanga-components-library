@@ -40,10 +40,10 @@ export interface CustomTileLinkWrapperProps {
 
 export interface CustomTileGlobalContentProps {
   title?: string;
-  text?: string;
+  blurb?: string;
   iconName?: CustomIconProps['name'];
   titleLength?: number;
-  textLength?: number;
+  blurbLength?: number;
   link: {
     isActive: boolean;
     isExternal: boolean;
@@ -52,9 +52,9 @@ export interface CustomTileGlobalContentProps {
 
 export interface CustomTileContentProps {
   title: string;
-  text: string;
+  blurb: string;
   titleLength?: number;
-  textLength?: number;
+  blurbLength?: number;
 }
 export interface CustomTileIconProps {
   title: string;

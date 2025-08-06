@@ -5,9 +5,9 @@
  *  
  * @param {string} className - Custom CSS class
  * @param {string} title - The main title/text of the tile
- * @param {string} text - Descriptive text content
+ * @param {string} blurb - Text content's blurb
  * @param {number} [titleLength] - Optional character limit for title
- * @param {number} [textLength] - Optional character limit for text
+ * @param {number} [blurbLength] - Optional character limit for text
  * @param {'vertical'|'horizontal'} [stackOrder='vertical'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
  * 
@@ -24,7 +24,7 @@
   <CustomTile 
     linksTo="/dashboard" 
     title="Dashboard" 
-    text="Go to your dashboard"
+    blurb="Go to your dashboard"
   />
 
   // External link with new tab
@@ -32,13 +32,13 @@
     linksTo="https://external.site"
     linkTarget="_blank"
     title="External Site"
-    text="Visit our partner site"
+    blurb="Visit our partner site"
   />
 
   // Regular tile without link
   <CustomTile
     title="Information"
-    text="Static content tile"
+    blurb="Static content tile"
   />
  */
 import { useState } from 'react';
@@ -75,10 +75,10 @@ export type CustomTileProps = {
   titleLength?: number;
 
   /**
-   * Maximum character count for text content
+   * Maximum character count for blurb content
    * @remarks Truncates with ellipsis if exceeded
    */
-  textLength?: number;
+  blurbLength?: number;
 
   /**
    * Icon identifier (matches CustomIcon component)
@@ -102,7 +102,7 @@ export type CustomTileProps = {
    * Descriptive content text
    * @required
    */
-  text?: string;
+  blurb?: string;
 
   /**
    * Destination URL/path when tile is clickable
@@ -122,11 +122,11 @@ const CustomTile = ({
   className,
   stackOrder = 'vertical',
   titleLength,
-  textLength,
+  blurbLength,
   iconName,
   showsModal,
   title,
-  text,
+  blurb,
   linksTo,
   linkTarget = '_self' as LinkTargetType['name'],
 }: CustomTileProps) => {
@@ -146,9 +146,9 @@ const CustomTile = ({
   const tileContent = getTileContent({
     iconName,
     title,
-    text,
+    blurb,
     titleLength,
-    textLength,
+    blurbLength,
     link: {
       isActive: linkIsActive,
       isExternal: linkIsExternal,
@@ -180,7 +180,7 @@ const CustomTile = ({
   }
 
   return (
-    <>
+    <div className="enj-CustomTile-wrapper">
       <Tile
         className={`${tileClassNames} ${className}`}
         aria-label={`${title} tile`}
@@ -201,11 +201,11 @@ const CustomTile = ({
         >
           <div>
             <h3>{title}</h3>
-            <article>{text}</article>
+            {/* <article>{text}</article> */}
           </div>
         </ContentModal>
       )}
-    </>
+    </div>
   );
 };
 

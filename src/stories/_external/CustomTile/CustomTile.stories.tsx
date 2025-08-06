@@ -11,14 +11,15 @@ import {
 const sharedArgs = {
   stackOrder: 'vertical' as CustomTileStackOrder['name'],
   titleLength: 50,
-  textLength: 300,
+  blurbLength: 300,
   iconName: undefined,
   linksTo: undefined,
   linkTarget: '_self' as LinkTargetType['name'],
   showsModal: undefined,
   title:
     'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
-  text: 'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+  blurb:
+    'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
 };
 
 const meta: Meta<typeof CustomTile> = {
@@ -33,7 +34,7 @@ const meta: Meta<typeof CustomTile> = {
       control: 'select',
       options: [50, 100, 200, 300, 500, 1000],
     },
-    textLength: {
+    blurbLength: {
       control: 'select',
       options: [50, 100, 200, 300, 500, 1000],
     },
@@ -77,17 +78,17 @@ export const HorizontalNoIconNoImgNoLinking: Story = {
 export const SkeletonVerticalNoIconNoImg: Story = {
   args: {
     title: undefined,
-    text: undefined,
-    // The animated skeleton will show up if "title" or "text" props are undefined
+    blurb: undefined,
+    // The animated skeleton will show up if "title" or "blurb" props are undefined
   },
 };
 
 export const SkeletonHorizontalNoIconNoImg: Story = {
   args: {
     title: undefined,
-    text: undefined,
+    blurb: undefined,
     stackOrder: 'horizontal',
-    // The animated skeleton will show up if "title" or "text" props are undefined
+    // The animated skeleton will show up if "title" or "blurb" props are undefined
   },
 };
 
