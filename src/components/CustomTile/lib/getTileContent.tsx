@@ -31,7 +31,7 @@ export const getTileContent = ({
 
       <FeatureText
         title={title}
-        blurb={blurb}
+        plainText={blurb}
         titleLength={titleLength}
         blurbLength={blurbLength}
       />

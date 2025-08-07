@@ -1,15 +1,15 @@
 import CMSRichText from '../CMSRichText/CMSRichText';
 import { SmartTextProps } from './libs/types';
-import { propsValidation } from './libs/propsValidation';
+import { smartTextPropsValidation } from '@/libs/smartTextPropsValidation';
 
 const SmartText = ({ className, plainText, richText }: SmartTextProps) => {
-  // Local level prop-type validation ...
-  propsValidation({ plainText, richText, className });
+  // Throw errors if smart text validation rules aren't applied ...
+  smartTextPropsValidation({ plainText, richText });
 
   return (
     <>
       {plainText ? (
-        <article className={className}>{plainText}</article>
+        <>{plainText}</>
       ) : richText ? (
         <CMSRichText data={richText} className={className} />
       ) : null}
