@@ -117,10 +117,10 @@ export const OpensModalUpWithPlainText: Story = {
     plainDescription:
       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
     richDescription: undefined, // Must remain undefined when "plainDescription" is specified
-    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
+    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
     showsModal: true,
     linkTarget: undefined, // Must remain undefined when "showsModal" is specified
-    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
+    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
   },
 };
 
@@ -130,10 +130,10 @@ export const OpensModalUpWithRichText: Story = {
     // The modal will display rich text
     plainDescription: undefined, // Must remain undefined when "plainDescription" is specified
     richDescription: project?.data[activeLang]?.description,
-    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
+    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
     showsModal: true,
     linkTarget: undefined, // Must remain undefined when "showsModal" is specified
-    // TypeScript will be raise if both props are specified (See CustomTileExclusiveProps for more info)
+    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
   },
 };
 
@@ -145,6 +145,7 @@ export const ErrorsModalProps: Story = {
   args: {
     ...sharedArgs,
     // An error will be thrown because both "plainDescription" and "richDescription" have been provided
+
     plainDescription:
       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
     richDescription: project?.data[activeLang]?.description,
@@ -152,6 +153,7 @@ export const ErrorsModalProps: Story = {
     linkTarget: undefined,
   },
 };
+
 export const ErrorsLinkAndModalProps: Story = {
   args: {
     ...sharedArgs,
@@ -159,10 +161,8 @@ export const ErrorsLinkAndModalProps: Story = {
     plainDescription:
       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
     richDescription: undefined,
-    showsModal: true,
     linksTo: 'https://carbondesignsystem.com',
     linkTarget: '_blank' as LinkTargetType['name'],
+    showsModal: true,
   },
 };
-
-// linksTo && linkTarget && showsModal !== undefined
