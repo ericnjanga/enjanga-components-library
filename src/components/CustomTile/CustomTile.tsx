@@ -156,7 +156,7 @@ const CustomTile = ({
     titleLength,
     blurbLength,
     link: {
-      isActive: linkIsActive,
+      isAvailable: linkIsActive,
       isExternal: linkIsExternal,
     },
   });

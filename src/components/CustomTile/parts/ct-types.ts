@@ -37,7 +37,7 @@ export interface CustomTileGlobalContentProps {
   titleLength?: number;
   blurbLength?: number;
   link: {
-    isActive: boolean;
+    isAvailable: boolean;
     isExternal: boolean;
   };
 }
@@ -48,9 +48,9 @@ export interface CustomTileContentProps {
   titleLength?: number;
   blurbLength?: number;
 }
-export interface CustomTileIconProps {
+export interface CustomTileArrowIconProps {
   title: string;
-  linkIsExternal: boolean;
+  orientation: 'Right' | 'UpRight';
 }
 
 export type LinkWrapperType = React.ReactElement<{
