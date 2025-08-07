@@ -1,26 +1,16 @@
-import { CustomTileDescriptionProps } from './ct-types';
-
-// (If I ever decide to use compile-time props validation)
-// // 1. Stronger type definition with compile-time validation
-// type CustomTileDescriptionProps =
-//   | { plainDescription: string; richDescription?: never }
-//   | { richDescription: { json: { content: Node[] } }; plainDescription?: never }
-//   | { plainDescription?: never; richDescription?: never }; // Optional empty state
-
-// Rule: both properties cannot be displayed at the same time
-export function validateDescriptionProps({
-  plainDescription,
-  richDescription,
-}: CustomTileDescriptionProps) {
-  if (plainDescription && richDescription) {
-    throw new Error(
-      'Invalid props: Use either "plainDescription" OR "richDescription", never both.'
-    );
+// ...
+// Opens modal up when triggered
+export const handleCustomTileClick = ({
+  showsModal,
+  setModalIsOpen,
+}: {
+  showsModal: boolean | undefined;
+  /** State setter */
+  setModalIsOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+}) => {
+  if (showsModal !== undefined) {
+    setModalIsOpen(true);
+    // ...
+    // ...
   }
-
-  if (!plainDescription && !richDescription) {
-    throw new Error(
-      'Missing content: You must provide either "plainDescription" OR "richDescription"'
-    );
-  }
-}
+};

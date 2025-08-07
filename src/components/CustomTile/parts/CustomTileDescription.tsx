@@ -1,12 +1,12 @@
 import CMSRichText from '../../CMSRichText/CMSRichText';
 import { CustomTileDescriptionProps } from './ct-types';
-import { validateDescriptionProps } from './utils';
+import { validateDescriptionProps } from '../lib/propsValidation';
 
 const CustomTileDescription = ({
   plainDescription,
   richDescription,
 }: CustomTileDescriptionProps) => {
-  // Type-safe validation
+  // Local level prop-type validation ...
   validateDescriptionProps({ plainDescription, richDescription });
 
   return (

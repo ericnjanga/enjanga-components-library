@@ -141,7 +141,7 @@ export const OpensModalUpWithRichText: Story = {
  * Props validation errors
  * ---------------
  */
-export const ErrorsModalProps: Story = {
+export const ErrorsModalDescriptionProps: Story = {
   args: {
     ...sharedArgs,
     // An error will be thrown because both "plainDescription" and "richDescription" have been provided

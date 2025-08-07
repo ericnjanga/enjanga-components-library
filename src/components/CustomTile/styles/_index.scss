@@ -1,0 +1,137 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/colors' as *;
+@import './mixins';
+
+:root {
+  --enj-CustomTile-br-col: #{$gray-60};
+}
+
+// Apply the same hover effect for non-link components
+.enj-CustomTile-has-hover-effect {
+  @include customTile-hover;
+}
+
+// ...
+.enj-CustomTile {
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 0; // We cancel all padding by default
+  border: 1px solid var(--enj-CustomTile-br-col);
+
+  // Variables ...
+  --enj-CustomTile-gap: #{$spacing-06};
+
+  /***/
+
+  /**
+   * We must only apply padding once. Therefore, if the component is linking locally/externally, 
+   * we will not apply padding to the external frame.
+  **/
+  &--vertical {
+    &:not(.enj-CustomTile--link) {
+      @include CT-decoration-vertical;
+    }
+
+    &.enj-CustomTile--link {
+      a.enj-CustomTile-anchor-tag {
+        @include CT-decoration-vertical;
+      }
+    }
+  }
+
+  &--horizontal {
+    &:not(.enj-CustomTile--link) {
+      @include CT-decoration-horizontal;
+    }
+
+    &.enj-CustomTile--link {
+      a.enj-CustomTile-anchor-tag {
+        @include CT-decoration-horizontal;
+      }
+    }
+  }
+  /**
+   * ----------------------
+  **/
+
+  &--vertical {
+    // Declarations ...
+    display: flex;
+    gap: $spacing-06;
+    max-width: 460px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      flex: 1;
+    }
+    .enj-icon {
+      bottom: $spacing-06;
+      right: $spacing-06;
+    }
+  }
+
+  &--horizontal {
+    // Variables ...
+    --enj-CustomTile-flex-dir: column;
+    // --enj-CustomTile-h-padd: #{$spacing-06};
+
+    // Declarations ...
+    .enj-CustomTile-icon {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: var(--enj-CustomTile-flex-dir);
+      gap: var(--enj-CustomTile-gap);
+    }
+    .enj-icon {
+      bottom: var(--enj-CustomTile-h-padd);
+      right: var(--enj-CustomTile-h-padd);
+    }
+
+    @include breakpoint('md') {
+      --enj-CustomTile-flex-dir: row;
+    }
+  }
+
+  .enj-icon {
+    position: absolute;
+  }
+}
+
+.enj-CustomTile--link {
+  a.enj-CustomTile-anchor-tag {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      @include customTile-hover;
+    }
+  }
+}
+
+/**
+ * Skeleton Animation
+ * ------------------------------
+*/
+.enj-CustomTile-title {
+  .skeleton-title {
+    width: 100%;
+
+    &:first-of-type {
+      width: 70%;
+    }
+  }
+}
+.enj-CustomTile-blurb {
+  .skeleton-blurb {
+    &:first-of-type {
+      width: 70%;
+    }
+  }
+}

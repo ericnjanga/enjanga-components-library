@@ -30,18 +30,19 @@
 import { useState } from 'react';
 import React from 'react';
 import { Tile } from '@carbon/react';
-import {
-  getTileContent,
-  getCustomTileCSSClasses,
-  getLinkWrapper,
-} from './parts/ct-core-parts';
+import { getCustomTileCSSClasses } from './lib/getCustomTileCSSClasses';
+import { getLinkWrapper } from './lib/getLinkwrapper';
+import { getTileContent } from './lib/getTileContent';
 import { CustomIconProps } from '../CustomIcon';
 import { CustomTileStackOrder, LinkTargetType } from './parts/ct-types';
 import { CustomTileProps1Validation } from './parts/ct-types-validation';
 import { ContentModal } from '../ContentModal/ContentModal';
 import type { Node } from '@contentful/rich-text-types';
 import CustomTileDescription from './parts/CustomTileDescription';
+import { handleCustomTileClick } from './parts/utils';
+import { validateCustomTileProps } from './lib/propsValidation';
 
+// Props types ...
 export type CustomTileProps = {
   /**
    * Custom CSS class
@@ -129,17 +130,23 @@ const CustomTile = ({
   linksTo,
   linkTarget = '_self' as LinkTargetType['name'],
 }: CustomTileProps) => {
-  // ...
-  const tileClassNames = getCustomTileCSSClasses({
+  // Controlling modal appearance:
+  // (The state is only created if showsModal is provided)
+  const [modalIsOpen, setModalIsOpen] = useState(
+    showsModal !== undefined ? false : undefined
+  );
+
+  // Get all the CSS classes the component's wrapper needs ...
+  const wrapperClassNames = getCustomTileCSSClasses({
     stackOrder,
     linksTo,
     linkTarget,
   });
 
   // ...
+  const linkIsActive = showsModal !== undefined || linksTo !== undefined;
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
-  const linkIsActive = showsModal !== undefined || linksTo !== undefined;
 
   // ...
   const tileContent = getTileContent({
@@ -153,37 +160,23 @@ const CustomTile = ({
       isExternal: linkIsExternal,
     },
   });
+
   const LinkWrapper = getLinkWrapper({
     title,
     linksTo,
     linkTarget,
     linkIsExternal,
   });
-  // State is only created if showsModal is provided
-  const [isOpen, setIsOpen] = useState(
-    showsModal !== undefined ? false : undefined
-  );
 
-  const handleClick = () => {
-    if (showsModal !== undefined) {
-      setIsOpen(true);
-      // ...
-      // ...
-    }
-  };
-
-  if (linksTo && linkTarget && showsModal !== undefined) {
-    throw new Error(
-      `Invalid props: CustomTile cannot be both a link and a modal trigger. Use either "showsModal" OR "linksTo", never both.`
-    );
-  }
+  // ...
+  validateCustomTileProps({ linksTo, linkTarget, showsModal });
 
   return (
     <div className="enj-CustomTile-wrapper">
       <Tile
-        className={`${tileClassNames} ${className}`}
+        className={`${wrapperClassNames} ${className}`}
         aria-label={`${title} tile`}
-        onClick={handleClick}
+        onClick={() => handleCustomTileClick({ showsModal, setModalIsOpen })}
       >
         {linksTo ? (
           <>{React.cloneElement(LinkWrapper, {}, tileContent)}</>
@@ -191,19 +184,18 @@ const CustomTile = ({
           tileContent
         )}
       </Tile>
-      {showsModal && title && isOpen !== undefined && (
+
+      {showsModal && title && modalIsOpen !== undefined && (
         <ContentModal
-          isOpen={isOpen}
+          isOpen={modalIsOpen}
           modalHeading={title}
           modalSecondaryButtonText="Cancel"
-          setIsOpen={setIsOpen}
+          setIsOpen={setModalIsOpen}
         >
-          <div>
-            <CustomTileDescription
-              plainDescription={plainDescription}
-              richDescription={richDescription}
-            />
-          </div>
+          <CustomTileDescription
+            plainDescription={plainDescription}
+            richDescription={richDescription}
+          />
         </ContentModal>
       )}
     </div>
