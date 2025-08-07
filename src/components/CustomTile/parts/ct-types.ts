@@ -1,11 +1,5 @@
 import React from 'react';
 import { CustomIconProps } from '../../CustomIcon';
-import type { Node } from '@contentful/rich-text-types';
-
-export interface CustomTileDescriptionProps {
-  plainDescription?: string;
-  richDescription?: { json: { content: Node[] } };
-}
 
 export type CustomTileStackOrder = {
   name: 'vertical' | 'horizontal';

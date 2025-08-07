@@ -38,7 +38,7 @@ import { CustomTileStackOrder, LinkTargetType } from './parts/ct-types';
 import { CustomTileProps1Validation } from './parts/ct-types-validation';
 import { ContentModal } from '../ContentModal/ContentModal';
 import type { Node } from '@contentful/rich-text-types';
-import CustomTileDescription from './parts/CustomTileDescription';
+import SmartText from '../SmartText/SmartText';
 import { handleCustomTileClick } from './parts/utils';
 import { validateCustomTileProps } from './lib/propsValidation';
 
@@ -192,10 +192,7 @@ const CustomTile = ({
           modalSecondaryButtonText="Cancel"
           setIsOpen={setModalIsOpen}
         >
-          <CustomTileDescription
-            plainDescription={plainDescription}
-            richDescription={richDescription}
-          />
+          <SmartText plainText={plainDescription} richText={richDescription} />
         </ContentModal>
       )}
     </div>

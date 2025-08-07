@@ -1,8 +1,8 @@
 import { Meta, Title, Subtitle, Description, Primary, Controls, ArgsTable, Stories, Canvas } from '@storybook/blocks';
-import * as CustomTileStories from './CustomTile.stories'; // Relative import
-import CustomTile from '../../../components/CustomTile/CustomTile';
+import * as SmartTextStories from './SmartText.stories'; // Relative import
+import SmartText from '../../../components/SmartText/SmartText';
 
-<Meta of={CustomTileStories} />
+<Meta of={SmartTextStories} />
 
 <Title />
 
@@ -19,25 +19,13 @@ import CustomTile from '../../../components/CustomTile/CustomTile';
     <li><a href="#implementation-examples" target="_self">Implementation Examples</a></li>
     <li><a href="#accessibility" target="_self">Accessibility</a></li>
     <li><a href="#api-reference" target="_self">Component API</a></li>
-  </ul>
+  </ul> 
 </div>
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="overview" style={{ position: 'relative' }}>Overview </h2>
-  <div>Presentational component ment for presenting a type of information that must be acted on. By clicking on it, the user</div>
-  <ul>
-    <li>Redirected to a different application route</li>
-    <li>Opens up an external link</li>
-    <li>Opens up a modal</li>
-  </ul>
-  <div>The CustomTile component can take 2 shapes:</div>
-  <ul>
-    <li><b>Vertical</b>: With the content staked vertically --- The component has maximum width.</li>
-    <li><b>Hotizontal</b>: With the content staked horiontally --- No maximum width in this case.</li>
-  </ul>
-
-
+  <h2 id="overview" style={{ position: 'relative' }}>Overview </h2>  
+  <div>(coming soon) ...</div>
 
   <Primary /> 
 </div>
@@ -52,23 +40,11 @@ import CustomTile from '../../../components/CustomTile/CustomTile';
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2> 
   <h3>Property Validation 1</h3>
-  <div>CustomTile must be either (But cannot be both at the same time):</div>
-  <ul>
-    <li>A link (provide 'linksTo' and optionally 'linkTarget')</li>
-    <li>A modal trigger (provide 'showsModal')</li>
-  </ul>
-
+  <div>One of the properties "plainText" or "richText" must be provided (But cannot be both at the same time).</div>
+  
   <h3>Property Validation 2</h3>
-  <div>Only one property for the modal's main content can be provided at the time:</div>
-  <ul>
-    <li>Either plainDescription (string)</li>
-    <li>Or richDescription (rich text)</li>
-  </ul>
+  <div>Properties "plainText" and "richText" cannot be both undefined.</div>
 </div>
-
-
-
-
 
 
 
