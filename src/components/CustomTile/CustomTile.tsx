@@ -36,14 +36,11 @@ import {
   getLinkWrapper,
 } from './parts/ct-core-parts';
 import { CustomIconProps } from '../CustomIcon';
-import {
-  CustomTileStackOrder,
-  LinkTargetType,
-  CustomTileExclusiveProps,
-} from './parts/ct-types';
+import { CustomTileStackOrder, LinkTargetType } from './parts/ct-types';
+import { CustomTileProps1Validation } from './parts/ct-types-validation';
 import { ContentModal } from '../ContentModal/ContentModal';
 import type { Node } from '@contentful/rich-text-types';
-import CustomTileDescription from '../CMSRichText/parts/CustomTileDescription';
+import CustomTileDescription from './parts/CustomTileDescription';
 
 export type CustomTileProps = {
   /**
@@ -93,13 +90,13 @@ export type CustomTileProps = {
   blurb?: string;
 
   /**
-   * Text content's description (in string format)
+   * Modal main content text (in string format)
    * @required
    */
   plainDescription?: string;
 
   /**
-   * Text content's description (in rich format from a headless CMS like ContentFul)
+   * Modal main content text (in rich format from a headless CMS like ContentFul)
    * @required
    */
   richDescription?: { json: { content: Node[] } };
@@ -116,7 +113,7 @@ export type CustomTileProps = {
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target}
    */
   linkTarget?: LinkTargetType['name'];
-} & CustomTileExclusiveProps;
+} & CustomTileProps1Validation;
 
 const CustomTile = ({
   className,

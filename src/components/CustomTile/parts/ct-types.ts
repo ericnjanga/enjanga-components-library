@@ -1,19 +1,11 @@
 import React from 'react';
 import { CustomIconProps } from '../../CustomIcon';
+import type { Node } from '@contentful/rich-text-types';
 
-/**
- * Props validations rules
- * ----------
- * If "linksTo" and "linkTarget" are provided, "showsModal" cannot be provided and vice versa
- * Note: TypeScript will flag validation errors
- **/
-export type CustomTileExclusiveProps =
-  | {
-      linksTo?: string;
-      linkTarget?: LinkTargetType['name'];
-      showsModal?: never;
-    }
-  | { linksTo?: never; linkTarget?: never; showsModal?: boolean };
+export interface CustomTileDescriptionProps {
+  plainDescription?: string;
+  richDescription?: { json: { content: Node[] } };
+}
 
 export type CustomTileStackOrder = {
   name: 'vertical' | 'horizontal';
