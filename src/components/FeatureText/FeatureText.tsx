@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { textTrimmer } from '@/libs/textTrimmer';
 
 export interface FeatureTextProps {
-  cssClass?: string;
+  className?: string;
   title: string;
   blurb: string;
   titleLength?: number;
@@ -10,7 +10,7 @@ export interface FeatureTextProps {
 }
 
 const FeatureText = ({
-  cssClass,
+  className,
   title,
   blurb,
   titleLength,
@@ -21,9 +21,11 @@ const FeatureText = ({
   const trimmedText = textTrimmer({ text: blurb, length: blurbLength });
 
   return (
-    <div className={clsx(`enj-FeatureText`, cssClass)}>
-      <h3 className={clsx('enj-CustomTile-title')}>{trimmedTitle}</h3>
-      <p className={clsx('enj-CustomTile-blurb')}>{trimmedText}</p>
+    <div className={clsx(`enj-FeatureText`, className)}>
+      <h3 className={clsx('enj-FeatureText-title')}>{trimmedTitle}</h3>
+      <article className={clsx('enj-FeatureText-blurb')}>
+        <p>{trimmedText}</p>
+      </article>
     </div>
   );
 };
