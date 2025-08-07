@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { CustomTileGlobalContentProps } from './../parts/ct-types';
 import CustomIcon from '@/components/CustomIcon';
 import { isValidIconName } from '@/components/CustomIcon/CustomIcon';
-import { CustomTileContent } from '../parts/CustomTileContent';
 import { CustomTileArrowIcon } from '../parts/CustomTileArrowIcon';
 import CustomTileSkeleton from '../parts/CustomTileSkeleton';
+import { FeatureText } from '@/components/FeatureText';
 
 // Puts together component's core content
 export const getTileContent = ({
@@ -29,7 +29,7 @@ export const getTileContent = ({
         <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />
       )}
 
-      <CustomTileContent
+      <FeatureText
         title={title}
         blurb={blurb}
         titleLength={titleLength}

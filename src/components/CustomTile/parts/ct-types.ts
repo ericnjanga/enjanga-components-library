@@ -42,12 +42,6 @@ export interface CustomTileGlobalContentProps {
   };
 }
 
-export interface CustomTileContentProps {
-  title: string;
-  blurb: string;
-  titleLength?: number;
-  blurbLength?: number;
-}
 export interface CustomTileArrowIconProps {
   title: string;
   orientation: 'Right' | 'UpRight';
