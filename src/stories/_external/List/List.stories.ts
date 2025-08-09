@@ -6,7 +6,7 @@ const meta: Meta<typeof List> = {
   component: List,
   args: {
     type: 'ordered',
-    cssClass: 'custom-list-class',
+    cssClass: '',
     content: [
       { id: '1', name: 'Introduction', href: '#' },
       { id: '2', name: 'Features', href: '#' },
@@ -50,12 +50,6 @@ export const OrderedList: Story = {
 export const UnorderedList: Story = {
   args: {
     type: 'unordered',
-  },
-};
-
-export const CustomStyling: Story = {
-  args: {
-    cssClass: 'border border-gray-200 p-4 rounded',
   },
 };
 

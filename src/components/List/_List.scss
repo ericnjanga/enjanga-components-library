@@ -3,8 +3,19 @@
 
 .enj-list {
   // ...
+  padding-left: 1.1rem;
+
   li {
     line-height: $spacing-06;
-    background-color: $gray-20;
   }
+}
+
+// Display decimals ...
+ol.enj-list {
+  list-style: decimal;
+}
+
+// Display bullet points ...
+ul.enj-list {
+  list-style: disc;
 }

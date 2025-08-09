@@ -10,21 +10,15 @@
  */
 import clsx from 'clsx';
 import { ListItem } from '../ListItem';
-
-export type ListType = 'unordered' | 'ordered';
-
-export interface ListProps {
-  type?: ListType;
-  cssClass?: string;
-  content: {
-    name: string;
-    href?: string;
-    id?: string;
-  }[];
-}
+import { ListProps } from './libs/types';
+import { SkeletonAnimation } from '../SkeletonAnimation';
 
 const List = ({ type = 'unordered', cssClass, content }: ListProps) => {
   const ListWrapper = type === 'unordered' ? 'ul' : 'ol'; // Dynamically creating the list tag
+
+  if (!content || content.length < 1) {
+    return <SkeletonAnimation part="list" />;
+  }
 
   return (
     <ListWrapper className={clsx('enj-list', cssClass)}>
