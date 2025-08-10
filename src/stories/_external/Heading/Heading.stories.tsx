@@ -28,13 +28,15 @@ export default meta;
 
 type Story = StoryObj<typeof Heading>;
 
-export const h1: Story = {};
+export const Default: Story = {};
 
 export const Empty: Story = {
   args: {
     children: undefined,
   },
 };
+
+export const h1: Story = {};
 
 export const h2: Story = {
   args: {

@@ -41,6 +41,36 @@ export default meta;
 
 type Story = StoryObj<typeof Banner>;
 
+export const Default: Story = {};
+
+export const EmptySmallBanner: Story = {
+  args: {
+    title: undefined,
+  },
+};
+
+export const EmptySmallBannerWithDescription: Story = {
+  args: {
+    title: undefined,
+    showPlainDescription: true, // || showRichDescription (either or both)
+  },
+};
+
+export const EmptyHugeBanner: Story = {
+  args: {
+    isHuge: true,
+    title: undefined,
+  },
+};
+
+export const EmptyHugeBannerWithDescription: Story = {
+  args: {
+    isHuge: true,
+    title: undefined,
+    showPlainDescription: true, // || showRichDescription (either or both)
+  },
+};
+
 export const SmallBanner: Story = {};
 
 export const SmallBannerWithPlainDescription: Story = {
@@ -72,33 +102,5 @@ export const hugeBannerWithRichDescription: Story = {
   args: {
     isHuge: true,
     showRichDescription: true,
-  },
-};
-
-export const smallBannerSkeleton: Story = {
-  args: {
-    title: undefined,
-  },
-};
-
-export const smallBannerSkeletonWithDescription: Story = {
-  args: {
-    title: undefined,
-    showPlainDescription: true, // || showRichDescription (either or both)
-  },
-};
-
-export const hugeBannerSkeleton: Story = {
-  args: {
-    isHuge: true,
-    title: undefined,
-  },
-};
-
-export const hugeBannerSkeletonWithDescription: Story = {
-  args: {
-    isHuge: true,
-    title: undefined,
-    showPlainDescription: true, // || showRichDescription (either or both)
   },
 };

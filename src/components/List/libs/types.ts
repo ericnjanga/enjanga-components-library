@@ -1,3 +1,4 @@
+import { LIT_propsType } from '@/components/ListItem/libs/types';
 // List props type
 // ----------------
 
@@ -7,9 +8,5 @@ export type LST_typePropsType = (typeof LST_typeOpt)[number]; // Creating union 
 export interface LST_propsType {
   type?: LST_typePropsType;
   cssClass?: string;
-  content?: {
-    name: string;
-    href?: string;
-    id?: string;
-  }[];
+  content?: LIT_propsType[];
 }

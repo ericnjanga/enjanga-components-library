@@ -11,6 +11,7 @@
 import clsx from 'clsx';
 import { ListItem } from '../ListItem';
 import { LST_propsType } from './libs/types';
+import { LIT_propsType } from '@/components/ListItem/libs/types';
 import { SkeletonAnimation } from '../SkeletonAnimation';
 
 const List = ({ type = 'unordered', cssClass, content }: LST_propsType) => {
@@ -22,13 +23,16 @@ const List = ({ type = 'unordered', cssClass, content }: LST_propsType) => {
 
   return (
     <ListWrapper className={clsx('enj-list', cssClass)}>
-      {content.map(({ id, name, href }) => {
+      {content.map((item: LIT_propsType) => {
         return (
           <ListItem
-            key={id || `${name}-${href?.slice(0, 8)}`}
-            content={name}
-            href={href}
-          />
+            key={item.id || `${content}-${item.href?.slice(0, 8)}`}
+            content={item.content}
+            href={item.href}
+            cssClass={item.cssClass}
+          >
+            {item.children}
+          </ListItem>
         );
       })}
     </ListWrapper>

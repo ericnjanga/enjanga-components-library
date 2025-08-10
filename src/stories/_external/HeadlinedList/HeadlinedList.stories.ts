@@ -4,32 +4,15 @@ import {
   HDG_levelPropsType,
   HDG_levelOpt,
 } from '@/components/Heading/libs/types';
-import {
-  HDL_tagPropsType,
-  HDL_tagOpt,
-} from '@/components/HeadlinedList/libs/types';
-import { LST_typeOpt, LST_typePropsType } from '@/components/List/libs/types';
 
-const sharedArgs = {
-  wrapper: {
-    tag: HDL_tagOpt[0] as HDL_tagPropsType,
-    cssClass: '',
-  },
-  heading: {
-    content: 'My Awesome List',
-    level: 3 as HDG_levelPropsType,
-    cssClass: 'custom-heading-class',
-  },
-  list: {
-    type: LST_typeOpt[0] as LST_typePropsType,
-    cssClass: 'custom-list-class',
-    content: [
-      { id: '1', name: 'First Item', href: '#' },
-      { id: '2', name: 'Second Item', href: '#' },
-      { id: '3', name: 'Third Item', href: '#' },
-    ],
-  },
-};
+import { LST_typeOpt, LST_typePropsType } from '@/components/List/libs/types';
+import {
+  mockHeadlinedListArgs,
+  mockListArgs,
+  mockListUnlinked,
+  mockListLinked,
+  mockListMixed,
+} from '@/mockData/mockLists';
 
 const meta: Meta<typeof HeadlinedList> = {
   title: 'External Components/HeadlinedList',
@@ -63,7 +46,7 @@ const meta: Meta<typeof HeadlinedList> = {
     },
   },
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
   },
   parameters: {
     docs: {
@@ -79,7 +62,7 @@ export default meta;
 type Story = StoryObj<typeof HeadlinedList>;
 
 export const Default: Story = {
-  args: { ...sharedArgs },
+  args: { ...mockHeadlinedListArgs },
 };
 
 export const EmptyList: Story = {
@@ -92,17 +75,27 @@ export const EmptyListAndHeading: Story = {
   args: {
     list: undefined,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       content: undefined,
+    },
+  },
+};
+
+export const WithMixedData: Story = {
+  args: {
+    ...mockHeadlinedListArgs,
+    list: {
+      ...mockHeadlinedListArgs.list,
+      content: [...mockListMixed],
     },
   },
 };
 
 export const H1List: Story = {
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       level: 1,
     },
   },
@@ -110,9 +103,9 @@ export const H1List: Story = {
 
 export const H2List: Story = {
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       level: 2,
     },
   },
@@ -120,9 +113,9 @@ export const H2List: Story = {
 
 export const H3List: Story = {
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       level: 3,
     },
   },
@@ -130,9 +123,9 @@ export const H3List: Story = {
 
 export const H4List: Story = {
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       level: 4,
     },
   },
@@ -140,9 +133,9 @@ export const H4List: Story = {
 
 export const H5List: Story = {
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       level: 5,
     },
   },
@@ -150,9 +143,9 @@ export const H5List: Story = {
 
 export const H6List: Story = {
   args: {
-    ...sharedArgs,
+    ...mockHeadlinedListArgs,
     heading: {
-      ...sharedArgs.heading,
+      ...mockHeadlinedListArgs.heading,
       level: 6,
     },
   },
