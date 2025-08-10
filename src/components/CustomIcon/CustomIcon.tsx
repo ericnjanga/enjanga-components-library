@@ -5,27 +5,7 @@
  */
 
 import clsx from 'clsx';
-import { Hills, AppDeveloper, Leadership } from '@carbon/pictograms-react';
-import type { ComponentType, SVGProps } from 'react';
-
-export interface CustomIconProps {
-  name: 'Hills' | 'App Developer' | 'Leadership';
-  className?: string;
-}
-
-export const isValidIconName = (name: unknown): boolean =>
-  customIconsList.includes(name as string);
-
-export const customIconsList = ['Hills', 'App Developer', 'Leadership'];
-
-const pictogramMap: Record<
-  CustomIconProps['name'],
-  ComponentType<SVGProps<SVGSVGElement>>
-> = {
-  Hills,
-  'App Developer': AppDeveloper,
-  Leadership,
-};
+import { CI_propsType, pictogramMap } from './libs/types';
 
 /**
  * NOTE:
@@ -33,7 +13,7 @@ const pictogramMap: Record<
  * width="3rem" height="3rem" must be controlled externally
  */
 
-const CustomIcon = ({ name, className }: CustomIconProps) => {
+const CustomIcon = ({ name, className }: CI_propsType) => {
   const Pictogram = pictogramMap[name];
 
   return (

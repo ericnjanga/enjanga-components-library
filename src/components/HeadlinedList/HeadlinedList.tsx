@@ -5,43 +5,25 @@
  */
 
 import clsx from 'clsx';
-import List, { ListType } from '../List/List';
-
-export interface HeadlinedListProps {
-  wrapper?: {
-    tag: 'div' | 'section';
-    cssClass?: string;
-  };
-  heading: {
-    content: string;
-    h: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    cssClass?: string;
-  };
-  list?: {
-    type?: ListType;
-    cssClass?: string;
-    content: {
-      name: string;
-      href?: string;
-      id?: string; // For better key props
-      cssClass?: string;
-    }[];
-  };
-}
+import List from '../List/List';
+import { Heading } from '../Heading';
+import { HDL_propsType } from './libs/types';
 
 const HeadlinedList = ({
   wrapper = { tag: 'div', cssClass: '' },
-  heading = { content: '', h: 'h3', cssClass: '' },
+  heading = { content: '', level: 3, cssClass: '' },
   list,
-}: HeadlinedListProps) => {
-  // Dynamically creating ...
-  const Wrapper = wrapper.tag; // Wrapper tag
-  const Heading = heading.h; // Heading
+}: HDL_propsType) => {
+  const Wrapper = wrapper.tag; // Dynamically creating the wrapper tag
 
   return (
     <Wrapper className={clsx('enj-HeadlinedList', wrapper.cssClass)}>
-      <Heading className={clsx(heading.cssClass)}>{heading.content}</Heading>
-      {list?.content?.length ? <List {...list} /> : null}
+      <Heading level={heading.level} className={heading.cssClass}>
+        {heading.content}
+      </Heading>
+
+      {/** A list receiving no params will render a skeleton animation */}
+      {list?.content?.length ? <List {...list} /> : <List />}
     </Wrapper>
   );
 };

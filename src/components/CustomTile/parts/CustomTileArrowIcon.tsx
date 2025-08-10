@@ -4,7 +4,7 @@
  * Move this icon as a separate component in the library
  */
 
-import { CustomTileArrowIconProps } from './ct-types';
+import { CustomTileArrowIconProps } from '../lib/ct-types';
 import { ArrowRight, ArrowUpRight } from '@carbon/icons-react';
 
 export const CustomTileArrowIcon = ({

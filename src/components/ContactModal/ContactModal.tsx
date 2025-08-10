@@ -13,15 +13,7 @@ import {
   FormGroup,
   Stack,
 } from '@carbon/react';
-export interface ContactModalProps {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  modalLabel: string;
-  modalHeading: string;
-  modalSubHeading: string;
-  modalPrimaryButtonText: string;
-  modalSecondaryButtonText: string;
-}
+import { ContactM_propsType } from './libs/types';
 
 const ContactModal = ({
   isOpen,
@@ -31,7 +23,7 @@ const ContactModal = ({
   modalSubHeading,
   modalPrimaryButtonText,
   modalSecondaryButtonText,
-}: ContactModalProps) => {
+}: ContactM_propsType) => {
   return (
     <Modal
       open={isOpen}

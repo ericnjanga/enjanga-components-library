@@ -1,4 +1,4 @@
-import ContactButton, { contactButtonIconsList } from './ContactButton';
+import ContactButton, { CB_Icons_opts } from './ContactButton';
 
 /**
  * Central export

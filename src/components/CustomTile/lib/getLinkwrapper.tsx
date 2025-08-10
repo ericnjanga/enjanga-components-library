@@ -1,7 +1,4 @@
-import {
-  CustomTileLinkWrapperProps,
-  LinkWrapperType,
-} from './../parts/ct-types';
+import { CustomTileLinkWrapperProps, LinkWrapperType } from './ct-types';
 
 // LinkWrapper pattern for cleanliness and maintainability of all functionality
 export const getLinkWrapper = ({

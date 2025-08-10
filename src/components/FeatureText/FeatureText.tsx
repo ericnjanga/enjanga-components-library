@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { SmartText } from '../SmartText';
 import { textTrimmer } from '@/libs/textTrimmer';
-import { FeatureTextProps } from './libs/types';
+import { FTX_propsType } from './libs/types';
 import { smartTextPropsValidation } from '@/libs/smartTextPropsValidation';
 
 const FeatureText = ({
@@ -11,7 +11,7 @@ const FeatureText = ({
   richText,
   titleLength,
   blurbLength,
-}: FeatureTextProps) => {
+}: FTX_propsType) => {
   // Throw errors if smart text validation rules aren't applied ...
   smartTextPropsValidation({ plainText, richText });
 

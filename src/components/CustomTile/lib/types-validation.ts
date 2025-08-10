@@ -1,4 +1,4 @@
-import { LinkTargetType } from './ct-types';
+import { CTL_LinkTargetType } from './types';
 
 /**
  * Props validations rules
@@ -12,7 +12,7 @@ type ErrorMessage<T extends string> = `🚨 Prop Validation Error: ${T}`;
 
 interface LinkProps {
   linksTo: string;
-  linkTarget?: LinkTargetType['name'];
+  linkTarget?: CTL_LinkTargetType;
   showsModal?: ErrorMessage<"Component cannot be both a link and a modal - remove either 'showsModal' or 'linksTo'">;
 }
 
@@ -22,4 +22,4 @@ interface ModalProps {
   linkTarget?: ErrorMessage<"Modal version cannot have 'linkTarget' - remove this prop">;
 }
 
-export type CustomTileProps1Validation = LinkProps | ModalProps;
+export type CTL_propsType1Validation = LinkProps | ModalProps;

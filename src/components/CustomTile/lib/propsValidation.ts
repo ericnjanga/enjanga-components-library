@@ -1,15 +1,15 @@
-import { LinkTargetType } from './../parts/ct-types';
+import { CTL_LinkTargetType } from './ct-types';
 
 // Type-safe validation ...
 // Trows an error if the rule doesn't apply
 // Rule: ...
-export function validateCustomTileProps({
+export function validateCTL_propsType({
   linksTo,
   linkTarget,
   showsModal,
 }: {
   linksTo?: string;
-  linkTarget?: LinkTargetType['name'];
+  linkTarget?: CTL_LinkTargetType['name'];
   showsModal?: boolean;
 }) {
   if (linksTo && linkTarget && showsModal !== undefined) {

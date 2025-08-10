@@ -14,30 +14,10 @@ import {
   CommunicationUnified,
 } from '@carbon/icons-react';
 import { ContactModal } from '../ContactModal';
-
-export interface ContactButtonProps {
-  btnText: string;
-  btnIcon?: 'Email' | 'Chat' | 'CustomerService' | 'CommunicationUnified';
-  btnKind?: 'primary' | 'secondary';
-  btnSize?: 'sm' | 'md';
-  modalLabel: string;
-  modalHeading: string;
-  modalSubHeading: string;
-  modalPrimaryButtonText: string;
-  modalSecondaryButtonText: string;
-}
-
-export const contactButtonIconsList = [
-  'Email',
-  'Chat',
-  'CustomerService',
-  'CommunicationUnified',
-] as const;
-export const contactButtonKindProps = ['primary', 'secondary'] as const;
-export const contactButtonSizeProps = ['sm', 'md'] as const;
+import { CBNN_propsType, CB_Icons_opts } from './libs/types';
 
 // Create a type-safe mapping between icon names and components
-type IconName = (typeof contactButtonIconsList)[number];
+type IconName = (typeof CB_Icons_opts)[number];
 const iconComponents: Record<IconName, CarbonIconType> = {
   Email,
   Chat,
@@ -55,7 +35,7 @@ const ContactButton = ({
   modalSubHeading = '...',
   modalPrimaryButtonText = 'Submit',
   modalSecondaryButtonText = 'Cancel',
-}: ContactButtonProps) => {
+}: CBNN_propsType) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Getting the corresponding icon component

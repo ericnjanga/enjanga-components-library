@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Sk_propsTypes } from './libs/types';
+import { Sk_propsType } from './libs/types';
 
 const SkeletonListItem = () => (
   <div className="skeleton-list-item skeleton-bot-spacing-2">
@@ -8,7 +8,7 @@ const SkeletonListItem = () => (
   </div>
 );
 
-const SkeletonAnimation = ({ className, part }: Sk_propsTypes) => {
+const SkeletonAnimation = ({ className, part }: Sk_propsType) => {
   return (
     <>
       {part === 'heading' && (

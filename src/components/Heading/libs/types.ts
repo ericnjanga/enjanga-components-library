@@ -1,7 +1,11 @@
-export type HeadingLevelProps = 1 | 2 | 3 | 4 | 5 | 6;
+// Heading props type
+// ----------------
 
-export type HeadingProps = {
-  level: HeadingLevelProps;
-  children: React.ReactNode;
+export const HDG_levelOpt = [1, 2, 3, 4, 5, 6] as const;
+export type HDG_levelPropsType = (typeof HDG_levelOpt)[number]; // Creating union type 1 | 2 | 3 | ...
+
+export type HDG_propsType = {
+  level: HDG_levelPropsType;
+  children?: React.ReactNode;
   className?: string;
 };

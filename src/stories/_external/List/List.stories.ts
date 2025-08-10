@@ -41,6 +41,12 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
+export const EmptyList: Story = {
+  args: {
+    content: [],
+  },
+};
+
 export const OrderedList: Story = {
   args: {
     type: 'ordered',
@@ -50,11 +56,5 @@ export const OrderedList: Story = {
 export const UnorderedList: Story = {
   args: {
     type: 'unordered',
-  },
-};
-
-export const EmptyList: Story = {
-  args: {
-    content: [],
   },
 };

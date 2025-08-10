@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { CustomTileGlobalContentProps } from './../parts/ct-types';
+import { CustomTileGlobalContentProps } from './ct-types';
 import CustomIcon from '@/components/CustomIcon';
 import { isValidIconName } from '@/components/CustomIcon/CustomIcon';
 import { CustomTileArrowIcon } from '../parts/CustomTileArrowIcon';

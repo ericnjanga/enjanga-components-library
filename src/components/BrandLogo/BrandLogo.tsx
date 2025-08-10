@@ -8,21 +8,15 @@
  */
 import React from 'react';
 import clsx from 'clsx';
+import { BL_propsType } from './libs/types';
 // Styles are imported globally
-
-interface BrandLogoProps {
-  value: string | React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  alt?: string;
-}
 
 const BrandLogo = ({
   value,
   className = '',
   style = {},
   alt = 'Brand Logo',
-}: BrandLogoProps) => {
+}: BL_propsType) => {
   // Handle string (text content)
   if (typeof value === 'string') {
     return (

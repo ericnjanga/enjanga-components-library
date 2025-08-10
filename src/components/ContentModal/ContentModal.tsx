@@ -39,28 +39,11 @@ import {
   ModalFooter,
   Button,
 } from '@carbon/react';
+import { ContentM_propsType } from './libs/types';
 
 /**
  * Props for the ContentModal component
  */
-export interface ContentModalProps {
-  /** Controls whether the modal is visible */
-  isOpen: boolean;
-  /** State setter for modal visibility (Component won't be rendered is prop is not provided) */
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-  /** Optional label text displayed above the title */
-  modalLabel?: string;
-  /** Main modal heading/title */
-  modalHeading: string;
-  /** Optional subheading text */
-  modalSubHeading?: string;
-  /** Text for the secondary action button */
-  modalSecondaryButtonText: string;
-  /** Callback when secondary button is clicked */
-  onSecondaryButtonClick?: () => void;
-  /** Modal content children */
-  children?: React.ReactNode;
-}
 
 export const ContentModal = ({
   isOpen,
@@ -71,7 +54,7 @@ export const ContentModal = ({
   modalSecondaryButtonText,
   onSecondaryButtonClick,
   children,
-}: ContentModalProps) => {
+}: ContentM_propsType) => {
   const handleClose = () => {
     setIsOpen(false);
   };

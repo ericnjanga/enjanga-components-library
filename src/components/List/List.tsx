@@ -10,10 +10,10 @@
  */
 import clsx from 'clsx';
 import { ListItem } from '../ListItem';
-import { ListProps } from './libs/types';
+import { LST_propsType } from './libs/types';
 import { SkeletonAnimation } from '../SkeletonAnimation';
 
-const List = ({ type = 'unordered', cssClass, content }: ListProps) => {
+const List = ({ type = 'unordered', cssClass, content }: LST_propsType) => {
   const ListWrapper = type === 'unordered' ? 'ul' : 'ol'; // Dynamically creating the list tag
 
   if (!content || content.length < 1) {

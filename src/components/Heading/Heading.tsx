@@ -1,6 +1,11 @@
-import { HeadingProps } from './libs/types';
+import { HDG_propsType } from './libs/types';
+import { SkeletonAnimation } from '../SkeletonAnimation';
 
-const Heading = ({ level, children, className = '' }: HeadingProps) => {
+const Heading = ({ level, children, className = '' }: HDG_propsType) => {
+  if (children === undefined) {
+    return <SkeletonAnimation part="heading" />;
+  }
+
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   return <Tag className={className}>{children}</Tag>;
 };

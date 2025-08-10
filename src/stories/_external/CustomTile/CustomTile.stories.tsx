@@ -1,22 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CustomTile from '../../../components/CustomTile/CustomTile';
 import { Grid, Column } from '@carbon/react';
-import { customIconsList } from '../../../components/CustomIcon/CustomIcon';
+import { CI_nameOpt } from '@/components/CustomIcon/libs/types';
 import {
-  CustomTileStackOrder,
-  LinkTargetType,
-  LinkTargetList,
-} from '@/components/CustomTile/parts/ct-types';
+  CTL_LinkTargetType,
+  CTL_LinkTargetOpt,
+  CTL_StackOrderType,
+} from '@/components/CustomTile/lib/types';
 import { project } from '@/mockData/project';
+import { CTL_StackOrderOpt } from '@/components/CustomTile/lib/types';
 
 const activeLang = 'en';
 const sharedArgs = {
-  stackOrder: 'vertical' as CustomTileStackOrder['name'],
+  stackOrder: CI_nameOpt[0] as CTL_StackOrderType,
   titleLength: 50,
   blurbLength: 300,
   iconName: undefined,
   linksTo: undefined,
-  linkTarget: '_self' as LinkTargetType['name'],
+  linkTarget: CTL_LinkTargetOpt[1] as CTL_LinkTargetType,
   showsModal: undefined,
   title:
     'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
@@ -31,7 +32,7 @@ const meta: Meta<typeof CustomTile> = {
   argTypes: {
     stackOrder: {
       control: 'select',
-      options: ['vertical', 'horizontal'],
+      options: [...CTL_StackOrderOpt],
     },
     titleLength: {
       control: 'select',
@@ -43,11 +44,11 @@ const meta: Meta<typeof CustomTile> = {
     },
     iconName: {
       control: 'select',
-      options: ['...', ...customIconsList],
+      options: ['...', ...CI_nameOpt],
     },
     linkTarget: {
       control: 'select',
-      options: [...LinkTargetList],
+      options: [...CTL_LinkTargetOpt],
     },
     showsModal: {
       control: 'select',
@@ -99,7 +100,7 @@ export const OpensExternalLinkUp: Story = {
   args: {
     ...sharedArgs,
     linksTo: 'https://carbondesignsystem.com',
-    linkTarget: '_blank' as LinkTargetType['name'],
+    linkTarget: '_blank' as CTL_LinkTargetType,
   },
 };
 
@@ -117,10 +118,10 @@ export const OpensModalUpWithPlainText: Story = {
     plainDescription:
       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
     richDescription: undefined, // Must remain undefined when "plainDescription" is specified
-    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
+    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
     showsModal: true,
     linkTarget: undefined, // Must remain undefined when "showsModal" is specified
-    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
+    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
   },
 };
 
@@ -130,10 +131,10 @@ export const OpensModalUpWithRichText: Story = {
     // The modal will display rich text
     plainDescription: undefined, // Must remain undefined when "plainDescription" is specified
     richDescription: project?.data[activeLang]?.description,
-    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
+    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
     showsModal: true,
     linkTarget: undefined, // Must remain undefined when "showsModal" is specified
-    // TypeScript will be raise if both props are specified (See CustomTileProps1Validation for more info)
+    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
   },
 };
 
@@ -162,7 +163,7 @@ export const ErrorsPropsValidation2: Story = {
       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
     richDescription: undefined,
     linksTo: 'https://carbondesignsystem.com',
-    linkTarget: '_blank' as LinkTargetType['name'],
+    linkTarget: '_blank' as CTL_LinkTargetType,
     showsModal: true,
   },
 };

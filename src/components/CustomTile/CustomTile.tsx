@@ -33,88 +33,11 @@ import { Tile } from '@carbon/react';
 import { getCustomTileCSSClasses } from './lib/getCustomTileCSSClasses';
 import { getLinkWrapper } from './lib/getLinkwrapper';
 import { getTileContent } from './lib/getTileContent';
-import { CustomIconProps } from '../CustomIcon';
-import { CustomTileStackOrder, LinkTargetType } from './parts/ct-types';
-import { CustomTileProps1Validation } from './parts/ct-types-validation';
+import { CTL_propsType, CTL_LinkTargetType } from './lib/types';
 import { ContentModal } from '../ContentModal/ContentModal';
-import type { Node } from '@contentful/rich-text-types';
 import SmartText from '../SmartText/SmartText';
 import { handleCustomTileClick } from './parts/utils';
-import { validateCustomTileProps } from './lib/propsValidation';
-
-// Props types ...
-export type CustomTileProps = {
-  /**
-   * Custom CSS class
-   */
-  className?: string;
-  /**
-   * Layout direction for tile content
-   * @default 'vertical'
-   */
-  stackOrder?: CustomTileStackOrder['name'];
-
-  /**
-   * Maximum character count for title content
-   * @remarks Truncates with ellipsis if exceeded
-   */
-  titleLength?: number;
-
-  /**
-   * Maximum character count for blurb content
-   * @remarks Truncates with ellipsis if exceeded
-   */
-  blurbLength?: number;
-
-  /**
-   * Icon identifier (matches CustomIcon component)
-   * @see {@link CustomIconProps}
-   */
-  iconName?: CustomIconProps['name'];
-
-  /**
-   * Enables modal behavior when tile is clicked. If "true", "title" and "text" props will be rendered as modal content.
-   * @remarks Modal content will show the tile's title and text
-   */
-  showsModal?: boolean;
-
-  /**
-   * Primary heading text
-   * @required
-   */
-  title?: string;
-
-  /**
-   * Descriptive content text
-   * @required
-   */
-  blurb?: string;
-
-  /**
-   * Modal main content text (in string format)
-   * @required
-   */
-  plainDescription?: string;
-
-  /**
-   * Modal main content text (in rich format from a headless CMS like ContentFul)
-   * @required
-   */
-  richDescription?: { json: { content: Node[] } };
-
-  /**
-   * Destination URL/path when tile is clickable
-   * @remarks Requires either linksTo or showsModal
-   */
-  linksTo?: string;
-
-  /**
-   * Link target behavior
-   * @default '_self'
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target}
-   */
-  linkTarget?: LinkTargetType['name'];
-} & CustomTileProps1Validation;
+import { validateCTL_propsType } from './lib/propsValidation';
 
 const CustomTile = ({
   className,
@@ -128,8 +51,8 @@ const CustomTile = ({
   plainDescription,
   richDescription,
   linksTo,
-  linkTarget = '_self' as LinkTargetType['name'],
-}: CustomTileProps) => {
+  linkTarget = '_self' as CTL_LinkTargetType,
+}: CTL_propsType) => {
   // Controlling modal appearance:
   // (The state is only created if showsModal is provided)
   const [modalIsOpen, setModalIsOpen] = useState(
@@ -169,7 +92,7 @@ const CustomTile = ({
   });
 
   // ...
-  validateCustomTileProps({ linksTo, linkTarget, showsModal });
+  validateCTL_propsType({ linksTo, linkTarget, showsModal });
 
   return (
     <div className="enj-CustomTile-wrapper">

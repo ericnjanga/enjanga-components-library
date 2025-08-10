@@ -27,20 +27,7 @@ import {
 } from '@carbon/react';
 
 import Link from 'next/link';
-
-interface HeaderContainerType {
-  isSideNavExpanded: boolean;
-  onClickSideNavExpand: () => void;
-}
-
-interface AppHeaderProps {
-  brandLabel: string;
-  brandRoute: string;
-  // ReactNode can be anything we want: string, number, JSX, component, etc ...
-  brand: React.ReactNode;
-  navigation: React.ReactNode;
-  globalBarItems: React.ReactNode;
-}
+import { AHC_propsType, AH_propsType } from './libs/types';
 
 const AppHeader = ({
   brand,
@@ -48,17 +35,14 @@ const AppHeader = ({
   brandRoute = '/',
   navigation,
   globalBarItems,
-}: AppHeaderProps) => {
+}: AH_propsType) => {
   // ARIA labels
   const labelOpenMenu = 'Open menu';
   const labelSideNav = 'Side navigation';
 
   return (
     <HeaderContainer
-      render={({
-        isSideNavExpanded,
-        onClickSideNavExpand,
-      }: HeaderContainerType) => (
+      render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
         <Header aria-label={brandLabel}>
           <SkipToContent />
           <HeaderMenuButton

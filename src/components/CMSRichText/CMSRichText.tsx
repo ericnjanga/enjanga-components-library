@@ -35,15 +35,11 @@
 
 import { renderContentfulNode } from '@/utils/renderContentfulNode';
 import CMSRichTextSkeleton from './parts/CMSRichTextSkeleton';
-import type { Node } from '@contentful/rich-text-types';
 import clsx from 'clsx';
+import type { Node } from '@contentful/rich-text-types';
+import { CRT_propsType } from './libs/types';
 
-interface CMSRichTextProps {
-  className?: string;
-  data?: { json: { content: Node[] } };
-}
-
-const CMSRichText = ({ data, className }: CMSRichTextProps) => {
+const CMSRichText = ({ data, className }: CRT_propsType) => {
   // Getting the currently active locale...
   const activeLang = 'en'; // (soon)
 

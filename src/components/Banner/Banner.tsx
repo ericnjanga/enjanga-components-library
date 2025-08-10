@@ -76,17 +76,7 @@ import clsx from 'clsx';
 import { Grid, Column } from '@carbon/react';
 import BannerSkeleton from './parts/BannerSkeleton';
 import { CMSRichText } from '../CMSRichText';
-import type { Node } from '@contentful/rich-text-types';
-
-interface BannerProps {
-  isHuge?: boolean;
-  showPlainDescription?: boolean;
-  showRichDescription?: boolean;
-  title?: string;
-  plainDescription?: string | 'none';
-  richDescription?: { json: { content: Node[] } };
-  className?: string;
-}
+import { BNN_propsType } from './libs/types';
 
 const Banner = ({
   isHuge = false, // Small banner by default
@@ -96,7 +86,7 @@ const Banner = ({
   plainDescription,
   richDescription,
   className,
-}: BannerProps) => {
+}: BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
     'enj-Banner--jumbotron': isHuge,
   });

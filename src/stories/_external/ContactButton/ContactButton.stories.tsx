@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ContactButton, {
-  contactButtonIconsList,
-  contactButtonKindProps,
-  contactButtonSizeProps,
-} from '../../../components/ContactButton/ContactButton';
+import ContactButton from '../../../components/ContactButton/ContactButton';
+import {
+  CB_Icons_opts,
+  CB_kind_opts,
+  CB_size_opts,
+} from '@/components/ContactButton/libs/types';
 
 const meta: Meta<typeof ContactButton> = {
   title: 'External Components/ContactButton',
@@ -12,15 +13,15 @@ const meta: Meta<typeof ContactButton> = {
     btnText: { control: 'text' },
     btnIcon: {
       control: 'select',
-      options: [...contactButtonIconsList],
+      options: [...CB_Icons_opts],
     },
     btnKind: {
       control: 'select',
-      options: [...contactButtonKindProps],
+      options: [...CB_kind_opts],
     },
     btnSize: {
       control: 'select',
-      options: [...contactButtonSizeProps],
+      options: [...CB_size_opts],
     },
     // Modal controls...
   },

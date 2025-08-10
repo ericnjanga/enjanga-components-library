@@ -30,6 +30,12 @@ type Story = StoryObj<typeof Heading>;
 
 export const h1: Story = {};
 
+export const Empty: Story = {
+  args: {
+    children: undefined,
+  },
+};
+
 export const h2: Story = {
   args: {
     level: 2,

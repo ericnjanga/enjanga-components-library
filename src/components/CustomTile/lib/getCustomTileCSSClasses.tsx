@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { CustomTileCSSClassesProps } from '../parts/ct-types';
+import { CTL_CSSClassesPropsType } from './ct-types';
 
 // Component's CSS classes
 /**
@@ -13,7 +13,7 @@ export const getCustomTileCSSClasses = ({
   stackOrder,
   linksTo,
   linkTarget,
-}: CustomTileCSSClassesProps) =>
+}: CTL_CSSClassesPropsType) =>
   clsx('enj-CustomTile', `enj-CustomTile--${stackOrder}`, {
     'enj-CustomTile--link': linksTo,
     'enj-CustomTile--external': linksTo && linkTarget === '_blank', // Only apply if link exists
