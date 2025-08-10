@@ -1,4 +1,4 @@
-// List types  props type
+// List props type
 // ----------------
 
 export const LST_typeOpt = ['unordered', 'ordered'] as const;

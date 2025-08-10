@@ -1,23 +1,21 @@
 /**
- * List item:
+ * List Item:
  * --------------
  * Note: In the case where the list of items grows in complexity (e.g., icons, nested elements)
  * - Allows to pass children down
  */
 import clsx from 'clsx';
+import { LIT_propsType } from './libs/types';
+import { SkeletonAnimation } from '../SkeletonAnimation';
 
-interface ListItemProps {
-  name: string;
-  href?: string;
-  id?: string;
-  cssClass?: string;
-  children?: React.ReactNode;
-}
+const ListItem = ({ content, href, cssClass, children }: LIT_propsType) => {
+  if (content === undefined) {
+    return <SkeletonAnimation part="list-item" />;
+  }
 
-const ListItem = ({ name, href, cssClass, children }: ListItemProps) => {
   return (
     <li className={clsx(cssClass)}>
-      {href ? <a href={href}>{name}</a> : name}
+      {href ? <a href={href}>{content}</a> : content}
       {children}
     </li>
   );

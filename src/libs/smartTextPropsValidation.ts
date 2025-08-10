@@ -1,5 +1,5 @@
 import { Node } from '@contentful/rich-text-types';
-export interface SmartTextPropsVal {
+export interface SMT_propsTypeVal {
   plainText?: string;
   richText?: { json: { content: Node[] } };
 }
@@ -9,7 +9,7 @@ export interface SmartTextPropsVal {
 export function smartTextPropsValidation({
   plainText,
   richText,
-}: SmartTextPropsVal) {
+}: SMT_propsTypeVal) {
   if (plainText && richText) {
     throw new Error(
       'Invalid props: Use either "plainText" OR "richText", never both.'

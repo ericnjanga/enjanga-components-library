@@ -21,16 +21,23 @@ const SkeletonAnimation = ({ className, part }: Sk_propsType) => {
       )}
       {part === 'body' && (
         <div className={clsx(className, 'skeleton-text-wrapper')}>
-          <p className="skeleton skeleton-text skeleton-bot-spacing-2"></p>
-          <p className="skeleton skeleton-text skeleton-bot-spacing-2"></p>
-          <p className="skeleton skeleton-text skeleton-bot-spacing-2"></p>
-          <p className="skeleton skeleton-text skeleton-bot-spacing-2"></p>
+          {[1, 2, 3, 4].map((index) => (
+            <p
+              key={index}
+              className="skeleton skeleton-text skeleton-bot-spacing-2"
+            ></p>
+          ))}
         </div>
       )}
       {part === 'list' && (
         <div className={clsx(className, 'skeleton-text-wrapper')}>
-          <SkeletonListItem />
-          <SkeletonListItem />
+          {[1, 2, 3].map((index) => (
+            <SkeletonListItem key={index} />
+          ))}
+        </div>
+      )}
+      {part === 'list-item' && (
+        <div className={clsx(className, 'skeleton-text-wrapper')}>
           <SkeletonListItem />
         </div>
       )}

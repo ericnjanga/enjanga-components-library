@@ -6,5 +6,5 @@ export interface Sk_propsType {
   part: Sk_partType;
 }
 
-export const Sk_partOpt = ['heading', 'body', 'list'] as const;
+export const Sk_partOpt = ['heading', 'body', 'list', 'list-item'] as const;
 export type Sk_partType = (typeof Sk_partOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...

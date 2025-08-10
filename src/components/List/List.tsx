@@ -26,7 +26,7 @@ const List = ({ type = 'unordered', cssClass, content }: LST_propsType) => {
         return (
           <ListItem
             key={id || `${name}-${href?.slice(0, 8)}`}
-            name={name}
+            content={name}
             href={href}
           />
         );

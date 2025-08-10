@@ -1,8 +1,8 @@
 import CMSRichText from '../CMSRichText/CMSRichText';
-import { SmartTextProps } from './libs/types';
+import { SMT_propsType } from './libs/types';
 import { smartTextPropsValidation } from '@/libs/smartTextPropsValidation';
 
-const SmartText = ({ className, plainText, richText }: SmartTextProps) => {
+const SmartText = ({ className, plainText, richText }: SMT_propsType) => {
   // Throw errors if smart text validation rules aren't applied ...
   smartTextPropsValidation({ plainText, richText });
 
