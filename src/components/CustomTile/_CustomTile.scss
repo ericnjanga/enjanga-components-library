@@ -1,197 +1,197 @@
-@use '@carbon/react/scss/spacing' as *;
-@use '@carbon/react/scss/breakpoint' as *;
-@use '@carbon/react/scss/colors' as *;
+// @use '@carbon/react/scss/spacing' as *;
+// @use '@carbon/react/scss/breakpoint' as *;
+// @use '@carbon/react/scss/colors' as *;
 
-:root {
-  --enj-CustomTile-br-col: #{$gray-60};
-}
+// :root {
+//   --enj-CustomTile-br-col: #{$gray-60};
+// }
 
-@mixin customTile-hover {
-  cursor: pointer;
-  background-color: $gray-30;
-}
+// @mixin customTile-hover {
+//   cursor: pointer;
+//   background-color: $gray-30;
+// }
 
-@mixin CT-decoration-horizontal {
-  // Variables ...
-  --enj-CustomTile-h-padd: #{$spacing-06};
-  --enj-CustomTile-h-content-padd-r: 0;
-  --enj-CustomTile-h-content-title-flex: unset;
-  --enj-CustomTile-h-content-blurb-flex: unset;
+// @mixin CT-decoration-horizontal {
+//   // Variables ...
+//   --enj-CustomTile-h-padd: #{$spacing-06};
+//   --enj-CustomTile-h-content-padd-r: 0;
+//   --enj-CustomTile-h-content-title-flex: unset;
+//   --enj-CustomTile-h-content-blurb-flex: unset;
 
-  // Declarations ...
-  padding: var(--enj-CustomTile-h-padd);
+//   // Declarations ...
+//   padding: var(--enj-CustomTile-h-padd);
 
-  .content {
-    padding-right: var(--enj-CustomTile-h-content-padd-r);
-    align-items: center;
+//   .content {
+//     padding-right: var(--enj-CustomTile-h-content-padd-r);
+//     align-items: center;
 
-    .enj-CustomTile-title {
-      flex: var(--enj-CustomTile-h-content-title-flex);
-      margin-bottom: 0;
-    }
-    .enj-CustomTile-blurb {
-      flex: var(--enj-CustomTile-h-content-blurb-flex);
-    }
-  }
+//     .enj-CustomTile-title {
+//       flex: var(--enj-CustomTile-h-content-title-flex);
+//       margin-bottom: 0;
+//     }
+//     .enj-CustomTile-blurb {
+//       flex: var(--enj-CustomTile-h-content-blurb-flex);
+//     }
+//   }
 
-  @include breakpoint('md') {
-    --enj-CustomTile-h-padd: #{$spacing-08};
-    --enj-CustomTile-gap: #{$spacing-08};
-    --enj-CustomTile-h-content-title-flex: 1;
-    --enj-CustomTile-h-content-blurb-flex: 1;
-  }
+//   @include breakpoint('md') {
+//     --enj-CustomTile-h-padd: #{$spacing-08};
+//     --enj-CustomTile-gap: #{$spacing-08};
+//     --enj-CustomTile-h-content-title-flex: 1;
+//     --enj-CustomTile-h-content-blurb-flex: 1;
+//   }
 
-  @include breakpoint('lg') {
-    --enj-CustomTile-h-padd: #{$spacing-09};
-    --enj-CustomTile-gap: #{$spacing-12};
-    --enj-CustomTile-h-content-title-flex: 0.5;
-    --enj-CustomTile-h-content-blurb-flex: 1;
-    --enj-CustomTile-h-content-padd-r: #{$spacing-13};
-  }
-}
+//   @include breakpoint('lg') {
+//     --enj-CustomTile-h-padd: #{$spacing-09};
+//     --enj-CustomTile-gap: #{$spacing-12};
+//     --enj-CustomTile-h-content-title-flex: 0.5;
+//     --enj-CustomTile-h-content-blurb-flex: 1;
+//     --enj-CustomTile-h-content-padd-r: #{$spacing-13};
+//   }
+// }
 
-@mixin CT-decoration-vertical {
-  // Variables ...
-  --enj-CustomTile-v-padd: #{$spacing-06};
-  --enj-CustomTile-v-content-5-padd: 0; //#{$spacing-06};
+// @mixin CT-decoration-vertical {
+//   // Variables ...
+//   --enj-CustomTile-v-padd: #{$spacing-06};
+//   --enj-CustomTile-v-content-5-padd: 0; //#{$spacing-06};
 
-  // Declarations ...
-  padding: var(--enj-CustomTile-v-padd);
+//   // Declarations ...
+//   padding: var(--enj-CustomTile-v-padd);
 
-  @media (min-width: 360px) {
-    --enj-CustomTile-v-content-5-padd: #{$spacing-06};
-  }
+//   @media (min-width: 360px) {
+//     --enj-CustomTile-v-content-5-padd: #{$spacing-06};
+//   }
 
-  .content {
-    flex: 1;
-    padding-right: var(--enj-CustomTile-v-content-5-padd);
-  }
-}
+//   .content {
+//     flex: 1;
+//     padding-right: var(--enj-CustomTile-v-content-5-padd);
+//   }
+// }
 
-// Apply the same hover effect for non-link components
-.enj-CustomTile-has-hover-effect {
-  @include customTile-hover;
-}
+// // Apply the same hover effect for non-link components
+// .enj-CustomTile-has-hover-effect {
+//   @include customTile-hover;
+// }
 
-.enj-CustomTile {
-  position: relative;
-  transition: all 0.2s ease;
-  padding: 0; // We cancel all padding by default
-  border: 1px solid var(--enj-CustomTile-br-col);
+// .enj-CustomTile {
+//   position: relative;
+//   transition: all 0.2s ease;
+//   padding: 0; // We cancel all padding by default
+//   border: 1px solid var(--enj-CustomTile-br-col);
 
-  // Variables ...
-  --enj-CustomTile-gap: #{$spacing-06};
+//   // Variables ...
+//   --enj-CustomTile-gap: #{$spacing-06};
 
-  /***/
+//   /***/
 
-  /**
-   * We must only apply padding once. Therefore, if the component is linking locally/externally, 
-   * we will not apply padding to the external frame.
-  **/
-  &--vertical {
-    &:not(.enj-CustomTile--link) {
-      @include CT-decoration-vertical;
-    }
+//   /**
+//    * We must only apply padding once. Therefore, if the component is linking locally/externally,
+//    * we will not apply padding to the external frame.
+//   **/
+//   &--vertical {
+//     &:not(.enj-CustomTile--link) {
+//       @include CT-decoration-vertical;
+//     }
 
-    &.enj-CustomTile--link {
-      a.enj-CustomTile-anchor-tag {
-        @include CT-decoration-vertical;
-      }
-    }
-  }
+//     &.enj-CustomTile--link {
+//       a.enj-CustomTile-anchor-tag {
+//         @include CT-decoration-vertical;
+//       }
+//     }
+//   }
 
-  &--horizontal {
-    &:not(.enj-CustomTile--link) {
-      @include CT-decoration-horizontal;
-    }
+//   &--horizontal {
+//     &:not(.enj-CustomTile--link) {
+//       @include CT-decoration-horizontal;
+//     }
 
-    &.enj-CustomTile--link {
-      a.enj-CustomTile-anchor-tag {
-        @include CT-decoration-horizontal;
-      }
-    }
-  }
-  /**
-   * ----------------------
-  **/
+//     &.enj-CustomTile--link {
+//       a.enj-CustomTile-anchor-tag {
+//         @include CT-decoration-horizontal;
+//       }
+//     }
+//   }
+//   /**
+//    * ----------------------
+//   **/
 
-  &--vertical {
-    // Declarations ...
-    display: flex;
-    gap: $spacing-06;
-    max-width: 460px;
+//   &--vertical {
+//     // Declarations ...
+//     display: flex;
+//     gap: $spacing-06;
+//     max-width: 460px;
 
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      flex: 1;
-    }
-    .enj-icon {
-      bottom: $spacing-06;
-      right: $spacing-06;
-    }
-  }
+//     .content {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 15px;
+//       flex: 1;
+//     }
+//     .enj-icon {
+//       bottom: $spacing-06;
+//       right: $spacing-06;
+//     }
+//   }
 
-  &--horizontal {
-    // Variables ...
-    --enj-CustomTile-flex-dir: column;
-    // --enj-CustomTile-h-padd: #{$spacing-06};
+//   &--horizontal {
+//     // Variables ...
+//     --enj-CustomTile-flex-dir: column;
+//     // --enj-CustomTile-h-padd: #{$spacing-06};
 
-    // Declarations ...
-    .enj-CustomTile-icon {
-      display: none;
-    }
+//     // Declarations ...
+//     .enj-CustomTile-icon {
+//       display: none;
+//     }
 
-    .content {
-      display: flex;
-      flex-direction: var(--enj-CustomTile-flex-dir);
-      gap: var(--enj-CustomTile-gap);
-    }
-    .enj-icon {
-      bottom: var(--enj-CustomTile-h-padd);
-      right: var(--enj-CustomTile-h-padd);
-    }
+//     .content {
+//       display: flex;
+//       flex-direction: var(--enj-CustomTile-flex-dir);
+//       gap: var(--enj-CustomTile-gap);
+//     }
+//     .enj-icon {
+//       bottom: var(--enj-CustomTile-h-padd);
+//       right: var(--enj-CustomTile-h-padd);
+//     }
 
-    @include breakpoint('md') {
-      --enj-CustomTile-flex-dir: row;
-    }
-  }
+//     @include breakpoint('md') {
+//       --enj-CustomTile-flex-dir: row;
+//     }
+//   }
 
-  .enj-icon {
-    position: absolute;
-  }
-}
+//   .enj-icon {
+//     position: absolute;
+//   }
+// }
 
-.enj-CustomTile--link {
-  a.enj-CustomTile-anchor-tag {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+// .enj-CustomTile--link {
+//   a.enj-CustomTile-anchor-tag {
+//     display: block;
+//     text-decoration: none;
+//     color: inherit;
 
-    &:hover {
-      @include customTile-hover;
-    }
-  }
-}
+//     &:hover {
+//       @include customTile-hover;
+//     }
+//   }
+// }
 
-/**
- * Skeleton Animation
- * ------------------------------
-*/
-.enj-CustomTile-title {
-  .skeleton-title {
-    width: 100%;
+// /**
+//  * Skeleton Animation
+//  * ------------------------------
+// */
+// .enj-CustomTile-title {
+//   .skeleton-title {
+//     width: 100%;
 
-    &:first-of-type {
-      width: 70%;
-    }
-  }
-}
-.enj-CustomTile-blurb {
-  .skeleton-blurb {
-    &:first-of-type {
-      width: 70%;
-    }
-  }
-}
+//     &:first-of-type {
+//       width: 70%;
+//     }
+//   }
+// }
+// .enj-CustomTile-blurb {
+//   .skeleton-blurb {
+//     &:first-of-type {
+//       width: 70%;
+//     }
+//   }
+// }

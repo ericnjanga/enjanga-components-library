@@ -42,6 +42,7 @@ import { ContentModal } from '../ContentModal/ContentModal';
 import SmartText from '../SmartText/SmartText';
 import { handleCustomTileClick } from './parts/utils';
 import { validateCTL_propsType } from './lib/propsValidation';
+import { useContainerSize } from '@/libs/useContainerSize';
 
 const CustomTile = ({
   className,
@@ -95,13 +96,18 @@ const CustomTile = ({
     linkIsExternal,
   });
 
-  // ...
+  // Throw errors if props aren't consistent with the rules ...
   validateCTL_propsType({ linksTo, linkTarget, showsModal });
 
+  const {
+    containerRef, // Reference to component wrapper
+    activeBreakpoint, // Closest possible breakpoint to wrapper's width
+  } = useContainerSize();
+
   return (
-    <div className="enj-CustomTile-wrapper">
+    <div className="enj-CustomTile-wrapper" ref={containerRef}>
       <Tile
-        className={`${wrapperClassNames} ${className}`}
+        className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
         aria-label={`${title} tile`}
         onClick={() => handleCustomTileClick({ showsModal, setModalIsOpen })}
       >
