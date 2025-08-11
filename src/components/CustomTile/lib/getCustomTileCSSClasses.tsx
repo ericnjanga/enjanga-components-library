@@ -10,11 +10,11 @@ import { CTL_CSSClassesPropsType } from './ct-types';
  * ..... enj-CustomTile-has-hover-effect
  */
 export const getCustomTileCSSClasses = ({
-  stackOrder,
+  layoutStyle,
   linksTo,
   linkTarget,
 }: CTL_CSSClassesPropsType) =>
-  clsx('enj-CustomTile', `enj-CustomTile--${stackOrder}`, {
+  clsx('enj-CustomTile', `enj-CustomTile--${layoutStyle}`, {
     'enj-CustomTile--link': linksTo,
     'enj-CustomTile--external': linksTo && linkTarget === '_blank', // Only apply if link exists
   });

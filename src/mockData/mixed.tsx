@@ -9,7 +9,8 @@ import { CI_propsType } from '@/components/CustomIcon/libs/types';
 import {
   CTL_LinkTargetType,
   CTL_LinkTargetOpt,
-  CTL_StackOrderType,
+  CTL_LayoutStyleType,
+  CTL_LayoutStyleOpt,
   CTL_propsType,
 } from '@/components/CustomTile/lib/types';
 
@@ -21,7 +22,7 @@ export const mockCustomIcon = {
 
 // For CustomTile.stories.tsx ...
 export const mockCustomTile = {
-  stackOrder: CI_nameOpt[0] as CTL_StackOrderType,
+  layoutStyle: CTL_LayoutStyleOpt[0] as CTL_LayoutStyleType,
   titleLength: 50,
   blurbLength: 300,
   iconName: undefined,

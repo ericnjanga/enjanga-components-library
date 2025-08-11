@@ -10,7 +10,7 @@
  * @param {json} richDescription      - Text content's description (in rich format from a headless CMS like ContentFul)
  * @param {number} [titleLength]      - Optional character limit for title
  * @param {number} [blurbLength]      - Optional character limit for text
- * @param {'vertical'|'horizontal'} [stackOrder='vertical'] - Content arrangement
+ * @param {'card'|'banner'} [layoutStyle='card'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
  * 
  * EITHER:
@@ -33,7 +33,11 @@ import { Tile } from '@carbon/react';
 import { getCustomTileCSSClasses } from './lib/getCustomTileCSSClasses';
 import { getLinkWrapper } from './lib/getLinkwrapper';
 import { getTileContent } from './lib/getTileContent';
-import { CTL_propsType, CTL_LinkTargetType } from './lib/types';
+import {
+  CTL_propsType,
+  CTL_LinkTargetType,
+  CTL_LayoutStyleType,
+} from './lib/types';
 import { ContentModal } from '../ContentModal/ContentModal';
 import SmartText from '../SmartText/SmartText';
 import { handleCustomTileClick } from './parts/utils';
@@ -41,7 +45,7 @@ import { validateCTL_propsType } from './lib/propsValidation';
 
 const CustomTile = ({
   className,
-  stackOrder = 'vertical',
+  layoutStyle = 'card' as CTL_LayoutStyleType,
   titleLength,
   blurbLength,
   iconName,
@@ -61,7 +65,7 @@ const CustomTile = ({
 
   // Get all the CSS classes the component's wrapper needs ...
   const wrapperClassNames = getCustomTileCSSClasses({
-    stackOrder,
+    layoutStyle,
     linksTo,
     linkTarget,
   });
