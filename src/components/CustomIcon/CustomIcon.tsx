@@ -5,35 +5,14 @@
  */
 
 import clsx from 'clsx';
-import { CI_propsType, pictogramMap } from './libs/types';
+import { CI_propsType } from './libs/types';
+import { CI_pictogramMap, CI_getSize } from './libs/helpers';
 
 const CustomIcon = ({ name, size = 'md', className }: CI_propsType) => {
-  const Pictogram = pictogramMap[name];
-  let sizeDim, sizeWidth, sizeHeight;
+  const Pictogram = CI_pictogramMap[name];
+  const { sizeWidth, sizeHeight } = CI_getSize(size);
 
-  /**
-   * NOTE: Optimize this later
-   * -------------
-   */
-  switch (size) {
-    case 'sm':
-      sizeDim = 1.5;
-      break;
-    case 'md':
-      sizeDim = 3;
-      break;
-    case 'lg':
-      sizeDim = 4.5;
-      break;
-    case 'xl':
-      sizeDim = 6;
-      break;
-  }
-
-  // ...
-  sizeWidth = sizeDim;
-  sizeHeight = sizeDim;
-  /** ------------- */
+  console.log('????*******', sizeWidth, sizeHeight);
 
   return (
     <Pictogram

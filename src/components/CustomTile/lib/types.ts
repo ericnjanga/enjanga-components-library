@@ -1,7 +1,7 @@
 // CustomTil props type
 // ----------------
 import React from 'react';
-import { CI_propsType } from '@/components/CustomIcon/libs/types';
+import { CI_nameType } from '@/components/CustomIcon/libs/types';
 import type { Node } from '@contentful/rich-text-types';
 import { CTL_propsType1Validation } from './types-validation';
 
@@ -26,7 +26,7 @@ export interface CustomTileLinkWrapperProps {
 export interface CustomTileGlobalContentProps {
   title?: string;
   blurb?: string;
-  iconName?: CI_propsType['name'];
+  iconName?: CI_nameType;
   titleLength?: number;
   blurbLength?: number;
   link: {
@@ -72,9 +72,9 @@ export type CTL_propsType = {
 
   /**
    * Icon identifier (matches CustomIcon component)
-   * @see {@link CI_propsType}
+   * @see {@link CI_nameType}
    */
-  iconName?: CI_propsType['name'];
+  iconName?: CI_nameType;
 
   /**
    * Enables modal behavior when tile is clicked. If "true", "title" and "text" props will be rendered as modal content.

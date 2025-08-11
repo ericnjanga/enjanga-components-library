@@ -2,4 +2,4 @@
  * Custom Icon
  * ...
  */
-export { default as ContactModal } from './CustomIcon';
+export { default as CustomIcon } from './CustomIcon';

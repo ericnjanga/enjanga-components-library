@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { CustomTileGlobalContentProps } from './ct-types';
-import CustomIcon from '@/components/CustomIcon';
-import { isValidIconName } from '@/components/CustomIcon/CustomIcon';
+import { CustomTileGlobalContentProps } from './types';
+import { CustomIcon } from '@/components/CustomIcon';
+import { CI_isValidIconName } from '@/components/CustomIcon/libs/helpers';
 import { CustomTileArrowIcon } from '../parts/CustomTileArrowIcon';
 import CustomTileSkeleton from '../parts/CustomTileSkeleton';
 import { FeatureText } from '@/components/FeatureText';
@@ -16,7 +16,7 @@ export const getTileContent = ({
   link,
 }: CustomTileGlobalContentProps) => {
   // ...
-  const iconNameIsValid = isValidIconName(iconName);
+  const iconNameIsValid = CI_isValidIconName(iconName);
   const arrowIconOrientation = link.isExternal ? 'UpRight' : 'Right';
 
   if (!title || !blurb) {
