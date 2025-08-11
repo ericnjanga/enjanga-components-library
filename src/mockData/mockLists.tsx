@@ -70,7 +70,7 @@ export const mockListMixed = [
     children: (
       <>
         <span> </span>
-        <CustomIcon name="Leadership" /> {/* JSX Fragment */}
+        <CustomIcon name="Leadership" size="sm" /> {/* JSX Fragment */}
       </>
     ),
   },

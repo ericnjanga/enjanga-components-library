@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ListItem } from '../../../components/ListItem';
-import CustomIcon from '@/components/CustomIcon/CustomIcon';
-import { mockListItemArgs } from '@/mockData/mockLists';
+import { mockListItemArgs, mockListMixed } from '@/mockData/mockLists';
 
 const meta: Meta<typeof ListItem> = {
   title: 'Internal Components/ListItem',
@@ -46,37 +45,18 @@ export const Empty: Story = {
 
 export const Linked: Story = {
   args: {
-    ...mockListItemArgs,
-    content: 'NextJS: The React Framework for the Web',
-    href: 'https://nextjs.org',
+    ...mockListMixed[0],
   },
 };
 
 export const WithRandomChildren: Story = {
   args: {
-    ...mockListItemArgs,
-    content: 'NextJS: The React Framework for the Web',
-    href: 'https://nextjs.org',
-    children: (
-      <>
-        <span> </span>
-        <span>🔔</span>
-        Notify Me {/* JSX Fragment */}
-      </>
-    ),
+    ...mockListMixed[1],
   },
 };
 
 export const WithChildrenComponent: Story = {
   args: {
-    ...mockListItemArgs,
-    content: 'NextJS: The React Framework for the Web',
-    href: 'https://nextjs.org',
-    children: (
-      <>
-        <span> </span>
-        <CustomIcon name="Leadership" /> {/* JSX Fragment */}
-      </>
-    ),
+    ...mockListMixed[2],
   },
 };

@@ -1,18 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import HeadlinedList from '../../../components/HeadlinedList';
-import {
-  HDG_levelPropsType,
-  HDG_levelOpt,
-} from '@/components/Heading/libs/types';
-
-import { LST_typeOpt, LST_typePropsType } from '@/components/List/libs/types';
-import {
-  mockHeadlinedListArgs,
-  mockListArgs,
-  mockListUnlinked,
-  mockListLinked,
-  mockListMixed,
-} from '@/mockData/mockLists';
+import { mockHeadlinedListArgs, mockListMixed } from '@/mockData/mockLists';
 
 const meta: Meta<typeof HeadlinedList> = {
   title: 'External Components/HeadlinedList',
@@ -150,17 +138,3 @@ export const H6List: Story = {
     },
   },
 };
-
-// export const CustomWrapperAndHeading: Story = {
-//   args: {
-//     wrapper: {
-//       tag: 'div',
-//       cssClass: 'bg-gray-100 p-4',
-//     },
-//     heading: {
-//       content: 'Custom Layout',
-//       level: HDG_levelOpt[0] as HDG_levelPropsType,
-//       cssClass: 'text-blue-600',
-//     },
-//   },
-// };
