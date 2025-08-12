@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { CustomTileGlobalContentProps } from './types';
+import { CTL_globalContentPropsType } from './types';
 import { CustomIcon } from '@/components/CustomIcon';
 import { CI_isValidIconName } from '@/components/CustomIcon/libs/helpers';
 import { CustomTileArrowIcon } from '../parts/CustomTileArrowIcon';
@@ -8,18 +8,20 @@ import { FeatureText } from '@/components/FeatureText';
 
 // Puts together component's core content
 export const getTileContent = ({
+  heading,
+  headingLevel,
+  headingMaxLength,
+
   iconName,
-  title,
   blurb,
-  titleLength,
   blurbLength,
   link,
-}: CustomTileGlobalContentProps) => {
+}: CTL_globalContentPropsType) => {
   // ...
   const iconNameIsValid = CI_isValidIconName(iconName);
   const arrowIconOrientation = link.isExternal ? 'UpRight' : 'Right';
 
-  if (!title || !blurb) {
+  if (!heading || !blurb) {
     return <CustomTileSkeleton />;
   }
 
@@ -30,14 +32,18 @@ export const getTileContent = ({
       )}
 
       <FeatureText
-        title={title}
+        heading={heading}
+        headingLevel={headingLevel}
+        headingMaxLength={headingMaxLength}
         plainText={blurb}
-        titleLength={titleLength}
         blurbLength={blurbLength}
       />
 
       {link.isAvailable && (
-        <CustomTileArrowIcon title={title} orientation={arrowIconOrientation} />
+        <CustomTileArrowIcon
+          title={heading}
+          orientation={arrowIconOrientation}
+        />
       )}
     </>
   );

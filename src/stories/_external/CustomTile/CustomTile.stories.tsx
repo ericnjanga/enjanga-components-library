@@ -12,40 +12,71 @@ import {
   CTL_LayoutStyleType,
 } from '@/components/CustomTile/lib/types';
 import { mockCustomTile, mockTextLengthList } from '@/mockData/mixed';
+import { HDG_levelOpt } from '@/components/Heading/libs/types';
 
 const activeLang = 'en';
 
 const meta: Meta<typeof CustomTile> = {
   title: 'External Components/CustomTile',
   component: CustomTile,
+  args: {
+    ...mockCustomTile,
+  },
   argTypes: {
+    className: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    heading: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    headingLevel: {
+      control: 'select',
+      options: [...HDG_levelOpt],
+      description: '... soon ...',
+    },
+    headingMaxLength: {
+      control: 'select',
+      options: [...mockTextLengthList],
+    },
+
     layoutStyle: {
       control: 'select',
       options: [...CTL_LayoutStyleOpt],
-    },
-    titleLength: {
-      control: 'select',
-      options: [...mockTextLengthList],
-    },
-    blurbLength: {
-      control: 'select',
-      options: [...mockTextLengthList],
     },
     iconName: {
       control: 'select',
       options: ['...', ...CI_nameOpt],
     },
-    linkTarget: {
-      control: 'select',
-      options: [...CTL_LinkTargetOpt],
-    },
     showsModal: {
       control: 'select',
       options: [true, false],
     },
-  },
-  args: {
-    ...mockCustomTile,
+    blurb: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    blurbLength: {
+      control: 'select',
+      options: [...mockTextLengthList],
+    },
+    plainDescription: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    richDescription: {
+      control: 'object',
+      description: '...description coming soon...',
+    },
+    linksTo: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    linkTarget: {
+      control: 'select',
+      options: [...CTL_LinkTargetOpt],
+    },
   },
 
   /**
@@ -111,109 +142,156 @@ const meta: Meta<typeof CustomTile> = {
 export default meta;
 type Story = StoryObj<typeof CustomTile>;
 
-export const Default: Story = {};
+export const Card: Story = {};
+
+export const Banner: Story = {
+  args: {
+    ...mockCustomTile,
+    layoutStyle: 'banner',
+  },
+};
+
+export const ResponsivenessCard: Story = {
+  args: {
+    ...mockCustomTile,
+    layoutStyle: 'card',
+  },
+  render: (args) => {
+    return (
+      <Grid>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+          (index) => (
+            <Column key={index} style={{ marginBottom: '1.5rem' }} lg={index}>
+              <CustomTile {...args} />
+            </Column>
+          )
+        )}
+      </Grid>
+    );
+  },
+};
+
+export const ResponsivenessBanner: Story = {
+  args: {
+    ...mockCustomTile,
+    layoutStyle: 'banner',
+  },
+  render: (args) => {
+    return (
+      <Grid>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+          (index) => (
+            <Column key={index} style={{ marginBottom: '1.5rem' }} lg={index}>
+              <CustomTile {...args} />
+            </Column>
+          )
+        )}
+      </Grid>
+    );
+  },
+};
 
 // export const VerticalNoIconNoImgNoLinking: Story = {};
 
-export const VerticalIconNoImgNoLinking: Story = {
-  args: {
-    ...mockCustomTile,
-    iconName: 'Hills' as CI_nameType,
-  },
-};
+// export const VerticalIconNoImgNoLinking: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     iconName: 'Hills' as CI_nameType,
+//   },
+// };
 
-export const HorizontalNoIconNoImgNoLinking: Story = {
-  args: {
-    ...mockCustomTile,
-    layoutStyle: 'banner' as CTL_LayoutStyleType,
-  },
-};
+// export const HorizontalNoIconNoImgNoLinking: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     layoutStyle: 'banner' as CTL_LayoutStyleType,
+//   },
+// };
 
-export const SkeletonVerticalNoIconNoImg: Story = {
-  args: {
-    title: undefined,
-    blurb: undefined,
-    // The animated skeleton will show up if "title" or "blurb" props are undefined
-  },
-};
+// export const SkeletonVerticalNoIconNoImg: Story = {
+//   args: {
+//     title: undefined,
+//     blurb: undefined,
+//     // The animated skeleton will show up if "title" or "blurb" props are undefined
+//   },
+// };
 
-export const SkeletonHorizontalNoIconNoImg: Story = {
-  args: {
-    title: undefined,
-    blurb: undefined,
-    layoutStyle: 'banner' as CTL_LayoutStyleType,
-    // The animated skeleton will show up if "title" or "blurb" props are undefined
-  },
-};
+// export const SkeletonHorizontalNoIconNoImg: Story = {
+//   args: {
+//     title: undefined,
+//     blurb: undefined,
+//     layoutStyle: 'banner' as CTL_LayoutStyleType,
+//     // The animated skeleton will show up if "title" or "blurb" props are undefined
+//   },
+// };
 
-export const OpensExternalLinkUp: Story = {
-  args: {
-    ...mockCustomTile,
-    linksTo: 'https://carbondesignsystem.com',
-    linkTarget: '_blank' as CTL_LinkTargetType,
-  },
-};
+// export const OpensExternalLinkUp: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     linksTo: 'https://carbondesignsystem.com',
+//     linkTarget: '_blank' as CTL_LinkTargetType,
+//   },
+// };
 
-export const OpensLocalLinkUp: Story = {
-  args: {
-    ...mockCustomTile,
-    linksTo: 'link/param',
-  },
-};
+// export const OpensLocalLinkUp: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     linksTo: 'link/param',
+//   },
+// };
 
-export const OpensModalUpWithPlainText: Story = {
-  args: {
-    ...mockCustomTile,
-    // The modal will display plain text
-    plainDescription:
-      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
-    richDescription: undefined, // Must remain undefined when "plainDescription" is specified
-    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
-    showsModal: true,
-    linkTarget: undefined, // Must remain undefined when "showsModal" is specified
-    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
-  },
-};
+// export const OpensModalUpWithPlainText: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     // The modal will display plain text
+//     plainDescription:
+//       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+//     richDescription: undefined, // Must remain undefined when "plainDescription" is specified
+//     // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
+//     showsModal: true,
+//     linkTarget: undefined, // Must remain undefined when "showsModal" is specified
+//     // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
+//   },
+// };
 
-export const OpensModalUpWithRichText: Story = {
-  args: {
-    ...mockCustomTile,
-    // The modal will display rich text
-    plainDescription: undefined, // Must remain undefined when "plainDescription" is specified
-    richDescription: project?.data[activeLang]?.description,
-    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
-    showsModal: true,
-    linkTarget: undefined, // Must remain undefined when "showsModal" is specified
-    // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
-  },
-};
+// export const OpensModalUpWithRichText: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     // The modal will display rich text
+//     plainDescription: undefined, // Must remain undefined when "plainDescription" is specified
+//     richDescription: project?.data[activeLang]?.description,
+//     // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
+//     showsModal: true,
+//     linkTarget: undefined, // Must remain undefined when "showsModal" is specified
+//     // TypeScript will be raise if both props are specified (See CTL_propsType1Validation for more info)
+//   },
+// };
 
-// /**
-//  * Props validation errors
-//  * ---------------
-//  */
-export const ErrorsPropsValidation1: Story = {
-  args: {
-    ...mockCustomTile,
-    // An error will be thrown because both "plainDescription" and "richDescription" have been provided
+// // /**
+// //  * Props validation errors
+// //  * ---------------
+// //  */
+// export const ErrorsPropsValidation1: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     // An error will be thrown because both "plainDescription" and "richDescription" have been provided
 
-    plainDescription:
-      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
-    richDescription: project?.data[activeLang]?.description,
-    showsModal: true,
-    linkTarget: undefined,
-  },
-};
+//     plainDescription:
+//       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+//     richDescription: project?.data[activeLang]?.description,
+//     showsModal: true,
+//     linkTarget: undefined,
+//   },
+// };
 
-export const ErrorsPropsValidation2: Story = {
-  args: {
-    ...mockCustomTile,
-    // An error will be thrown because both "plainDescription" and "richDescription" have been provided
-    plainDescription:
-      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
-    richDescription: undefined,
-    linksTo: 'https://carbondesignsystem.com',
-    linkTarget: '_blank' as CTL_LinkTargetType,
-    showsModal: true,
-  },
-};
+// export const ErrorsPropsValidation2: Story = {
+//   args: {
+//     ...mockCustomTile,
+//     // An error will be thrown because both "plainDescription" and "richDescription" have been provided
+//     plainDescription:
+//       'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+//     richDescription: undefined,
+//     linksTo: 'https://carbondesignsystem.com',
+//     linkTarget: '_blank' as CTL_LinkTargetType,
+//     showsModal: true,
+//   },
+// };

@@ -1,15 +1,15 @@
-import { CustomTileLinkWrapperProps, LinkWrapperType } from './ct-types';
+import { CTL_linkWrapperPropsType, LinkWrapperType } from './types';
 
 // LinkWrapper pattern for cleanliness and maintainability of all functionality
 export const getLinkWrapper = ({
-  title,
+  heading,
   linksTo,
   linkTarget,
   linkIsExternal,
-}: CustomTileLinkWrapperProps): LinkWrapperType => {
+}: CTL_linkWrapperPropsType): LinkWrapperType => {
   const customProps = {
     className: 'enj-CustomTile-anchor-tag',
-    'aria-label': `Navigate to ${title}${
+    'aria-label': `Navigate to ${heading}${
       linkIsExternal ? ' (opens in new tab)' : ''
     }`,
   };

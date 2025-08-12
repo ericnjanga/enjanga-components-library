@@ -1,19 +1,24 @@
+/**
+ * Custom hook for tracking a component's wrapper and assigning the most appropriate breakpoint.
+ * -----------------------------
+ */
+
 import { useEffect, useState, useRef } from 'react';
 import { breakpoints } from '@carbon/layout';
 import { calcRemToPx } from './helpers';
 
-type SizeClass = 'sm' | 'md' | 'lg' | 'xl' | 'max';
+type SizeClass = 'sm' | 'md' | 'lg' | 'xlg' | 'max';
 
 interface UseContainerSizeOptions {
   /**
    * Record<SizeClass, number> is a TypeScript utility type that creates an object type where:
-   * - All keys are from SizeClass ('sm', 'md', 'lg', 'xl', 'max')
+   * - All keys are from SizeClass ('sm', 'md', 'lg', 'xlg', 'max')
    * - All values are number
-   * All keys are from SizeClass ('sm', 'md', 'lg', 'xl', 'max')
-   * - So: { sm: number; md: number; lg: number; xl: number; max: number; }
+   * All keys are from SizeClass ('sm', 'md', 'lg', 'xlg', 'max')
+   * - So: { sm: number; md: number; lg: number; xlg: number; max: number; }
    *
    * Partial<...> utility type makes all properties of the object optional.
-   * - So: { sm?: number; md?: number; lg?: number; xl?: number; max?: number; }
+   * - So: { sm?: number; md?: number; lg?: number; xlg?: number; max?: number; }
    */
   customBreakpoints?: Partial<Record<SizeClass, number>>;
   defaultSize?: SizeClass;
@@ -36,9 +41,9 @@ export const useContainerSize = (options?: UseContainerSizeOptions) => {
     lg:
       options?.customBreakpoints?.lg ??
       calcRemToPx(parseInt(breakpoints?.lg?.width, 10)),
-    xl:
-      options?.customBreakpoints?.xl ??
-      calcRemToPx(parseInt(breakpoints?.xl?.width, 10)),
+    xlg:
+      options?.customBreakpoints?.xlg ??
+      calcRemToPx(parseInt(breakpoints?.xlg?.width, 10)),
   };
 
   useEffect(() => {
@@ -55,12 +60,20 @@ export const useContainerSize = (options?: UseContainerSizeOptions) => {
         setSize('md');
       } else if (width < effectiveBreakpoints.lg) {
         setSize('lg');
-      } else if (width < effectiveBreakpoints.xl) {
-        setSize('xl');
+      } else if (width < effectiveBreakpoints.xlg) {
+        setSize('xlg');
       } else {
         setSize('max');
       }
     });
+
+    console.log(
+      '++++++++++',
+      effectiveBreakpoints.md,
+      effectiveBreakpoints.lg,
+      effectiveBreakpoints.xlg,
+      breakpoints
+    );
 
     observer.observe(ref.current); // Attach observer to the reference
 
@@ -72,7 +85,7 @@ export const useContainerSize = (options?: UseContainerSizeOptions) => {
     effectiveBreakpoints.sm,
     effectiveBreakpoints.md,
     effectiveBreakpoints.lg,
-    effectiveBreakpoints.xl,
+    effectiveBreakpoints.xlg,
   ]);
 
   return {

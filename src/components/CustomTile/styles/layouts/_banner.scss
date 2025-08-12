@@ -1,0 +1,13 @@
+/**
+ * Banner
+ * ----------
+*/
+
+:root {
+  --enj-CTL-banner-pad: #{$spacing-10};
+}
+
+.enj-CustomTile--banner {
+  background-color: lightcoral;
+  padding: var(--enj-CTL-banner-pad);
+}

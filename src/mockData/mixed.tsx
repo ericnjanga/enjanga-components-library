@@ -26,18 +26,25 @@ export const mockCustomIcon = {
 
 // For CustomTile.stories.tsx ...
 export const mockCustomTile = {
-  layoutStyle: CTL_LayoutStyleOpt[0] as CTL_LayoutStyleType,
-  titleLength: 50,
-  blurbLength: 300,
-  iconName: undefined,
-  linksTo: undefined,
-  linkTarget: CTL_LinkTargetOpt[1] as CTL_LinkTargetType,
-  showsModal: undefined,
-  title:
+  className: '',
+  heading:
     'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
+  headingLevel: 3 as HDG_levelPropsType,
+  headingMaxLength: 50,
+
+  layoutStyle: CTL_LayoutStyleOpt[0] as CTL_LayoutStyleType,
+  iconName: undefined,
+  showsModal: undefined,
+
   blurb:
     'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+  blurbLength: 300,
+
   plainDescription: undefined,
+  richDescription: undefined,
+
+  linksTo: undefined,
+  linkTarget: CTL_LinkTargetOpt[1] as CTL_LinkTargetType,
 } as CTL_propsType;
 
 export const mockTextLengthList = [50, 100, 200, 300, 500, 1000];

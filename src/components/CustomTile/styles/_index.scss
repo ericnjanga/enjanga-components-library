@@ -4,15 +4,13 @@
 @import './mixins';
 @import './container-responsiveness';
 
-:root {
-  --enj-CustomTile-br-col: #{$gray-60};
-}
+@import './layouts/card';
+@import './layouts/banner';
 
-.enj-CustomTile--card {
-  background-color: aqua;
-}
-.enj-CustomTile--banner {
-  background-color: lightcoral;
+:root {
+  --enj-CTL-br-col: #{$gray-60};
+  --enj-CTL-card-pad: #{$spacing-07};
+  --enj-CTL-banner-pad: #{$spacing-10};
 }
 
 // // Apply the same hover effect for non-link components
@@ -25,7 +23,7 @@
 //   position: relative;
 //   transition: all 0.2s ease;
 //   padding: 0; // We cancel all padding by default
-//   border: 1px solid var(--enj-CustomTile-br-col);
+//   border: 1px solid var(--enj-CTL-br-col);
 
 //   // Variables ...
 //   --enj-CustomTile-gap: #{$spacing-06};

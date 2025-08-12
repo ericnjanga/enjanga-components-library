@@ -11,8 +11,14 @@ const meta: Meta<typeof FeatureText> = {
     ...mockFeatureText,
   },
   argTypes: {
-    className: { control: 'text' },
-    heading: { control: 'text' },
+    className: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
+    heading: {
+      control: 'text',
+      description: '...description coming soon...',
+    },
     headingLevel: {
       control: 'select',
       options: [...HDG_levelOpt],

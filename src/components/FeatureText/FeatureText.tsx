@@ -8,7 +8,7 @@ import { Heading } from '../Heading';
 const FeatureText = ({
   className,
   heading,
-  headingLevel,
+  headingLevel = 1,
   headingMaxLength,
   plainText,
   richText,

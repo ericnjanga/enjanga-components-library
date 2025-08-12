@@ -1,0 +1,13 @@
+/**
+ * Card
+ * ----------
+*/
+
+:root {
+  --enj-CTL-card-pad: #{$spacing-07};
+}
+
+.enj-CustomTile--card {
+  background-color: aqua;
+  padding: var(--enj-CTL-card-pad);
+}

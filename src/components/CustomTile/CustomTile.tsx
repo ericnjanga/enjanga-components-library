@@ -4,11 +4,11 @@
  * A customizable tile component that can optionally link to internal (arrow right) or external links (arrow up right)
  *  
  * @param {string} className  - Custom CSS class
- * @param {string} title      - The main title/text of the tile
+ * @param {string} heading      - The main heading/text of the tile
  * @param {string} blurb      - Text content's blurb
  * @param {string} plainDescription   - Text content's description (in string format)
  * @param {json} richDescription      - Text content's description (in rich format from a headless CMS like ContentFul)
- * @param {number} [titleLength]      - Optional character limit for title
+ * @param {number} [headingMaxLength]      - Optional character limit for title
  * @param {number} [blurbLength]      - Optional character limit for text
  * @param {'card'|'banner'} [layoutStyle='card'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
@@ -46,15 +46,20 @@ import { useContainerSize } from '@/libs/useContainerSize';
 
 const CustomTile = ({
   className,
-  layoutStyle = 'card' as CTL_LayoutStyleType,
-  titleLength,
-  blurbLength,
+  heading,
+  headingLevel = 3, // h3 by default
+  headingMaxLength,
+
+  layoutStyle = 'card' as CTL_LayoutStyleType, // card by default
   iconName,
   showsModal,
-  title,
+
   blurb,
+  blurbLength,
+
   plainDescription,
   richDescription,
+
   linksTo,
   linkTarget = '_self' as CTL_LinkTargetType,
 }: CTL_propsType) => {
@@ -78,10 +83,12 @@ const CustomTile = ({
 
   // ...
   const tileContent = getTileContent({
+    heading,
+    headingLevel,
+    headingMaxLength,
+
     iconName,
-    title,
     blurb,
-    titleLength,
     blurbLength,
     link: {
       isAvailable: linkIsActive,
@@ -90,7 +97,7 @@ const CustomTile = ({
   });
 
   const LinkWrapper = getLinkWrapper({
-    title,
+    heading,
     linksTo,
     linkTarget,
     linkIsExternal,
@@ -108,7 +115,7 @@ const CustomTile = ({
     <div className="enj-CustomTile-wrapper" ref={containerRef}>
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
-        aria-label={`${title} tile`}
+        aria-label={`${heading} tile`}
         onClick={() => handleCustomTileClick({ showsModal, setModalIsOpen })}
       >
         {linksTo ? (
@@ -118,10 +125,10 @@ const CustomTile = ({
         )}
       </Tile>
 
-      {showsModal && title && modalIsOpen !== undefined && (
+      {showsModal && heading && modalIsOpen !== undefined && (
         <ContentModal
           isOpen={modalIsOpen}
-          modalHeading={title}
+          modalHeading={heading}
           modalSecondaryButtonText="Cancel"
           setIsOpen={setModalIsOpen}
         >
