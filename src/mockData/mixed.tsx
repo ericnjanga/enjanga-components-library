@@ -5,7 +5,11 @@ import {
   CI_sizeType,
 } from '@/components/CustomIcon/libs/types';
 import { CI_propsType } from '@/components/CustomIcon/libs/types';
-
+import { FTX_propsType } from '@/components/FeatureText/libs/types';
+import {
+  HDG_levelOpt,
+  HDG_levelPropsType,
+} from '@/components/Heading/libs/types';
 import {
   CTL_LinkTargetType,
   CTL_LinkTargetOpt,
@@ -37,3 +41,14 @@ export const mockCustomTile = {
 } as CTL_propsType;
 
 export const mockTextLengthList = [50, 100, 200, 300, 500, 1000];
+
+// For FeatureText.stories.tsx ...
+export const mockFeatureText = {
+  className: '',
+  heading: `Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans.`,
+  headingLevel: HDG_levelOpt[0] as HDG_levelPropsType,
+  headingMaxLength: 50,
+  plainText: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
+  richText: undefined,
+  blurbLength: 300,
+} as FTX_propsType;

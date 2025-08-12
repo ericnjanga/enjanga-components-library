@@ -1,30 +1,32 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FeatureText from '../../../components/FeatureText/FeatureText';
 import { infoBlock } from '@/mockData/infoBlock';
+import { mockFeatureText, mockTextLengthList } from '@/mockData/mixed';
+import { HDG_levelOpt } from '@/components/Heading/libs/types';
 
 const meta: Meta<typeof FeatureText> = {
   title: 'External Components/FeatureText',
   component: FeatureText,
   args: {
-    className: '',
-    title: `Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans.`,
-    plainText: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
-    richText: undefined,
-    titleLength: 50,
-    blurbLength: 300,
+    ...mockFeatureText,
   },
   argTypes: {
     className: { control: 'text' },
-    title: { control: 'text' },
+    heading: { control: 'text' },
+    headingLevel: {
+      control: 'select',
+      options: [...HDG_levelOpt],
+      description: '... soon ...',
+    },
+    headingMaxLength: {
+      control: 'select',
+      options: [...mockTextLengthList],
+    },
     plainText: { control: 'text' },
     richText: { control: 'object' },
-    titleLength: {
-      control: 'select',
-      options: [50, 100, 200, 300, 500, 1000],
-    },
     blurbLength: {
       control: 'select',
-      options: [50, 100, 200, 300, 500, 1000],
+      options: [...mockTextLengthList],
     },
   },
 };

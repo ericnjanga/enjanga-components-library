@@ -3,27 +3,34 @@ import { SmartText } from '../SmartText';
 import { textTrimmer } from '@/libs/textTrimmer';
 import { FTX_propsType } from './libs/types';
 import { smartTextPropsValidation } from '@/libs/smartTextPropsValidation';
+import { Heading } from '../Heading';
 
 const FeatureText = ({
   className,
-  title,
+  heading,
+  headingLevel,
+  headingMaxLength,
   plainText,
   richText,
-  titleLength,
   blurbLength,
 }: FTX_propsType) => {
   // Throw errors if smart text validation rules aren't applied ...
   smartTextPropsValidation({ plainText, richText });
 
   // Trim title and plain text if necessary ...
-  const trimmedTitle = textTrimmer({ text: title, length: titleLength });
+  const trimmedHeading = textTrimmer({
+    text: heading,
+    length: headingMaxLength,
+  });
   const trimmedPlainText = plainText
     ? textTrimmer({ text: plainText, length: blurbLength })
     : undefined;
 
   return (
     <div className={clsx(`enj-FeatureText`, className)}>
-      <h3 className={clsx('enj-FeatureText-title')}>{trimmedTitle}</h3>
+      <Heading className={clsx('enj-FeatureText-title')} level={headingLevel}>
+        {trimmedHeading}
+      </Heading>
 
       {/** Render plain text if available */}
       {plainText && (

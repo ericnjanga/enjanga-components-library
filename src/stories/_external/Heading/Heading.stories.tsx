@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from '../../../components/Heading';
+import { HDG_levelOpt } from '@/components/Heading/libs/types';
 
 const meta: Meta<typeof Heading> = {
   title: 'External Components/Heading',
@@ -14,7 +15,7 @@ const meta: Meta<typeof Heading> = {
     className: { control: 'text' },
     level: {
       control: 'select',
-      options: ['ordered', 'unordered'],
+      options: [...HDG_levelOpt],
       description: '... soon ...',
     },
     children: {
@@ -23,7 +24,7 @@ const meta: Meta<typeof Heading> = {
     },
   },
 };
-
+// HDG_levelOpt[0] as HDG_levelPropsType,
 export default meta;
 
 type Story = StoryObj<typeof Heading>;
