@@ -1,0 +1,4 @@
+diff a/src/stories/_external/Banner/Banner.stories.tsx b/src/stories/_external/Banner/Banner.stories.tsx	(rejected hunks)
+@@ -2 +2 @@ import type { Meta, StoryObj } from '@storybook/react';
+-import Banner from '../../../components/Banner/Banner'; 
++import Banner from '../../../components/Banner/Banner';

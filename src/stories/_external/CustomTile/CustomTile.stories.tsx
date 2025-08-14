@@ -7,6 +7,7 @@ import {
   CTL_MediaOpt,
 } from '@/components/CustomTile/lib/types';
 import { CTL_LayoutStyleOpt } from '@/components/CustomTile/lib/types';
+import { CTL_LayoutStyleOpt } from '@/components/CustomTile/lib/types';
 import { mockCustomTile, mockTextLengthList } from '@/mockData/mixed';
 import { HDG_levelOpt } from '@/components/Heading/libs/types';
 import { mockRichText } from '@/mockData/mockRichText';
@@ -56,7 +57,6 @@ const meta: Meta<typeof CustomTile> = {
       control: 'select',
       options: ['', ...mockImages],
     },
-
     modalIsAvailable: {
       control: 'select',
       options: [true, false],

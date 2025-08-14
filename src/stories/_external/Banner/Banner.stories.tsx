@@ -104,7 +104,6 @@ export const hugeBannerWithRichDescription: Story = {
     showRichDescription: true,
   },
 };
-
 /**
  * Props validation errors
  * ---------------

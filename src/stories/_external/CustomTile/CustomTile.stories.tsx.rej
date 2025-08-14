@@ -1,0 +1,14 @@
+diff a/src/stories/_external/CustomTile/CustomTile.stories.tsx b/src/stories/_external/CustomTile/CustomTile.stories.tsx	(rejected hunks)
+@@ -5 +5 @@ import { CI_nameOpt } from '@/components/CustomIcon/libs/types';
+-import { 
++import {
+@@ -8,3 +7,0 @@ import {
+-} from '@/components/CustomTile/lib/types'; 
+-import {
+-  CTL_LayoutStyleOpt
+@@ -16 +13,0 @@ import { mockImages } from '@/mockData/mockImages';
+- 
+@@ -49,2 +46 @@ const meta: Meta<typeof CustomTile> = {
+-  
+-  
++

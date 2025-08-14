@@ -63,7 +63,6 @@ export const mockFeatureText = {
   richText: undefined,
   blurbMaxLength: 300,
 } as FTX_propsType;
-
 export const mockHeading = {
   plain: `Liquorice liquorice fruitcake tiramisu sesame snaps sugar plum lollipop gummi bears cookie`,
   jsx: (

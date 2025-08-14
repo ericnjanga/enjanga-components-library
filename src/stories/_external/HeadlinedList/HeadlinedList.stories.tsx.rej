@@ -1,0 +1,70 @@
+diff a/src/stories/_external/HeadlinedList/HeadlinedList.stories.tsx b/src/stories/_external/HeadlinedList/HeadlinedList.stories.tsx	(rejected hunks)
+@@ -4 +4 @@ import { mockHeadlinedListArgs, mockListMixed } from '@/mockData/mockLists';
+-import { mockHeading } from '@/mockData/mixed'; 
++import { mockHeading } from '@/mockData/mixed';
+@@ -8,2 +8,4 @@ import { mockHeadingStyling } from '@/mockData/mixed';
+-import { HDG_levelOpt, HDG_levelPropsType } from '@/components/Heading/libs/types';
+-
++import {
++  HDG_levelOpt,
++  HDG_levelPropsType,
++} from '@/components/Heading/libs/types';
+@@ -66 +68 @@ export const Empty: Story = {
+-  render: (args) => {  
++  render: (args) => {
+@@ -68 +70 @@ export const Empty: Story = {
+-      <Grid> 
++      <Grid>
+@@ -72 +74 @@ export const Empty: Story = {
+-        </Column> 
++        </Column>
+@@ -74,3 +76,7 @@ export const Empty: Story = {
+-          <h4 style={{ ...mockHeadingStyling }}>(Empty heading)</h4> 
+-          <HeadlinedList {...args} heading={{ content: undefined, level: 3 }} list={{ ...mockListArgs }} />
+-        </Column> 
++          <h4 style={{ ...mockHeadingStyling }}>(Empty heading)</h4>
++          <HeadlinedList
++            {...args}
++            heading={{ content: undefined, level: 3 }}
++            list={{ ...mockListArgs }}
++          />
++        </Column>
+@@ -78 +84 @@ export const Empty: Story = {
+-          <h4 style={{ ...mockHeadingStyling }}>(Empty heading and list)</h4> 
++          <h4 style={{ ...mockHeadingStyling }}>(Empty heading and list)</h4>
+@@ -80,2 +86,2 @@ export const Empty: Story = {
+-        </Column>  
+-      </Grid> 
++        </Column>
++      </Grid>
+@@ -83 +89 @@ export const Empty: Story = {
+-  }
++  },
+@@ -86,2 +91,0 @@ export const Empty: Story = {
+-
+-
+@@ -110 +114 @@ export const HeadingLevelList: Story = {
+-  render: (args) => {  
++  render: (args) => {
+@@ -112,2 +116,2 @@ export const HeadingLevelList: Story = {
+-      <Grid> 
+-        {[1,2,3,4,5,6].map((index)=> (
++      <Grid>
++        {[1, 2, 3, 4, 5, 6].map((index) => (
+@@ -116,2 +120,8 @@ export const HeadingLevelList: Story = {
+-            <HeadlinedList {...args} heading={{ content: args.heading.content, level: index as HDG_levelPropsType }} />
+-          </Column> 
++            <HeadlinedList
++              {...args}
++              heading={{
++                content: args.heading.content,
++                level: index as HDG_levelPropsType,
++              }}
++            />
++          </Column>
+@@ -121 +131 @@ export const HeadingLevelList: Story = {
+-  }
++  },
+@@ -124,2 +133,0 @@ export const HeadingLevelList: Story = {
+- 
+-

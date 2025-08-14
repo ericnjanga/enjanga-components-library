@@ -1,0 +1,20 @@
+diff a/src/mockData/mixed.tsx b/src/mockData/mixed.tsx	(rejected hunks)
+@@ -45 +45 @@ export const mockCustomTile = {
+- 
++
+@@ -72,3 +71,3 @@ export const mockHeading = {
+-      Liquorice <a href="#">liquorice fruitcake </a> tiramisu 
+-        <span>🔔</span>
+-        sesame snaps {/* JSX Fragment */}
++      Liquorice <a href="#">liquorice fruitcake </a> tiramisu
++      <span>🔔</span>
++      sesame snaps {/* JSX Fragment */}
+@@ -76 +75 @@ export const mockHeading = {
+-  )
++  ),
+@@ -80,2 +79,2 @@ export const mockHeading = {
+-const textColor = red60; 
+-export const mockHeadingStyling = { marginBottom: 0, color: textColor };
+\ No newline at end of file
++const textColor = red60;
++export const mockHeadingStyling = { marginBottom: 0, color: textColor };

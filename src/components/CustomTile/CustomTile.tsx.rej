@@ -1,0 +1,18 @@
+diff a/src/components/CustomTile/CustomTile.tsx b/src/components/CustomTile/CustomTile.tsx	(rejected hunks)
+@@ -54 +54 @@ const CustomTile = ({
+-  
++
+@@ -61 +61 @@ const CustomTile = ({
+- 
++
+@@ -125 +125,3 @@ const CustomTile = ({
+-        onClick={() => handleCustomTileClick({ modalIsAvailable, setModalIsOpen })}
++        onClick={() =>
++          handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
++        }
+@@ -141 +143,4 @@ const CustomTile = ({
+-          <SmartText plainText={modalPlainDescription} richText={modalRichDescription} />
++          <SmartText
++            plainText={modalPlainDescription}
++            richText={modalRichDescription}
++          />

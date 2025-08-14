@@ -1,0 +1,9 @@
+diff a/src/mockData/mockImages.ts b/src/mockData/mockImages.ts	(rejected hunks)
+@@ -1 +0,0 @@
+-
+@@ -3 +2,3 @@
+-export const mockImages = Array(8).fill(0).map((_, i) => `/img/cust-tile-${i+1}.png`);
+\ No newline at end of file
++export const mockImages = Array(8)
++  .fill(0)
++  .map((_, i) => `/img/cust-tile-${i + 1}.png`);

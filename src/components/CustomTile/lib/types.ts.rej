@@ -1,0 +1,7 @@
+diff a/src/components/CustomTile/lib/types.ts b/src/components/CustomTile/lib/types.ts	(rejected hunks)
+@@ -47 +47 @@ export interface CTL_globalContentPropsType {
+-  media?: CTL_MediaType
++  media?: CTL_MediaType;
+@@ -69 +69 @@ export type CTL_propsType = {
+-  media?: CTL_MediaType
++  media?: CTL_MediaType;

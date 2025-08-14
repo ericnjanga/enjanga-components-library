@@ -1,0 +1,29 @@
+diff a/src/stories/_external/Heading/Heading.stories.tsx b/src/stories/_external/Heading/Heading.stories.tsx	(rejected hunks)
+@@ -3 +3,4 @@ import { Heading } from '../../../components/Heading';
+-import { HDG_levelOpt, HDG_levelPropsType } from '@/components/Heading/libs/types';
++import {
++  HDG_levelOpt,
++  HDG_levelPropsType,
++} from '@/components/Heading/libs/types';
+@@ -13,2 +16 @@ const meta: Meta<typeof Heading> = {
+-    children:
+-      mockHeading.plain,
++    children: mockHeading.plain,
+@@ -47 +49 @@ export const WithJSXFragments: Story = {
+-    return ( 
++    return (
+@@ -49 +51 @@ export const WithJSXFragments: Story = {
+-        {[1,2,3,4,5,6].map((index)=> (
++        {[1, 2, 3, 4, 5, 6].map((index) => (
+@@ -51,3 +53,5 @@ export const WithJSXFragments: Story = {
+-            {index && <Heading level={index as HDG_levelPropsType}>
+-              ({index}) - {args.children}
+-            </Heading>}
++            {index && (
++              <Heading level={index as HDG_levelPropsType}>
++                ({index}) - {args.children}
++              </Heading>
++            )}
+@@ -56 +60 @@ export const WithJSXFragments: Story = {
+-      </Grid> 
++      </Grid>
