@@ -10,11 +10,17 @@ export const textTrimmer = ({
   text,
   length,
 }: {
-  text: string;
+  text?: string | undefined;
   length?: number;
-}): string => {
+}): string | undefined => {
   return useMemo(() => {
-    if (!length || text.length <= length) return text;
-    return `${text.slice(0, length)}...`;
+    let trimmed;
+
+    if (text) {
+      if (!length || text.length <= length) return text;
+      trimmed = `${text.slice(0, length)}...`;
+    }
+
+    return trimmed;
   }, [text, length]);
 };

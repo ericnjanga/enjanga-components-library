@@ -14,7 +14,7 @@ export interface HDL_propsType {
     cssClass?: string;
   };
   heading: {
-    content?: string;
+    content?: React.ReactNode;
     level: HDG_levelPropsType;
     cssClass?: string;
   };

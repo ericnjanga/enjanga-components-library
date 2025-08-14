@@ -12,13 +12,13 @@ export function smartTextPropsValidation({
 }: SMT_propsTypeVal) {
   if (plainText && richText) {
     throw new Error(
-      'Invalid props: Use either "plainText" OR "richText", never both.'
+      `Invalid props: Use either "plain" OR "rich" text description, never both (see the component's API for more information`
     );
   }
 
   if (!plainText && !richText) {
     throw new Error(
-      'Missing content: You must provide either "plainText" OR "richText"'
+      `Missing content: You must provide either "plain" OR "rich" text description (see the component's API for more information`
     );
   }
 }

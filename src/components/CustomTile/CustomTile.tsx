@@ -6,15 +6,15 @@
  * @param {string} className  - Custom CSS class
  * @param {string} heading      - The main heading/text of the tile
  * @param {string} blurb      - Text content's blurb
- * @param {string} plainDescription   - Text content's description (in string format)
- * @param {json} richDescription      - Text content's description (in rich format from a headless CMS like ContentFul)
+ * @param {string} modalPlainDescription   - Text content's description (in string format)
+ * @param {json} modalRichDescription      - Text content's description (in rich format from a headless CMS like ContentFul)
  * @param {number} [headingMaxLength]      - Optional character limit for title
- * @param {number} [blurbLength]      - Optional character limit for text
+ * @param {number} [blurbMaxLength]      - Optional character limit for text
  * @param {'card'|'banner'} [layoutStyle='card'] - Content arrangement
  * @param {string} [iconName] - Optional icon to display
  * 
  * EITHER:
- * @param {boolean} [showsModal] - When true, clicking opens a modal
+ * @param {boolean} [modalIsAvailable] - When true, clicking opens a modal
  * 
  * OR:
  * @param {string} [linksTo] - Optional linksTo/link destination
@@ -51,22 +51,25 @@ const CustomTile = ({
   headingMaxLength,
 
   layoutStyle = 'card' as CTL_LayoutStyleType, // card by default
-  iconName,
-  showsModal,
+
+  media,
+  mediaIcon,
+  mediaImage,
 
   blurb,
-  blurbLength,
+  blurbMaxLength,
 
-  plainDescription,
-  richDescription,
+  modalIsAvailable,
+  modalPlainDescription,
+  modalRichDescription,
 
   linksTo,
   linkTarget = '_self' as CTL_LinkTargetType,
 }: CTL_propsType) => {
   // Controlling modal appearance:
-  // (The state is only created if showsModal is provided)
+  // (The state is only created if modalIsAvailable is provided)
   const [modalIsOpen, setModalIsOpen] = useState(
-    showsModal !== undefined ? false : undefined
+    modalIsAvailable !== undefined ? false : undefined
   );
 
   // Get all the CSS classes the component's wrapper needs ...
@@ -77,7 +80,7 @@ const CustomTile = ({
   });
 
   // ...
-  const linkIsActive = showsModal !== undefined || linksTo !== undefined;
+  const linkIsActive = modalIsAvailable !== undefined || linksTo !== undefined;
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
 
@@ -87,9 +90,12 @@ const CustomTile = ({
     headingLevel,
     headingMaxLength,
 
-    iconName,
+    media,
+    mediaIcon,
+    mediaImage,
+
     blurb,
-    blurbLength,
+    blurbMaxLength,
     link: {
       isAvailable: linkIsActive,
       isExternal: linkIsExternal,
@@ -104,7 +110,7 @@ const CustomTile = ({
   });
 
   // Throw errors if props aren't consistent with the rules ...
-  validateCTL_propsType({ linksTo, linkTarget, showsModal });
+  validateCTL_propsType({ linksTo, linkTarget, modalIsAvailable });
 
   const {
     containerRef, // Reference to component wrapper
@@ -116,7 +122,9 @@ const CustomTile = ({
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
         aria-label={`${heading} tile`}
-        onClick={() => handleCustomTileClick({ showsModal, setModalIsOpen })}
+        onClick={() =>
+          handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
+        }
       >
         {linksTo ? (
           <>{React.cloneElement(LinkWrapper, {}, tileContent)}</>
@@ -125,14 +133,17 @@ const CustomTile = ({
         )}
       </Tile>
 
-      {showsModal && heading && modalIsOpen !== undefined && (
+      {modalIsAvailable && heading && modalIsOpen !== undefined && (
         <ContentModal
           isOpen={modalIsOpen}
           modalHeading={heading}
           modalSecondaryButtonText="Cancel"
           setIsOpen={setModalIsOpen}
         >
-          <SmartText plainText={plainDescription} richText={richDescription} />
+          <SmartText
+            plainText={modalPlainDescription}
+            richText={modalRichDescription}
+          />
         </ContentModal>
       )}
     </div>

@@ -5,10 +5,10 @@ import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 
 export interface FTX_propsType {
   className?: string;
-  heading: string;
+  heading?: string;
   headingLevel?: HDG_levelPropsType;
   headingMaxLength?: number;
   plainText?: string;
   richText?: { json: { content: Node[] } };
-  blurbLength?: number;
+  blurbMaxLength?: number;
 }

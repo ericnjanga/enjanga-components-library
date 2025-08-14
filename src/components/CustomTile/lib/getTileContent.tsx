@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { CTL_globalContentPropsType } from './types';
 import { CustomIcon } from '@/components/CustomIcon';
-import { CI_isValidIconName } from '@/components/CustomIcon/libs/helpers';
+import { CI_isValidMediaIcon } from '@/components/CustomIcon/libs/helpers';
 import { CustomTileArrowIcon } from '../parts/CustomTileArrowIcon';
 import CustomTileSkeleton from '../parts/CustomTileSkeleton';
 import { FeatureText } from '@/components/FeatureText';
@@ -12,13 +12,16 @@ export const getTileContent = ({
   headingLevel,
   headingMaxLength,
 
-  iconName,
+  media,
+  mediaIcon,
+  mediaImage,
+
   blurb,
-  blurbLength,
+  blurbMaxLength,
   link,
 }: CTL_globalContentPropsType) => {
   // ...
-  const iconNameIsValid = CI_isValidIconName(iconName);
+  const mediaIconIsValid = CI_isValidMediaIcon(mediaIcon);
   const arrowIconOrientation = link.isExternal ? 'UpRight' : 'Right';
 
   if (!heading || !blurb) {
@@ -27,8 +30,8 @@ export const getTileContent = ({
 
   return (
     <>
-      {iconName && iconNameIsValid && (
-        <CustomIcon name={iconName} className={clsx('enj-CustomTile-icon')} />
+      {mediaIcon && mediaIconIsValid && (
+        <CustomIcon name={mediaIcon} className={clsx('enj-CustomTile-icon')} />
       )}
 
       <FeatureText
@@ -36,7 +39,7 @@ export const getTileContent = ({
         headingLevel={headingLevel}
         headingMaxLength={headingMaxLength}
         plainText={blurb}
-        blurbLength={blurbLength}
+        blurbMaxLength={blurbMaxLength}
       />
 
       {link.isAvailable && (

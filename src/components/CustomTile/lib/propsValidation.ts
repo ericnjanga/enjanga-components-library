@@ -1,4 +1,4 @@
-import { CTL_LinkTargetType } from './ct-types';
+import { CTL_LinkTargetType } from './types';
 
 // Type-safe validation ...
 // Trows an error if the rule doesn't apply
@@ -6,15 +6,15 @@ import { CTL_LinkTargetType } from './ct-types';
 export function validateCTL_propsType({
   linksTo,
   linkTarget,
-  showsModal,
+  modalIsAvailable,
 }: {
   linksTo?: string;
-  linkTarget?: CTL_LinkTargetType['name'];
-  showsModal?: boolean;
+  linkTarget?: CTL_LinkTargetType;
+  modalIsAvailable?: boolean;
 }) {
-  if (linksTo && linkTarget && showsModal !== undefined) {
+  if (linksTo && linkTarget && modalIsAvailable !== undefined) {
     throw new Error(
-      `Invalid props: CustomTile cannot be both a link and a modal trigger. Use either "showsModal" OR "linksTo", never both.`
+      `Invalid props: CustomTile cannot be both a link and a modal trigger. Use either "modalIsAvailable" OR "linksTo", never both.`
     );
   }
 }

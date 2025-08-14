@@ -23,6 +23,7 @@ export const mockCustomIcon = {
   size: CI_sizeOpt[0] as CI_sizeType,
   className: '',
 } as CI_propsType;
+import { red60 } from '@carbon/colors';
 
 // For CustomTile.stories.tsx ...
 export const mockCustomTile = {
@@ -33,15 +34,18 @@ export const mockCustomTile = {
   headingMaxLength: 50,
 
   layoutStyle: CTL_LayoutStyleOpt[0] as CTL_LayoutStyleType,
-  iconName: undefined,
-  showsModal: undefined,
+
+  media: undefined,
+  mediaIcon: undefined,
+  mediaImage: undefined,
 
   blurb:
     'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
-  blurbLength: 300,
+  blurbMaxLength: 300,
 
-  plainDescription: undefined,
-  richDescription: undefined,
+  modalIsAvailable: undefined,
+  modalPlainDescription: undefined,
+  modalRichDescription: undefined,
 
   linksTo: undefined,
   linkTarget: CTL_LinkTargetOpt[1] as CTL_LinkTargetType,
@@ -57,5 +61,20 @@ export const mockFeatureText = {
   headingMaxLength: 50,
   plainText: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
   richText: undefined,
-  blurbLength: 300,
+  blurbMaxLength: 300,
 } as FTX_propsType;
+
+export const mockHeading = {
+  plain: `Liquorice liquorice fruitcake tiramisu sesame snaps sugar plum lollipop gummi bears cookie`,
+  jsx: (
+    <>
+      Liquorice <a href="#">liquorice fruitcake </a> tiramisu
+      <span>🔔</span>
+      sesame snaps {/* JSX Fragment */}
+    </>
+  ),
+};
+
+// ....
+const textColor = red60;
+export const mockHeadingStyling = { marginBottom: 0, color: textColor };

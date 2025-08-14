@@ -62,7 +62,7 @@ export const WithoutLinks: Story = {
   },
 };
 
-export const WithMixedData: Story = {
+export const WithJSXFragments: Story = {
   args: {
     ...mockListArgs,
     content: [...mockListMixed],

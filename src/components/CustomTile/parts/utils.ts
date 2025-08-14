@@ -1,14 +1,14 @@
 // ...
 // Opens modal up when triggered
 export const handleCustomTileClick = ({
-  showsModal,
+  modalIsAvailable,
   setModalIsOpen,
 }: {
-  showsModal: boolean | undefined;
+  modalIsAvailable: boolean | undefined;
   /** State setter */
   setModalIsOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 }) => {
-  if (showsModal !== undefined) {
+  if (modalIsAvailable !== undefined) {
     setModalIsOpen(true);
     // ...
     // ...

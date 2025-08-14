@@ -12,7 +12,7 @@ const FeatureText = ({
   headingMaxLength,
   plainText,
   richText,
-  blurbLength,
+  blurbMaxLength,
 }: FTX_propsType) => {
   // Throw errors if smart text validation rules aren't applied ...
   smartTextPropsValidation({ plainText, richText });
@@ -23,7 +23,7 @@ const FeatureText = ({
     length: headingMaxLength,
   });
   const trimmedPlainText = plainText
-    ? textTrimmer({ text: plainText, length: blurbLength })
+    ? textTrimmer({ text: plainText, length: blurbMaxLength })
     : undefined;
 
   return (

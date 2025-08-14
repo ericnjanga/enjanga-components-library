@@ -1,13 +1,20 @@
 // Banner props type
 // ----------------
 import type { Node } from '@contentful/rich-text-types';
+import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 
 export interface BNN_propsType {
+  className?: string;
+  heading?: string;
+  headingLevel?: HDG_levelPropsType;
+  headingMaxLength?: number;
+
   isHuge?: boolean;
-  showPlainDescription?: boolean;
-  showRichDescription?: boolean;
-  title?: string;
+
   plainDescription?: string | 'none';
   richDescription?: { json: { content: Node[] } };
-  className?: string;
+  blurbMaxLength?: number;
+
+  showPlainDescription?: boolean;
+  showRichDescription?: boolean;
 }

@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from '../../../components/Heading';
-import { HDG_levelOpt } from '@/components/Heading/libs/types';
+import {
+  HDG_levelOpt,
+  HDG_levelPropsType,
+} from '@/components/Heading/libs/types';
+import { mockHeading } from '@/mockData/mixed';
+import { Grid, Column } from '@carbon/react';
 
 const meta: Meta<typeof Heading> = {
   title: 'External Components/Heading',
@@ -8,8 +13,7 @@ const meta: Meta<typeof Heading> = {
   args: {
     className: '',
     level: 1,
-    children:
-      'Liquorice liquorice fruitcake tiramisu sesame snaps sugar plum lollipop gummi bears cookie.',
+    children: mockHeading.plain,
   },
   argTypes: {
     className: { control: 'text' },
@@ -19,7 +23,7 @@ const meta: Meta<typeof Heading> = {
       description: '... soon ...',
     },
     children: {
-      control: 'text',
+      control: 'object',
       description: '... soon ...',
     },
   },
@@ -34,6 +38,27 @@ export const Default: Story = {};
 export const Empty: Story = {
   args: {
     children: undefined,
+  },
+};
+
+export const WithJSXFragments: Story = {
+  args: {
+    children: mockHeading.jsx,
+  },
+  render: (args) => {
+    return (
+      <Grid>
+        {[1, 2, 3, 4, 5, 6].map((index) => (
+          <Column key={index} lg={8} style={{ marginBottom: '1.5rem' }}>
+            {index && (
+              <Heading level={index as HDG_levelPropsType}>
+                ({index}) - {args.children}
+              </Heading>
+            )}
+          </Column>
+        ))}
+      </Grid>
+    );
   },
 };
 

@@ -7,8 +7,10 @@ import { CTL_propsType1Validation } from './types-validation';
 
 export const CTL_LayoutStyleOpt = ['card', 'banner'] as const;
 export const CTL_LinkTargetOpt = ['_blank', '_self'] as const;
+export const CTL_MediaOpt = ['icon', 'image'] as const;
 export type CTL_LayoutStyleType = (typeof CTL_LayoutStyleOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
 export type CTL_LinkTargetType = (typeof CTL_LinkTargetOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
+export type CTL_MediaType = (typeof CTL_MediaOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
 
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 
@@ -42,9 +44,13 @@ export interface CTL_globalContentPropsType {
   headingLevel?: HDG_levelPropsType;
   headingMaxLength?: number;
 
+  media?: CTL_MediaType;
+  mediaIcon?: CI_nameType;
+  mediaImage?: string;
+
   blurb?: string;
-  iconName?: CI_nameType;
-  blurbLength?: number;
+  blurbMaxLength?: number;
+
   link: {
     isAvailable: boolean;
     isExternal: boolean;
@@ -59,14 +65,17 @@ export type CTL_propsType = {
   headingMaxLength?: number;
 
   layoutStyle?: CTL_LayoutStyleType;
-  iconName?: CI_nameType;
-  showsModal?: boolean;
+
+  media?: CTL_MediaType;
+  mediaIcon?: CI_nameType;
+  mediaImage?: string;
 
   blurb?: string;
-  blurbLength?: number;
+  blurbMaxLength?: number;
 
-  plainDescription?: string;
-  richDescription?: { json: { content: Node[] } };
+  modalIsAvailable?: boolean;
+  modalPlainDescription?: string;
+  modalRichDescription?: { json: { content: Node[] } };
 
   linksTo?: string;
   linkTarget?: CTL_LinkTargetType;

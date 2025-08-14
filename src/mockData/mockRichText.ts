@@ -1,4 +1,4 @@
-export const infoBlock = {
+export const mockRichText = {
   description: {
     json: {
       nodeType: 'document',

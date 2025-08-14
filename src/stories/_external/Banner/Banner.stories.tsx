@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Banner from '../../../components/Banner/Banner';
-import { infoBlock } from '@/mockData/infoBlock';
+import { mockRichText } from '@/mockData/mockRichText';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
@@ -31,7 +31,7 @@ const meta: Meta<typeof Banner> = {
     title: 'Toffee jujubes candy jujubes bears',
     plainDescription: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
     richDescription: {
-      ...infoBlock.description,
+      ...mockRichText.description,
     },
     className: '',
   },
@@ -102,5 +102,25 @@ export const hugeBannerWithRichDescription: Story = {
   args: {
     isHuge: true,
     showRichDescription: true,
+  },
+};
+
+/**
+ * Props validation errors
+ * ---------------
+ */
+export const ErrorsPropsValidation1: Story = {
+  args: {
+    plainText:
+      'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+    richText: {
+      ...mockRichText.description,
+    },
+  },
+};
+export const ErrorsPropsValidation2: Story = {
+  args: {
+    plainText: undefined,
+    richText: undefined,
   },
 };

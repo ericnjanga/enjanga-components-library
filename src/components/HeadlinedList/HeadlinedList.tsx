@@ -11,7 +11,7 @@ import { HDL_propsType } from './libs/types';
 
 const HeadlinedList = ({
   wrapper = { tag: 'div', cssClass: '' },
-  heading = { content: '', level: 3, cssClass: '' },
+  heading = { content: undefined, level: 3, cssClass: '' },
   list,
 }: HDL_propsType) => {
   const Wrapper = wrapper.tag; // Dynamically creating the wrapper tag
