@@ -99,7 +99,7 @@ export const mockHeadlinedListArgs = {
     cssClass: '',
   },
   heading: {
-    content: 'My Awesome List',
+    children: 'My Awesome List',
     level: 3 as HDG_levelPropsType,
     cssClass: 'custom-heading-class',
   },

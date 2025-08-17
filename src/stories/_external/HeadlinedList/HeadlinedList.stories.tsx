@@ -5,10 +5,8 @@ import { mockHeading } from '@/mockData/mixed';
 import { Grid, Column } from '@carbon/react';
 import { mockListArgs } from '@/mockData/mockLists';
 import { mockHeadingStyling } from '@/mockData/mixed';
-import {
-  HDG_levelOpt,
-  HDG_levelPropsType,
-} from '@/components/Heading/libs/types';
+import { HDG_levelPropsType } from '@/components/Heading/libs/types';
+import { headingArgTypes } from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof HeadlinedList> = {
   title: 'External Components/HeadlinedList',
@@ -22,18 +20,14 @@ const meta: Meta<typeof HeadlinedList> = {
    * - heading.content
    */
   argTypes: {
+    ...headingArgTypes,
     wrapper: {
       description: 'Wrapper configuration',
       control: {
         type: 'object',
       },
     },
-    heading: {
-      description: 'heading configuration',
-      control: {
-        type: 'object',
-      },
-    },
+
     list: {
       description: 'list configuration',
       control: {
@@ -76,13 +70,16 @@ export const Empty: Story = {
           <h4 style={{ ...mockHeadingStyling }}>(Empty heading)</h4>
           <HeadlinedList
             {...args}
-            heading={{ content: undefined, level: 3 }}
+            heading={{ children: undefined, level: 3 }}
             list={{ ...mockListArgs }}
           />
         </Column>
         <Column lg={8} style={{ marginBottom: '2.5rem' }}>
           <h4 style={{ ...mockHeadingStyling }}>(Empty heading and list)</h4>
-          <HeadlinedList {...args} heading={{ content: undefined, level: 3 }} />
+          <HeadlinedList
+            {...args}
+            heading={{ children: undefined, level: 3 }}
+          />
         </Column>
       </Grid>
     );
@@ -94,7 +91,7 @@ export const WithJSXFragments: Story = {
     ...mockHeadlinedListArgs,
     heading: {
       ...mockHeadlinedListArgs.heading,
-      content: mockHeading.jsx,
+      children: mockHeading.jsx,
     },
     list: {
       ...mockHeadlinedListArgs.list,
@@ -120,7 +117,7 @@ export const HeadingLevelList: Story = {
             <HeadlinedList
               {...args}
               heading={{
-                content: args.heading.content,
+                children: args.heading.children,
                 level: index as HDG_levelPropsType,
               }}
             />

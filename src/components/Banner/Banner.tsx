@@ -74,8 +74,6 @@
 
 import clsx from 'clsx';
 import { Grid, Column } from '@carbon/react';
-import BannerSkeleton from './parts/BannerSkeleton';
-import { CMSRichText } from '../CMSRichText';
 import { BNN_propsType } from './libs/types';
 import { FeatureText } from '../FeatureText';
 
@@ -90,35 +88,26 @@ const Banner = ({
   plainDescription,
   richDescription,
   blurbMaxLength,
+}: // showPlainDescription = false, // Do not show the plainDescription by default
+// showRichDescription = false, // Do not show the richDescription by default
 
-  showPlainDescription = false, // Do not show the plainDescription by default
-  showRichDescription = false, // Do not show the richDescription by default
- 
-}: BNN_propsType) => {
+BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
     'enj-Banner--jumbotron': isHuge,
   });
-
-  // if (!title) {
-  //   return (
-  //     <BannerSkeleton
-  //       className={cssClasses}
-  //       showDescription={showPlainDescription || showRichDescription}
-  //     />
-  //   );
-  // }
 
   return (
     <header className={cssClasses}>
       <Grid fullWidth>
         <Column lg={8} md={6} sm={4}>
           <FeatureText
+            className={cssClasses}
             heading={heading}
             headingLevel={headingLevel}
             headingMaxLength={headingMaxLength}
             plainText={plainDescription}
             richText={richDescription}
-            blurbMaxLength?: number;
+            blurbMaxLength={blurbMaxLength}
           />
           {/* <h1>{title}</h1>
           {showPlainDescription && plainDescription && (

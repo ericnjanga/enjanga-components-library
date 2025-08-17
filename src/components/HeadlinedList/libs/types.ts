@@ -1,8 +1,7 @@
 // HeadlinedList props type
 // ----------------
 
-import { LST_typePropsType } from '@/components/List/libs/types';
-import { HDG_levelPropsType } from '@/components/Heading/libs/types';
+import { HDG_propsType } from '@/components/Heading/libs/types';
 import { LST_propsType } from '@/components/List/libs/types';
 
 export const HDL_tagOpt = ['div', 'section'] as const;
@@ -13,10 +12,6 @@ export interface HDL_propsType {
     tag: HDL_tagPropsType;
     cssClass?: string;
   };
-  heading: {
-    content?: React.ReactNode;
-    level: HDG_levelPropsType;
-    cssClass?: string;
-  };
+  heading: HDG_propsType;
   list?: LST_propsType;
 }

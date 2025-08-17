@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from '../../../components/Heading';
+import { headingArgTypes } from '@/mockData/stories/argTypes';
+import { headingArgs } from '@/mockData/stories/args';
 import {
   HDG_levelOpt,
   HDG_levelPropsType,
@@ -11,21 +13,10 @@ const meta: Meta<typeof Heading> = {
   title: 'External Components/Heading',
   component: Heading,
   args: {
-    className: '',
-    level: 1,
-    children: mockHeading.plain,
+    ...headingArgs,
   },
   argTypes: {
-    className: { control: 'text' },
-    level: {
-      control: 'select',
-      options: [...HDG_levelOpt],
-      description: '... soon ...',
-    },
-    children: {
-      control: 'object',
-      description: '... soon ...',
-    },
+    ...headingArgTypes,
   },
 };
 // HDG_levelOpt[0] as HDG_levelPropsType,

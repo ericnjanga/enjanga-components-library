@@ -6,6 +6,7 @@ import {
 } from '@/components/CustomIcon/libs/types';
 import { CI_propsType } from '@/components/CustomIcon/libs/types';
 import { FTX_propsType } from '@/components/FeatureText/libs/types';
+import { BNN_propsType } from '@/components/Banner/libs/types';
 import {
   HDG_levelOpt,
   HDG_levelPropsType,
@@ -18,6 +19,21 @@ import {
   CTL_propsType,
 } from '@/components/CustomTile/lib/types';
 
+export const mockPlainText =
+  'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.';
+
+// For Heading.stories.tsx ...
+export const mockHeading = {
+  plain: `Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.`,
+  jsx: (
+    <>
+      Liquorice <a href="#">liquorice fruitcake </a> tiramisu
+      <span>🔔</span>
+      sesame snaps {/* JSX Fragment */}
+    </>
+  ),
+};
+
 export const mockCustomIcon = {
   name: CI_nameOpt[0] as CI_nameType,
   size: CI_sizeOpt[0] as CI_sizeType,
@@ -28,8 +44,7 @@ import { red60 } from '@carbon/colors';
 // For CustomTile.stories.tsx ...
 export const mockCustomTile = {
   className: '',
-  heading:
-    'Dragée lemon drops jelly-o powder marzipan chocolate cake candy Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes.',
+  heading: mockHeading.plain,
   headingLevel: 3 as HDG_levelPropsType,
   headingMaxLength: 50,
 
@@ -39,8 +54,7 @@ export const mockCustomTile = {
   mediaIcon: undefined,
   mediaImage: undefined,
 
-  blurb:
-    'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.',
+  blurb: mockPlainText,
   blurbMaxLength: 300,
 
   modalIsAvailable: undefined,
@@ -53,26 +67,30 @@ export const mockCustomTile = {
 
 export const mockTextLengthList = [50, 100, 200, 300, 500, 1000];
 
+// For Banner.stories.tsx ...
+export const mockBanner = {
+  className: '',
+  heading: mockHeading.plain,
+  headingLevel: HDG_levelOpt[0] as HDG_levelPropsType,
+  headingMaxLength: 50,
+
+  isHuge: false,
+
+  plainDescription: mockPlainText,
+  richDescription: undefined,
+  blurbMaxLength: 300,
+} as BNN_propsType;
+
 // For FeatureText.stories.tsx ...
 export const mockFeatureText = {
   className: '',
-  heading: `Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans.`,
+  heading: mockHeading.plain,
   headingLevel: HDG_levelOpt[0] as HDG_levelPropsType,
   headingMaxLength: 50,
-  plainText: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
+  plainText: mockPlainText,
   richText: undefined,
   blurbMaxLength: 300,
 } as FTX_propsType;
-export const mockHeading = {
-  plain: `Liquorice liquorice fruitcake tiramisu sesame snaps sugar plum lollipop gummi bears cookie`,
-  jsx: (
-    <>
-      Liquorice <a href="#">liquorice fruitcake </a> tiramisu
-      <span>🔔</span>
-      sesame snaps {/* JSX Fragment */}
-    </>
-  ),
-};
 
 // ....
 const textColor = red60;
