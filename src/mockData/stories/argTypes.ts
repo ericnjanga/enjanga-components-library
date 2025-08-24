@@ -3,6 +3,7 @@ import { HDG_levelOpt, HDG_propsType } from '@/components/Heading/libs/types';
 import { LST_propsType, LST_typeOpt } from '@/components/List/libs/types';
 import { SMT_propsType } from '@/components/SmartText/libs/types';
 import { BNN_propsType } from '@/components/Banner/libs/types';
+import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
 
 // generic
 export const classNameStoryArgType: Partial<ArgTypes> = {
@@ -43,8 +44,8 @@ export const argTypesListStories: Partial<ArgTypes<LST_propsType>> = {
 // SmartText.stories.tsx
 export const argTypesSmartTextStories: Partial<ArgTypes<SMT_propsType>> = {
   ...classNameStoryArgType,
-  plainText: { control: 'text' },
-  richText: { control: 'object' },
+  plainText: { control: 'text', description: '... soon ...' },
+  richText: { control: 'object', description: '... soon ...' },
 };
 
 export const argTypesFeatureTextStories = {
@@ -61,5 +62,15 @@ export const argTypesBannerStories: Partial<ArgTypes<BNN_propsType>> = {
   isHuge: {
     control: 'select',
     options: [true, false],
+    description: '... soon ...',
+  },
+};
+
+export const argTypesArrowIconStories: Partial<ArgTypes<AIC_propsType>> = {
+  title: { control: 'text' },
+  orientation: {
+    control: 'select',
+    options: ['Right', 'UpRight'],
+    description: '... soon ...',
   },
 };

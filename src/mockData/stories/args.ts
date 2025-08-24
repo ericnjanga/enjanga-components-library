@@ -9,6 +9,7 @@ import { FTX_propsType } from '@/components/FeatureText/libs/types';
 import { mockListUnlinked } from '../mockLists';
 import { mockRichText } from '../mockRichText';
 import { BNN_propsType } from '@/components/Banner/libs/types';
+import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
 
 // Heading.stories.tsx ...
 export const argsHeadingPlain: Partial<HDG_propsType> = {
@@ -64,3 +65,9 @@ export const argsBanner = {
     ...argsFeatureText,
   },
 } as BNN_propsType;
+
+// For ArrowIcon.stories.tsx ...
+export const argsArrowIcon = {
+  title: 'Arrow facing right',
+  orientation: 'Right',
+} as AIC_propsType;

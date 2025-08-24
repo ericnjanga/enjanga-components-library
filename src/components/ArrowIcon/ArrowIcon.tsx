@@ -1,16 +1,7 @@
-/**
- * TODO:
- * ----------
- * Move this icon as a separate component in the library
- */
-
-import { CustomTileArrowIconProps } from '../lib/ct-types';
+import { AIC_propsType } from './libs/types';
 import { ArrowRight, ArrowUpRight } from '@carbon/icons-react';
 
-export const CustomTileArrowIcon = ({
-  title,
-  orientation,
-}: CustomTileArrowIconProps) => {
+export const ArrowIcon = ({ title, orientation }: AIC_propsType) => {
   const C = orientation === 'Right' ? ArrowRight : ArrowUpRight;
 
   return (

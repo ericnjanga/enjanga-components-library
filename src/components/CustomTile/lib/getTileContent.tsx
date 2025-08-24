@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { CTL_globalContentPropsType } from './types';
 import { CustomIcon } from '@/components/CustomIcon';
 import { CI_isValidMediaIcon } from '@/components/CustomIcon/libs/helpers';
-import { CustomTileArrowIcon } from '../parts/CustomTileArrowIcon';
+import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
 import CustomTileSkeleton from '../parts/CustomTileSkeleton';
 import { FeatureText } from '@/components/FeatureText';
 
@@ -43,10 +43,7 @@ export const getTileContent = ({
       />
 
       {link.isAvailable && (
-        <CustomTileArrowIcon
-          title={heading}
-          orientation={arrowIconOrientation}
-        />
+        <ArrowIcon title={heading} orientation={arrowIconOrientation} />
       )}
     </>
   );

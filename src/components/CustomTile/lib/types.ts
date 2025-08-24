@@ -27,11 +27,6 @@ export interface CTL_linkWrapperPropsType {
   linkIsExternal: boolean;
 }
 
-export interface CustomTileArrowIconProps {
-  title: string;
-  orientation: 'Right' | 'UpRight';
-}
-
 export type LinkWrapperType = React.ReactElement<{
   className: string;
   'aria-label': string;
