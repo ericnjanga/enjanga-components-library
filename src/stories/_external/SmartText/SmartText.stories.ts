@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SmartText from '../../../components/SmartText/SmartText';
 import { mockRichText } from '@/mockData/mockRichText';
 import { smartTextStoryArgTypes } from '@/mockData/stories/argTypes';
+import { argsSmartTextPlain, argsSmartTextRich } from '@/mockData/stories/args';
 
 const meta: Meta<typeof SmartText> = {
   title: 'External Components/SmartText',
   component: SmartText,
   args: {
-    className: '',
-    plainText: `Gingerbread cupcake candy canes sugar plum I love soufflé. Jelly beans sweet roll shortbread wafer shortbread. Shortbread caramels I love I love bear claw jelly beans. Danish liquorice halvah brownie I love cookie dessert brownie jelly beans.`,
-    richText: undefined,
+    ...argsSmartTextPlain,
   },
   argTypes: {
     ...smartTextStoryArgTypes,
@@ -24,10 +23,14 @@ export const WithPlainText: Story = {};
 
 export const WithRichText: Story = {
   args: {
+    ...argsSmartTextRich,
+  },
+};
+
+export const Empty: Story = {
+  args: {
     plainText: undefined,
-    richText: {
-      ...mockRichText.description,
-    },
+    richText: undefined,
   },
 };
 
@@ -42,11 +45,5 @@ export const ErrorsPropsValidation1: Story = {
     richText: {
       ...mockRichText.description,
     },
-  },
-};
-export const ErrorsPropsValidation2: Story = {
-  args: {
-    plainText: undefined,
-    richText: undefined,
   },
 };

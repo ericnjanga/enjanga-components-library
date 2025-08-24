@@ -2,6 +2,12 @@ import { SkeletonAnimation } from '@/components/SkeletonAnimation';
 
 const CMSRichTextSkeleton = () => (
   <div>
+    {/* <SkeletonAnimation part="heading" /> */}
+    <SkeletonAnimation part="body" />
+
+    {/* <br />
+    <br />
+
     <SkeletonAnimation part="heading" />
     <SkeletonAnimation part="body" />
 
@@ -9,13 +15,7 @@ const CMSRichTextSkeleton = () => (
     <br />
 
     <SkeletonAnimation part="heading" />
-    <SkeletonAnimation part="body" />
-
-    <br />
-    <br />
-
-    <SkeletonAnimation part="heading" />
-    <SkeletonAnimation part="body" />
+    <SkeletonAnimation part="body" /> */}
   </div>
 );
 

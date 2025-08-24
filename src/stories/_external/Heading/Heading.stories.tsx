@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from '../../../components/Heading';
 import { headingStoryArgTypes } from '@/mockData/stories/argTypes';
-import { argsHeading } from '@/mockData/stories/args';
+import { argsHeadingPlain } from '@/mockData/stories/args';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import { mockHeading } from '@/mockData/mixed';
 import { Grid, Column } from '@carbon/react';
@@ -11,7 +11,7 @@ const meta: Meta<typeof Heading> = {
   title: 'External Components/Heading',
   component: Heading,
   args: {
-    ...argsHeading,
+    ...argsHeadingPlain,
   },
   argTypes: {
     ...headingStoryArgTypes,

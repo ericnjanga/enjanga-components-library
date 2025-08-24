@@ -16,20 +16,22 @@ const FeatureText = ({
   if (
     headingMaxLength &&
     headingMaxLength > 0 &&
-    typeof heading.children === 'string'
+    typeof heading?.children === 'string'
   ) {
     headingContent = textTrimmer({
-      text: heading.children,
+      text: heading?.children,
       length: headingMaxLength,
     });
+  } else if (typeof heading?.children !== 'string') {
+    headingContent = heading?.children;
   }
 
   // Trim description only if it applies ...
   let descriptionContent,
     smartTextContent = {};
-  if (plainTextMaxLength && plainTextMaxLength > 0 && smartText.plainText) {
+  if (plainTextMaxLength && plainTextMaxLength > 0 && smartText?.plainText) {
     descriptionContent = textTrimmer({
-      text: smartText.plainText,
+      text: smartText?.plainText,
       length: plainTextMaxLength,
     });
   }
@@ -44,7 +46,9 @@ const FeatureText = ({
         {headingContent}
       </Heading>
 
-      <SmartText {...smartTextContent} />
+      <article>
+        <SmartText {...smartTextContent} />
+      </article>
     </div>
   );
 };

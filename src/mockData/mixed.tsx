@@ -5,7 +5,6 @@ import {
   CI_sizeType,
 } from '@/components/CustomIcon/libs/types';
 import { CI_propsType } from '@/components/CustomIcon/libs/types';
-import { FTX_propsType } from '@/components/FeatureText/libs/types';
 import { BNN_propsType } from '@/components/Banner/libs/types';
 import {
   HDG_levelOpt,
@@ -20,6 +19,7 @@ import {
 } from '@/components/CustomTile/lib/types';
 import { mockRichText } from './mockRichText';
 import { SMT_propsType } from '@/components/SmartText/libs/types';
+import { argsHeadingPlain } from './stories/args';
 
 export const mockPlainText =
   'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.';
@@ -92,17 +92,6 @@ export const mockBanner = {
   richDescription: undefined,
   blurbMaxLength: 300,
 } as BNN_propsType;
-
-// For FeatureText.stories.tsx ...
-export const mockFeatureText = {
-  className: '',
-  heading: mockHeading.plain,
-  smartText: {
-    ...mockSmartTextwPlainT,
-  },
-  headingMaxLength: 50,
-  plainTextMaxLength: 200,
-} as FTX_propsType;
 
 // ....
 const textColor = red60;

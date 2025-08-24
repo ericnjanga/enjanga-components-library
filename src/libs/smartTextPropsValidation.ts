@@ -15,12 +15,6 @@ export function smartTextPropsValidation({
       `Invalid props: Use either "plain" OR "rich" text description, never both (see the component's API for more information`
     );
   }
-
-  if (!plainText && !richText) {
-    throw new Error(
-      `Missing content: You must provide either "plain" OR "rich" text description (see the component's API for more information`
-    );
-  }
 }
 
 // type FTX_propsType =
