@@ -244,7 +244,7 @@ export const EmptyVersions: Story = {
 };
 
 export const EmptyVersionsWithHiddenProps: Story = {
-  // Empty heading ...
+  // Empty heading & Hidden smartText ...
   args: {
     heading: {
       ...argsHeadingPlain,
@@ -257,7 +257,7 @@ export const EmptyVersionsWithHiddenProps: Story = {
     isHidden: 'smartText',
   },
   render: (args) => {
-    // Empty text ...
+    // Hidden heading & empty smartText ...
     const args2 = {
       ...args,
       heading: {
