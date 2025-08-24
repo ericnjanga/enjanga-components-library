@@ -5,11 +5,7 @@ import {
   CI_sizeType,
 } from '@/components/CustomIcon/libs/types';
 import { CI_propsType } from '@/components/CustomIcon/libs/types';
-import { BNN_propsType } from '@/components/Banner/libs/types';
-import {
-  HDG_levelOpt,
-  HDG_levelPropsType,
-} from '@/components/Heading/libs/types';
+import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import {
   CTL_LinkTargetType,
   CTL_LinkTargetOpt,
@@ -78,20 +74,6 @@ export const mockCustomTile = {
 } as CTL_propsType;
 
 export const mockTextLengthList = [50, 100, 200, 300, 500, 1000];
-
-// For Banner.stories.tsx ...
-export const mockBanner = {
-  className: '',
-  heading: mockHeading.plain,
-  headingLevel: HDG_levelOpt[0] as HDG_levelPropsType,
-  headingMaxLength: 50,
-
-  isHuge: false,
-
-  plainDescription: mockPlainText,
-  richDescription: undefined,
-  blurbMaxLength: 300,
-} as BNN_propsType;
 
 // ....
 const textColor = red60;

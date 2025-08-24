@@ -8,6 +8,7 @@ import {
 import { FTX_propsType } from '@/components/FeatureText/libs/types';
 import { mockListUnlinked } from '../mockLists';
 import { mockRichText } from '../mockRichText';
+import { BNN_propsType } from '@/components/Banner/libs/types';
 
 // Heading.stories.tsx ...
 export const argsHeadingPlain: Partial<HDG_propsType> = {
@@ -55,3 +56,11 @@ export const argsFeatureText = {
   headingMaxLength: 50,
   plainTextMaxLength: 200,
 } as FTX_propsType;
+
+// For Banner.stories.tsx ...
+export const argsBanner = {
+  className: '',
+  featuredText: {
+    ...argsFeatureText,
+  },
+} as BNN_propsType;

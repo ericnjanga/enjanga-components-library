@@ -2,6 +2,7 @@ import { ArgTypes } from '@storybook/react';
 import { HDG_levelOpt, HDG_propsType } from '@/components/Heading/libs/types';
 import { LST_propsType, LST_typeOpt } from '@/components/List/libs/types';
 import { SMT_propsType } from '@/components/SmartText/libs/types';
+import { BNN_propsType } from '@/components/Banner/libs/types';
 
 // generic
 export const classNameStoryArgType: Partial<ArgTypes> = {
@@ -12,7 +13,7 @@ export const classNameStoryArgType: Partial<ArgTypes> = {
 };
 
 // Heading.stories.tsx
-export const headingStoryArgTypes: Partial<ArgTypes<HDG_propsType>> = {
+export const argTypesHeadingStories: Partial<ArgTypes<HDG_propsType>> = {
   ...classNameStoryArgType,
   level: {
     control: 'select',
@@ -26,7 +27,7 @@ export const headingStoryArgTypes: Partial<ArgTypes<HDG_propsType>> = {
 };
 
 // List.stories.tsx
-export const listStoryArgTypes: Partial<ArgTypes<LST_propsType>> = {
+export const argTypesListStories: Partial<ArgTypes<LST_propsType>> = {
   ...classNameStoryArgType,
   type: {
     control: 'radio',
@@ -40,8 +41,25 @@ export const listStoryArgTypes: Partial<ArgTypes<LST_propsType>> = {
 };
 
 // SmartText.stories.tsx
-export const smartTextStoryArgTypes: Partial<ArgTypes<SMT_propsType>> = {
+export const argTypesSmartTextStories: Partial<ArgTypes<SMT_propsType>> = {
   ...classNameStoryArgType,
   plainText: { control: 'text' },
   richText: { control: 'object' },
+};
+
+export const argTypesFeatureTextStories = {
+  ...classNameStoryArgType,
+  ...argTypesHeadingStories,
+  ...argTypesSmartTextStories,
+};
+
+export const argTypesBannerStories: Partial<ArgTypes<BNN_propsType>> = {
+  ...classNameStoryArgType,
+  featuredText: {
+    ...argTypesFeatureTextStories,
+  },
+  isHuge: {
+    control: 'select',
+    options: [true, false],
+  },
 };

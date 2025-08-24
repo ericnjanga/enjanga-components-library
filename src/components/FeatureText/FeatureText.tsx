@@ -10,10 +10,12 @@ const FeatureText = ({
   smartText,
   headingMaxLength,
   plainTextMaxLength,
+  isHidden,
 }: FTX_propsType) => {
   // Trim heading only if it applies ...
   let headingContent;
   if (
+    isHidden !== 'heading' &&
     headingMaxLength &&
     headingMaxLength > 0 &&
     typeof heading?.children === 'string'
@@ -29,7 +31,12 @@ const FeatureText = ({
   // Trim description only if it applies ...
   let descriptionContent,
     smartTextContent = {};
-  if (plainTextMaxLength && plainTextMaxLength > 0 && smartText?.plainText) {
+  if (
+    isHidden !== 'smartText' &&
+    plainTextMaxLength &&
+    plainTextMaxLength > 0 &&
+    smartText?.plainText
+  ) {
     descriptionContent = textTrimmer({
       text: smartText?.plainText,
       length: plainTextMaxLength,
@@ -42,13 +49,17 @@ const FeatureText = ({
 
   return (
     <div className={clsx(`enj-FeatureText`, className)}>
-      <Heading className={clsx('enj-FeatureText-title')} {...heading}>
-        {headingContent}
-      </Heading>
+      {isHidden !== 'heading' && (
+        <Heading className={clsx('enj-FeatureText-title')} {...heading}>
+          {headingContent}
+        </Heading>
+      )}
 
-      <article>
-        <SmartText {...smartTextContent} />
-      </article>
+      {isHidden !== 'smartText' && (
+        <article>
+          <SmartText {...smartTextContent} />
+        </article>
+      )}
     </div>
   );
 };

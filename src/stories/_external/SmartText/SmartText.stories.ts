@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import SmartText from '../../../components/SmartText/SmartText';
 import { mockRichText } from '@/mockData/mockRichText';
-import { smartTextStoryArgTypes } from '@/mockData/stories/argTypes';
+import { argTypesSmartTextStories } from '@/mockData/stories/argTypes';
 import { argsSmartTextPlain, argsSmartTextRich } from '@/mockData/stories/args';
 
 const meta: Meta<typeof SmartText> = {
@@ -11,7 +11,7 @@ const meta: Meta<typeof SmartText> = {
     ...argsSmartTextPlain,
   },
   argTypes: {
-    ...smartTextStoryArgTypes,
+    ...argTypesSmartTextStories,
   },
 };
 

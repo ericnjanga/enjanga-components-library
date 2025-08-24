@@ -14,7 +14,7 @@ const SmartText = ({ className, plainText, richText }: SMT_propsType) => {
   return (
     <>
       {plainText ? (
-        <>{plainText}</>
+        <p>{plainText}</p>
       ) : richText ? (
         <CMSRichText data={richText} className={className} />
       ) : null}

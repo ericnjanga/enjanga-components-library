@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import List from '../../../components/List';
-import { listStoryArgTypes } from '@/mockData/stories/argTypes';
+import { argTypesListStories } from '@/mockData/stories/argTypes';
 import {
   mockListUnlinked,
   mockListLinked,
@@ -21,7 +21,7 @@ const meta: Meta<typeof List> = {
     },
   },
   argTypes: {
-    ...listStoryArgTypes,
+    ...argTypesListStories,
   },
 };
 
