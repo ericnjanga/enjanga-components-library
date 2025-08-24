@@ -1,7 +1,6 @@
 import { ArgTypes } from '@storybook/react';
 import { HDG_levelOpt, HDG_propsType } from '@/components/Heading/libs/types';
 import { LST_propsType, LST_typeOpt } from '@/components/List/libs/types';
-
 // Heading.stories.tsx
 export const argTypesHeading: Partial<ArgTypes<HDG_propsType>> = {
   className: { control: 'text' },
@@ -15,7 +14,6 @@ export const argTypesHeading: Partial<ArgTypes<HDG_propsType>> = {
     description: '... soon ...',
   },
 };
-
 export const argTypesList: Partial<ArgTypes<LST_propsType>> = {
   type: {
     control: 'radio',

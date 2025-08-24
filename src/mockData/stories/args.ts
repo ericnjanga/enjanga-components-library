@@ -13,7 +13,6 @@ export const argsHeading: Partial<HDG_propsType> = {
   level: 1,
   children: mockHeading.plain,
 };
-
 // List.stories.tsx ...
 export const argsList = {
   type: LST_typeOpt[0] as LST_typePropsType,
