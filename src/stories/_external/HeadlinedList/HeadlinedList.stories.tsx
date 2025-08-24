@@ -29,13 +29,6 @@ const meta: Meta<typeof HeadlinedList> = {
       },
     },
     ...argTypesList,
-
-    // list: {
-    //   description: 'list configuration',
-    //   control: {
-    //     type: 'object',
-    //   },
-    // },
   },
   args: {
     ...mockHeadlinedListArgs,
@@ -135,53 +128,3 @@ export const HeadingLevelList: Story = {
     );
   },
 };
-
-// export const H2List: Story = {
-//   args: {
-//     ...mockHeadlinedListArgs,
-//     heading: {
-//       ...mockHeadlinedListArgs.heading,
-//       level: 2,
-//     },
-//   },
-// };
-
-// export const H3List: Story = {
-//   args: {
-//     ...mockHeadlinedListArgs,
-//     heading: {
-//       ...mockHeadlinedListArgs.heading,
-//       level: 3,
-//     },
-//   },
-// };
-
-// export const H4List: Story = {
-//   args: {
-//     ...mockHeadlinedListArgs,
-//     heading: {
-//       ...mockHeadlinedListArgs.heading,
-//       level: 4,
-//     },
-//   },
-// };
-
-// export const H5List: Story = {
-//   args: {
-//     ...mockHeadlinedListArgs,
-//     heading: {
-//       ...mockHeadlinedListArgs.heading,
-//       level: 5,
-//     },
-//   },
-// };
-
-// export const H6List: Story = {
-//   args: {
-//     ...mockHeadlinedListArgs,
-//     heading: {
-//       ...mockHeadlinedListArgs.heading,
-//       level: 6,
-//     },
-//   },
-// };
