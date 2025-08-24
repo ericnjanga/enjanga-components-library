@@ -1,25 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from '../../../components/Heading';
-import { headingArgTypes } from '@/mockData/stories/argTypes';
-import { headingArgs } from '@/mockData/stories/args';
-import {
-  HDG_levelOpt,
-  HDG_levelPropsType,
-} from '@/components/Heading/libs/types';
+import { argTypesHeading } from '@/mockData/stories/argTypes';
+import { argsHeading } from '@/mockData/stories/args';
+import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import { mockHeading } from '@/mockData/mixed';
 import { Grid, Column } from '@carbon/react';
+import { styleHeadingLabel } from '@/mockData/mixed';
 
 const meta: Meta<typeof Heading> = {
   title: 'External Components/Heading',
   component: Heading,
   args: {
-    ...headingArgs,
+    ...argsHeading,
   },
   argTypes: {
-    ...headingArgTypes,
+    ...argTypesHeading,
   },
 };
-// HDG_levelOpt[0] as HDG_levelPropsType,
+
 export default meta;
 
 type Story = StoryObj<typeof Heading>;
@@ -40,11 +38,20 @@ export const WithJSXFragments: Story = {
     return (
       <Grid>
         {[1, 2, 3, 4, 5, 6].map((index) => (
-          <Column key={index} lg={8} style={{ marginBottom: '1.5rem' }}>
+          <Column
+            key={index}
+            lg={16}
+            md={8}
+            sm={4}
+            style={{ marginBottom: '1.5rem' }}
+          >
             {index && (
-              <Heading level={index as HDG_levelPropsType}>
-                ({index}) - {args.children}
-              </Heading>
+              <>
+                <span style={{ ...styleHeadingLabel }}>Level ({index})</span>
+                <Heading level={index as HDG_levelPropsType}>
+                  {args.children}
+                </Heading>
+              </>
             )}
           </Column>
         ))}
@@ -53,34 +60,29 @@ export const WithJSXFragments: Story = {
   },
 };
 
-export const h1: Story = {};
-
-export const h2: Story = {
-  args: {
-    level: 2,
-  },
-};
-
-export const h3: Story = {
-  args: {
-    level: 3,
-  },
-};
-
-export const h4: Story = {
-  args: {
-    level: 4,
-  },
-};
-
-export const h5: Story = {
-  args: {
-    level: 5,
-  },
-};
-
-export const h6: Story = {
-  args: {
-    level: 6,
+export const LevelVariations: Story = {
+  render: (args) => {
+    return (
+      <Grid>
+        {[1, 2, 3, 4, 5, 6].map((index) => (
+          <Column
+            key={index}
+            lg={16}
+            md={8}
+            sm={4}
+            style={{ marginBottom: '1.5rem' }}
+          >
+            {index && (
+              <>
+                <span style={{ ...styleHeadingLabel }}>Level ({index})</span>
+                <Heading level={index as HDG_levelPropsType}>
+                  {args.children}
+                </Heading>
+              </>
+            )}
+          </Column>
+        ))}
+      </Grid>
+    );
   },
 };

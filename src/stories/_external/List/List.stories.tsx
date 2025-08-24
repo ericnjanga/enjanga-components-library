@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import List from '../../../components/List';
-import { LST_typeOpt } from '@/components/List/libs/types';
+import { argTypesList } from '@/mockData/stories/argTypes';
 import {
-  mockListArgs,
   mockListUnlinked,
   mockListLinked,
   mockListMixed,
 } from '@/mockData/mockLists';
+import { argsList } from '@/mockData/stories/args';
 
 const meta: Meta<typeof List> = {
   title: 'External Components/List',
   component: List,
-  args: { ...mockListArgs },
+  args: { ...argsList },
   parameters: {
     docs: {
       description: {
@@ -21,19 +21,7 @@ const meta: Meta<typeof List> = {
     },
   },
   argTypes: {
-    type: {
-      control: 'radio',
-      options: [...LST_typeOpt],
-      description: 'Type of list to render (ordered or unordered)',
-    },
-    cssClass: {
-      control: 'text',
-      description: 'Custom CSS class applied to the list wrapper',
-    },
-    content: {
-      control: 'object',
-      description: 'Array of list items',
-    },
+    ...argTypesList,
   },
 };
 
@@ -50,21 +38,21 @@ export const EmptyList: Story = {
 
 export const WithLinks: Story = {
   args: {
-    ...mockListArgs,
+    ...argsList,
     content: [...mockListLinked],
   },
 };
 
 export const WithoutLinks: Story = {
   args: {
-    ...mockListArgs,
+    ...argsList,
     content: [...mockListUnlinked],
   },
 };
 
 export const WithJSXFragments: Story = {
   args: {
-    ...mockListArgs,
+    ...argsList,
     content: [...mockListMixed],
   },
 };

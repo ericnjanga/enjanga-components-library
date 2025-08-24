@@ -2,7 +2,7 @@ diff a/src/stories/_external/HeadlinedList/HeadlinedList.stories.tsx b/src/stori
 @@ -4 +4 @@ import { mockHeadlinedListArgs, mockListMixed } from '@/mockData/mockLists';
 -import { mockHeading } from '@/mockData/mixed'; 
 +import { mockHeading } from '@/mockData/mixed';
-@@ -8,2 +8,4 @@ import { mockHeadingStyling } from '@/mockData/mixed';
+@@ -8,2 +8,4 @@ import { styleHeadingLabel } from '@/mockData/mixed';
 -import { HDG_levelOpt, HDG_levelPropsType } from '@/components/Heading/libs/types';
 -
 +import {
@@ -19,19 +19,19 @@ diff a/src/stories/_external/HeadlinedList/HeadlinedList.stories.tsx b/src/stori
 -        </Column> 
 +        </Column>
 @@ -74,3 +76,7 @@ export const Empty: Story = {
--          <h4 style={{ ...mockHeadingStyling }}>(Empty heading)</h4> 
--          <HeadlinedList {...args} heading={{ content: undefined, level: 3 }} list={{ ...mockListArgs }} />
+-          <h4 style={{ ...styleHeadingLabel }}>(Empty heading)</h4> 
+-          <HeadlinedList {...args} heading={{ content: undefined, level: 3 }} list={{ ...argsList }} />
 -        </Column> 
-+          <h4 style={{ ...mockHeadingStyling }}>(Empty heading)</h4>
++          <h4 style={{ ...styleHeadingLabel }}>(Empty heading)</h4>
 +          <HeadlinedList
 +            {...args}
 +            heading={{ content: undefined, level: 3 }}
-+            list={{ ...mockListArgs }}
++            list={{ ...argsList }}
 +          />
 +        </Column>
 @@ -78 +84 @@ export const Empty: Story = {
--          <h4 style={{ ...mockHeadingStyling }}>(Empty heading and list)</h4> 
-+          <h4 style={{ ...mockHeadingStyling }}>(Empty heading and list)</h4>
+-          <h4 style={{ ...styleHeadingLabel }}>(Empty heading and list)</h4> 
++          <h4 style={{ ...styleHeadingLabel }}>(Empty heading and list)</h4>
 @@ -80,2 +86,2 @@ export const Empty: Story = {
 -        </Column>  
 -      </Grid> 

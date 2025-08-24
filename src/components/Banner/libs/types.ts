@@ -2,16 +2,18 @@
 // ----------------
 import type { Node } from '@contentful/rich-text-types';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
+import { FTX_propsType } from '@/components/FeatureText/libs/types';
 
 export interface BNN_propsType {
   // FeatureText propsType ...
-  className?: string;
-  heading?: string;
-  headingLevel?: HDG_levelPropsType;
-  headingMaxLength?: number;
-  plainDescription?: string | 'none';
-  richDescription?: { json: { content: Node[] } };
-  blurbMaxLength?: number;
+  ...FTX_propsType,
+  // className?: string;
+  // heading?: string;
+  // headingLevel?: HDG_levelPropsType;
+  // headingMaxLength?: number;
+  // plainDescription?: string | 'none';
+  // richDescription?: { json: { content: Node[] } };
+  // blurbMaxLength?: number;
 
   // Local propsType ...
   isHuge?: boolean;

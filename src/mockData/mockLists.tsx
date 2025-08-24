@@ -85,13 +85,6 @@ export const mockListItemArgs = {
   children: undefined,
 } as LIT_propsType;
 
-// For List.stories.tsx ...
-export const mockListArgs = {
-  type: LST_typeOpt[0] as LST_typePropsType,
-  cssClass: '',
-  content: [...mockListUnlinked],
-} as LST_propsType;
-
 // For HeadlinedLis.stories.tsx ...
 export const mockHeadlinedListArgs = {
   wrapper: {

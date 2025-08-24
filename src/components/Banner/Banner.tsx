@@ -82,12 +82,11 @@ const Banner = ({
   heading,
   headingLevel = 1,
   headingMaxLength,
-
-  isHuge = false, // Small banner by default
-
   plainDescription,
   richDescription,
   blurbMaxLength,
+
+  isHuge = false, // Small banner by default
 }: // showPlainDescription = false, // Do not show the plainDescription by default
 // showRichDescription = false, // Do not show the richDescription by default
 

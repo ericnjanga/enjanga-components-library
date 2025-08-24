@@ -94,4 +94,4 @@ export const mockFeatureText = {
 
 // ....
 const textColor = red60;
-export const mockHeadingStyling = { marginBottom: 0, color: textColor };
+export const styleHeadingLabel = { marginBottom: 0, color: textColor };

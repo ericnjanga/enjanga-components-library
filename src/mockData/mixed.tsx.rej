@@ -14,7 +14,7 @@ diff a/src/mockData/mixed.tsx b/src/mockData/mixed.tsx	(rejected hunks)
 +  ),
 @@ -80,2 +79,2 @@ export const mockHeading = {
 -const textColor = red60; 
--export const mockHeadingStyling = { marginBottom: 0, color: textColor };
+-export const styleHeadingLabel = { marginBottom: 0, color: textColor };
 \ No newline at end of file
 +const textColor = red60;
-+export const mockHeadingStyling = { marginBottom: 0, color: textColor };
++export const styleHeadingLabel = { marginBottom: 0, color: textColor };

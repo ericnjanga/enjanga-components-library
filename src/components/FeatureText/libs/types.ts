@@ -2,13 +2,11 @@
 // ----------------
 import type { Node } from '@contentful/rich-text-types';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
+import { HDG_propsType } from '@/components/Heading/libs/types';
+import { SMT_propsType } from '@/components/SmartText/libs/types';
 
 export interface FTX_propsType {
   className?: string;
-  heading?: string;
-  headingLevel?: HDG_levelPropsType;
-  headingMaxLength?: number;
-  plainText?: string;
-  richText?: { json: { content: Node[] } };
-  blurbMaxLength?: number;
+  heading: HDG_propsType;
+  smartText: SMT_propsType;
 }

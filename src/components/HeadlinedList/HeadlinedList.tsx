@@ -11,14 +11,14 @@ import { HDL_propsType } from './libs/types';
 
 const HeadlinedList = ({
   wrapper = { tag: 'div', cssClass: '' },
-  heading = { children: undefined, level: 3, cssClass: '' },
+  heading = { children: undefined, level: 3, className: '' },
   list,
 }: HDL_propsType) => {
   const Wrapper = wrapper.tag; // Dynamically creating the wrapper tag
 
   return (
     <Wrapper className={clsx('enj-HeadlinedList', wrapper.cssClass)}>
-      <Heading level={heading.level} className={heading.cssClass}>
+      <Heading level={heading.level} className={heading.className}>
         {heading.children}
       </Heading>
 
