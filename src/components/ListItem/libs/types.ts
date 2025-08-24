@@ -5,6 +5,6 @@ export interface LIT_propsType {
   content?: string;
   href?: string;
   id?: string;
-  cssClass?: string;
+  className?: string;
   children?: React.ReactNode;
 }

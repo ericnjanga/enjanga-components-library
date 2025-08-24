@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Banner from '../../../components/Banner/Banner';
 import { mockBanner } from '@/mockData/mixed';
-import { argTypesHeading } from '@/mockData/stories/argTypes';
+import { headingStoryArgTypes } from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
   component: Banner,
   tags: [], // Keep this enabled
   argTypes: {
-    ...argTypesHeading,
+    ...headingStoryArgTypes,
     plainDescription: { control: 'text' },
     richDescription: { control: 'object' },
     isHuge: {

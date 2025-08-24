@@ -8,13 +8,13 @@ import clsx from 'clsx';
 import { LIT_propsType } from './libs/types';
 import { SkeletonAnimation } from '../SkeletonAnimation';
 
-const ListItem = ({ content, href, cssClass, children }: LIT_propsType) => {
+const ListItem = ({ content, href, className, children }: LIT_propsType) => {
   if (content === undefined) {
     return <SkeletonAnimation part="list-item" />;
   }
 
   return (
-    <li className={clsx(cssClass)}>
+    <li className={clsx(className)}>
       {href ? <a href={href}>{content}</a> : content}
       {children}
     </li>

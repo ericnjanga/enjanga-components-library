@@ -6,8 +6,8 @@ import { Grid, Column } from '@carbon/react';
 import { argsList } from '@/mockData/stories/args';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
-import { argTypesHeading } from '@/mockData/stories/argTypes';
-import { argTypesList } from '@/mockData/stories/argTypes';
+import { headingStoryArgTypes } from '@/mockData/stories/argTypes';
+import { listStoryArgTypes } from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof HeadlinedList> = {
   title: 'External Components/HeadlinedList',
@@ -21,14 +21,14 @@ const meta: Meta<typeof HeadlinedList> = {
    * - heading.content
    */
   argTypes: {
-    ...argTypesHeading,
+    ...headingStoryArgTypes,
     wrapper: {
       description: 'Wrapper configuration',
       control: {
         type: 'object',
       },
     },
-    ...argTypesList,
+    ...listStoryArgTypes,
   },
   args: {
     ...mockHeadlinedListArgs,

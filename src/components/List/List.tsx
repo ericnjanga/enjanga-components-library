@@ -14,7 +14,7 @@ import { LST_propsType } from './libs/types';
 import { LIT_propsType } from '@/components/ListItem/libs/types';
 import { SkeletonAnimation } from '../SkeletonAnimation';
 
-const List = ({ type = 'unordered', cssClass, content }: LST_propsType) => {
+const List = ({ type = 'unordered', className, content }: LST_propsType) => {
   const ListWrapper = type === 'unordered' ? 'ul' : 'ol'; // Dynamically creating the list tag
 
   if (!content || content.length < 1) {
@@ -22,14 +22,14 @@ const List = ({ type = 'unordered', cssClass, content }: LST_propsType) => {
   }
 
   return (
-    <ListWrapper className={clsx('enj-list', cssClass)}>
+    <ListWrapper className={clsx('enj-list', className)}>
       {content.map((item: LIT_propsType) => {
         return (
           <ListItem
             key={item.id || `${content}-${item.href?.slice(0, 8)}`}
             content={item.content}
             href={item.href}
-            cssClass={item.cssClass}
+            className={item.className}
           >
             {item.children}
           </ListItem>

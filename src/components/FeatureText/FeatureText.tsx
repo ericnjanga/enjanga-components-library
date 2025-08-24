@@ -19,7 +19,7 @@ import { Heading } from '../Heading';
 
 const FeatureText = ({
   className,
-  heading,
+  heading = { children: undefined, level: 3, className: '' },
   smartText,
 }: // headingLevel = 1,
 // headingMaxLength,

@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BrandLogo } from '../../../components/BrandLogo';
 import { SampleSVGLogo, ClickableComponent } from '../utils';
+import { classNameStoryArgType } from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof BrandLogo> = {
   title: 'External Components/BrandLogo',
   component: BrandLogo,
   argTypes: {
+    ...classNameStoryArgType,
     value: {
       // string, number, JSX, component, etc ...
       control: 'select',
@@ -30,7 +32,6 @@ const meta: Meta<typeof BrandLogo> = {
         ),
       },
     },
-    className: { control: 'text' },
     alt: { control: 'text' },
   },
   args: {

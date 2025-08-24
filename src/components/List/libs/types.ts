@@ -7,6 +7,6 @@ export type LST_typePropsType = (typeof LST_typeOpt)[number]; // Creating union 
 
 export interface LST_propsType {
   type?: LST_typePropsType;
-  cssClass?: string;
+  className?: string;
   content?: LIT_propsType[];
 }

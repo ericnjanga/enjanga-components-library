@@ -4,6 +4,7 @@ import {
   Sk_partType,
   Sk_partOpt,
 } from '../../../components/SkeletonAnimation/libs/types';
+import { classNameStoryArgType } from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof SkeletonAnimation> = {
   title: 'External Components/SkeletonAnimation',
@@ -13,10 +14,7 @@ const meta: Meta<typeof SkeletonAnimation> = {
     part: Sk_partOpt[0] as Sk_partType,
   },
   argTypes: {
-    className: {
-      control: 'text',
-      description: '',
-    },
+    ...classNameStoryArgType,
     part: {
       control: 'select',
       options: [...Sk_partOpt],

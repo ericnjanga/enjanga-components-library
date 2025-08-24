@@ -11,6 +11,7 @@ import { mockCustomTile, mockTextLengthList } from '@/mockData/mixed';
 import { HDG_levelOpt } from '@/components/Heading/libs/types';
 import { mockRichText } from '@/mockData/mockRichText';
 import { mockImages } from '@/mockData/mockImages';
+import { classNameStoryArgType } from '@/mockData/stories/argTypes';
 
 const activeLang = 'en';
 
@@ -21,10 +22,7 @@ const meta: Meta<typeof CustomTile> = {
     ...mockCustomTile,
   },
   argTypes: {
-    className: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
+    ...classNameStoryArgType,
     heading: {
       control: 'text',
       description: '...description coming soon...',

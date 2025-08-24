@@ -7,6 +7,7 @@ import {
   CI_sizeType,
 } from '@/components/CustomIcon/libs/types';
 import { mockCustomIcon } from '@/mockData/mixed';
+import { classNameStoryArgType } from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof CustomIcon> = {
   title: 'External Components/CustomIcon',
@@ -15,6 +16,7 @@ const meta: Meta<typeof CustomIcon> = {
     ...mockCustomIcon,
   },
   argTypes: {
+    ...classNameStoryArgType,
     name: {
       control: 'select',
       options: [...CI_nameOpt],
@@ -22,9 +24,6 @@ const meta: Meta<typeof CustomIcon> = {
     size: {
       control: 'select',
       options: [...CI_sizeOpt],
-    },
-    className: {
-      control: 'text',
     },
   },
 };

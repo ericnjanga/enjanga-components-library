@@ -2,7 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FeatureText from '../../../components/FeatureText/FeatureText';
 import { mockRichText } from '@/mockData/mockRichText';
 import { mockFeatureText, mockTextLengthList } from '@/mockData/mixed';
-import { HDG_levelOpt } from '@/components/Heading/libs/types';
+import {
+  headingStoryArgTypes,
+  classNameStoryArgType,
+} from '@/mockData/stories/argTypes';
 
 const meta: Meta<typeof FeatureText> = {
   title: 'External Components/FeatureText',
@@ -11,23 +14,8 @@ const meta: Meta<typeof FeatureText> = {
     ...mockFeatureText,
   },
   argTypes: {
-    className: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
-    heading: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
-    headingLevel: {
-      control: 'select',
-      options: [...HDG_levelOpt],
-      description: '... soon ...',
-    },
-    headingMaxLength: {
-      control: 'select',
-      options: [...mockTextLengthList],
-    },
+    ...classNameStoryArgType,
+    ...headingStoryArgTypes,
     plainText: { control: 'text' },
     richText: { control: 'object' },
     blurbMaxLength: {
