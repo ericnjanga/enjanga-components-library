@@ -1,6 +1,7 @@
 import { ArgTypes } from '@storybook/react';
 import { HDG_levelOpt, HDG_propsType } from '@/components/Heading/libs/types';
 import { LST_propsType, LST_typeOpt } from '@/components/List/libs/types';
+import { SMT_propsType } from '@/components/SmartText/libs/types';
 
 // generic
 export const classNameStoryArgType: Partial<ArgTypes> = {
@@ -36,4 +37,11 @@ export const listStoryArgTypes: Partial<ArgTypes<LST_propsType>> = {
     control: 'object',
     description: 'Array of list items',
   },
+};
+
+// SmartText.stories.tsx
+export const smartTextStoryArgTypes: Partial<ArgTypes<SMT_propsType>> = {
+  ...classNameStoryArgType,
+  plainText: { control: 'text' },
+  richText: { control: 'object' },
 };

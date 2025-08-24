@@ -9,4 +9,6 @@ export interface FTX_propsType {
   className?: string;
   heading: HDG_propsType;
   smartText: SMT_propsType;
+  headingMaxLength?: number;
+  plainTextMaxLength?: number;
 }

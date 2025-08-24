@@ -2,62 +2,49 @@ import clsx from 'clsx';
 import { SmartText } from '../SmartText';
 import { textTrimmer } from '@/libs/textTrimmer';
 import { FTX_propsType } from './libs/types';
-import { smartTextPropsValidation } from '@/libs/smartTextPropsValidation';
 import { Heading } from '../Heading';
-
-// { // HDG_propsType
-//   className?: string;
-//   level?: HDG_levelPropsType;
-//   children?: React.ReactNode;
-// };
-
-// {// SMT_propsType
-//   className?: string;
-//   plainText?: string;
-//   richText?: { json: { content: Node[] } };
-// }
 
 const FeatureText = ({
   className,
   heading = { children: undefined, level: 3, className: '' },
   smartText,
-}: // headingLevel = 1,
-// headingMaxLength,
-// plainText,
-// richText,
-// blurbMaxLength,
-FTX_propsType) => {
-  // // Throw errors if smart text validation rules aren't applied ...
-  // smartTextPropsValidation({ plainText, richText });
+  headingMaxLength,
+  plainTextMaxLength,
+}: FTX_propsType) => {
+  // Trim heading only if it applies ...
+  let headingContent;
+  if (
+    headingMaxLength &&
+    headingMaxLength > 0 &&
+    typeof heading.children === 'string'
+  ) {
+    headingContent = textTrimmer({
+      text: heading.children,
+      length: headingMaxLength,
+    });
+  }
 
-  // // Trim title and plain text if necessary ...
-  // const trimmedHeading = textTrimmer({
-  //   text: heading,
-  //   length: headingMaxLength,
-  // });
-  // const trimmedPlainText = plainText
-  //   ? textTrimmer({ text: plainText, length: blurbMaxLength })
-  //   : undefined;
+  // Trim description only if it applies ...
+  let descriptionContent,
+    smartTextContent = {};
+  if (plainTextMaxLength && plainTextMaxLength > 0 && smartText.plainText) {
+    descriptionContent = textTrimmer({
+      text: smartText.plainText,
+      length: plainTextMaxLength,
+    });
+  }
+  smartTextContent = {
+    ...smartText,
+    plainText: descriptionContent,
+  };
 
   return (
     <div className={clsx(`enj-FeatureText`, className)}>
       <Heading className={clsx('enj-FeatureText-title')} {...heading}>
-        {heading.children} {/*trimmedHeading*/}
+        {headingContent}
       </Heading>
 
-      <SmartText {...smartText} />
-
-      {/** Render plain text if available */}
-      {/* {plainText && (
-        <article className={clsx('enj-FeatureText-blurb')}>
-          <p>
-            <SmartText plainText={trimmedPlainText} />
-          </p>
-        </article>
-      )} */}
-
-      {/** Render rich text if available */}
-      {/* {richText && <SmartText richText={richText} />} */}
+      <SmartText {...smartTextContent} />
     </div>
   );
 };

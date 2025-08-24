@@ -18,6 +18,8 @@ import {
   CTL_LayoutStyleOpt,
   CTL_propsType,
 } from '@/components/CustomTile/lib/types';
+import { mockRichText } from './mockRichText';
+import { SMT_propsType } from '@/components/SmartText/libs/types';
 
 export const mockPlainText =
   'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.';
@@ -40,6 +42,16 @@ export const mockCustomIcon = {
   className: '',
 } as CI_propsType;
 import { red60 } from '@carbon/colors';
+
+export const mockSmartTextwPlainT = {
+  className: '',
+  plainText: mockPlainText,
+} as SMT_propsType;
+
+export const mockSmartTextwRichT = {
+  className: '',
+  richText: mockRichText.description,
+} as SMT_propsType;
 
 // For CustomTile.stories.tsx ...
 export const mockCustomTile = {
@@ -85,11 +97,11 @@ export const mockBanner = {
 export const mockFeatureText = {
   className: '',
   heading: mockHeading.plain,
-  headingLevel: HDG_levelOpt[0] as HDG_levelPropsType,
+  smartText: {
+    ...mockSmartTextwPlainT,
+  },
   headingMaxLength: 50,
-  plainText: mockPlainText,
-  richText: undefined,
-  blurbMaxLength: 300,
+  plainTextMaxLength: 200,
 } as FTX_propsType;
 
 // ....
