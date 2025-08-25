@@ -68,6 +68,8 @@ const CustomTile = ({
   const tileContent = getTileContent({
     featuredText,
 
+    layoutStyle,
+
     media,
     mediaIcon,
     mediaImage,

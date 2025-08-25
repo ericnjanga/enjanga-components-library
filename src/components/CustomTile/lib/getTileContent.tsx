@@ -11,6 +11,8 @@ import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
 export const getTileContent = ({
   featuredText,
 
+  layoutStyle,
+
   media,
   mediaIcon,
   mediaImage,
@@ -23,8 +25,12 @@ export const getTileContent = ({
   let arrowIconOrientation = 'UpRight' as AIC_propsType['orientation'];
   let arrowIconTitle = '';
 
-  // ...
-  const iconIsOnDisplay = media === 'icon' && mediaIcon && mediaIconIsValid;
+  // Conditions for displaying the icon ...
+  const iconIsOnDisplay =
+    media === 'icon' &&
+    layoutStyle !== 'banner' &&
+    mediaIcon &&
+    mediaIconIsValid;
 
   // ...
   if (link.isAvailable) {

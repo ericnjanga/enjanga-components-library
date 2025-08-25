@@ -38,6 +38,8 @@ export type LinkWrapperType = React.ReactElement<{
 export interface CTL_globalContentPropsType {
   featuredText: FTX_propsType;
 
+  layoutStyle?: CTL_LayoutStyleType;
+
   media?: CTL_MediaType;
   mediaIcon?: CI_nameType;
   mediaImage?: string;

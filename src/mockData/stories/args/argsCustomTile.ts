@@ -2,9 +2,11 @@ import {
   CTL_LinkTargetType,
   CTL_LayoutStyleType,
   CTL_propsType,
+  CTL_MediaType,
 } from '@/components/CustomTile/lib/types';
 import { argsFeatureText } from './argsFeatureText';
 import { mockRichText } from '@/mockData/mockRichText';
+import { CI_nameType } from '@/components/CustomIcon/libs/types';
 
 // For CustomTile.stories.tsx ...
 // Default (card) ...
@@ -32,9 +34,22 @@ export const argsCustomTile = {
     // ...
     ...argsCustomTileDefault,
   },
+  cardWithIcon: {
+    // ...
+    ...argsCustomTileDefault,
+    media: 'icon' as CTL_MediaType,
+    mediaIcon: 'Leadership' as CI_nameType,
+  },
   banner: {
     // ...
     ...argsCustomTileDefault,
+    layoutStyle: 'banner' as CTL_LayoutStyleType,
+  },
+  bannerWithIcon: {
+    // ...
+    ...argsCustomTileDefault,
+    media: 'icon' as CTL_MediaType,
+    mediaIcon: 'Leadership' as CI_nameType,
     layoutStyle: 'banner' as CTL_LayoutStyleType,
   },
   emptyCard: {

@@ -23,12 +23,19 @@ type Story = StoryObj<typeof CustomTile>;
 
 export const Cards: Story = {
   render: (args) => {
+    const argsWithIcon = {
+      ...argsCustomTile.cardWithIcon,
+    };
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>Default</span>
             <CustomTile {...args} />
+          </div>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>With icon</span>
+            <CustomTile {...argsWithIcon} />
           </div>
         </Column>
       </Grid>
@@ -37,16 +44,26 @@ export const Cards: Story = {
 };
 
 export const Banners: Story = {
+  // bannerWithIcon
   args: {
     ...argsCustomTile.banner,
   },
   render: (args) => {
+    const argsWithIcon = {
+      ...argsCustomTile.bannerWithIcon,
+    };
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>Default</span>
             <CustomTile {...args} />
+          </div>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>
+              With icon <i>(No icon implementation at this time)</i>
+            </span>
+            <CustomTile {...argsWithIcon} />
           </div>
         </Column>
       </Grid>

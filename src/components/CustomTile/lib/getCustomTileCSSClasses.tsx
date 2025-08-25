@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { CTL_CSSClassesPropsType } from './ct-types';
+import { CTL_CSSClassesPropsType } from './types';
 
 // Component's CSS classes
 /**
