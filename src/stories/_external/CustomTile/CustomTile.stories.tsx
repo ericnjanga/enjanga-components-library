@@ -172,7 +172,13 @@ export const ResponsivenessCard: Story = {
         <Grid>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
             (index) => (
-              <Column key={index} style={{ marginBottom: '1.5rem' }} lg={index}>
+              <Column
+                key={index}
+                style={{ marginBottom: '1.5rem' }}
+                lg={index}
+                md={8}
+                sm={4}
+              >
                 <CustomTile {...args} />
               </Column>
             )
@@ -199,7 +205,13 @@ export const ResponsivenessBanner: Story = {
         <Grid>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
             (index) => (
-              <Column key={index} style={{ marginBottom: '1.5rem' }} lg={index}>
+              <Column
+                key={index}
+                style={{ marginBottom: '1.5rem' }}
+                lg={index}
+                md={8}
+                sm={4}
+              >
                 <CustomTile {...args} />
               </Column>
             )

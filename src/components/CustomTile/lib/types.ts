@@ -13,6 +13,7 @@ export type CTL_LinkTargetType = (typeof CTL_LinkTargetOpt)[number]; // Creating
 export type CTL_MediaType = (typeof CTL_MediaOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
 
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
+import { FTX_propsType } from '@/components/FeatureText/libs/types';
 
 export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
@@ -35,16 +36,11 @@ export type LinkWrapperType = React.ReactElement<{
 
 // Proptypes for heading, blurb, icon, and link
 export interface CTL_globalContentPropsType {
-  heading?: string;
-  headingLevel?: HDG_levelPropsType;
-  headingMaxLength?: number;
+  featuredText: FTX_propsType;
 
   media?: CTL_MediaType;
   mediaIcon?: CI_nameType;
   mediaImage?: string;
-
-  blurb?: string;
-  blurbMaxLength?: number;
 
   link: {
     isAvailable: boolean;
@@ -55,18 +51,13 @@ export interface CTL_globalContentPropsType {
 // Props types ...
 export type CTL_propsType = {
   className?: string;
-  heading?: string;
-  headingLevel?: HDG_levelPropsType;
-  headingMaxLength?: number;
+  featuredText: FTX_propsType;
 
   layoutStyle?: CTL_LayoutStyleType;
 
   media?: CTL_MediaType;
   mediaIcon?: CI_nameType;
   mediaImage?: string;
-
-  blurb?: string;
-  blurbMaxLength?: number;
 
   modalIsAvailable?: boolean;
   modalPlainDescription?: string;

@@ -8,16 +8,12 @@ import { FeatureText } from '@/components/FeatureText';
 
 // Puts together component's core content
 export const getTileContent = ({
-  heading,
-  headingLevel,
-  headingMaxLength,
+  featuredText,
 
   media,
   mediaIcon,
   mediaImage,
 
-  blurb,
-  blurbMaxLength,
   link,
 }: CTL_globalContentPropsType) => {
   // ...

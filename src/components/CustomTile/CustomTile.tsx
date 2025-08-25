@@ -46,18 +46,13 @@ import { useContainerSize } from '@/libs/useContainerSize';
 
 const CustomTile = ({
   className,
-  heading,
-  headingLevel = 3, // h3 by default
-  headingMaxLength,
+  featuredText,
 
   layoutStyle = 'card' as CTL_LayoutStyleType, // card by default
 
   media,
   mediaIcon,
   mediaImage,
-
-  blurb,
-  blurbMaxLength,
 
   modalIsAvailable,
   modalPlainDescription,
@@ -86,16 +81,12 @@ const CustomTile = ({
 
   // ...
   const tileContent = getTileContent({
-    heading,
-    headingLevel,
-    headingMaxLength,
+    featuredText,
 
     media,
     mediaIcon,
     mediaImage,
 
-    blurb,
-    blurbMaxLength,
     link: {
       isAvailable: linkIsActive,
       isExternal: linkIsExternal,
