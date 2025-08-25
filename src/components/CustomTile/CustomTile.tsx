@@ -36,7 +36,7 @@ const CustomTile = ({
   mediaIcon,
   mediaImage,
 
-  modalIsAvailable,
+  modalIsAvailable = false,
   modalPlainDescription,
   modalRichDescription,
 

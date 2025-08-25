@@ -4,7 +4,13 @@ import { LST_propsType, LST_typeOpt } from '@/components/List/libs/types';
 import { SMT_propsType } from '@/components/SmartText/libs/types';
 import { BNN_propsType } from '@/components/Banner/libs/types';
 import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
-import { CTL_propsType } from '@/components/CustomTile/lib/types';
+import {
+  CTL_propsType,
+  CTL_LayoutStyleOpt,
+  CTL_MediaOpt,
+  CTL_LinkTargetOpt,
+} from '@/components/CustomTile/lib/types';
+import { CI_nameOpt } from '@/components/CustomIcon/libs/types';
 
 // generic
 export const classNameStoryArgType: Partial<ArgTypes> = {
@@ -81,65 +87,45 @@ export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {
   featuredText: {
     ...argTypesFeatureTextStories,
   },
+  layoutStyle: {
+    control: 'select',
+    options: [...CTL_LayoutStyleOpt],
+    description: '... soon ...',
+  },
+  media: {
+    control: 'select',
+    options: [...CTL_MediaOpt],
+    description: '... soon ...',
+  },
+  mediaIcon: {
+    control: 'select',
+    options: [...CI_nameOpt],
+    description: '... soon ...',
+  },
+  mediaImage: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  modalIsAvailable: {
+    control: 'select',
+    options: [true, false],
+    description: '... soon ...',
+  },
+  modalPlainDescription: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  modalRichDescription: {
+    control: 'object',
+    description: '... soon ...',
+  },
+  linksTo: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  linkTarget: {
+    control: 'select',
+    options: [...CTL_LinkTargetOpt],
+    description: '... soon ...',
+  },
 };
-
-// ...classNameStoryArgType,
-// heading: {
-//   control: 'text',
-//   description: '...description coming soon...',
-// },
-// headingLevel: {
-//   control: 'select',
-//   options: [...HDG_levelOpt],
-//   description: '... soon ...',
-// },
-// headingMaxLength: {
-//   control: 'select',
-//   options: [...mockTextLengthList],
-// },
-
-// layoutStyle: {
-//   control: 'select',
-//   options: [...CTL_LayoutStyleOpt],
-// },
-
-// media: {
-//   control: 'select',
-//   options: ['', ...CTL_MediaOpt],
-// },
-// mediaIcon: {
-//   control: 'select',
-//   options: ['', ...CI_nameOpt],
-// },
-// mediaImage: {
-//   control: 'select',
-//   options: ['', ...mockImages],
-// },
-// modalIsAvailable: {
-//   control: 'select',
-//   options: [true, false],
-// },
-// blurb: {
-//   control: 'text',
-//   description: '...description coming soon...',
-// },
-// blurbMaxLength: {
-//   control: 'select',
-//   options: [...mockTextLengthList],
-// },
-// modalPlainDescription: {
-//   control: 'text',
-//   description: '...description coming soon...',
-// },
-// modalRichDescription: {
-//   control: 'object',
-//   description: '...description coming soon...',
-// },
-// linksTo: {
-//   control: 'text',
-//   description: '...description coming soon...',
-// },
-// linkTarget: {
-//   control: 'select',
-//   options: [...CTL_LinkTargetOpt],
-// },

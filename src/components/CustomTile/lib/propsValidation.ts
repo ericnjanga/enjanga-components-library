@@ -12,9 +12,9 @@ export function validateCTL_propsType({
   linkTarget?: CTL_LinkTargetType;
   modalIsAvailable?: boolean;
 }) {
-  if (linksTo && linkTarget && modalIsAvailable !== undefined) {
+  if (linksTo && linkTarget && modalIsAvailable === true) {
     throw new Error(
-      `Invalid props: CustomTile cannot be both a link and a modal trigger. Use either "modalIsAvailable" OR "linksTo", never both.`
+      `Invalid props: **CustomTile cannot be both a link and a modal trigger. Use either "modalIsAvailable" OR "linksTo", never both.`
     );
   }
 }

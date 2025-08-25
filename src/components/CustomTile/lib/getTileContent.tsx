@@ -32,6 +32,11 @@ export const getTileContent = ({
     mediaIcon &&
     mediaIconIsValid;
 
+  // Conditions for displaying the image ...
+  const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner'; // &&
+  // mediaIcon &&
+  // mediaIconIsValid;
+
   // ...
   if (link.isAvailable) {
     arrowIconOrientation = link.isExternal ? 'UpRight' : 'Right';
@@ -42,6 +47,15 @@ export const getTileContent = ({
     <>
       {iconIsOnDisplay && (
         <CustomIcon name={mediaIcon} className={clsx('enj-CustomTile-icon')} />
+      )}
+
+      {imageIsOnDisplay && (
+        <img
+          className={clsx('enj-CustomTile-image img-fluid')}
+          src={mediaImage}
+          alt=""
+          aria-hidden="true"
+        />
       )}
 
       <FeatureText {...featuredText} />

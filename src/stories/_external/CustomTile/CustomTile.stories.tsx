@@ -11,7 +11,7 @@ const meta: Meta<typeof CustomTile> = {
   title: 'External Components/CustomTile',
   component: CustomTile,
   args: {
-    ...argsCustomTile.card,
+    ...argsCustomTile.card.default,
   },
   argTypes: {
     ...argTypesCustomTileStories,
@@ -21,10 +21,23 @@ const meta: Meta<typeof CustomTile> = {
 export default meta;
 type Story = StoryObj<typeof CustomTile>;
 
+/**
+ * Cards versions
+ * -------------------------------
+ */
 export const Cards: Story = {
   render: (args) => {
     const argsWithIcon = {
-      ...argsCustomTile.cardWithIcon,
+      ...argsCustomTile.card.withIcon,
+    };
+    const argsWithImage = {
+      ...argsCustomTile.card.withImage,
+    };
+    const argsWithLocalLink = {
+      ...argsCustomTile.card.withLocalLink,
+    };
+    const argsWithExternalLink = {
+      ...argsCustomTile.card.withExternalLink,
     };
     return (
       <Grid>
@@ -33,9 +46,27 @@ export const Cards: Story = {
             <span style={{ ...styleHeadingLabel }}>Default</span>
             <CustomTile {...args} />
           </div>
+
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>With icon</span>
             <CustomTile {...argsWithIcon} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>With image</span>
+            <CustomTile {...argsWithImage} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>With image local link</span>
+            <CustomTile {...argsWithLocalLink} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>
+              With image external link
+            </span>
+            <CustomTile {...argsWithExternalLink} />
           </div>
         </Column>
       </Grid>
@@ -43,14 +74,27 @@ export const Cards: Story = {
   },
 };
 
+/**
+ * Banners versions
+ * -------------------------------
+ */
 export const Banners: Story = {
-  // bannerWithIcon
   args: {
-    ...argsCustomTile.banner,
+    ...argsCustomTile.banner.default,
   },
   render: (args) => {
     const argsWithIcon = {
-      ...argsCustomTile.bannerWithIcon,
+      // bannerWithIcon
+      ...argsCustomTile.banner.withIcon,
+    };
+    const argsWithImage = {
+      ...argsCustomTile.banner.withImage,
+    };
+    const argsWithLocalLink = {
+      ...argsCustomTile.banner.withLocalLink,
+    };
+    const argsWithExternalLink = {
+      ...argsCustomTile.banner.withExternalLink,
     };
     return (
       <Grid>
@@ -59,11 +103,31 @@ export const Banners: Story = {
             <span style={{ ...styleHeadingLabel }}>Default</span>
             <CustomTile {...args} />
           </div>
+
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>
-              With icon <i>(No icon implementation at this time)</i>
+              With icon <i>(No icon in design prototypes)</i>
             </span>
             <CustomTile {...argsWithIcon} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>
+              With image <i>(No icon in design prototypes)</i>
+            </span>
+            <CustomTile {...argsWithImage} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>With image local link</span>
+            <CustomTile {...argsWithLocalLink} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>
+              With image external link
+            </span>
+            <CustomTile {...argsWithExternalLink} />
           </div>
         </Column>
       </Grid>
@@ -74,7 +138,7 @@ export const Banners: Story = {
 export const EmptyCards: Story = {
   render: (args) => {
     const customArgs = {
-      ...argsCustomTile.emptyCard,
+      ...argsCustomTile.card.empty,
     };
 
     return (
@@ -92,7 +156,7 @@ export const EmptyCards: Story = {
 
 export const EmptyBanners: Story = {
   args: {
-    ...argsCustomTile.emptyBanner,
+    ...argsCustomTile.banner.empty,
   },
   render: (args) => {
     return (
@@ -291,21 +355,6 @@ export const EmptyBanners: Story = {
 //     blurb: undefined,
 //     layoutStyle: 'banner' as CTL_LayoutStyleType,
 //     // The animated skeleton will show up if "title" or "blurb" props are undefined
-//   },
-// };
-
-// export const OpensExternalLinkUp: Story = {
-//   args: {
-//     ...mockCustomTile,
-//     linksTo: 'https://carbondesignsystem.com',
-//     linkTarget: '_blank' as CTL_LinkTargetType,
-//   },
-// };
-
-// export const OpensLocalLinkUp: Story = {
-//   args: {
-//     ...mockCustomTile,
-//     linksTo: 'link/param',
 //   },
 // };
 
