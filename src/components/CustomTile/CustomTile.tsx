@@ -4,28 +4,9 @@
  * A customizable tile component that can optionally link to internal (arrow right) or external links (arrow up right)
  *  
  * @param {string} className  - Custom CSS class
- * @param {string} heading      - The main heading/text of the tile
- * @param {string} blurb      - Text content's blurb
- * @param {string} modalPlainDescription   - Text content's description (in string format)
- * @param {json} modalRichDescription      - Text content's description (in rich format from a headless CMS like ContentFul)
- * @param {number} [headingMaxLength]      - Optional character limit for title
- * @param {number} [blurbMaxLength]      - Optional character limit for text
- * @param {'card'|'banner'} [layoutStyle='card'] - Content arrangement
- * @param {string} [iconName] - Optional icon to display
- * 
- * EITHER:
- * @param {boolean} [modalIsAvailable] - When true, clicking opens a modal
- * 
- * OR:
- * @param {string} [linksTo] - Optional linksTo/link destination
- * @param {'_blank'|'_self'} [linkTarget='_self'] - Link linkTarget behavior (We won't be using |'_parent'|'_top' as they deal with legacy frames/iframes)
- * 
- * Usage Examples:
- * ---------------
- * // Internal link (default)
-  <CustomTile 
-    ...
-  />
+ * @param {FTX_propsType} featuredText      - .....
+
+ 
  */
 import { useState } from 'react';
 import React from 'react';
@@ -43,6 +24,7 @@ import SmartText from '../SmartText/SmartText';
 import { handleCustomTileClick } from './parts/utils';
 import { validateCTL_propsType } from './lib/propsValidation';
 import { useContainerSize } from '@/libs/useContainerSize';
+import { getHeadingContent } from './lib/getHeadingContent';
 
 const CustomTile = ({
   className,
@@ -80,6 +62,9 @@ const CustomTile = ({
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
 
   // ...
+  const componentTitleString = getHeadingContent(featuredText);
+
+  // ...
   const tileContent = getTileContent({
     featuredText,
 
@@ -94,7 +79,7 @@ const CustomTile = ({
   });
 
   const LinkWrapper = getLinkWrapper({
-    heading,
+    heading: componentTitleString,
     linksTo,
     linkTarget,
     linkIsExternal,
@@ -112,7 +97,7 @@ const CustomTile = ({
     <div className="enj-CustomTile-wrapper" ref={containerRef}>
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
-        aria-label={`${heading} tile`}
+        aria-label={`${componentTitleString} tile`}
         onClick={() =>
           handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
         }
@@ -124,19 +109,21 @@ const CustomTile = ({
         )}
       </Tile>
 
-      {modalIsAvailable && heading && modalIsOpen !== undefined && (
-        <ContentModal
-          isOpen={modalIsOpen}
-          modalHeading={heading}
-          modalSecondaryButtonText="Cancel"
-          setIsOpen={setModalIsOpen}
-        >
-          <SmartText
-            plainText={modalPlainDescription}
-            richText={modalRichDescription}
-          />
-        </ContentModal>
-      )}
+      {modalIsAvailable &&
+        componentTitleString &&
+        modalIsOpen !== undefined && (
+          <ContentModal
+            isOpen={modalIsOpen}
+            modalHeading={componentTitleString}
+            modalSecondaryButtonText="Cancel"
+            setIsOpen={setModalIsOpen}
+          >
+            <SmartText
+              plainText={modalPlainDescription}
+              richText={modalRichDescription}
+            />
+          </ContentModal>
+        )}
     </div>
   );
 };

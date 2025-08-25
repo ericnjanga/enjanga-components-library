@@ -12,6 +12,7 @@ import { HDG_levelOpt } from '@/components/Heading/libs/types';
 import { mockRichText } from '@/mockData/mockRichText';
 import { mockImages } from '@/mockData/mockImages';
 import { classNameStoryArgType } from '@/mockData/stories/argTypes';
+import { argTypesCustomTileStories } from '@/mockData/stories/argTypes';
 
 const activeLang = 'en';
 
@@ -22,66 +23,7 @@ const meta: Meta<typeof CustomTile> = {
     ...mockCustomTile,
   },
   argTypes: {
-    ...classNameStoryArgType,
-    heading: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
-    headingLevel: {
-      control: 'select',
-      options: [...HDG_levelOpt],
-      description: '... soon ...',
-    },
-    headingMaxLength: {
-      control: 'select',
-      options: [...mockTextLengthList],
-    },
-
-    layoutStyle: {
-      control: 'select',
-      options: [...CTL_LayoutStyleOpt],
-    },
-
-    media: {
-      control: 'select',
-      options: ['', ...CTL_MediaOpt],
-    },
-    mediaIcon: {
-      control: 'select',
-      options: ['', ...CI_nameOpt],
-    },
-    mediaImage: {
-      control: 'select',
-      options: ['', ...mockImages],
-    },
-    modalIsAvailable: {
-      control: 'select',
-      options: [true, false],
-    },
-    blurb: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
-    blurbMaxLength: {
-      control: 'select',
-      options: [...mockTextLengthList],
-    },
-    modalPlainDescription: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
-    modalRichDescription: {
-      control: 'object',
-      description: '...description coming soon...',
-    },
-    linksTo: {
-      control: 'text',
-      description: '...description coming soon...',
-    },
-    linkTarget: {
-      control: 'select',
-      options: [...CTL_LinkTargetOpt],
-    },
+    ...argTypesCustomTileStories,
   },
 
   /**
@@ -110,11 +52,6 @@ const meta: Meta<typeof CustomTile> = {
   /**
    * Enables modal behavior when tile is clicked. If "true", "title" and "text" props will be rendered as modal content.
    * @remarks Modal content will show the tile's title and text
-   */
-
-  /**
-   * Primary heading text
-   * @required
    */
 
   /**

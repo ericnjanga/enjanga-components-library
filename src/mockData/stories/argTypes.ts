@@ -4,6 +4,7 @@ import { LST_propsType, LST_typeOpt } from '@/components/List/libs/types';
 import { SMT_propsType } from '@/components/SmartText/libs/types';
 import { BNN_propsType } from '@/components/Banner/libs/types';
 import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
+import { CTL_propsType } from '@/components/CustomTile/lib/types';
 
 // generic
 export const classNameStoryArgType: Partial<ArgTypes> = {
@@ -74,3 +75,71 @@ export const argTypesArrowIconStories: Partial<ArgTypes<AIC_propsType>> = {
     description: '... soon ...',
   },
 };
+
+export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {
+  ...classNameStoryArgType,
+  featuredText: {
+    ...argTypesFeatureTextStories,
+  },
+};
+
+// ...classNameStoryArgType,
+// heading: {
+//   control: 'text',
+//   description: '...description coming soon...',
+// },
+// headingLevel: {
+//   control: 'select',
+//   options: [...HDG_levelOpt],
+//   description: '... soon ...',
+// },
+// headingMaxLength: {
+//   control: 'select',
+//   options: [...mockTextLengthList],
+// },
+
+// layoutStyle: {
+//   control: 'select',
+//   options: [...CTL_LayoutStyleOpt],
+// },
+
+// media: {
+//   control: 'select',
+//   options: ['', ...CTL_MediaOpt],
+// },
+// mediaIcon: {
+//   control: 'select',
+//   options: ['', ...CI_nameOpt],
+// },
+// mediaImage: {
+//   control: 'select',
+//   options: ['', ...mockImages],
+// },
+// modalIsAvailable: {
+//   control: 'select',
+//   options: [true, false],
+// },
+// blurb: {
+//   control: 'text',
+//   description: '...description coming soon...',
+// },
+// blurbMaxLength: {
+//   control: 'select',
+//   options: [...mockTextLengthList],
+// },
+// modalPlainDescription: {
+//   control: 'text',
+//   description: '...description coming soon...',
+// },
+// modalRichDescription: {
+//   control: 'object',
+//   description: '...description coming soon...',
+// },
+// linksTo: {
+//   control: 'text',
+//   description: '...description coming soon...',
+// },
+// linkTarget: {
+//   control: 'select',
+//   options: [...CTL_LinkTargetOpt],
+// },
