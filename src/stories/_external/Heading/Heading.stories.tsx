@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from '../../../components/Heading';
 import { argTypesHeadingStories } from '@/mockData/stories/argTypes';
-import { argsHeadingPlain } from '@/mockData/stories/args';
+import { argsHeadingPlain } from '@/mockData/stories/args/argsHeading';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import { mockHeading } from '@/mockData/mixed';
 import { Grid, Column } from '@carbon/react';

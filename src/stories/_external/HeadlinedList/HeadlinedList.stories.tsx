@@ -3,7 +3,7 @@ import HeadlinedList from '../../../components/HeadlinedList';
 import { mockHeadlinedListArgs, mockListMixed } from '@/mockData/mockLists';
 import { mockHeading } from '@/mockData/mixed';
 import { Grid, Column } from '@carbon/react';
-import { argsList } from '@/mockData/stories/args';
+import { argsList } from '@/mockData/stories/args/argsList';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import { argTypesHeadingStories } from '@/mockData/stories/argTypes';

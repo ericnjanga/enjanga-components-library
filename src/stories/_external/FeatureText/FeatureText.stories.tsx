@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FeatureText from '../../../components/FeatureText/FeatureText';
 import { mockRichText } from '@/mockData/mockRichText';
-import { argsHeadingPlain, argsFeatureText } from '@/mockData/stories/args';
+import { argsFeatureText } from '@/mockData/stories/args/argsFeatureText';
 import { mockHeading } from '@/mockData/mixed';
 import { argTypesFeatureTextStories } from '@/mockData/stories/argTypes';
 import { styleHeadingLabel } from '@/mockData/mixed';
-import { argsHeadingJSX } from '@/mockData/stories/args';
+import { argsHeadingJSX } from '@/mockData/stories/args/argsHeading';
 import { Grid, Column } from '@carbon/react';
+import { argsHeadingPlain } from '@/mockData/stories/args/argsHeading';
 
 const meta: Meta<typeof FeatureText> = {
   title: 'External Components/FeatureText',

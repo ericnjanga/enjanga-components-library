@@ -6,7 +6,7 @@ import {
   mockListLinked,
   mockListMixed,
 } from '@/mockData/mockLists';
-import { argsList } from '@/mockData/stories/args';
+import { argsList } from '@/mockData/stories/args/argsList';
 
 const meta: Meta<typeof List> = {
   title: 'External Components/List',

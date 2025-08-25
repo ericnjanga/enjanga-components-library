@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Banner from '../../../components/Banner/Banner';
-import { argsBanner } from '@/mockData/stories/args';
+import { argsBanner } from '@/mockData/stories/args/argsBanner';
 import { argTypesBannerStories } from '@/mockData/stories/argTypes';
 import {
   argsHeadingPlain,
   argsHeadingJSX,
-  argsFeatureText,
-} from '@/mockData/stories/args';
+} from '@/mockData/stories/args/argsHeading';
+import { argsFeatureText } from '@/mockData/stories/args/argsFeatureText';
 import { mockHeading } from '@/mockData/mixed';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { mockRichText } from '@/mockData/mockRichText';
