@@ -5,6 +5,7 @@ import { CI_isValidMediaIcon } from '@/components/CustomIcon/libs/helpers';
 import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
 import { FeatureText } from '@/components/FeatureText';
 import { getHeadingContent } from './getHeadingContent';
+import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
 
 // Puts together component's core content
 export const getTileContent = ({
@@ -17,13 +18,23 @@ export const getTileContent = ({
   link,
 }: CTL_globalContentPropsType) => {
   // ...
-  const mediaIconIsValid = CI_isValidMediaIcon(mediaIcon);
-  const arrowIconOrientation = link.isExternal ? 'UpRight' : 'Right';
-  const arrowIconTitle = getHeadingContent(featuredText);
+  const mediaIconIsValid =
+    media === 'icon' ? CI_isValidMediaIcon(mediaIcon) : false;
+  let arrowIconOrientation = 'UpRight' as AIC_propsType['orientation'];
+  let arrowIconTitle = '';
+
+  // ...
+  const iconIsOnDisplay = media === 'icon' && mediaIcon && mediaIconIsValid;
+
+  // ...
+  if (link.isAvailable) {
+    arrowIconOrientation = link.isExternal ? 'UpRight' : 'Right';
+    arrowIconTitle = getHeadingContent(featuredText);
+  }
 
   return (
     <>
-      {mediaIcon && mediaIconIsValid && (
+      {iconIsOnDisplay && (
         <CustomIcon name={mediaIcon} className={clsx('enj-CustomTile-icon')} />
       )}
 

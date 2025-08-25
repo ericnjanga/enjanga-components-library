@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CustomTile from '../../../components/CustomTile/CustomTile';
 import { Grid, Column } from '@carbon/react';
-import { mockRichText } from '@/mockData/mockRichText';
 import { argTypesCustomTileStories } from '@/mockData/stories/argTypes';
 import { argsCustomTile } from '@/mockData/stories/args/argsCustomTile';
+import { styleHeadingLabel } from '@/mockData/mixed';
 
 const activeLang = 'en';
 
@@ -11,7 +11,7 @@ const meta: Meta<typeof CustomTile> = {
   title: 'External Components/CustomTile',
   component: CustomTile,
   args: {
-    ...argsCustomTile,
+    ...argsCustomTile.card,
   },
   argTypes: {
     ...argTypesCustomTileStories,
@@ -21,14 +21,75 @@ const meta: Meta<typeof CustomTile> = {
 export default meta;
 type Story = StoryObj<typeof CustomTile>;
 
-export const Card: Story = {};
+export const Cards: Story = {
+  render: (args) => {
+    return (
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>Default</span>
+            <CustomTile {...args} />
+          </div>
+        </Column>
+      </Grid>
+    );
+  },
+};
 
-// export const Banner: Story = {
-//   args: {
-//     ...mockCustomTile,
-//     layoutStyle: 'banner',
-//   },
-// };
+export const Banners: Story = {
+  args: {
+    ...argsCustomTile.banner,
+  },
+  render: (args) => {
+    return (
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>Default</span>
+            <CustomTile {...args} />
+          </div>
+        </Column>
+      </Grid>
+    );
+  },
+};
+
+export const EmptyCards: Story = {
+  render: (args) => {
+    const customArgs = {
+      ...argsCustomTile.emptyCard,
+    };
+
+    return (
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>Default</span>
+            <CustomTile {...customArgs} />
+          </div>
+        </Column>
+      </Grid>
+    );
+  },
+};
+
+export const EmptyBanners: Story = {
+  args: {
+    ...argsCustomTile.emptyBanner,
+  },
+  render: (args) => {
+    return (
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>Default</span>
+            <CustomTile {...args} />
+          </div>
+        </Column>
+      </Grid>
+    );
+  },
+};
 
 // export const ResponsivenessCard: Story = {
 //   args: {
