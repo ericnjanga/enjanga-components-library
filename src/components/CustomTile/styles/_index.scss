@@ -13,10 +13,15 @@
   --enj-CTL-banner-pad: #{$spacing-10};
 }
 
-// // Apply the same hover effect for non-link components
-// .enj-CustomTile-has-hover-effect {
-//   @include customTile-hover;
-// }
+// Apply the same hover effect for non-link components
+.enj-CustomTile-has-hover-effect,
+.enj-CustomTile-anchor-tag,
+.enj-CustomTile--modal {
+  display: block;
+  &:hover {
+    @include customTile-hover;
+  }
+}
 
 // // ...
 // .enj-CustomTile {

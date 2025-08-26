@@ -13,8 +13,10 @@ export const getCustomTileCSSClasses = ({
   layoutStyle,
   linksTo,
   linkTarget,
+  modalIsAvailable,
 }: CTL_CSSClassesPropsType) =>
   clsx('enj-CustomTile', `enj-CustomTile--${layoutStyle}`, {
-    'enj-CustomTile--link': linksTo,
-    'enj-CustomTile--external': linksTo && linkTarget === '_blank', // Only apply if link exists
+    'enj-CustomTile--link': linksTo, // Indicates that component opens a link
+    'enj-CustomTile--link-external': linksTo && linkTarget === '_blank', // the link is external
+    'enj-CustomTile--modal': modalIsAvailable, // Indicates that component triggers a modal
   });

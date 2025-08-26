@@ -25,6 +25,7 @@ import { handleCustomTileClick } from './parts/utils';
 import { validateCTL_propsType } from './lib/propsValidation';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { getHeadingContent } from './lib/getHeadingContent';
+import { isValidLinkTo } from './lib/mix';
 
 const CustomTile = ({
   className,
@@ -54,10 +55,11 @@ const CustomTile = ({
     layoutStyle,
     linksTo,
     linkTarget,
+    modalIsAvailable,
   });
 
   // ...
-  const linkIsActive = modalIsAvailable !== undefined || linksTo !== undefined;
+  const linkIsActive = isValidLinkTo(linksTo); // modalIsAvailable !== undefined ||
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
 

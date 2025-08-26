@@ -39,6 +39,10 @@ export const Cards: Story = {
     const argsWithExternalLink = {
       ...argsCustomTile.card.withExternalLink,
     };
+    const argsWithModal = {
+      ...argsCustomTile.card.withModal,
+    };
+
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
@@ -68,6 +72,11 @@ export const Cards: Story = {
             </span>
             <CustomTile {...argsWithExternalLink} />
           </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>With modal</span>
+            <CustomTile {...argsWithModal} />
+          </div>
         </Column>
       </Grid>
     );
@@ -95,6 +104,9 @@ export const Banners: Story = {
     };
     const argsWithExternalLink = {
       ...argsCustomTile.banner.withExternalLink,
+    };
+    const argsWithModal = {
+      ...argsCustomTile.banner.withModal,
     };
     return (
       <Grid>
@@ -128,6 +140,11 @@ export const Banners: Story = {
               With image external link
             </span>
             <CustomTile {...argsWithExternalLink} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>With modal</span>
+            <CustomTile {...argsWithModal} />
           </div>
         </Column>
       </Grid>

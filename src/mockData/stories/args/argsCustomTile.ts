@@ -6,6 +6,7 @@ import {
 } from '@/components/CustomTile/lib/types';
 import { argsFeatureText } from './argsFeatureText';
 import { CI_nameType } from '@/components/CustomIcon/libs/types';
+import { mockHeading } from '@/mockData/mixed';
 
 // For CustomTile.stories.tsx ...
 // Default (card) ...
@@ -24,7 +25,7 @@ const argsCustomTileDefault = {
   modalPlainDescription: undefined,
   modalRichDescription: undefined,
 
-  linksTo: '',
+  linksTo: undefined,
   linkTarget: '_self' as CTL_LinkTargetType,
 } as CTL_propsType;
 
@@ -52,7 +53,7 @@ export const argsCustomTile = {
     withLocalLink: {
       // ...
       ...argsCustomTileDefault,
-      linksTo: 'local/route',
+      linksTo: '/local/route',
       linkTarget: '_self' as CTL_LinkTargetType,
     } as CTL_propsType,
 
@@ -61,6 +62,14 @@ export const argsCustomTile = {
       ...argsCustomTileDefault,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
+    } as CTL_propsType,
+
+    withModal: {
+      // ...
+      ...argsCustomTileDefault,
+      modalIsAvailable: true,
+      modalPlainDescription: mockHeading.plain,
+      modalRichDescription: undefined,
     } as CTL_propsType,
 
     empty: {
@@ -101,7 +110,7 @@ export const argsCustomTile = {
       // ...
       ...argsCustomTileDefault,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
-      linksTo: 'local/route',
+      linksTo: '/local/route',
       linkTarget: '_self' as CTL_LinkTargetType,
     } as CTL_propsType,
 
@@ -111,6 +120,15 @@ export const argsCustomTile = {
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
+    } as CTL_propsType,
+
+    withModal: {
+      // ...
+      ...argsCustomTileDefault,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+      modalIsAvailable: true,
+      modalPlainDescription: mockHeading.plain,
+      modalRichDescription: undefined,
     } as CTL_propsType,
 
     empty: {

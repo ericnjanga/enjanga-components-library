@@ -19,6 +19,7 @@ export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
   linksTo?: string;
   linkTarget?: CTL_LinkTargetType;
+  modalIsAvailable?: boolean;
 }
 
 export interface CTL_linkWrapperPropsType {
@@ -50,6 +51,9 @@ export interface CTL_globalContentPropsType {
   };
 }
 
+export type ValidRoute = `/${string}`; // Any string starting with /
+export type ExternalLink = `https://${string}` | `http://${string}`;
+
 // Props types ...
 export type CTL_propsType = {
   className?: string;
@@ -65,6 +69,6 @@ export type CTL_propsType = {
   modalPlainDescription?: string;
   modalRichDescription?: { json: { content: Node[] } };
 
-  linksTo?: string;
+  linksTo?: ValidRoute | ExternalLink;
   linkTarget?: CTL_LinkTargetType;
 } & CTL_propsType1Validation;
