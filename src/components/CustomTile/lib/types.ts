@@ -14,6 +14,7 @@ export type CTL_MediaType = (typeof CTL_MediaOpt)[number]; // Creating union typ
 
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import { FTX_propsType } from '@/components/FeatureText/libs/types';
+import { AIC_orientOptPropsType } from '@/components/ArrowIcon/libs/types';
 
 export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
@@ -45,6 +46,19 @@ export interface CTL_globalContentPropsType {
   mediaIcon?: CP_nameType;
   mediaImage?: string;
 
+  modalIsAvailable?: boolean;
+
+  link: {
+    isAvailable: boolean;
+    isExternal: boolean;
+  };
+}
+
+export interface CTL_iconContentPropsType {
+  title: string;
+
+  modalIsAvailable?: boolean;
+  arrowIconOrientation: AIC_orientOptPropsType;
   link: {
     isAvailable: boolean;
     isExternal: boolean;

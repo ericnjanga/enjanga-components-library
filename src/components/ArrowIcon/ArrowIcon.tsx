@@ -1,12 +1,12 @@
 import { AIC_propsType } from './libs/types';
 import { ArrowRight, ArrowUpRight, Information } from '@carbon/icons-react';
 
-export const ArrowIcon = ({ title, orientation }: AIC_propsType) => {
+export const ArrowIcon = ({ className, title, orientation }: AIC_propsType) => {
   const C = orientation === 'Right' ? ArrowRight : ArrowUpRight;
 
   return (
     <C
-      className="enj-icon"
+      className={className}
       width="1.3rem"
       height="1.3rem"
       aria-label={`${title} pictogram`}

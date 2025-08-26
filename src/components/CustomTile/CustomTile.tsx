@@ -76,6 +76,8 @@ const CustomTile = ({
     mediaIcon,
     mediaImage,
 
+    modalIsAvailable,
+
     link: {
       isAvailable: linkIsActive,
       isExternal: linkIsExternal,

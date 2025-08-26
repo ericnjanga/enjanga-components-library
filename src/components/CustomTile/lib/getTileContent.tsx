@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { CTL_globalContentPropsType } from './types';
 import { CustomPictogram } from '@/components/CustomPictogram';
 import { CI_isValidMediaIcon } from '@/components/CustomPictogram/libs/helpers';
-import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
 import { FeatureText } from '@/components/FeatureText';
 import { getHeadingContent } from './getHeadingContent';
 import { AIC_propsType } from '@/components/ArrowIcon/libs/types';
+import { getIconContent } from './getIconContent';
 
 // Puts together component's core content
 export const getTileContent = ({
@@ -17,6 +17,8 @@ export const getTileContent = ({
   mediaIcon,
   mediaImage,
 
+  modalIsAvailable,
+
   link,
 }: CTL_globalContentPropsType) => {
   // ...
@@ -26,16 +28,17 @@ export const getTileContent = ({
   let arrowIconTitle = '';
 
   // Conditions for displaying the icon ...
-  const iconIsOnDisplay =
+  const pictogramIsOnDisplay =
     media === 'icon' &&
     layoutStyle !== 'banner' &&
     mediaIcon &&
     mediaIconIsValid;
 
   // Conditions for displaying the image ...
-  const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner'; // &&
-  // mediaIcon &&
-  // mediaIconIsValid;
+  const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner';
+
+  // Conditions for displaying the icon ...
+  const iconIsOnDisplay = link.isAvailable && modalIsAvailable;
 
   // ...
   if (link.isAvailable) {
@@ -43,12 +46,20 @@ export const getTileContent = ({
     arrowIconTitle = getHeadingContent(featuredText);
   }
 
+  // ...
+  const iconContent = getIconContent({
+    title: arrowIconTitle,
+    modalIsAvailable,
+    arrowIconOrientation,
+    link,
+  });
+
   return (
     <>
-      {iconIsOnDisplay && (
+      {pictogramIsOnDisplay && (
         <CustomPictogram
           name={mediaIcon}
-          className={clsx('enj-CustomTile-icon')}
+          className={clsx('enj-CustomTile-pictogram')}
         />
       )}
 
@@ -63,9 +74,10 @@ export const getTileContent = ({
 
       <FeatureText {...featuredText} />
 
-      {link.isAvailable && (
-        <ArrowIcon title={arrowIconTitle} orientation={arrowIconOrientation} />
-      )}
+      <p>
+        ---<b>icon</b> (need troubleshooting)---
+      </p>
+      {iconIsOnDisplay && { iconContent }}
     </>
   );
 };

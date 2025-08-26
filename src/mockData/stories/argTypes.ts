@@ -74,6 +74,7 @@ export const argTypesBannerStories: Partial<ArgTypes<BNN_propsType>> = {
 };
 
 export const argTypesArrowIconStories: Partial<ArgTypes<AIC_propsType>> = {
+  ...classNameStoryArgType,
   title: { control: 'text' },
   orientation: {
     control: 'select',
