@@ -116,14 +116,14 @@ export const Banners: Story = {
 
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>
-              With icon <i>(No icon in design prototypes)</i>
+              With icon <i>(Nothing has been planned in design prototypes)</i>
             </span>
             <CustomTile {...argsWithIcon} />
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>
-              With image <i>(No icon in design prototypes)</i>
+              With image <i>(Nothing has been planned in design prototypes)</i>
             </span>
             <CustomTile {...argsWithImage} />
           </div>
@@ -185,71 +185,69 @@ export const EmptyBanners: Story = {
   },
 };
 
-// export const ResponsivenessCard: Story = {
-//   args: {
-//     ...mockCustomTile,
-//     layoutStyle: 'card',
-//   },
-//   render: (args) => {
-//     return (
-//       <>
-//         <Grid>
-//           <Column lg={16}>
-//             <h3 style={{ textAlign: 'center' }}>Card's adaptive size</h3>
-//           </Column>
-//         </Grid>
-//         <Grid>
-//           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
-//             (index) => (
-//               <Column
-//                 key={index}
-//                 style={{ marginBottom: '1.5rem' }}
-//                 lg={index}
-//                 md={8}
-//                 sm={4}
-//               >
-//                 <CustomTile {...args} />
-//               </Column>
-//             )
-//           )}
-//         </Grid>
-//       </>
-//     );
-//   },
-// };
+export const ResponsivenessCard: Story = {
+  args: {
+    ...argsCustomTile.card.default,
+  },
+  render: (args) => {
+    return (
+      <>
+        <Grid>
+          <Column lg={16}>
+            <h3 style={{ textAlign: 'center' }}>Card's adaptive size</h3>
+          </Column>
+        </Grid>
+        <Grid>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+            (index) => (
+              <Column
+                key={index}
+                style={{ marginBottom: '1.5rem' }}
+                lg={index}
+                md={8}
+                sm={4}
+              >
+                <CustomTile {...args} />
+              </Column>
+            )
+          )}
+        </Grid>
+      </>
+    );
+  },
+};
 
-// export const ResponsivenessBanner: Story = {
-//   args: {
-//     ...mockCustomTile,
-//     layoutStyle: 'banner',
-//   },
-//   render: (args) => {
-//     return (
-//       <>
-//         <Grid>
-//           <Column lg={16}>
-//             <h3 style={{ textAlign: 'center' }}>Banner's adaptive size</h3>
-//           </Column>
-//         </Grid>
-//         <Grid>
-//           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
-//             (index) => (
-//               <Column
-//                 key={index}
-//                 style={{ marginBottom: '1.5rem' }}
-//                 lg={index}
-//                 md={8}
-//                 sm={4}
-//               >
-//                 <CustomTile {...args} />
-//               </Column>
-//             )
-//           )}
-//         </Grid>
-//       </>
-//     );
-//   },
-// };
+export const ResponsivenessBanner: Story = {
+  args: {
+    ...argsCustomTile.banner.default,
+  },
+  render: (args) => {
+    return (
+      <>
+        <Grid>
+          <Column lg={16}>
+            <h3 style={{ textAlign: 'center' }}>Banner's adaptive size</h3>
+          </Column>
+        </Grid>
+        <Grid>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+            (index) => (
+              <Column
+                key={index}
+                style={{ marginBottom: '1.5rem' }}
+                lg={index}
+                md={8}
+                sm={4}
+              >
+                <CustomTile {...args} />
+              </Column>
+            )
+          )}
+        </Grid>
+      </>
+    );
+  },
+};
 
 // // /**
 // //  * Shows modal

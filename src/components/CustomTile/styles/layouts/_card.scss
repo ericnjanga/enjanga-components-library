@@ -3,32 +3,7 @@
  * ----------
 */
 
-:root {
-  --enj-CTL-card-pad: #{$spacing-07};
-}
-
 .enj-CustomTile--card {
   background-color: aqua;
-  padding: var(--enj-CTL-card-pad);
-}
-
-.enj-CustomTile--card {
-  &.enj-CustomTile-sm {
-    border: 10px solid red;
-
-    // Adapts padding ...
-    --enj-CTL-card-pad: #{$spacing-04};
-  }
-  &.enj-CustomTile-md {
-    border: 10px solid orange;
-  }
-  &.enj-CustomTile-lg {
-    border: 10px solid blue;
-  }
-  &.enj-CustomTile-xlg {
-    border: 10px solid green;
-  }
-  &.enj-CustomTile-max {
-    border: 10px solid rgb(255, 47, 227);
-  }
+  @include CT-cardResponsivePadding;
 }

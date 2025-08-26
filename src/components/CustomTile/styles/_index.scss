@@ -1,19 +1,17 @@
 @use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/breakpoint' as *;
 @use '@carbon/react/scss/colors' as *;
-@import './mixins';
-@import './container-responsiveness';
+
+@import './utils/vars';
+@import './utils/mixins';
 
 @import './layouts/card';
 @import './layouts/banner';
-@import './icon';
-@import './pictogram';
 
-:root {
-  --enj-CTL-br-col: #{$gray-60};
-  --enj-CTL-card-pad: #{$spacing-07};
-  --enj-CTL-banner-pad: #{$spacing-10};
-}
+@import './components/icon';
+@import './components/pictogram';
+
+@import './variants/customTile-link';
 
 // Apply the same hover effect for non-link components
 .enj-CustomTile-has-hover-effect,

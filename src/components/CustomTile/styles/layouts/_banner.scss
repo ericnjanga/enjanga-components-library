@@ -3,38 +3,7 @@
  * ----------
 */
 
-:root {
-  --enj-CTL-banner-pad: #{$spacing-10};
-}
-
 .enj-CustomTile--banner {
   background-color: lightcoral;
-  padding: var(--enj-CTL-banner-pad);
-}
-
-.enj-CustomTile--banner {
-  &.enj-CustomTile-sm {
-    border: 10px solid red;
-
-    // Adapts padding ...
-    --enj-CTL-banner-pad: #{$spacing-04};
-  }
-  &.enj-CustomTile-md {
-    border: 10px solid orange;
-
-    // Adapts padding ...
-    --enj-CTL-banner-pad: #{$spacing-07};
-  }
-  &.enj-CustomTile-lg {
-    border: 10px solid blue;
-  }
-  &.enj-CustomTile-xlg {
-    border: 10px solid green;
-  }
-  &.enj-CustomTile-max {
-    border: 10px solid rgb(255, 47, 227);
-
-    // Adapts padding ...
-    --enj-CTL-banner-pad: #{$spacing-12};
-  }
+  @include CT-bannerResponsivePadding;
 }

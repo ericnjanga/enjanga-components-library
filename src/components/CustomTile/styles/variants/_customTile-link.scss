@@ -1,0 +1,30 @@
+@import './../utils/mixins';
+
+/**
+ * CustomTile of layout Banner/Card with links
+ * <Component />.  <--- We need to cancel the responsive padding here
+ ** <a></a>.       <--- We need to apply the responsive padding here
+*/
+
+.enj-CustomTile--link {
+  &.enj-CustomTile--card,
+  &.enj-CustomTile--banner {
+    padding: 0; // We first paddings for all cards and banners
+
+    // For Banners ...
+    &.enj-CustomTile--banner {
+      .enj-CustomTile-anchor-tag {
+        // We then apply the responsive padding directly on the anchor tag
+        @include CT-bannerResponsivePadding;
+      }
+    }
+
+    // For Caards ...
+    &.enj-CustomTile--card {
+      .enj-CustomTile-anchor-tag {
+        // We then apply the responsive padding directly on the anchor tag
+        @include CT-cardResponsivePadding;
+      }
+    }
+  }
+}
