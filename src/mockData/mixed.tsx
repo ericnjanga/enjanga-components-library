@@ -1,10 +1,10 @@
 import {
-  CI_nameOpt,
-  CI_nameType,
-  CI_sizeOpt,
-  CI_sizeType,
-} from '@/components/CustomIcon/libs/types';
-import { CI_propsType } from '@/components/CustomIcon/libs/types';
+  CP_nameOpt,
+  CP_nameType,
+  CP_sizeOpt,
+  CP_sizeType,
+} from '@/components/CustomPictogram/libs/types';
+import { CP_propsType } from '@/components/CustomPictogram/libs/types';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import {
   CTL_LinkTargetType,
@@ -32,11 +32,11 @@ export const mockHeading = {
   ),
 };
 
-export const mockCustomIcon = {
-  name: CI_nameOpt[0] as CI_nameType,
-  size: CI_sizeOpt[0] as CI_sizeType,
+export const mockCustomPictogram = {
+  name: CP_nameOpt[0] as CP_nameType,
+  size: CP_sizeOpt[0] as CP_sizeType,
   className: '',
-} as CI_propsType;
+} as CP_propsType;
 import { red60 } from '@carbon/colors';
 
 export const mockTextLengthList = [50, 100, 200, 300, 500, 1000];

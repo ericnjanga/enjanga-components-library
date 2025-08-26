@@ -1,19 +1,19 @@
 import { Hills, AppDeveloper, Leadership } from '@carbon/pictograms-react';
 import type { ComponentType, SVGProps } from 'react';
 import {
-  CI_nameOpt,
-  CI_nameType,
-  CI_sizeType,
-  CI_sizeDimensions,
+  CP_nameOpt,
+  CP_nameType,
+  CP_sizeType,
+  CP_sizeDimensions,
 } from './types';
 
 // Fixed type guard function
-export const CI_isValidMediaIcon = (name: unknown): name is CI_nameType => {
-  return CI_nameOpt.includes(name as CI_nameType);
+export const CI_isValidMediaIcon = (name: unknown): name is CP_nameType => {
+  return CP_nameOpt.includes(name as CP_nameType);
 };
 
 export const CI_pictogramMap: Record<
-  CI_nameType, // CI_propsType['name'],
+  CP_nameType, // CP_propsType['name'],
   ComponentType<SVGProps<SVGSVGElement>>
 > = {
   Hills,
@@ -22,7 +22,7 @@ export const CI_pictogramMap: Record<
 };
 
 // Calculates the icon width and height based on the size type provided
-export const CI_getSize = (size: CI_sizeType): CI_sizeDimensions => {
+export const CI_getSize = (size: CP_sizeType): CP_sizeDimensions => {
   let sizeDim;
 
   switch (size) {

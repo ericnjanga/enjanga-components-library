@@ -4,7 +4,7 @@ import {
   LST_typeOpt,
   LST_typePropsType,
 } from '@/components/List/libs/types';
-import CustomIcon from '@/components/CustomIcon/CustomIcon';
+import CustomPictogram from '@/components/CustomPictogram/CustomPictogram';
 import {
   HDL_tagPropsType,
   HDL_tagOpt,
@@ -70,7 +70,7 @@ export const mockListMixed = [
     children: (
       <>
         <span> </span>
-        <CustomIcon name="Leadership" size="sm" /> {/* JSX Fragment */}
+        <CustomPictogram name="Leadership" size="sm" /> {/* JSX Fragment */}
       </>
     ),
   },

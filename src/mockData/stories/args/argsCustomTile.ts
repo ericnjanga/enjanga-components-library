@@ -5,7 +5,7 @@ import {
   CTL_MediaType,
 } from '@/components/CustomTile/lib/types';
 import { argsFeatureText } from './argsFeatureText';
-import { CI_nameType } from '@/components/CustomIcon/libs/types';
+import { CP_nameType } from '@/components/CustomPictogram/libs/types';
 import { mockHeading } from '@/mockData/mixed';
 
 // For CustomTile.stories.tsx ...
@@ -40,7 +40,7 @@ export const argsCustomTile = {
       // ...
       ...argsCustomTileDefault,
       media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CI_nameType,
+      mediaIcon: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withImage: {
@@ -95,7 +95,7 @@ export const argsCustomTile = {
       ...argsCustomTileDefault,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CI_nameType,
+      mediaIcon: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withImage: {

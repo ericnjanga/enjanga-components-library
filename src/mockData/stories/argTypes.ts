@@ -10,7 +10,7 @@ import {
   CTL_MediaOpt,
   CTL_LinkTargetOpt,
 } from '@/components/CustomTile/lib/types';
-import { CI_nameOpt } from '@/components/CustomIcon/libs/types';
+import { CP_nameOpt } from '@/components/CustomPictogram/libs/types';
 
 // generic
 export const classNameStoryArgType: Partial<ArgTypes> = {
@@ -99,7 +99,7 @@ export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {
   },
   mediaIcon: {
     control: 'select',
-    options: [...CI_nameOpt],
+    options: [...CP_nameOpt],
     description: '... soon ...',
   },
   mediaImage: {

@@ -347,7 +347,7 @@ export const EmptyBanners: Story = {
 // export const VerticalIconNoImgNoLinking: Story = {
 //   args: {
 //     ...mockCustomTile,
-//     iconName: 'Hills' as CI_nameType,
+//     iconName: 'Hills' as CP_nameType,
 //   },
 // };
 

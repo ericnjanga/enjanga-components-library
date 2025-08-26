@@ -1,7 +1,7 @@
 // CustomTil props type
 // ----------------
 import React from 'react';
-import { CI_nameType } from '@/components/CustomIcon/libs/types';
+import { CP_nameType } from '@/components/CustomPictogram/libs/types';
 import type { Node } from '@contentful/rich-text-types';
 import { CTL_propsType1Validation } from './types-validation';
 
@@ -42,7 +42,7 @@ export interface CTL_globalContentPropsType {
   layoutStyle?: CTL_LayoutStyleType;
 
   media?: CTL_MediaType;
-  mediaIcon?: CI_nameType;
+  mediaIcon?: CP_nameType;
   mediaImage?: string;
 
   link: {
@@ -62,7 +62,7 @@ export type CTL_propsType = {
   layoutStyle?: CTL_LayoutStyleType;
 
   media?: CTL_MediaType;
-  mediaIcon?: CI_nameType;
+  mediaIcon?: CP_nameType;
   mediaImage?: string;
 
   modalIsAvailable?: boolean;

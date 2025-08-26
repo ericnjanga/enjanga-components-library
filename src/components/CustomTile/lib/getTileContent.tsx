@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { CTL_globalContentPropsType } from './types';
-import { CustomIcon } from '@/components/CustomIcon';
-import { CI_isValidMediaIcon } from '@/components/CustomIcon/libs/helpers';
+import { CustomPictogram } from '@/components/CustomPictogram';
+import { CI_isValidMediaIcon } from '@/components/CustomPictogram/libs/helpers';
 import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
 import { FeatureText } from '@/components/FeatureText';
 import { getHeadingContent } from './getHeadingContent';
@@ -46,7 +46,10 @@ export const getTileContent = ({
   return (
     <>
       {iconIsOnDisplay && (
-        <CustomIcon name={mediaIcon} className={clsx('enj-CustomTile-icon')} />
+        <CustomPictogram
+          name={mediaIcon}
+          className={clsx('enj-CustomTile-icon')}
+        />
       )}
 
       {imageIsOnDisplay && (
