@@ -62,14 +62,12 @@ export const Cards: Story = {
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>With image local link</span>
+            <span style={{ ...styleHeadingLabel }}>With local link</span>
             <CustomTile {...argsWithLocalLink} />
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>
-              With image external link
-            </span>
+            <span style={{ ...styleHeadingLabel }}>With external link</span>
             <CustomTile {...argsWithExternalLink} />
           </div>
 
@@ -131,14 +129,12 @@ export const Banners: Story = {
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>With image local link</span>
+            <span style={{ ...styleHeadingLabel }}>With local link</span>
             <CustomTile {...argsWithLocalLink} />
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>
-              With image external link
-            </span>
+            <span style={{ ...styleHeadingLabel }}>With external link</span>
             <CustomTile {...argsWithExternalLink} />
           </div>
 

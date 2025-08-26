@@ -38,7 +38,7 @@ export const getTileContent = ({
   const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner';
 
   // Conditions for displaying the icon ...
-  const iconIsOnDisplay = link.isAvailable && modalIsAvailable;
+  const iconIsOnDisplay = link.isAvailable || modalIsAvailable;
 
   // ...
   if (link.isAvailable) {
@@ -74,10 +74,7 @@ export const getTileContent = ({
 
       <FeatureText {...featuredText} />
 
-      <p>
-        ---<b>icon</b> (need troubleshooting)---
-      </p>
-      {iconIsOnDisplay && { iconContent }}
+      {iconIsOnDisplay && iconContent}
     </>
   );
 };

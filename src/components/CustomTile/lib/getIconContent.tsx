@@ -1,4 +1,5 @@
 import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
+import { Information } from '@carbon/icons-react';
 import { CTL_iconContentPropsType } from './types';
 
 export const getIconContent = ({
@@ -7,9 +8,12 @@ export const getIconContent = ({
   arrowIconOrientation,
   link,
 }: CTL_iconContentPropsType) => {
+  const onlyLinkIsOnDisplay = link.isAvailable && !modalIsAvailable;
+  const onlyModalIsOnDisplay = !link.isAvailable && modalIsAvailable;
+
   return (
     <div className="enj-CustomTile-icon-wrapper">
-      {link.isAvailable && !modalIsAvailable && (
+      {onlyLinkIsOnDisplay && (
         <ArrowIcon
           className="enj-CustomTile-icon"
           title={title}
@@ -17,9 +21,7 @@ export const getIconContent = ({
         />
       )}
 
-      {modalIsAvailable && (
-        <ArrowIcon title={title} orientation={arrowIconOrientation} />
-      )}
+      {onlyModalIsOnDisplay && <Information />}
     </div>
   );
 };
