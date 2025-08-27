@@ -6,7 +6,7 @@ import {
   argsHeadingPlain,
   argsHeadingJSX,
 } from '@/mockData/stories/args/argsHeading';
-import { argsFeatureText } from '@/mockData/stories/args/argsFeatureText';
+import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
 import { mockHeading } from '@/mockData/mixed';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { mockRichText } from '@/mockData/mockRichText';
@@ -98,7 +98,7 @@ export const RichTextVersions: Story = {
 export const WithHiddenProps: Story = {
   args: {
     featuredText: {
-      ...argsFeatureText,
+      ...argsFeatureTextWithPlainText,
       isHidden: 'heading',
     },
   },
@@ -106,7 +106,7 @@ export const WithHiddenProps: Story = {
     const args2 = {
       ...args,
       featuredText: {
-        ...argsFeatureText,
+        ...argsFeatureTextWithPlainText,
         isHidden: 'smartText' as typeof args.featuredText.isHidden,
       },
     };

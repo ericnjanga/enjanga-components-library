@@ -9,7 +9,7 @@ export interface ContentM_propsType {
   /** Optional label text displayed above the title */
   modalLabel?: string;
   /** Main modal heading/title */
-  modalHeading: string;
+  modalHeading: string | React.ReactNode;
   /** Optional subheading text */
   modalSubHeading?: string;
   /** Text for the secondary action button */

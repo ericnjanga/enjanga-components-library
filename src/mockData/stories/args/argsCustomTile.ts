@@ -4,18 +4,22 @@ import {
   CTL_propsType,
   CTL_MediaType,
 } from '@/components/CustomTile/lib/types';
-import { argsFeatureText } from './argsFeatureText';
+import {
+  argsFeatureTextWithPlainText,
+  argsFeatureTextWithRichText,
+} from './argsFeatureText';
 import { CP_nameType } from '@/components/CustomPictogram/libs/types';
 import { mockHeading } from '@/mockData/mixed';
+import { mockRichTextSmall } from '@/mockData/mockRichText';
 
-// For CustomTile.stories.tsx ...
-// Default (card) ...
-const argsCustomTileDefault = {
+// For CustomTile.stories.tsx ...     argsFeatureTextWithRichText
+// Default ...
+const argsCustomTileDefaultWithPlainT = {
   className: '',
   featuredText: {
-    ...argsFeatureText,
+    ...argsFeatureTextWithPlainText,
   },
-  layoutStyle: 'card' as CTL_LayoutStyleType,
+  layoutStyle: 'card' as CTL_LayoutStyleType, // Card by default
 
   media: undefined, // No media by default
   mediaIcon: undefined,
@@ -29,44 +33,55 @@ const argsCustomTileDefault = {
   linkTarget: '_self' as CTL_LinkTargetType,
 } as CTL_propsType;
 
+const argsCustomTileDefaultWithRichT = {
+  ...argsCustomTileDefaultWithPlainT,
+  featuredText: {
+    ...argsFeatureTextWithRichText,
+  },
+} as CTL_propsType;
+
 export const argsCustomTile = {
+  /**
+   * Card .....
+   * -------------------------
+   */
   card: {
     default: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
     } as CTL_propsType,
 
     withIcon: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       media: 'icon' as CTL_MediaType,
       mediaIcon: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withImage: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       media: 'image' as CTL_MediaType,
       mediaImage: '/img/cust-tile-1.png',
     } as CTL_propsType,
 
     withLocalLink: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       linksTo: '/local/route',
       linkTarget: '_self' as CTL_LinkTargetType,
     } as CTL_propsType,
 
     withExternalLink: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
     } as CTL_propsType,
 
     withModal: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       modalIsAvailable: true,
       modalPlainDescription: mockHeading.plain,
       modalRichDescription: undefined,
@@ -74,7 +89,7 @@ export const argsCustomTile = {
 
     empty: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       featuredText: {
         heading: {},
         smartText: {},
@@ -82,17 +97,106 @@ export const argsCustomTile = {
 
       layoutStyle: 'card' as CTL_LayoutStyleType,
     } as CTL_propsType,
+
+    /**
+     * Compositions .....
+     * -------------------------
+     */
+    withExternalLinkAndIcon: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+    } as CTL_propsType,
+
+    withExternalLinkAndImage: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+    } as CTL_propsType,
+
+    withModalAndIcon: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      modalIsAvailable: true,
+      modalPlainDescription: mockHeading.plain,
+      modalRichDescription: undefined,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+    } as CTL_propsType,
+
+    withModalAndImage: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      modalIsAvailable: true,
+      modalPlainDescription: mockHeading.plain,
+      modalRichDescription: undefined,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+    } as CTL_propsType,
+
+    /**
+     * Specificities with rich text .....
+     * -------------------------
+     */
+    withExternalLinkAndIconAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+    } as CTL_propsType,
+
+    withExternalLinkAndImageAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+    } as CTL_propsType,
+
+    withModalAndIconAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      modalIsAvailable: true,
+      modalPlainDescription: undefined,
+      modalRichDescription: mockRichTextSmall.description,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+    } as CTL_propsType,
+
+    withModalAndImageAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      modalIsAvailable: true,
+      modalPlainDescription: undefined,
+      modalRichDescription: mockRichTextSmall.description,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+    } as CTL_propsType,
   },
+
+  /**
+   * Banner .....
+   * -------------------------
+   */
   banner: {
     default: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
     withIcon: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       media: 'icon' as CTL_MediaType,
       mediaIcon: 'Leadership' as CP_nameType,
@@ -100,7 +204,7 @@ export const argsCustomTile = {
 
     withImage: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       media: 'image' as CTL_MediaType,
       mediaImage: '/img/cust-tile-1.png',
@@ -108,7 +212,7 @@ export const argsCustomTile = {
 
     withLocalLink: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       linksTo: '/local/route',
       linkTarget: '_self' as CTL_LinkTargetType,
@@ -116,7 +220,7 @@ export const argsCustomTile = {
 
     withExternalLink: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
@@ -124,7 +228,7 @@ export const argsCustomTile = {
 
     withModal: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       modalIsAvailable: true,
       modalPlainDescription: mockHeading.plain,
@@ -133,7 +237,7 @@ export const argsCustomTile = {
 
     empty: {
       // ...
-      ...argsCustomTileDefault,
+      ...argsCustomTileDefaultWithPlainT,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
       featuredText: {
         heading: {},

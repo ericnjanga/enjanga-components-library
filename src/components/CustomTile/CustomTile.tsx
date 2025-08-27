@@ -63,8 +63,8 @@ const CustomTile = ({
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
 
-  // ...
-  const componentTitleString = getHeadingContent(featuredText);
+  // Getting heading stripped from any JSX ...
+  const headingStringyfied = getHeadingContent(featuredText);
 
   // ...
   const tileContent = getTileContent({
@@ -85,7 +85,7 @@ const CustomTile = ({
   });
 
   const LinkWrapper = getLinkWrapper({
-    heading: componentTitleString,
+    heading: headingStringyfied,
     linksTo,
     linkTarget,
     linkIsExternal,
@@ -103,7 +103,7 @@ const CustomTile = ({
     <div className="enj-CustomTile-wrapper" ref={containerRef}>
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
-        aria-label={`${componentTitleString} tile`}
+        aria-label={`${headingStringyfied} tile`}
         onClick={() =>
           handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
         }
@@ -115,21 +115,19 @@ const CustomTile = ({
         )}
       </Tile>
 
-      {modalIsAvailable &&
-        componentTitleString &&
-        modalIsOpen !== undefined && (
-          <ContentModal
-            isOpen={modalIsOpen}
-            modalHeading={componentTitleString}
-            modalSecondaryButtonText="Cancel"
-            setIsOpen={setModalIsOpen}
-          >
-            <SmartText
-              plainText={modalPlainDescription}
-              richText={modalRichDescription}
-            />
-          </ContentModal>
-        )}
+      {modalIsAvailable && modalIsOpen !== undefined && (
+        <ContentModal
+          isOpen={modalIsOpen}
+          modalHeading={featuredText.heading.children}
+          modalSecondaryButtonText="Cancel"
+          setIsOpen={setModalIsOpen}
+        >
+          <SmartText
+            plainText={modalPlainDescription}
+            richText={modalRichDescription}
+          />
+        </ContentModal>
+      )}
     </div>
   );
 };

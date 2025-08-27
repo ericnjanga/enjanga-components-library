@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FeatureText from '../../../components/FeatureText/FeatureText';
 import { mockRichText } from '@/mockData/mockRichText';
-import { argsFeatureText } from '@/mockData/stories/args/argsFeatureText';
+import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
 import { mockHeading } from '@/mockData/mixed';
 import { argTypesFeatureTextStories } from '@/mockData/stories/argTypes';
 import { styleHeadingLabel } from '@/mockData/mixed';
@@ -13,7 +13,7 @@ const meta: Meta<typeof FeatureText> = {
   title: 'External Components/FeatureText',
   component: FeatureText,
   args: {
-    ...argsFeatureText,
+    ...argsFeatureTextWithPlainText,
   },
   argTypes: {
     ...argTypesFeatureTextStories,
@@ -28,9 +28,9 @@ export const WithPlainTexts: Story = {};
 
 export const WithRichTexts: Story = {
   args: {
-    ...argsFeatureText,
+    ...argsFeatureTextWithPlainText,
     smartText: {
-      ...argsFeatureText.smartText,
+      ...argsFeatureTextWithPlainText.smartText,
       plainText: undefined,
       richText: mockRichText.description,
     },
@@ -62,9 +62,9 @@ export const WithRichTexts: Story = {
 
 export const WithHeadingVariations: Story = {
   args: {
-    ...argsFeatureText,
+    ...argsFeatureTextWithPlainText,
     smartText: {
-      ...argsFeatureText.smartText,
+      ...argsFeatureTextWithPlainText.smartText,
       plainText: undefined,
       richText: mockRichText.description,
     },
@@ -84,7 +84,7 @@ export const WithHeadingVariations: Story = {
             <span style={{ ...styleHeadingLabel }}>Heading level 1</span>
             <FeatureText
               {...args}
-              smartText={{ ...argsFeatureText.smartText }}
+              smartText={{ ...argsFeatureTextWithPlainText.smartText }}
             />
           </div>
           <div style={{ marginBottom: '6rem' }}>
@@ -92,7 +92,7 @@ export const WithHeadingVariations: Story = {
             <FeatureText
               {...args}
               heading={{ ...args.heading, level: 2 }}
-              smartText={{ ...argsFeatureText.smartText }}
+              smartText={{ ...argsFeatureTextWithPlainText.smartText }}
             />
           </div>
           <div style={{ marginBottom: '6rem' }}>
@@ -100,7 +100,7 @@ export const WithHeadingVariations: Story = {
             <FeatureText
               {...args}
               heading={{ ...args.heading, level: 3 }}
-              smartText={{ ...argsFeatureText.smartText }}
+              smartText={{ ...argsFeatureTextWithPlainText.smartText }}
             />
           </div>
           <div style={{ marginBottom: '6rem' }}>
@@ -108,7 +108,7 @@ export const WithHeadingVariations: Story = {
             <FeatureText
               {...args}
               heading={{ ...args.heading, level: 4 }}
-              smartText={{ ...argsFeatureText.smartText }}
+              smartText={{ ...argsFeatureTextWithPlainText.smartText }}
             />
           </div>
           <div style={{ marginBottom: '6rem' }}>
@@ -116,7 +116,7 @@ export const WithHeadingVariations: Story = {
             <FeatureText
               {...args}
               heading={{ ...args.heading, level: 5 }}
-              smartText={{ ...argsFeatureText.smartText }}
+              smartText={{ ...argsFeatureTextWithPlainText.smartText }}
             />
           </div>
           <div>
@@ -124,7 +124,7 @@ export const WithHeadingVariations: Story = {
             <FeatureText
               {...args}
               heading={{ ...args.heading, level: 6 }}
-              smartText={{ ...argsFeatureText.smartText }}
+              smartText={{ ...argsFeatureTextWithPlainText.smartText }}
             />
           </div>
         </Column>
@@ -161,7 +161,7 @@ export const WithHeadingVariations: Story = {
 
 export const WithHiddenProps: Story = {
   args: {
-    ...argsFeatureText,
+    ...argsFeatureTextWithPlainText,
     isHidden: 'heading',
   },
   render: (args) => {
@@ -297,9 +297,9 @@ export const EmptyVersionsWithHiddenProps: Story = {
 // Both plainText and richText props are privided ...
 export const ErrorsPropsValidation1: Story = {
   args: {
-    ...argsFeatureText,
+    ...argsFeatureTextWithPlainText,
     smartText: {
-      ...argsFeatureText.smartText,
+      ...argsFeatureTextWithPlainText.smartText,
       richText: mockRichText.description,
     },
   },

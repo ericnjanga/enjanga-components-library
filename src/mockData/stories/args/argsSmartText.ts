@@ -8,7 +8,7 @@ export const argsSmartTextwPlainT = {
   plainText: mockPlainText,
 } as SMT_propsType;
 
-export const mockSmartTextwRichT = {
+export const argsSmartTextwRichT = {
   className: '',
   richText: mockRichText.description,
 } as SMT_propsType;
