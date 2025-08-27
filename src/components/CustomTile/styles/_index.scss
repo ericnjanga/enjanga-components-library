@@ -20,6 +20,9 @@
   @include CT-iconPositionning;
   @include CT-iconTheming;
 
+  // Text & Link styling
+  @include CT-textLinkTheming;
+
   .enj-FeatureText {
     @include CT-richTextDefaults;
   }
@@ -32,6 +35,7 @@
   display: block;
   &:hover {
     @include CT-hover;
+    @include CT-textLinkTheming-hover;
   }
 }
 

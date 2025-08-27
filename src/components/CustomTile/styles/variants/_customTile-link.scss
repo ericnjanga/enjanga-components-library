@@ -28,3 +28,8 @@
     }
   }
 }
+
+.enj-CustomTile--link,
+.enj-CustomTile--modal {
+  @include CT-textLinkTheming;
+}

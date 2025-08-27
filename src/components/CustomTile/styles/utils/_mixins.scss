@@ -27,6 +27,40 @@
   }
 }
 
+// Text & Link styling ...
+@mixin CT-textLinkTheming {
+  a {
+    text-decoration: none;
+  }
+  .enj-CustomTile-title {
+    color: $gray-90;
+    a {
+      color: $gray-90;
+    }
+  }
+  .enj-FeatureText-article {
+    color: $gray-70;
+    a {
+      color: $gray-70;
+    }
+  }
+}
+
+@mixin CT-textLinkTheming-hover {
+  .enj-CustomTile-title {
+    color: $blue-60;
+    a {
+      color: $blue-60;
+    }
+  }
+  .enj-FeatureText-article {
+    color: $blue-60;
+    a {
+      color: $blue-60;
+    }
+  }
+}
+
 @mixin CT-richTextDefaults {
   .enj-FeatureText-article {
     // For Feature text / Rich text ...
