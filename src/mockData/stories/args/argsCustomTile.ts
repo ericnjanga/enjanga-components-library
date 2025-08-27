@@ -10,7 +10,7 @@ import {
 } from './argsFeatureText';
 import { CP_nameType } from '@/components/CustomPictogram/libs/types';
 import { mockHeading } from '@/mockData/mixed';
-import { mockRichTextSmall } from '@/mockData/mockRichText';
+import { mockRichTextLarge, mockRichTextSmall } from '@/mockData/mockRichText';
 
 // For CustomTile.stories.tsx ...     argsFeatureTextWithRichText
 // Default ...
@@ -18,6 +18,10 @@ const argsCustomTileDefaultWithPlainT = {
   className: '',
   featuredText: {
     ...argsFeatureTextWithPlainText,
+    heading: {
+      ...argsFeatureTextWithPlainText.heading,
+      level: 2,
+    },
   },
   layoutStyle: 'card' as CTL_LayoutStyleType, // Card by default
 
@@ -37,7 +41,12 @@ const argsCustomTileDefaultWithRichT = {
   ...argsCustomTileDefaultWithPlainT,
   featuredText: {
     ...argsFeatureTextWithRichText,
+    heading: {
+      ...argsFeatureTextWithRichText.heading,
+      level: 2,
+    },
   },
+  // modalRichDescription: mockRichTextLarge.description
 } as CTL_propsType;
 
 export const argsCustomTile = {
@@ -167,7 +176,7 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithRichT,
       modalIsAvailable: true,
       modalPlainDescription: undefined,
-      modalRichDescription: mockRichTextSmall.description,
+      modalRichDescription: mockRichTextLarge.description,
       media: 'icon' as CTL_MediaType,
       mediaIcon: 'Leadership' as CP_nameType,
     } as CTL_propsType,
@@ -177,7 +186,7 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithRichT,
       modalIsAvailable: true,
       modalPlainDescription: undefined,
-      modalRichDescription: mockRichTextSmall.description,
+      modalRichDescription: mockRichTextLarge.description,
       media: 'image' as CTL_MediaType,
       mediaImage: '/img/cust-tile-1.png',
     } as CTL_propsType,
@@ -320,7 +329,7 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithRichT,
       modalIsAvailable: true,
       modalPlainDescription: undefined,
-      modalRichDescription: mockRichTextSmall.description,
+      modalRichDescription: mockRichTextLarge.description,
       media: 'icon' as CTL_MediaType,
       mediaIcon: 'Leadership' as CP_nameType,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
@@ -331,70 +340,10 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithRichT,
       modalIsAvailable: true,
       modalPlainDescription: undefined,
-      modalRichDescription: mockRichTextSmall.description,
+      modalRichDescription: mockRichTextLarge.description,
       media: 'image' as CTL_MediaType,
       mediaImage: '/img/cust-tile-1.png',
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
   },
 };
-
-//   banner: {
-//     default: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//     } as CTL_propsType,
-
-//     withIcon: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//       media: 'icon' as CTL_MediaType,
-//       mediaIcon: 'Leadership' as CP_nameType,
-//     } as CTL_propsType,
-
-//     withImage: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//       media: 'image' as CTL_MediaType,
-//       mediaImage: '/img/cust-tile-1.png',
-//     } as CTL_propsType,
-
-//     withLocalLink: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//       linksTo: '/local/route',
-//       linkTarget: '_self' as CTL_LinkTargetType,
-//     } as CTL_propsType,
-
-//     withExternalLink: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//       linksTo: 'https://carbondesignsystem.com',
-//       linkTarget: '_blank' as CTL_LinkTargetType,
-//     } as CTL_propsType,
-
-//     withModal: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//       modalIsAvailable: true,
-//       modalPlainDescription: mockHeading.plain,
-//       modalRichDescription: undefined,
-//     } as CTL_propsType,
-
-//     empty: {
-//       // ...
-//       ...argsCustomTileDefaultWithPlainT,
-//       layoutStyle: 'banner' as CTL_LayoutStyleType,
-//       featuredText: {
-//         heading: {},
-//         smartText: {},
-//       },
-//     } as CTL_propsType,
-//   },
-// };

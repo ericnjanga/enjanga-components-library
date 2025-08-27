@@ -4,6 +4,36 @@
 */
 
 .enj-CustomTile--banner {
-  background-color: lightcoral;
+  // Basic style cleanup ..............
+  .enj-CustomTile-title {
+    // For title ...
+    margin-bottom: var(--enj-CTL-bann-title-mb);
+    flex: var(--enj-CTL-bann-title-flex);
+  }
+  article {
+    flex: var(--enj-CTL-bann-article-flex);
+  }
+
+  .enj-FeatureText {
+    // For Feature text ...
+    display: flex;
+    gap: var(--enj-CTL-bann-flex-gap);
+    flex-direction: var(--enj-CTL-bann-flex-dir);
+    align-items: var(--enj-CTL-bann-align-items);
+
+    // Custom enhancements ...
+    @include CT-bannerRichTextDefaults;
+  }
+
+  /**
+   * Custom enhancements ...
+  */
+  // Regulate padding for all component sizes
   @include CT-bannerResponsivePadding;
+
+  // Regulate flex gap for all component sizes
+  @include CT-bannerResponsiveFlexGap;
+
+  // Spread the content horizontally and adjust alignment (for certain component sizes)
+  @include CT-bannerResponsiveHorizontal;
 }

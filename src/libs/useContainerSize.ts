@@ -67,14 +67,6 @@ export const useContainerSize = (options?: UseContainerSizeOptions) => {
       }
     });
 
-    console.log(
-      '++++++++++',
-      effectiveBreakpoints.md,
-      effectiveBreakpoints.lg,
-      effectiveBreakpoints.xlg,
-      breakpoints
-    );
-
     observer.observe(ref.current); // Attach observer to the reference
 
     return () => {

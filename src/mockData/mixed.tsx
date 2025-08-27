@@ -32,4 +32,8 @@ export const mockTextLengthList = [50, 100, 200, 300, 500, 1000];
 
 // ....
 const textColor = red60;
-export const styleHeadingLabel = { marginBottom: 0, color: textColor };
+export const styleHeadingLabel = {
+  display: 'block',
+  marginBottom: '0.25rem',
+  color: textColor,
+};

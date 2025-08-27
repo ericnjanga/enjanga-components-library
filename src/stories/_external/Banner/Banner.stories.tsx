@@ -9,7 +9,7 @@ import {
 import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
 import { mockHeading } from '@/mockData/mixed';
 import { styleHeadingLabel } from '@/mockData/mixed';
-import { mockRichText } from '@/mockData/mockRichText';
+import { mockRichTextSmall } from '@/mockData/mockRichText';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
@@ -51,7 +51,7 @@ export const RichTextVersions: Story = {
         },
         smartText: {
           plainText: undefined,
-          richText: mockRichText.description,
+          richText: mockRichTextSmall.description,
         },
       },
     };
@@ -65,7 +65,7 @@ export const RichTextVersions: Story = {
         },
         smartText: {
           plainText: undefined,
-          richText: mockRichText.description,
+          richText: mockRichTextSmall.description,
         },
       },
     };

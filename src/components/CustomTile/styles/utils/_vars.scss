@@ -1,5 +1,17 @@
 :root {
+  // Banners ...
+  --enj-CTL-bann-flex-dir: column;
+  --enj-CTL-bann-align-items: flex-start;
+  --enj-CTL-bann-flex-gap: 1rem;
+  --enj-CTL-bann-title-mb: 0;
+  --enj-CTL-banner-pad: #{$spacing-10};
+  --enj-CTL-bann-title-flex: unset;
+  --enj-CTL-bann-article-flex: unset;
+
+  // Cards ...
   --enj-CTL-br-col: #{$gray-60};
   --enj-CTL-card-pad: #{$spacing-07};
-  --enj-CTL-banner-pad: #{$spacing-10};
+
+  // Mix ...
+  --enj-CTL-icon-dimg: 1.5rem;
 }

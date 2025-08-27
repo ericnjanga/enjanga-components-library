@@ -21,7 +21,7 @@ export const getIconContent = ({
         />
       )}
 
-      {onlyModalIsOnDisplay && <Information />}
+      {onlyModalIsOnDisplay && <Information className="enj-CustomTile-icon" />}
     </div>
   );
 };

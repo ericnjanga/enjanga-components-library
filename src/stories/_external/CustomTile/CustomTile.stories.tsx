@@ -402,7 +402,7 @@ export const EmptyBanners: Story = {
 
 export const ResponsivenessCard: Story = {
   args: {
-    ...argsCustomTile.card.default,
+    ...argsCustomTile.card.withModalAndImageAndRichText,
   },
   render: (args) => {
     return (
@@ -434,9 +434,11 @@ export const ResponsivenessCard: Story = {
 
 export const ResponsivenessBanner: Story = {
   args: {
-    ...argsCustomTile.banner.default,
+    ...argsCustomTile.banner.withModalAndImageAndRichText,
   },
   render: (args) => {
+    console.log('???????*****', args);
+
     return (
       <>
         <Grid>
@@ -474,28 +476,6 @@ export const ResponsivenessBanner: Story = {
 //     layoutStyle: 'card',
 //     modalIsAvailable: true,
 //     modalPlainDescription: mockCustomTile.blurb,
-//   },
-//   render: (args) => {
-//     return (
-//       <Grid>
-//         <Column lg={8}>
-//           <h3>Card</h3>
-//           <CustomTile {...args} />
-//         </Column>
-//         <Column lg={8}>
-//           <h3>Banner</h3>
-//           <CustomTile {...args} layoutStyle="banner" />
-//         </Column>
-//       </Grid>
-//     );
-//   },
-// };
-// export const RichTextModal: Story = {
-//   args: {
-//     ...mockCustomTile,
-//     layoutStyle: 'card',
-//     modalIsAvailable: true,
-//     modalRichDescription: { ...mockRichText.description },
 //   },
 //   render: (args) => {
 //     return (

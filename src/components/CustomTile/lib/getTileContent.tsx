@@ -54,6 +54,15 @@ export const getTileContent = ({
     link,
   });
 
+  // Passing custom classes down the pipeline ...
+  const featuredTextLocalProps = {
+    ...featuredText,
+    heading: {
+      ...featuredText.heading,
+      className: 'enj-CustomTile-title',
+    },
+  };
+
   return (
     <>
       {pictogramIsOnDisplay && (
@@ -72,7 +81,7 @@ export const getTileContent = ({
         />
       )}
 
-      <FeatureText {...featuredText} />
+      <FeatureText {...featuredTextLocalProps} />
 
       {iconIsOnDisplay && iconContent}
     </>

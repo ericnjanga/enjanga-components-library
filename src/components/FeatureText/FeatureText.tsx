@@ -56,7 +56,7 @@ const FeatureText = ({
       )}
 
       {isHidden !== 'smartText' && (
-        <article>
+        <article className="enj-FeatureText-article">
           <SmartText {...smartTextContent} />
         </article>
       )}

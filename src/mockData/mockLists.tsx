@@ -4,7 +4,7 @@ import {
   LST_typeOpt,
   LST_typePropsType,
 } from '@/components/List/libs/types';
-import CustomPictogram from '@/components/CustomPictogram/CustomPictogram';
+import { CustomPictogram } from '@/components';
 import {
   HDL_tagPropsType,
   HDL_tagOpt,

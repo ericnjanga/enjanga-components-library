@@ -13,13 +13,25 @@
 
 @import './variants/customTile-link';
 
-// Apply the same hover effect for non-link components
+.enj-CustomTile {
+  border: 1px solid $gray-50;
+
+  // Structure the icon positionning and styling
+  @include CT-iconPositionning;
+  @include CT-iconTheming;
+
+  .enj-FeatureText {
+    @include CT-richTextDefaults;
+  }
+}
+
+// Hover effect for non-link variants
 .enj-CustomTile-has-hover-effect,
 .enj-CustomTile-anchor-tag,
 .enj-CustomTile--modal {
   display: block;
   &:hover {
-    @include customTile-hover;
+    @include CT-hover;
   }
 }
 
@@ -121,7 +133,7 @@
 //     color: inherit;
 
 //     &:hover {
-//       @include customTile-hover;
+//       @include CT-hover;
 //     }
 //   }
 // }

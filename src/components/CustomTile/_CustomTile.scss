@@ -6,7 +6,7 @@
 //   --enj-CustomTile-br-col: #{$gray-60};
 // }
 
-// @mixin customTile-hover {
+// @mixin CT-hover {
 //   cursor: pointer;
 //   background-color: $gray-30;
 // }
@@ -70,7 +70,7 @@
 
 // // Apply the same hover effect for non-link components
 // .enj-CustomTile-has-hover-effect {
-//   @include customTile-hover;
+//   @include CT-hover;
 // }
 
 // .enj-CustomTile {
@@ -170,7 +170,7 @@
 //     color: inherit;
 
 //     &:hover {
-//       @include customTile-hover;
+//       @include CT-hover;
 //     }
 //   }
 // }

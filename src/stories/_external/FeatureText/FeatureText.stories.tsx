@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FeatureText from '../../../components/FeatureText/FeatureText';
-import { mockRichText } from '@/mockData/mockRichText';
+import { mockRichTextSmall } from '@/mockData/mockRichText';
 import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
 import { mockHeading } from '@/mockData/mixed';
 import { argTypesFeatureTextStories } from '@/mockData/stories/argTypes';
@@ -32,7 +32,7 @@ export const WithRichTexts: Story = {
     smartText: {
       ...argsFeatureTextWithPlainText.smartText,
       plainText: undefined,
-      richText: mockRichText.description,
+      richText: mockRichTextSmall.description,
     },
   },
   render: (args) => {
@@ -66,7 +66,7 @@ export const WithHeadingVariations: Story = {
     smartText: {
       ...argsFeatureTextWithPlainText.smartText,
       plainText: undefined,
-      richText: mockRichText.description,
+      richText: mockRichTextSmall.description,
     },
   },
   render: (args) => {
@@ -300,7 +300,7 @@ export const ErrorsPropsValidation1: Story = {
     ...argsFeatureTextWithPlainText,
     smartText: {
       ...argsFeatureTextWithPlainText.smartText,
-      richText: mockRichText.description,
+      richText: mockRichTextSmall.description,
     },
   },
 };

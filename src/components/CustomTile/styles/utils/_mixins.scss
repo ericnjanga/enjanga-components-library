@@ -2,50 +2,121 @@
 @use '@carbon/react/scss/breakpoint' as *;
 @use '@carbon/react/scss/colors' as *;
 
-// ...
-@mixin customTile-hover {
+/**
+ * Global stylings
+ * ----------------------------
+*/
+@mixin CT-hover {
   cursor: pointer;
   background-color: $gray-30;
 }
 
+@mixin CT-iconPositionning {
+  .enj-CustomTile-icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@mixin CT-iconTheming {
+  .enj-CustomTile-icon {
+    margin-top: 1rem;
+    width: var(--enj-CTL-icon-dimg);
+    height: var(--enj-CTL-icon-dimg);
+    color: $blue-60;
+  }
+}
+
+@mixin CT-richTextDefaults {
+  .enj-FeatureText-article {
+    // For Feature text / Rich text ...
+    p:last-of-type,
+    blockquote {
+      margin-bottom: 0;
+    }
+  }
+}
+
 /**
- * For Banners:
- * Create initial padding, then adjust based on component size
+ * For Banners: 
+ * ----------------------------
 */
+// Create initial padding, then adjust based on component size
 @mixin CT-bannerResponsivePadding {
   // Initial padding ...
   padding: var(--enj-CTL-banner-pad);
 
   &.enj-CustomTile-sm {
-    border: 10px solid red;
+    // border: 10px solid red;
 
     // Adapts padding ...
     --enj-CTL-banner-pad: #{$spacing-04};
   }
   &.enj-CustomTile-md {
-    border: 10px solid orange;
+    // border: 10px solid orange;
 
     // Adapts padding ...
     --enj-CTL-banner-pad: #{$spacing-07};
   }
   &.enj-CustomTile-lg {
-    border: 10px solid blue;
+    // border: 10px solid blue;
   }
   &.enj-CustomTile-xlg {
-    border: 10px solid green;
+    // border: 10px solid green;
   }
   &.enj-CustomTile-max {
-    border: 10px solid rgb(255, 47, 227);
+    // border: 10px solid rgb(255, 47, 227);
 
     // Adapts padding ...
     --enj-CTL-banner-pad: #{$spacing-12};
   }
 }
 
+@mixin CT-bannerRichTextDefaults {
+  .enj-FeatureText-article {
+    // For Feature text / Rich text ...
+    * {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Regulate flex gap for all component sizes
+@mixin CT-bannerResponsiveFlexGap {
+  &.enj-CustomTile-lg {
+    --enj-CTL-bann-flex-gap: 1.2rem;
+  }
+  &.enj-CustomTile-xlg {
+    --enj-CTL-bann-flex-gap: 1.5rem;
+  }
+  &.enj-CustomTile-max {
+    --enj-CTL-bann-flex-gap: 2rem;
+  }
+}
+
+// Spread the content horizontally and adjust alignment (for certain component sizes)
+@mixin CT-bannerResponsiveHorizontal {
+  &.enj-CustomTile-xlg {
+    --enj-CTL-bann-flex-dir: row;
+    --enj-CTL-bann-align-items: center;
+    --enj-CTL-bann-flex-gap: 3.5rem;
+    --enj-CTL-bann-title-flex: 0.6;
+    --enj-CTL-bann-article-flex: 1;
+  }
+  &.enj-CustomTile-max {
+    --enj-CTL-bann-flex-dir: row;
+    --enj-CTL-bann-align-items: center;
+    --enj-CTL-bann-flex-gap: 6rem;
+    --enj-CTL-bann-title-flex: 0.6;
+    --enj-CTL-bann-article-flex: 1;
+  }
+}
+
 /**
- * For Cards:
- * Create initial padding, then adjust based on component size
+ * For Cards
+ * ----------------------------
 */
+// Create initial padding, then adjust based on component size
 @mixin CT-cardResponsivePadding {
   // Initial padding ...
   padding: var(--enj-CTL-card-pad);
