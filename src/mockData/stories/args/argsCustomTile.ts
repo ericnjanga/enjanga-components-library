@@ -197,52 +197,204 @@ export const argsCustomTile = {
     withIcon: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      layoutStyle: 'banner' as CTL_LayoutStyleType,
       media: 'icon' as CTL_MediaType,
       mediaIcon: 'Leadership' as CP_nameType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
     withImage: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      layoutStyle: 'banner' as CTL_LayoutStyleType,
       media: 'image' as CTL_MediaType,
       mediaImage: '/img/cust-tile-1.png',
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
     withLocalLink: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      layoutStyle: 'banner' as CTL_LayoutStyleType,
       linksTo: '/local/route',
       linkTarget: '_self' as CTL_LinkTargetType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
     withExternalLink: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      layoutStyle: 'banner' as CTL_LayoutStyleType,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
     withModal: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      layoutStyle: 'banner' as CTL_LayoutStyleType,
       modalIsAvailable: true,
       modalPlainDescription: mockHeading.plain,
       modalRichDescription: undefined,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
     empty: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      layoutStyle: 'banner' as CTL_LayoutStyleType,
       featuredText: {
         heading: {},
         smartText: {},
       },
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    /**
+     * Compositions .....
+     * -------------------------
+     */
+    withExternalLinkAndIcon: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    withExternalLinkAndImage: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    withModalAndIcon: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      modalIsAvailable: true,
+      modalPlainDescription: mockHeading.plain,
+      modalRichDescription: undefined,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    withModalAndImage: {
+      // ...
+      ...argsCustomTileDefaultWithPlainT,
+      modalIsAvailable: true,
+      modalPlainDescription: mockHeading.plain,
+      modalRichDescription: undefined,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    /**
+     * Specificities with rich text .....
+     * -------------------------
+     */
+    withExternalLinkAndIconAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    withExternalLinkAndImageAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      linksTo: 'https://carbondesignsystem.com',
+      linkTarget: '_blank' as CTL_LinkTargetType,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    withModalAndIconAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      modalIsAvailable: true,
+      modalPlainDescription: undefined,
+      modalRichDescription: mockRichTextSmall.description,
+      media: 'icon' as CTL_MediaType,
+      mediaIcon: 'Leadership' as CP_nameType,
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
+    } as CTL_propsType,
+
+    withModalAndImageAndRichText: {
+      // ...
+      ...argsCustomTileDefaultWithRichT,
+      modalIsAvailable: true,
+      modalPlainDescription: undefined,
+      modalRichDescription: mockRichTextSmall.description,
+      media: 'image' as CTL_MediaType,
+      mediaImage: '/img/cust-tile-1.png',
+      layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
   },
 };
+
+//   banner: {
+//     default: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//     } as CTL_propsType,
+
+//     withIcon: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//       media: 'icon' as CTL_MediaType,
+//       mediaIcon: 'Leadership' as CP_nameType,
+//     } as CTL_propsType,
+
+//     withImage: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//       media: 'image' as CTL_MediaType,
+//       mediaImage: '/img/cust-tile-1.png',
+//     } as CTL_propsType,
+
+//     withLocalLink: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//       linksTo: '/local/route',
+//       linkTarget: '_self' as CTL_LinkTargetType,
+//     } as CTL_propsType,
+
+//     withExternalLink: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//       linksTo: 'https://carbondesignsystem.com',
+//       linkTarget: '_blank' as CTL_LinkTargetType,
+//     } as CTL_propsType,
+
+//     withModal: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//       modalIsAvailable: true,
+//       modalPlainDescription: mockHeading.plain,
+//       modalRichDescription: undefined,
+//     } as CTL_propsType,
+
+//     empty: {
+//       // ...
+//       ...argsCustomTileDefaultWithPlainT,
+//       layoutStyle: 'banner' as CTL_LayoutStyleType,
+//       featuredText: {
+//         heading: {},
+//         smartText: {},
+//       },
+//     } as CTL_propsType,
+//   },
+// };

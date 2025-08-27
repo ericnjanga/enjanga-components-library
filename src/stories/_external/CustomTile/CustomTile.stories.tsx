@@ -27,6 +27,9 @@ type Story = StoryObj<typeof CustomTile>;
  */
 export const Cards: Story = {
   render: (args) => {
+    const argsDefault = {
+      ...argsCustomTile.card.default,
+    };
     const argsWithIcon = {
       ...argsCustomTile.card.withIcon,
     };
@@ -97,7 +100,7 @@ export const Cards: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>Default</span>
-              <CustomTile {...args} />
+              <CustomTile {...argsDefault} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
@@ -194,12 +197,11 @@ export const Cards: Story = {
  * -------------------------------
  */
 export const Banners: Story = {
-  args: {
-    ...argsCustomTile.banner.default,
-  },
   render: (args) => {
+    const argsDefault = {
+      ...argsCustomTile.banner.default,
+    };
     const argsWithIcon = {
-      // bannerWithIcon
       ...argsCustomTile.banner.withIcon,
     };
     const argsWithImage = {
@@ -214,42 +216,147 @@ export const Banners: Story = {
     const argsWithModal = {
       ...argsCustomTile.banner.withModal,
     };
+
+    // Compositions ...
+    const argsWithExternalLinkAndIcon = {
+      ...argsCustomTile.banner.withExternalLinkAndIcon,
+    };
+    const argsWithExternalLinkAndImage = {
+      ...argsCustomTile.banner.withExternalLinkAndImage,
+    };
+    const argsWithModalAndIcon = {
+      ...argsCustomTile.banner.withModalAndIcon,
+    };
+    const argsWithModalAndImage = {
+      ...argsCustomTile.banner.withModalAndImage,
+    };
+
+    // Specificities with rich text ...
+    const argsWithExternalLinkAndIconAndRichText = {
+      ...argsCustomTile.banner.withExternalLinkAndIconAndRichText,
+    };
+    const argsWithExternalLinkAndImageAndRichText = {
+      ...argsCustomTile.banner.withExternalLinkAndImageAndRichText,
+    };
+    const argsWithModalAndIconAndRichText = {
+      ...argsCustomTile.banner.withModalAndIconAndRichText,
+    };
+    const argsWithModalAndImageAndRichText = {
+      ...argsCustomTile.banner.withModalAndImageAndRichText,
+    };
+
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>Default</span>
-            <CustomTile {...args} />
-          </div>
+          <nav>
+            <h3>Summary</h3>
+            <p>TODO: Fix this in-page navigation.</p>
+            <ol>
+              <li>
+                <a href="#specificities">Specificities</a>
+              </li>
+              <li>
+                <a href="#compositions">Compositions</a>
+              </li>
+              <li>
+                <a href="#specificities-with-rich-text">
+                  Specificities with rich text
+                </a>
+              </li>
+            </ol>
+          </nav>
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>
-              With icon <i>(Nothing has been planned in design prototypes)</i>
-            </span>
-            <CustomTile {...argsWithIcon} />
-          </div>
+          <section id="specificities">
+            <h1 style={{ marginTop: '2.5rem' }}>Specificities</h1>
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>
-              With image <i>(Nothing has been planned in design prototypes)</i>
-            </span>
-            <CustomTile {...argsWithImage} />
-          </div>
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>Default</span>
+              <CustomTile {...argsDefault} />
+            </div>
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>With local link</span>
-            <CustomTile {...argsWithLocalLink} />
-          </div>
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Icon</span>
+              <CustomTile {...argsWithIcon} />
+            </div>
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>With external link</span>
-            <CustomTile {...argsWithExternalLink} />
-          </div>
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Image</span>
+              <CustomTile {...argsWithImage} />
+            </div>
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>With modal</span>
-            <CustomTile {...argsWithModal} />
-          </div>
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With local Link</span>
+              <CustomTile {...argsWithLocalLink} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link (external)</span>
+              <CustomTile {...argsWithExternalLink} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal</span>
+              <CustomTile {...argsWithModal} />
+            </div>
+          </section>
+
+          <section id="compositions">
+            <h1 style={{ marginTop: '4.5rem' }}>Compositions</h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link and Icon</span>
+              <CustomTile {...argsWithExternalLinkAndIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link and Image</span>
+              <CustomTile {...argsWithExternalLinkAndImage} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal and Icon</span>
+              <CustomTile {...argsWithModalAndIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal and Image</span>
+              <CustomTile {...argsWithModalAndImage} />
+            </div>
+          </section>
+
+          <section id="specificities-with-rich-text">
+            <h1 style={{ marginTop: '4.5rem' }}>
+              Specificities with rich text
+            </h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Icon and rich text
+              </span>
+              <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Image and rich text
+              </span>
+              <CustomTile {...argsWithExternalLinkAndImageAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Icon and rich text
+              </span>
+              <CustomTile {...argsWithModalAndIconAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Image and rich text
+              </span>
+              <CustomTile {...argsWithModalAndImageAndRichText} />
+            </div>
+          </section>
         </Column>
       </Grid>
     );
