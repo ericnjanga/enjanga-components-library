@@ -20,6 +20,7 @@ export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
   linksTo?: string;
   linkTarget?: CTL_LinkTargetType;
+  media?: CTL_MediaType;
   modalIsAvailable?: boolean;
 }
 

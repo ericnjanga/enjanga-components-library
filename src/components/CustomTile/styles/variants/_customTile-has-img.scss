@@ -1,0 +1,10 @@
+.enj-CustomTile--card {
+  .enj-CustomTile-image {
+    object-fit: cover;
+  }
+
+  &.enj-CustomTile--has-img {
+    // ...
+    @include CT-card-img-horizontal-responsive-positionning;
+  }
+}

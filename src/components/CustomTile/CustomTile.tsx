@@ -55,6 +55,7 @@ const CustomTile = ({
     layoutStyle,
     linksTo,
     linkTarget,
+    media,
     modalIsAvailable,
   });
 

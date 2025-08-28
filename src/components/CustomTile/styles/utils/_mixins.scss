@@ -15,6 +15,7 @@
   .enj-CustomTile-icon-wrapper {
     display: flex;
     justify-content: flex-end;
+    align-items: end;
   }
 }
 
@@ -157,12 +158,11 @@
 
   &.enj-CustomTile-sm {
     border: 10px solid red;
-
-    // Adapts padding ...
     --enj-CTL-card-pad: #{$spacing-04};
   }
   &.enj-CustomTile-md {
     border: 10px solid orange;
+    --enj-CTL-card-pad: #{$spacing-04};
   }
   &.enj-CustomTile-lg {
     border: 10px solid blue;
@@ -175,61 +175,46 @@
   }
 }
 
-// ...
-// @mixin CT-decoration-horizontal {
-//   // Variables ...
-//   --enj-CustomTile-h-padd: #{$spacing-06};
-//   --enj-CustomTile-h-content-padd-r: 0;
-//   --enj-CustomTile-h-content-title-flex: unset;
-//   --enj-CustomTile-h-content-blurb-flex: unset;
+// Setting a grid to align 'img' and 'text' horizontally
+@mixin CT-card-img-horizontal-positionning {
+  display: grid;
+  grid-template: auto auto / auto auto;
+  column-gap: var(--enj-CTL-card-img-col-gap);
 
-//   // Declarations ...
-//   padding: var(--enj-CustomTile-h-padd);
+  .enj-CustomTile-image {
+    grid-row: 3 span;
+    height: 100%;
+  }
 
-//   .content {
-//     padding-right: var(--enj-CustomTile-h-content-padd-r);
-//     align-items: center;
+  .enj-FeatureText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: 2 span;
+  }
 
-//     .enj-CustomTile-title {
-//       flex: var(--enj-CustomTile-h-content-title-flex);
-//       margin-bottom: 0;
-//     }
-//     .enj-CustomTile-blurb {
-//       flex: var(--enj-CustomTile-h-content-blurb-flex);
-//     }
-//   }
+  .enj-CustomTile-icon-wrapper {
+    grid-column: 2;
+  }
+}
 
-//   @include breakpoint('md') {
-//     --enj-CustomTile-h-padd: #{$spacing-08};
-//     --enj-CustomTile-gap: #{$spacing-08};
-//     --enj-CustomTile-h-content-title-flex: 1;
-//     --enj-CustomTile-h-content-blurb-flex: 1;
-//   }
-
-//   @include breakpoint('lg') {
-//     --enj-CustomTile-h-padd: #{$spacing-09};
-//     --enj-CustomTile-gap: #{$spacing-12};
-//     --enj-CustomTile-h-content-title-flex: 0.5;
-//     --enj-CustomTile-h-content-blurb-flex: 1;
-//     --enj-CustomTile-h-content-padd-r: #{$spacing-13};
-//   }
-// }
-
-// ...
-// @mixin CT-decoration-vertical {
-//   // Variables ...
-//   --enj-CustomTile-v-padd: #{$spacing-06};
-//   --enj-CustomTile-v-content-5-padd: 0; //#{$spacing-06};
-
-//   // Declarations ...
-//   padding: var(--enj-CustomTile-v-padd);
-
-//   @media (min-width: 360px) {
-//     --enj-CustomTile-v-content-5-padd: #{$spacing-06};
-//   }
-
-//   .content {
-//     flex: 1;
-//     padding-right: var(--enj-CustomTile-v-content-5-padd);
-//   }
-// }
+@mixin CT-card-img-horizontal-responsive-positionning {
+  &.enj-CustomTile-md {
+    border: 4px solid orange;
+    @include CT-card-img-horizontal-positionning;
+  }
+  &.enj-CustomTile-lg {
+    border: 4px solid blue;
+    @include CT-card-img-horizontal-positionning;
+  }
+  &.enj-CustomTile-xlg {
+    border: 4px solid green;
+    @include CT-card-img-horizontal-positionning;
+    --enj-CTL-card-img-col-gap: 3rem;
+  }
+  &.enj-CustomTile-max {
+    border: 4px solid rgb(255, 47, 227);
+    @include CT-card-img-horizontal-positionning;
+    --enj-CTL-card-img-col-gap: 4.5rem;
+  }
+}
