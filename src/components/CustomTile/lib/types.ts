@@ -14,7 +14,7 @@ export type CTL_MediaType = (typeof CTL_MediaOpt)[number]; // Creating union typ
 
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
 import { FTX_propsType } from '@/components/FeatureText/libs/types';
-import { AIC_orientOptPropsType } from '@/components/ArrowIcon/libs/types';
+import { AIC_nameOptPropsType } from '@/components/ArrowIcon/libs/types';
 
 export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
@@ -50,7 +50,7 @@ export interface CTL_globalContentPropsType {
 export interface CTL_iconContentPropsType {
   title: string;
   modalIsAvailable: boolean;
-  iconName: AIC_orientOptPropsType | undefined;
+  iconName: AIC_nameOptPropsType | undefined;
 }
 
 export type ValidRoute = `/${string}`; // Any string starting with /

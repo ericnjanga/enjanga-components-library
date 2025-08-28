@@ -3,30 +3,24 @@
  * ----------------------------
 */
 .enj-CustomTile--card {
-  .enj-CustomTile-image {
-    object-fit: cover;
-  }
-
-  &.enj-CustomTile--has-img {
-    // ...
-    @include CT-card-img-responsive-horizontal-positionning;
+  &.enj-CustomTile--has-pictogram {
+    @include CT-card-pictogram-responsive-horizontal-positionning;
   }
 }
 
 /**
- * For linked-based cards with images:
+ * For linked-based cards with pictograms:
  * ----------------------------
  * <Component />.  <--- We need to cancel the responsive horizontal positionning here
  ** <a></a>.       <--- We need to apply the responsive horizontal positionning here
 */
 .enj-CustomTile--card {
-  &.enj-CustomTile--has-img {
+  &.enj-CustomTile--has-pictogram {
     &.enj-CustomTile--has-link {
       display: block; // <--- Cacelling the responsive horizontal positionning here
 
-      .enj-CustomTile-anchor-tag {
-        @include CT-card-img-horizontal-positionning; // <--- Applying the responsive horizontal positionning here
-      }
+      // <--- Applying the responsive horizontal positionning here
+      @include CT-card-linked-pictogram-responsive-horizontal-positionning;
     }
   }
 }

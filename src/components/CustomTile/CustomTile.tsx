@@ -67,6 +67,9 @@ const CustomTile = ({
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
 
+  // Conditions for displaying the image ...
+  const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner';
+
   // [*] Generate the anchor that that wrapps around the content
   // (If it applies)
   // ----------------------------
@@ -85,13 +88,9 @@ const CustomTile = ({
     linkIsExternal:
       linksTo && linkTarget && linkTarget === '_blank' ? true : false,
     modalIsAvailable,
-    // Conditions for displaying the icon ...
+    // Conditions apply these classes ...
     iconIsOnDisplay: isValidLinkTo(linksTo) || modalIsAvailable,
-
-    // Conditions for displaying the image ...
-    imageIsOnDisplay: media === 'image' && layoutStyle !== 'banner',
-
-    // Pictogram will only  ...
+    imageIsOnDisplay,
     pictogramIsOnDisplay,
   });
 
@@ -115,7 +114,7 @@ const CustomTile = ({
   const tileContent = getTileContent({
     featuredText,
     mediaPictogram: pictogramIsOnDisplay ? mediaPictogram : undefined,
-    mediaImage,
+    mediaImage: imageIsOnDisplay ? mediaImage : undefined,
     iconContent,
   });
 

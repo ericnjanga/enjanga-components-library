@@ -104,7 +104,7 @@ export const Cards: Story = {
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Icon</span>
+              <span style={{ ...styleHeadingLabel }}>With Pictogram</span>
               <CustomTile {...argsWithIcon} />
             </div>
 
@@ -133,7 +133,9 @@ export const Cards: Story = {
             <h1 style={{ marginTop: '4.5rem' }}>Compositions</h1>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Link and Icon</span>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Pictogram
+              </span>
               <CustomTile {...argsWithExternalLinkAndIcon} />
             </div>
 
@@ -143,7 +145,9 @@ export const Cards: Story = {
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Modal and Icon</span>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Pictogram
+              </span>
               <CustomTile {...argsWithModalAndIcon} />
             </div>
 
@@ -160,7 +164,7 @@ export const Cards: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
-                With Link and Icon and rich text
+                With Link and Pictogram and rich text
               </span>
               <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
             </div>
@@ -174,7 +178,7 @@ export const Cards: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
-                With Modal and Icon and rich text
+                With Modal and Pictogram and rich text
               </span>
               <CustomTile {...argsWithModalAndIconAndRichText} />
             </div>
@@ -275,7 +279,7 @@ export const Banners: Story = {
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Icon</span>
+              <span style={{ ...styleHeadingLabel }}>With Pictogram</span>
               <CustomTile {...argsWithIcon} />
             </div>
 
@@ -304,7 +308,9 @@ export const Banners: Story = {
             <h1 style={{ marginTop: '4.5rem' }}>Compositions</h1>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Link and Icon</span>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Pictogram
+              </span>
               <CustomTile {...argsWithExternalLinkAndIcon} />
             </div>
 
@@ -314,7 +320,9 @@ export const Banners: Story = {
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Modal and Icon</span>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Pictogram
+              </span>
               <CustomTile {...argsWithModalAndIcon} />
             </div>
 
@@ -331,7 +339,7 @@ export const Banners: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
-                With Link and Icon and rich text
+                With Link and Pictogram and rich text
               </span>
               <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
             </div>
@@ -345,7 +353,7 @@ export const Banners: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
-                With Modal and Icon and rich text
+                With Modal and Pictogram and rich text
               </span>
               <CustomTile {...argsWithModalAndIconAndRichText} />
             </div>
@@ -481,7 +489,7 @@ export const ResponsivenessCard: Story = {
           <Grid>
             <Column lg={16}>
               <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
-                With Icon
+                With Pictogram
               </h3>
             </Column>
           </Grid>
@@ -581,7 +589,7 @@ export const ResponsivenessCard: Story = {
           <Grid>
             <Column lg={16}>
               <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
-                With Link (local/external) and Icon
+                With Link (local/external) and Pictogram
               </h3>
             </Column>
           </Grid>
@@ -631,7 +639,7 @@ export const ResponsivenessCard: Story = {
           <Grid>
             <Column lg={16}>
               <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
-                With Modal and Icon
+                With Modal and Pictogram
               </h3>
             </Column>
           </Grid>
@@ -681,7 +689,7 @@ export const ResponsivenessCard: Story = {
           <Grid>
             <Column lg={16}>
               <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
-                With Link (local/external) and Icon and rich text
+                With Link (local/external) and Pictogram and rich text
               </h3>
             </Column>
           </Grid>
@@ -731,7 +739,7 @@ export const ResponsivenessCard: Story = {
           <Grid>
             <Column lg={16}>
               <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
-                With Modal and Icon and rich text
+                With Modal and Pictogram and rich text
               </h3>
             </Column>
           </Grid>
