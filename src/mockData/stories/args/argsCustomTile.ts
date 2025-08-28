@@ -26,7 +26,7 @@ const argsCustomTileDefaultWithPlainT = {
   layoutStyle: 'card' as CTL_LayoutStyleType, // Card by default
 
   media: undefined, // No media by default
-  mediaIcon: undefined,
+  mediaPictogram: undefined,
   mediaImage: undefined,
 
   modalIsAvailable: undefined,
@@ -63,8 +63,8 @@ export const argsCustomTile = {
     withIcon: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withImage: {
@@ -116,8 +116,8 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithPlainT,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withExternalLinkAndImage: {
@@ -135,8 +135,8 @@ export const argsCustomTile = {
       modalIsAvailable: true,
       modalPlainDescription: mockHeading.plain,
       modalRichDescription: undefined,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withModalAndImage: {
@@ -158,8 +158,8 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithRichT,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withExternalLinkAndImageAndRichText: {
@@ -177,8 +177,8 @@ export const argsCustomTile = {
       modalIsAvailable: true,
       modalPlainDescription: undefined,
       modalRichDescription: mockRichTextLarge.description,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
     } as CTL_propsType,
 
     withModalAndImageAndRichText: {
@@ -206,8 +206,8 @@ export const argsCustomTile = {
     withIcon: {
       // ...
       ...argsCustomTileDefaultWithPlainT,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
@@ -263,8 +263,8 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithPlainT,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
@@ -284,8 +284,8 @@ export const argsCustomTile = {
       modalIsAvailable: true,
       modalPlainDescription: mockHeading.plain,
       modalRichDescription: undefined,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
@@ -309,8 +309,8 @@ export const argsCustomTile = {
       ...argsCustomTileDefaultWithRichT,
       linksTo: 'https://carbondesignsystem.com',
       linkTarget: '_blank' as CTL_LinkTargetType,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 
@@ -330,8 +330,8 @@ export const argsCustomTile = {
       modalIsAvailable: true,
       modalPlainDescription: undefined,
       modalRichDescription: mockRichTextLarge.description,
-      media: 'icon' as CTL_MediaType,
-      mediaIcon: 'Leadership' as CP_nameType,
+      media: 'pictogram' as CTL_MediaType,
+      mediaPictogram: 'Leadership' as CP_nameType,
       layoutStyle: 'banner' as CTL_LayoutStyleType,
     } as CTL_propsType,
 

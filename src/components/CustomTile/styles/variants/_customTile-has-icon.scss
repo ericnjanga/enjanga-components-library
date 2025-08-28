@@ -1,0 +1,9 @@
+/**
+ * For Cards
+ * ----------------------------
+*/
+.enj-CustomTile--card {
+  &.enj-CustomTile--has-pictogram {
+    @include CT-card-icon-responsive-horizontal-positionning;
+  }
+}

@@ -2,11 +2,7 @@
  * CustomTile:
  * ---------------------------------------------
  * A customizable tile component that can optionally link to internal (arrow right) or external links (arrow up right)
- *  
- * @param {string} className  - Custom CSS class
- * @param {FTX_propsType} featuredText      - .....
-
- 
+ *
  */
 import { useState } from 'react';
 import React from 'react';
@@ -26,6 +22,8 @@ import { validateCTL_propsType } from './lib/propsValidation';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { getHeadingContent } from './lib/getHeadingContent';
 import { isValidLinkTo } from './lib/mix';
+import { CI_isValidPictogram } from '@/components/CustomPictogram/libs/helpers';
+import { getIconContent } from './lib/getIconContent';
 
 const CustomTile = ({
   className,
@@ -34,7 +32,7 @@ const CustomTile = ({
   layoutStyle = 'card' as CTL_LayoutStyleType, // card by default
 
   media,
-  mediaIcon,
+  mediaPictogram,
   mediaImage,
 
   modalIsAvailable = false,
@@ -50,51 +48,79 @@ const CustomTile = ({
     modalIsAvailable !== undefined ? false : undefined
   );
 
-  // Get all the CSS classes the component's wrapper needs ...
-  const wrapperClassNames = getCustomTileCSSClasses({
-    layoutStyle,
-    linksTo,
-    linkTarget,
-    media,
-    modalIsAvailable,
-  });
+  // [*] Props validation: Throw errors if props aren't consistent with the rules ...
+  // ----------------------------
+  validateCTL_propsType({ linksTo, linkTarget, modalIsAvailable });
 
-  // ...
-  const linkIsActive = isValidLinkTo(linksTo); // modalIsAvailable !== undefined ||
+  // [*] Calculate key elements necessary to generate the content
+  // ----------------------------
+  // Conditions for displaying the pictogram ...
+  const pictogramIsOnDisplay =
+    layoutStyle !== 'banner' &&
+    media === 'pictogram' &&
+    CI_isValidPictogram(mediaPictogram);
+
+  // Getting heading stripped from any JSX ...
+  const componentTitle = getHeadingContent(featuredText);
+
+  // Checking the externality of a link
   const linkIsExternal =
     linksTo && linkTarget && linkTarget === '_blank' ? true : false;
 
-  // Getting heading stripped from any JSX ...
-  const headingStringyfied = getHeadingContent(featuredText);
-
-  // ...
-  const tileContent = getTileContent({
-    featuredText,
-
-    layoutStyle,
-
-    media,
-    mediaIcon,
-    mediaImage,
-
-    modalIsAvailable,
-
-    link: {
-      isAvailable: linkIsActive,
-      isExternal: linkIsExternal,
-    },
-  });
-
+  // [*] Generate the anchor that that wrapps around the content
+  // (If it applies)
+  // ----------------------------
   const LinkWrapper = getLinkWrapper({
-    heading: headingStringyfied,
+    heading: componentTitle,
     linksTo,
     linkTarget,
     linkIsExternal,
   });
 
-  // Throw errors if props aren't consistent with the rules ...
-  validateCTL_propsType({ linksTo, linkTarget, modalIsAvailable });
+  // [*] Get the CSS classes that will dictate the layout's styling ...
+  // ----------------------------
+  const wrapperClassNames = getCustomTileCSSClasses({
+    layoutStyle,
+    linksTo,
+    linkIsExternal:
+      linksTo && linkTarget && linkTarget === '_blank' ? true : false,
+    modalIsAvailable,
+    // Conditions for displaying the icon ...
+    iconIsOnDisplay: isValidLinkTo(linksTo) || modalIsAvailable,
 
+    // Conditions for displaying the image ...
+    imageIsOnDisplay: media === 'image' && layoutStyle !== 'banner',
+
+    // Pictogram will only  ...
+    pictogramIsOnDisplay,
+  });
+
+  // [*] Generate the icon content ...
+  // ----------------------------
+  const iconContent = getIconContent({
+    title: getHeadingContent(featuredText),
+    modalIsAvailable,
+    // If the modal is not available and link (this means it's an arrow icon), dictate the arrow direction
+    iconName: !modalIsAvailable
+      ? linksTo
+        ? linkIsExternal
+          ? 'UpRight'
+          : 'Right'
+        : undefined
+      : undefined,
+  });
+
+  // [*] Generate the content
+  // ----------------------------
+  const tileContent = getTileContent({
+    featuredText,
+    mediaPictogram: pictogramIsOnDisplay ? mediaPictogram : undefined,
+    mediaImage,
+    iconContent,
+  });
+
+  // [*] Activate container size responsiveness
+  // ----------------------------
   const {
     containerRef, // Reference to component wrapper
     activeBreakpoint, // Closest possible breakpoint to wrapper's width
@@ -104,7 +130,7 @@ const CustomTile = ({
     <div className="enj-CustomTile-wrapper" ref={containerRef}>
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
-        aria-label={`${headingStringyfied} tile`}
+        aria-label={`${componentTitle} tile`}
         onClick={() =>
           handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
         }

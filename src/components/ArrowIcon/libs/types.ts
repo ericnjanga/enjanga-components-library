@@ -7,5 +7,5 @@ export type AIC_orientOptPropsType = (typeof AIC_orientOpt)[number]; // Creating
 export interface AIC_propsType {
   className?: string;
   title: string;
-  orientation: AIC_orientOptPropsType;
+  name: AIC_orientOptPropsType;
 }

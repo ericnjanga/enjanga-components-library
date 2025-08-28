@@ -89,11 +89,11 @@
 //    * we will not apply padding to the external frame.
 //   **/
 //   &--vertical {
-//     &:not(.enj-CustomTile--link) {
+//     &:not(.enj-CustomTile--has-link) {
 //       @include CT-decoration-vertical;
 //     }
 
-//     &.enj-CustomTile--link {
+//     &.enj-CustomTile--has-link {
 //       a.enj-CustomTile-anchor-tag {
 //         @include CT-decoration-vertical;
 //       }
@@ -101,11 +101,11 @@
 //   }
 
 //   &--horizontal {
-//     &:not(.enj-CustomTile--link) {
+//     &:not(.enj-CustomTile--has-link) {
 //       @include CT-decoration-horizontal;
 //     }
 
-//     &.enj-CustomTile--link {
+//     &.enj-CustomTile--has-link {
 //       a.enj-CustomTile-anchor-tag {
 //         @include CT-decoration-horizontal;
 //       }
@@ -163,7 +163,7 @@
 //   }
 // }
 
-// .enj-CustomTile--link {
+// .enj-CustomTile--has-link {
 //   a.enj-CustomTile-anchor-tag {
 //     display: block;
 //     text-decoration: none;

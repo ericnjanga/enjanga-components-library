@@ -6,7 +6,7 @@
  ** <a></a>.       <--- We need to apply the responsive padding here
 */
 
-.enj-CustomTile--link {
+.enj-CustomTile--has-link {
   &.enj-CustomTile--card,
   &.enj-CustomTile--banner {
     padding: 0; // We first paddings for all cards and banners
@@ -29,7 +29,7 @@
   }
 }
 
-.enj-CustomTile--link,
-.enj-CustomTile--modal {
+.enj-CustomTile--has-link,
+.enj-CustomTile--has-modal {
   @include CT-textLinkTheming;
 }

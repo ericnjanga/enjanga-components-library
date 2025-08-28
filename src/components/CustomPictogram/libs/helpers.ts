@@ -8,7 +8,7 @@ import {
 } from './types';
 
 // Fixed type guard function
-export const CI_isValidMediaIcon = (name: unknown): name is CP_nameType => {
+export const CI_isValidPictogram = (name: unknown): name is CP_nameType => {
   return CP_nameOpt.includes(name as CP_nameType);
 };
 

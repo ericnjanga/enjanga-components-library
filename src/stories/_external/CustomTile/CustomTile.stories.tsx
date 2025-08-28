@@ -401,32 +401,381 @@ export const EmptyBanners: Story = {
 };
 
 export const ResponsivenessCard: Story = {
-  args: {
-    ...argsCustomTile.card.withModalAndImageAndRichText,
-  },
   render: (args) => {
+    const argsDefault = {
+      ...argsCustomTile.card.default,
+    };
+    const argsWithIcon = {
+      ...argsCustomTile.card.withIcon,
+    };
+    const argsWithImage = {
+      ...argsCustomTile.card.withImage,
+    };
+    const argsWithExternalLink = {
+      ...argsCustomTile.card.withExternalLink,
+    };
+    const argsWithModal = {
+      ...argsCustomTile.card.withModal,
+    };
+
+    // Compositions ...
+    const argsWithExternalLinkAndIcon = {
+      ...argsCustomTile.card.withExternalLinkAndIcon,
+    };
+    const argsWithExternalLinkAndImage = {
+      ...argsCustomTile.card.withExternalLinkAndImage,
+    };
+    const argsWithModalAndIcon = {
+      ...argsCustomTile.card.withModalAndIcon,
+    };
+    const argsWithModalAndImage = {
+      ...argsCustomTile.card.withModalAndImage,
+    };
+
+    // Specificities with rich text ...
+    const argsWithExternalLinkAndIconAndRichText = {
+      ...argsCustomTile.card.withExternalLinkAndIconAndRichText,
+    };
+    const argsWithExternalLinkAndImageAndRichText = {
+      ...argsCustomTile.card.withExternalLinkAndImageAndRichText,
+    };
+    const argsWithModalAndIconAndRichText = {
+      ...argsCustomTile.card.withModalAndIconAndRichText,
+    };
+    const argsWithModalAndImageAndRichText = {
+      ...argsCustomTile.card.withModalAndImageAndRichText,
+    };
+
     return (
       <>
         <Grid>
           <Column lg={16}>
-            <h3 style={{ textAlign: 'center' }}>Card's adaptive size</h3>
+            <h1 style={{ textAlign: 'center' }}>Card's adaptive size</h1>
           </Column>
         </Grid>
-        <Grid>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
-            (index) => (
-              <Column
-                key={index}
-                style={{ marginBottom: '1.5rem' }}
-                lg={index}
-                md={8}
-                sm={4}
-              >
-                <CustomTile {...args} />
-              </Column>
-            )
-          )}
-        </Grid>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center' }}>Default Card</h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsDefault} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Icon
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithIcon} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Image
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithImage} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With local/external Link
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithExternalLink} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Modal
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithModal} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Link (local/external) and Icon
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithExternalLinkAndIcon} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Link (local/external) and Image
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithExternalLinkAndImage} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Modal and Icon
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithModalAndIcon} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Modal and Image
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithModalAndImage} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Link (local/external) and Icon and rich text
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Link (local/external) and Image and rich text
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithExternalLinkAndImageAndRichText} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Modal and Icon and rich text
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithModalAndIconAndRichText} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+
+        <section>
+          <Grid>
+            <Column lg={16}>
+              <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+                With Modal and Image and rich text
+              </h3>
+            </Column>
+          </Grid>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <CustomTile {...argsWithModalAndImageAndRichText} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
       </>
     );
   },

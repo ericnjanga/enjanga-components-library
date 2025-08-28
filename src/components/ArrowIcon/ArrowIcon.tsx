@@ -1,8 +1,8 @@
 import { AIC_propsType } from './libs/types';
 import { ArrowRight, ArrowUpRight, Information } from '@carbon/icons-react';
 
-export const ArrowIcon = ({ className, title, orientation }: AIC_propsType) => {
-  const C = orientation === 'Right' ? ArrowRight : ArrowUpRight;
+export const ArrowIcon = ({ className, title, name }: AIC_propsType) => {
+  const C = name === 'Right' ? ArrowRight : ArrowUpRight;
 
   return (
     <C

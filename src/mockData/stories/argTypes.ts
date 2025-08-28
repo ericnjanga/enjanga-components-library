@@ -98,7 +98,7 @@ export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {
     options: [...CTL_MediaOpt],
     description: '... soon ...',
   },
-  mediaIcon: {
+  mediaPictogram: {
     control: 'select',
     options: [...CP_nameOpt],
     description: '... soon ...',

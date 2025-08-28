@@ -7,7 +7,7 @@ import { CTL_propsType1Validation } from './types-validation';
 
 export const CTL_LayoutStyleOpt = ['card', 'banner'] as const;
 export const CTL_LinkTargetOpt = ['_blank', '_self'] as const;
-export const CTL_MediaOpt = ['icon', 'image'] as const;
+export const CTL_MediaOpt = ['pictogram', 'image'] as const;
 export type CTL_LayoutStyleType = (typeof CTL_LayoutStyleOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
 export type CTL_LinkTargetType = (typeof CTL_LinkTargetOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
 export type CTL_MediaType = (typeof CTL_MediaOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
@@ -19,9 +19,11 @@ import { AIC_orientOptPropsType } from '@/components/ArrowIcon/libs/types';
 export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
   linksTo?: string;
-  linkTarget?: CTL_LinkTargetType;
-  media?: CTL_MediaType;
+  linkIsExternal: boolean;
   modalIsAvailable?: boolean;
+  iconIsOnDisplay?: boolean;
+  imageIsOnDisplay?: boolean;
+  pictogramIsOnDisplay?: boolean;
 }
 
 export interface CTL_linkWrapperPropsType {
@@ -40,30 +42,15 @@ export type LinkWrapperType = React.ReactElement<{
 // Proptypes for heading, blurb, icon, and link
 export interface CTL_globalContentPropsType {
   featuredText: FTX_propsType;
-
-  layoutStyle?: CTL_LayoutStyleType;
-
-  media?: CTL_MediaType;
-  mediaIcon?: CP_nameType;
+  mediaPictogram?: CP_nameType;
   mediaImage?: string;
-
-  modalIsAvailable?: boolean;
-
-  link: {
-    isAvailable: boolean;
-    isExternal: boolean;
-  };
+  iconContent: React.ReactNode | undefined;
 }
 
 export interface CTL_iconContentPropsType {
   title: string;
-
-  modalIsAvailable?: boolean;
-  arrowIconOrientation: AIC_orientOptPropsType;
-  link: {
-    isAvailable: boolean;
-    isExternal: boolean;
-  };
+  modalIsAvailable: boolean;
+  iconName: AIC_orientOptPropsType | undefined;
 }
 
 export type ValidRoute = `/${string}`; // Any string starting with /
@@ -77,7 +64,7 @@ export type CTL_propsType = {
   layoutStyle?: CTL_LayoutStyleType;
 
   media?: CTL_MediaType;
-  mediaIcon?: CP_nameType;
+  mediaPictogram?: CP_nameType;
   mediaImage?: string;
 
   modalIsAvailable?: boolean;
