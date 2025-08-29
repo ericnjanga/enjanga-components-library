@@ -50,37 +50,6 @@ export const Default: Story = {
   args: { ...mockHeadlinedListArgs },
 };
 
-export const Empty: Story = {
-  args: {
-    list: undefined,
-  },
-  render: (args) => {
-    return (
-      <Grid>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: '2.5rem' }}>
-          <h4 style={{ ...styleHeadingLabel }}>(Empty list)</h4>
-          <HeadlinedList {...args} />
-        </Column>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: '2.5rem' }}>
-          <h4 style={{ ...styleHeadingLabel }}>(Empty heading)</h4>
-          <HeadlinedList
-            {...args}
-            heading={{ children: undefined, level: 3 }}
-            list={{ ...argsList }}
-          />
-        </Column>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: '2.5rem' }}>
-          <h4 style={{ ...styleHeadingLabel }}>(Empty heading and list)</h4>
-          <HeadlinedList
-            {...args}
-            heading={{ children: undefined, level: 3 }}
-          />
-        </Column>
-      </Grid>
-    );
-  },
-};
-
 export const WithJSXFragments: Story = {
   args: {
     ...mockHeadlinedListArgs,
@@ -125,6 +94,49 @@ export const HeadingLevelList: Story = {
           </Column>
         ))}
       </Grid>
+    );
+  },
+};
+
+export const EmptyVersion: Story = {
+  args: {
+    list: undefined,
+  },
+  render: (args) => {
+    return (
+      <>
+        <header style={{ marginBottom: '2.5rem' }}>
+          <h1 style={{ color: 'blue' }}>
+            What happens if the expected props aren't there yet?
+          </h1>
+          <p style={{ fontSize: '1.3rem', color: 'blue' }}>
+            Assuming a delayed API response request for instance. Some props may
+            be arriving sooner than the others or they might all be absent.
+          </p>
+        </header>
+
+        <Grid>
+          <Column lg={16} md={8} sm={4} style={{ marginBottom: '2.5rem' }}>
+            <h4 style={{ ...styleHeadingLabel }}>(Empty list)</h4>
+            <HeadlinedList {...args} />
+          </Column>
+          <Column lg={16} md={8} sm={4} style={{ marginBottom: '2.5rem' }}>
+            <h4 style={{ ...styleHeadingLabel }}>(Empty heading)</h4>
+            <HeadlinedList
+              {...args}
+              heading={{ children: undefined, level: 3 }}
+              list={{ ...argsList }}
+            />
+          </Column>
+          <Column lg={16} md={8} sm={4} style={{ marginBottom: '2.5rem' }}>
+            <h4 style={{ ...styleHeadingLabel }}>(Empty heading and list)</h4>
+            <HeadlinedList
+              {...args}
+              heading={{ children: undefined, level: 3 }}
+            />
+          </Column>
+        </Grid>
+      </>
     );
   },
 };
