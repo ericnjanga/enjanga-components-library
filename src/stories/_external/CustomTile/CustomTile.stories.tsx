@@ -27,50 +27,50 @@ type Story = StoryObj<typeof CustomTile>;
  */
 export const Cards: Story = {
   render: (args) => {
-    const argsDefault = {
+    const argsCards_Default = {
       ...argsCustomTile.card.default,
     };
-    const argsWithIcon = {
+    const argsCards_WithIcon = {
       ...argsCustomTile.card.withIcon,
     };
-    const argsWithImage = {
+    const argsCards_WithImage = {
       ...argsCustomTile.card.withImage,
     };
-    const argsWithLocalLink = {
+    const argsCards_WithLocalLink = {
       ...argsCustomTile.card.withLocalLink,
     };
-    const argsWithExternalLink = {
+    const argsCards_WithExternalLink = {
       ...argsCustomTile.card.withExternalLink,
     };
-    const argsWithModal = {
+    const argsCards_WithModal = {
       ...argsCustomTile.card.withModal,
     };
 
     // Compositions ...
-    const argsWithExternalLinkAndIcon = {
+    const argsCards_WithExternalLinkAndIcon = {
       ...argsCustomTile.card.withExternalLinkAndIcon,
     };
-    const argsWithExternalLinkAndImage = {
+    const argsCards_WithExternalLinkAndImage = {
       ...argsCustomTile.card.withExternalLinkAndImage,
     };
-    const argsWithModalAndIcon = {
+    const argsCards_WithModalAndIcon = {
       ...argsCustomTile.card.withModalAndIcon,
     };
-    const argsWithModalAndImage = {
+    const argsCards_WithModalAndImage = {
       ...argsCustomTile.card.withModalAndImage,
     };
 
     // Specificities with rich text ...
-    const argsWithExternalLinkAndIconAndRichText = {
+    const argsCards_WithExternalLinkAndIconAndRichText = {
       ...argsCustomTile.card.withExternalLinkAndIconAndRichText,
     };
-    const argsWithExternalLinkAndImageAndRichText = {
+    const argsCards_WithExternalLinkAndImageAndRichText = {
       ...argsCustomTile.card.withExternalLinkAndImageAndRichText,
     };
-    const argsWithModalAndIconAndRichText = {
+    const argsCards_WithModalAndIconAndRichText = {
       ...argsCustomTile.card.withModalAndIconAndRichText,
     };
-    const argsWithModalAndImageAndRichText = {
+    const argsCards_WithModalAndImageAndRichText = {
       ...argsCustomTile.card.withModalAndImageAndRichText,
     };
 
@@ -100,32 +100,32 @@ export const Cards: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>Default</span>
-              <CustomTile {...argsDefault} />
+              <CustomTile {...argsCards_Default} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Pictogram</span>
-              <CustomTile {...argsWithIcon} />
+              <CustomTile {...argsCards_WithIcon} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Image</span>
-              <CustomTile {...argsWithImage} />
+              <CustomTile {...argsCards_WithImage} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With local Link</span>
-              <CustomTile {...argsWithLocalLink} />
+              <CustomTile {...argsCards_WithLocalLink} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Link (external)</span>
-              <CustomTile {...argsWithExternalLink} />
+              <CustomTile {...argsCards_WithExternalLink} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Modal</span>
-              <CustomTile {...argsWithModal} />
+              <CustomTile {...argsCards_WithModal} />
             </div>
           </section>
 
@@ -136,24 +136,24 @@ export const Cards: Story = {
               <span style={{ ...styleHeadingLabel }}>
                 With Link and Pictogram
               </span>
-              <CustomTile {...argsWithExternalLinkAndIcon} />
+              <CustomTile {...argsCards_WithExternalLinkAndIcon} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Link and Image</span>
-              <CustomTile {...argsWithExternalLinkAndImage} />
+              <CustomTile {...argsCards_WithExternalLinkAndImage} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Modal and Pictogram
               </span>
-              <CustomTile {...argsWithModalAndIcon} />
+              <CustomTile {...argsCards_WithModalAndIcon} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Modal and Image</span>
-              <CustomTile {...argsWithModalAndImage} />
+              <CustomTile {...argsCards_WithModalAndImage} />
             </div>
           </section>
 
@@ -166,28 +166,28 @@ export const Cards: Story = {
               <span style={{ ...styleHeadingLabel }}>
                 With Link and Pictogram and rich text
               </span>
-              <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
+              <CustomTile {...argsCards_WithExternalLinkAndIconAndRichText} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Link and Image and rich text
               </span>
-              <CustomTile {...argsWithExternalLinkAndImageAndRichText} />
+              <CustomTile {...argsCards_WithExternalLinkAndImageAndRichText} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Modal and Pictogram and rich text
               </span>
-              <CustomTile {...argsWithModalAndIconAndRichText} />
+              <CustomTile {...argsCards_WithModalAndIconAndRichText} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Modal and Image and rich text
               </span>
-              <CustomTile {...argsWithModalAndImageAndRichText} />
+              <CustomTile {...argsCards_WithModalAndImageAndRichText} />
             </div>
           </section>
         </Column>
@@ -202,50 +202,50 @@ export const Cards: Story = {
  */
 export const Banners: Story = {
   render: (args) => {
-    const argsDefault = {
+    const argsBanner_Default = {
       ...argsCustomTile.banner.default,
     };
-    const argsWithIcon = {
+    const argsBanner_WithIcon = {
       ...argsCustomTile.banner.withIcon,
     };
-    const argsWithImage = {
+    const argsBanner_WithImage = {
       ...argsCustomTile.banner.withImage,
     };
-    const argsWithLocalLink = {
+    const argsBanner_WithLocalLink = {
       ...argsCustomTile.banner.withLocalLink,
     };
-    const argsWithExternalLink = {
+    const argsBanner_WithExternalLink = {
       ...argsCustomTile.banner.withExternalLink,
     };
-    const argsWithModal = {
+    const argsBanner_WithModal = {
       ...argsCustomTile.banner.withModal,
     };
 
     // Compositions ...
-    const argsWithExternalLinkAndIcon = {
+    const argsBanner_WithExternalLinkAndIcon = {
       ...argsCustomTile.banner.withExternalLinkAndIcon,
     };
-    const argsWithExternalLinkAndImage = {
+    const argsBanner_WithExternalLinkAndImage = {
       ...argsCustomTile.banner.withExternalLinkAndImage,
     };
-    const argsWithModalAndIcon = {
+    const argsBanner_WithModalAndIcon = {
       ...argsCustomTile.banner.withModalAndIcon,
     };
-    const argsWithModalAndImage = {
+    const argsBanner_WithModalAndImage = {
       ...argsCustomTile.banner.withModalAndImage,
     };
 
     // Specificities with rich text ...
-    const argsWithExternalLinkAndIconAndRichText = {
+    const argsBanner_WithExternalLinkAndIconAndRichText = {
       ...argsCustomTile.banner.withExternalLinkAndIconAndRichText,
     };
-    const argsWithExternalLinkAndImageAndRichText = {
+    const argsBanner_WithExternalLinkAndImageAndRichText = {
       ...argsCustomTile.banner.withExternalLinkAndImageAndRichText,
     };
-    const argsWithModalAndIconAndRichText = {
+    const argsBanner_WithModalAndIconAndRichText = {
       ...argsCustomTile.banner.withModalAndIconAndRichText,
     };
-    const argsWithModalAndImageAndRichText = {
+    const argsBanner_WithModalAndImageAndRichText = {
       ...argsCustomTile.banner.withModalAndImageAndRichText,
     };
 
@@ -275,32 +275,32 @@ export const Banners: Story = {
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>Default</span>
-              <CustomTile {...argsDefault} />
+              <CustomTile {...argsBanner_Default} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Pictogram</span>
-              <CustomTile {...argsWithIcon} />
+              <CustomTile {...argsBanner_WithIcon} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Image</span>
-              <CustomTile {...argsWithImage} />
+              <CustomTile {...argsBanner_WithImage} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With local Link</span>
-              <CustomTile {...argsWithLocalLink} />
+              <CustomTile {...argsBanner_WithLocalLink} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Link (external)</span>
-              <CustomTile {...argsWithExternalLink} />
+              <CustomTile {...argsBanner_WithExternalLink} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Modal</span>
-              <CustomTile {...argsWithModal} />
+              <CustomTile {...argsBanner_WithModal} />
             </div>
           </section>
 
@@ -311,24 +311,24 @@ export const Banners: Story = {
               <span style={{ ...styleHeadingLabel }}>
                 With Link and Pictogram
               </span>
-              <CustomTile {...argsWithExternalLinkAndIcon} />
+              <CustomTile {...argsBanner_WithExternalLinkAndIcon} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Link and Image</span>
-              <CustomTile {...argsWithExternalLinkAndImage} />
+              <CustomTile {...argsBanner_WithExternalLinkAndImage} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Modal and Pictogram
               </span>
-              <CustomTile {...argsWithModalAndIcon} />
+              <CustomTile {...argsBanner_WithModalAndIcon} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>With Modal and Image</span>
-              <CustomTile {...argsWithModalAndImage} />
+              <CustomTile {...argsBanner_WithModalAndImage} />
             </div>
           </section>
 
@@ -341,67 +341,30 @@ export const Banners: Story = {
               <span style={{ ...styleHeadingLabel }}>
                 With Link and Pictogram and rich text
               </span>
-              <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
+              <CustomTile {...argsBanner_WithExternalLinkAndIconAndRichText} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Link and Image and rich text
               </span>
-              <CustomTile {...argsWithExternalLinkAndImageAndRichText} />
+              <CustomTile {...argsBanner_WithExternalLinkAndImageAndRichText} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Modal and Pictogram and rich text
               </span>
-              <CustomTile {...argsWithModalAndIconAndRichText} />
+              <CustomTile {...argsBanner_WithModalAndIconAndRichText} />
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
               <span style={{ ...styleHeadingLabel }}>
                 With Modal and Image and rich text
               </span>
-              <CustomTile {...argsWithModalAndImageAndRichText} />
+              <CustomTile {...argsBanner_WithModalAndImageAndRichText} />
             </div>
           </section>
-        </Column>
-      </Grid>
-    );
-  },
-};
-
-export const EmptyCards: Story = {
-  render: (args) => {
-    const customArgs = {
-      ...argsCustomTile.card.empty,
-    };
-
-    return (
-      <Grid>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>Default</span>
-            <CustomTile {...customArgs} />
-          </div>
-        </Column>
-      </Grid>
-    );
-  },
-};
-
-export const EmptyBanners: Story = {
-  args: {
-    ...argsCustomTile.banner.empty,
-  },
-  render: (args) => {
-    return (
-      <Grid>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>Default</span>
-            <CustomTile {...args} />
-          </div>
         </Column>
       </Grid>
     );
@@ -413,44 +376,44 @@ export const ResponsivenessCard: Story = {
     const argsDefault = {
       ...argsCustomTile.card.default,
     };
-    const argsWithIcon = {
+    const argsBanner_WithIcon = {
       ...argsCustomTile.card.withIcon,
     };
-    const argsWithImage = {
+    const argsBanner_WithImage = {
       ...argsCustomTile.card.withImage,
     };
-    const argsWithExternalLink = {
+    const argsBanner_WithExternalLink = {
       ...argsCustomTile.card.withExternalLink,
     };
-    const argsWithModal = {
+    const argsBanner_WithModal = {
       ...argsCustomTile.card.withModal,
     };
 
     // Compositions ...
-    const argsWithExternalLinkAndIcon = {
+    const argsBanner_WithExternalLinkAndIcon = {
       ...argsCustomTile.card.withExternalLinkAndIcon,
     };
-    const argsWithExternalLinkAndImage = {
+    const argsBanner_WithExternalLinkAndImage = {
       ...argsCustomTile.card.withExternalLinkAndImage,
     };
-    const argsWithModalAndIcon = {
+    const argsBanner_WithModalAndIcon = {
       ...argsCustomTile.card.withModalAndIcon,
     };
-    const argsWithModalAndImage = {
+    const argsBanner_WithModalAndImage = {
       ...argsCustomTile.card.withModalAndImage,
     };
 
     // Specificities with rich text ...
-    const argsWithExternalLinkAndIconAndRichText = {
+    const argsBanner_WithExternalLinkAndIconAndRichText = {
       ...argsCustomTile.card.withExternalLinkAndIconAndRichText,
     };
-    const argsWithExternalLinkAndImageAndRichText = {
+    const argsBanner_WithExternalLinkAndImageAndRichText = {
       ...argsCustomTile.card.withExternalLinkAndImageAndRichText,
     };
-    const argsWithModalAndIconAndRichText = {
+    const argsBanner_WithModalAndIconAndRichText = {
       ...argsCustomTile.card.withModalAndIconAndRichText,
     };
-    const argsWithModalAndImageAndRichText = {
+    const argsBanner_WithModalAndImageAndRichText = {
       ...argsCustomTile.card.withModalAndImageAndRichText,
     };
 
@@ -503,7 +466,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithIcon} />
+                  <CustomTile {...argsBanner_WithIcon} />
                 </Column>
               )
             )}
@@ -528,7 +491,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithImage} />
+                  <CustomTile {...argsBanner_WithImage} />
                 </Column>
               )
             )}
@@ -553,7 +516,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithExternalLink} />
+                  <CustomTile {...argsBanner_WithExternalLink} />
                 </Column>
               )
             )}
@@ -578,7 +541,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithModal} />
+                  <CustomTile {...argsBanner_WithModal} />
                 </Column>
               )
             )}
@@ -603,7 +566,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithExternalLinkAndIcon} />
+                  <CustomTile {...argsBanner_WithExternalLinkAndIcon} />
                 </Column>
               )
             )}
@@ -628,7 +591,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithExternalLinkAndImage} />
+                  <CustomTile {...argsBanner_WithExternalLinkAndImage} />
                 </Column>
               )
             )}
@@ -653,7 +616,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithModalAndIcon} />
+                  <CustomTile {...argsBanner_WithModalAndIcon} />
                 </Column>
               )
             )}
@@ -678,7 +641,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithModalAndImage} />
+                  <CustomTile {...argsBanner_WithModalAndImage} />
                 </Column>
               )
             )}
@@ -703,7 +666,9 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithExternalLinkAndIconAndRichText} />
+                  <CustomTile
+                    {...argsBanner_WithExternalLinkAndIconAndRichText}
+                  />
                 </Column>
               )
             )}
@@ -728,7 +693,9 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithExternalLinkAndImageAndRichText} />
+                  <CustomTile
+                    {...argsBanner_WithExternalLinkAndImageAndRichText}
+                  />
                 </Column>
               )
             )}
@@ -753,7 +720,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithModalAndIconAndRichText} />
+                  <CustomTile {...argsBanner_WithModalAndIconAndRichText} />
                 </Column>
               )
             )}
@@ -778,7 +745,7 @@ export const ResponsivenessCard: Story = {
                   md={8}
                   sm={4}
                 >
-                  <CustomTile {...argsWithModalAndImageAndRichText} />
+                  <CustomTile {...argsBanner_WithModalAndImageAndRichText} />
                 </Column>
               )
             )}
@@ -819,6 +786,488 @@ export const ResponsivenessBanner: Story = {
           )}
         </Grid>
       </>
+    );
+  },
+};
+export const EmptyCards: Story = {
+  render: (args) => {
+    // empty heading ...
+    const argsCards_Default_empty1 = {
+      ...argsCustomTile.card.default,
+      // empty heading ...
+      featuredText: {
+        ...argsCustomTile.card.default.featuredText,
+        heading: {
+          ...argsCustomTile.card.default.featuredText.heading,
+          children: undefined,
+        },
+      },
+    };
+    // empty heading & smartText ...
+    const argsCards_Default_empty2 = {
+      ...argsCustomTile.card.default,
+      // empty heading & smartText ...
+      featuredText: {
+        ...argsCustomTile.card.default.featuredText,
+        heading: {
+          ...argsCustomTile.card.default.featuredText.heading,
+          children: undefined,
+        },
+        smartText: {
+          ...argsCustomTile.card.default.featuredText.smartText,
+          plainText: undefined,
+        },
+      },
+    };
+    // [with icon] empty heading & smartText ...
+    const argsCards_WithIcon_empty2 = {
+      ...argsCustomTile.card.withIcon,
+      // empty heading & smartText ...
+      featuredText: {
+        ...argsCustomTile.card.default.featuredText,
+        heading: {
+          ...argsCustomTile.card.default.featuredText.heading,
+          children: undefined,
+        },
+        smartText: {
+          ...argsCustomTile.card.default.featuredText.smartText,
+          plainText: undefined,
+        },
+      },
+    };
+    // [with image] empty heading & smartText ...
+    const argsCards_WithImage_empty2 = {
+      ...argsCustomTile.card.withImage,
+      // empty heading & smartText ...
+      featuredText: {
+        ...argsCustomTile.card.default.featuredText,
+        heading: {
+          ...argsCustomTile.card.default.featuredText.heading,
+          children: undefined,
+        },
+        smartText: {
+          ...argsCustomTile.card.default.featuredText.smartText,
+          plainText: undefined,
+        },
+      },
+    };
+    const argsCards_WithLocalLink = {
+      ...argsCustomTile.card.withLocalLink,
+    };
+    const argsCards_WithExternalLink = {
+      ...argsCustomTile.card.withExternalLink,
+    };
+    const argsCards_WithModal = {
+      ...argsCustomTile.card.withModal,
+    };
+
+    // Compositions ...
+    const argsCards_WithExternalLinkAndIcon = {
+      ...argsCustomTile.card.withExternalLinkAndIcon,
+    };
+    const argsCards_WithExternalLinkAndImage = {
+      ...argsCustomTile.card.withExternalLinkAndImage,
+    };
+    const argsCards_WithModalAndIcon = {
+      ...argsCustomTile.card.withModalAndIcon,
+    };
+    const argsCards_WithModalAndImage = {
+      ...argsCustomTile.card.withModalAndImage,
+    };
+
+    // Specificities with rich text ...
+    const argsCards_WithExternalLinkAndIconAndRichText = {
+      ...argsCustomTile.card.withExternalLinkAndIconAndRichText,
+    };
+    const argsCards_WithExternalLinkAndImageAndRichText = {
+      ...argsCustomTile.card.withExternalLinkAndImageAndRichText,
+    };
+    const argsCards_WithModalAndIconAndRichText = {
+      ...argsCustomTile.card.withModalAndIconAndRichText,
+    };
+    const argsCards_WithModalAndImageAndRichText = {
+      ...argsCustomTile.card.withModalAndImageAndRichText,
+    };
+
+    return (
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
+          {/* <nav>
+            <h3>Summary</h3>
+            <p>TODO: Fix this in-page navigation.</p>
+            <ol>
+              <li>
+                <a href="#specificities">Specificities</a>
+              </li>
+              <li>
+                <a href="#compositions">Compositions</a>
+              </li>
+              <li>
+                <a href="#specificities-with-rich-text">
+                  Specificities with rich text
+                </a>
+              </li>
+            </ol>
+          </nav> */}
+
+          <header style={{ marginBottom: '2.5rem' }}>
+            <h1 style={{ color: 'blue' }}>
+              What happens if the expected props aren't there yet?
+            </h1>
+            <p style={{ fontSize: '1.3rem', color: 'blue' }}>
+              Assuming a delayed API response request for instance. Some props
+              may be arriving sooner than the others or they might all be
+              absent.
+            </p>
+          </header>
+
+          <section id="specificities">
+            <h1 style={{ marginTop: '2.5rem' }}>Specificities</h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                Default (empty heading)
+              </span>
+              <CustomTile {...argsCards_Default_empty1} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                Default (empty heading & smartText)
+              </span>
+              <CustomTile {...argsCards_Default_empty2} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Pictogram (empty heading & smartText)
+              </span>
+              <CustomTile {...argsCards_WithIcon_empty2} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Image</span>
+              <CustomTile {...argsCards_WithImage_empty2} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With local Link</span>
+              <CustomTile {...argsCards_WithLocalLink} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link (external)</span>
+              <CustomTile {...argsCards_WithExternalLink} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal</span>
+              <CustomTile {...argsCards_WithModal} />
+            </div>
+          </section>
+
+          <section id="compositions">
+            <h1 style={{ marginTop: '4.5rem' }}>Compositions</h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Pictogram
+              </span>
+              <CustomTile {...argsCards_WithExternalLinkAndIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link and Image</span>
+              <CustomTile {...argsCards_WithExternalLinkAndImage} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Pictogram
+              </span>
+              <CustomTile {...argsCards_WithModalAndIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal and Image</span>
+              <CustomTile {...argsCards_WithModalAndImage} />
+            </div>
+          </section>
+
+          <section id="specificities-with-rich-text">
+            <h1 style={{ marginTop: '4.5rem' }}>
+              Specificities with rich text
+            </h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Pictogram and rich text
+              </span>
+              <CustomTile {...argsCards_WithExternalLinkAndIconAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Image and rich text
+              </span>
+              <CustomTile {...argsCards_WithExternalLinkAndImageAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Pictogram and rich text
+              </span>
+              <CustomTile {...argsCards_WithModalAndIconAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Image and rich text
+              </span>
+              <CustomTile {...argsCards_WithModalAndImageAndRichText} />
+            </div>
+          </section>
+        </Column>
+      </Grid>
+    );
+  },
+};
+
+/**
+ * Banners versions
+ * -------------------------------
+ */
+export const EmptyBanners: Story = {
+  render: (args) => {
+    const argsBanner_Default = {
+      ...argsCustomTile.banner.default,
+      featuredText: {
+        ...argsCustomTile.banner.default.featuredText,
+        heading: {
+          ...argsCustomTile.banner.default.featuredText.heading,
+          children: undefined,
+        },
+      },
+    };
+    const argsBanner_WithIcon = {
+      ...argsCustomTile.banner.withIcon,
+    };
+    const argsBanner_WithImage = {
+      ...argsCustomTile.banner.withImage,
+    };
+    const argsBanner_WithLocalLink = {
+      ...argsCustomTile.banner.withLocalLink,
+    };
+    const argsBanner_WithExternalLink = {
+      ...argsCustomTile.banner.withExternalLink,
+    };
+    const argsBanner_WithModal = {
+      ...argsCustomTile.banner.withModal,
+    };
+
+    // Compositions ...
+    const argsBanner_WithExternalLinkAndIcon = {
+      ...argsCustomTile.banner.withExternalLinkAndIcon,
+    };
+    const argsBanner_WithExternalLinkAndImage = {
+      ...argsCustomTile.banner.withExternalLinkAndImage,
+    };
+    const argsBanner_WithModalAndIcon = {
+      ...argsCustomTile.banner.withModalAndIcon,
+    };
+    const argsBanner_WithModalAndImage = {
+      ...argsCustomTile.banner.withModalAndImage,
+    };
+
+    // Specificities with rich text ...
+    const argsBanner_WithExternalLinkAndIconAndRichText = {
+      ...argsCustomTile.banner.withExternalLinkAndIconAndRichText,
+    };
+    const argsBanner_WithExternalLinkAndImageAndRichText = {
+      ...argsCustomTile.banner.withExternalLinkAndImageAndRichText,
+    };
+    const argsBanner_WithModalAndIconAndRichText = {
+      ...argsCustomTile.banner.withModalAndIconAndRichText,
+    };
+    const argsBanner_WithModalAndImageAndRichText = {
+      ...argsCustomTile.banner.withModalAndImageAndRichText,
+    };
+
+    return (
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <nav>
+            <h3>Summary</h3>
+            <p>TODO: Fix this in-page navigation.</p>
+            <ol>
+              <li>
+                <a href="#specificities">Specificities</a>
+              </li>
+              <li>
+                <a href="#compositions">Compositions</a>
+              </li>
+              <li>
+                <a href="#specificities-with-rich-text">
+                  Specificities with rich text
+                </a>
+              </li>
+            </ol>
+          </nav>
+
+          <section id="specificities">
+            <h1 style={{ marginTop: '2.5rem' }}>Specificities</h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>Default</span>
+              <CustomTile {...argsBanner_Default} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Pictogram</span>
+              <CustomTile {...argsBanner_WithIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Image</span>
+              <CustomTile {...argsBanner_WithImage} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With local Link</span>
+              <CustomTile {...argsBanner_WithLocalLink} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link (external)</span>
+              <CustomTile {...argsBanner_WithExternalLink} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal</span>
+              <CustomTile {...argsBanner_WithModal} />
+            </div>
+          </section>
+
+          <section id="compositions">
+            <h1 style={{ marginTop: '4.5rem' }}>Compositions</h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Pictogram
+              </span>
+              <CustomTile {...argsBanner_WithExternalLinkAndIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Link and Image</span>
+              <CustomTile {...argsBanner_WithExternalLinkAndImage} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Pictogram
+              </span>
+              <CustomTile {...argsBanner_WithModalAndIcon} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>With Modal and Image</span>
+              <CustomTile {...argsBanner_WithModalAndImage} />
+            </div>
+          </section>
+
+          <section id="specificities-with-rich-text">
+            <h1 style={{ marginTop: '4.5rem' }}>
+              Specificities with rich text
+            </h1>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Pictogram and rich text
+              </span>
+              <CustomTile {...argsBanner_WithExternalLinkAndIconAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Link and Image and rich text
+              </span>
+              <CustomTile {...argsBanner_WithExternalLinkAndImageAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Pictogram and rich text
+              </span>
+              <CustomTile {...argsBanner_WithModalAndIconAndRichText} />
+            </div>
+
+            <div style={{ marginBottom: '2.5rem' }}>
+              <span style={{ ...styleHeadingLabel }}>
+                With Modal and Image and rich text
+              </span>
+              <CustomTile {...argsBanner_WithModalAndImageAndRichText} />
+            </div>
+          </section>
+        </Column>
+      </Grid>
+    );
+  },
+};
+
+export const EmptyResponsiveCards: Story = {
+  render: (args) => {
+    const customArgs = {
+      ...argsCustomTile.card.empty,
+    };
+
+    return (
+      <Grid>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+          (index) => (
+            <Column
+              key={index}
+              style={{ marginBottom: '1.5rem' }}
+              lg={index}
+              md={8}
+              sm={4}
+            >
+              <div style={{ marginBottom: '2.5rem' }}>
+                <span style={{ ...styleHeadingLabel }}>Default</span>
+                <CustomTile {...customArgs} />
+              </div>
+            </Column>
+          )
+        )}
+      </Grid>
+    );
+  },
+};
+
+export const EmptyResponsiveBanners: Story = {
+  args: {
+    ...argsCustomTile.banner.empty,
+  },
+  render: (args) => {
+    return (
+      <Grid>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+          (index) => (
+            <Column
+              key={index}
+              style={{ marginBottom: '1.5rem' }}
+              lg={index}
+              md={8}
+              sm={4}
+            >
+              <div style={{ marginBottom: '2.5rem' }}>
+                <span style={{ ...styleHeadingLabel }}>Default</span>
+                <CustomTile {...args} />
+              </div>
+            </Column>
+          )
+        )}
+      </Grid>
     );
   },
 };
