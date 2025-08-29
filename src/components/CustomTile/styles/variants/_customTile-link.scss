@@ -1,4 +1,4 @@
-@import './../utils/mixins';
+@use './../utils/mixins';
 
 /**
  * CustomTile of layout Banner/Card with links
@@ -15,7 +15,7 @@
     &.enj-CustomTile--banner {
       .enj-CustomTile-anchor-tag {
         // We then apply the responsive padding directly on the anchor tag
-        @include CT-bannerResponsivePadding;
+        @include mixins.CT-bannerResponsivePadding;
       }
     }
 
@@ -23,7 +23,7 @@
     &.enj-CustomTile--card {
       .enj-CustomTile-anchor-tag {
         // We then apply the responsive padding directly on the anchor tag
-        @include CT-cardResponsivePadding;
+        @include mixins.CT-cardResponsivePadding;
       }
     }
   }
@@ -31,5 +31,5 @@
 
 .enj-CustomTile--has-link,
 .enj-CustomTile--has-modal {
-  @include CT-textLinkTheming;
+  @include mixins.CT-textLinkTheming;
 }

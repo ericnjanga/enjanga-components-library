@@ -2,31 +2,31 @@
 @use '@carbon/react/scss/breakpoint' as *;
 @use '@carbon/react/scss/colors' as *;
 
-@import './utils/vars';
-@import './utils/mixins';
+@use './utils/vars';
+@use './utils/mixins';
 
-@import './layouts/card';
-@import './layouts/banner';
+@use './layouts/card';
+@use './layouts/banner';
 
-@import './components/icon';
-@import './components/pictogram';
+@use './components/icon';
+@use './components/pictogram';
 
-@import './variants/customTile-link';
-@import './variants/customTile-has-img';
-@import './variants/customTile-has-pictogram';
+@use './variants/customTile-link';
+@use './variants/customTile-has-img';
+@use './variants/customTile-has-pictogram';
 
 .enj-CustomTile {
   border: 1px solid $gray-50;
 
   // Structure the icon positionning and styling
-  @include CT-iconPositionning;
-  @include CT-iconTheming;
+  @include mixins.CT-iconPositionning;
+  @include mixins.CT-iconTheming;
 
   // Text & Link styling
-  @include CT-textLinkTheming;
+  @include mixins.CT-textLinkTheming;
 
   .enj-FeatureText {
-    @include CT-richTextDefaults;
+    @include mixins.CT-richTextDefaults;
   }
 }
 
@@ -36,7 +36,7 @@
 .enj-CustomTile--has-modal {
   display: block;
   &:hover {
-    @include CT-hover;
-    @include CT-textLinkTheming-hover;
+    @include mixins.CT-hover;
+    @include mixins.CT-textLinkTheming-hover;
   }
 }

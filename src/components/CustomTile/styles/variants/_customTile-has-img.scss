@@ -1,3 +1,5 @@
+@use './../utils/mixins';
+
 /**
  * For Cards
  * ----------------------------
@@ -9,7 +11,7 @@
 
   &.enj-CustomTile--has-img {
     // ...
-    @include CT-card-img-responsive-horizontal-positionning;
+    @include mixins.CT-card-img-responsive-horizontal-positionning;
   }
 }
 
@@ -25,7 +27,7 @@
       display: block; // <--- Cacelling the responsive horizontal positionning here
 
       .enj-CustomTile-anchor-tag {
-        @include CT-card-img-horizontal-positionning; // <--- Applying the responsive horizontal positionning here
+        @include mixins.CT-card-img-horizontal-positionning; // <--- Applying the responsive horizontal positionning here
       }
     }
   }

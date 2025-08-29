@@ -1,3 +1,5 @@
+@use './../utils/mixins';
+
 /**
  * Banner
  * ----------
@@ -22,18 +24,18 @@
     align-items: var(--enj-CTL-bann-align-items);
 
     // Custom enhancements ...
-    @include CT-bannerRichTextDefaults;
+    @include mixins.CT-bannerRichTextDefaults;
   }
 
   /**
    * Custom enhancements ...
   */
   // Regulate padding for all component sizes
-  @include CT-bannerResponsivePadding;
+  @include mixins.CT-bannerResponsivePadding;
 
   // Regulate flex gap for all component sizes
-  @include CT-bannerResponsiveFlexGap;
+  @include mixins.CT-bannerResponsiveFlexGap;
 
   // Spread the content horizontally and adjust alignment (for certain component sizes)
-  @include CT-bannerResponsiveHorizontal;
+  @include mixins.CT-bannerResponsiveHorizontal;
 }

@@ -946,7 +946,12 @@ export const EmptyCards: Story = {
             </div>
 
             <div style={{ marginBottom: '2.5rem' }}>
-              <span style={{ ...styleHeadingLabel }}>With Image</span>
+              <span style={{ ...styleHeadingLabel }}>
+                With Image (empty heading & smartText)
+              </span>
+              <span style={{ ...styleHeadingLabel }}>
+                Note: The image field is also coming from the API
+              </span>
               <CustomTile {...argsCards_WithImage_empty2} />
             </div>
 
