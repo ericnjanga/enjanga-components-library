@@ -13,22 +13,28 @@ const FeatureText = ({
   isHidden,
 }: FTX_propsType) => {
   // Trim heading only if it applies ...
+
+  // [*] If heaing is not hidden:
+  // Assign the content and make sure the text is trimmed if necessary (content is of type string and max length provided)
   let headingContent;
-  if (
-    isHidden !== 'heading' &&
-    headingMaxLength &&
-    headingMaxLength > 0 &&
-    typeof heading?.children === 'string'
-  ) {
-    headingContent = textTrimmer({
-      text: heading?.children,
-      length: headingMaxLength,
-    });
-  } else if (typeof heading?.children !== 'string') {
-    headingContent = heading?.children;
+
+  if (isHidden !== 'heading') {
+    headingContent = heading?.children; // Assign the content
+
+    // Make sure the text is trimmed if necessary (content is of type string and max length provided)
+    if (
+      headingMaxLength &&
+      headingMaxLength > 0 &&
+      typeof heading?.children === 'string'
+    ) {
+      headingContent = textTrimmer({
+        text: heading?.children,
+        length: headingMaxLength,
+      });
+    }
   }
 
-  // Trim description only if it applies ...
+  // [*] Trim description only if it applies ...
   let descriptionContent,
     smartTextContent = {};
   if (
