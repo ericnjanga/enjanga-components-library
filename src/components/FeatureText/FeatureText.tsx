@@ -14,7 +14,7 @@ const FeatureText = ({
 }: FTX_propsType) => {
   // Trim heading only if it applies ...
 
-  // [*] If heaing is not hidden:
+  // [*] If the heading is not hidden:
   // Assign the content and make sure the text is trimmed if necessary (content is of type string and max length provided)
   let headingContent;
 
@@ -28,26 +28,31 @@ const FeatureText = ({
       typeof heading?.children === 'string'
     ) {
       headingContent = textTrimmer({
-        text: heading?.children,
+        text: headingContent as string,
         length: headingMaxLength,
       });
     }
   }
 
-  // [*] Trim description only if it applies ...
+  // [*] If the smartText is not hidden:
+  // Assign the content and make sure the text is trimmed if necessary (content is of type string and max length provided)
   let descriptionContent,
     smartTextContent = {};
-  if (
-    isHidden !== 'smartText' &&
-    plainTextMaxLength &&
-    plainTextMaxLength > 0 &&
-    smartText?.plainText
-  ) {
-    descriptionContent = textTrimmer({
-      text: smartText?.plainText,
-      length: plainTextMaxLength,
-    });
+
+  if (isHidden !== 'smartText') {
+    if (smartText?.plainText) {
+      descriptionContent = smartText?.plainText;
+      // ...
+      if (plainTextMaxLength && plainTextMaxLength > 0) {
+        descriptionContent = textTrimmer({
+          text: descriptionContent,
+          length: plainTextMaxLength,
+        });
+      }
+    }
   }
+
+  // Update plainText property of the smartText object before component injection
   smartTextContent = {
     ...smartText,
     plainText: descriptionContent,

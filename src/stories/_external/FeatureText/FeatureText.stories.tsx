@@ -45,7 +45,7 @@ export const WithRichTexts: Story = {
 
     return (
       <>
-        <div>
+        <div style={{ marginBottom: '3.5rem' }}>
           <span style={{ ...styleHeadingLabel }}>Only description is rich</span>
           <FeatureText {...args} />
         </div>
@@ -129,23 +129,23 @@ export const WithHeadingVariations: Story = {
           </div>
         </Column>
         <Column lg={8} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <div>
+          <div style={{ marginBottom: '4rem' }}>
             <span style={{ ...styleHeadingLabel }}>Heading level 1</span>
             <FeatureText {...args2} />
           </div>
-          <div>
+          <div style={{ marginBottom: '4rem' }}>
             <span style={{ ...styleHeadingLabel }}>Heading level 2</span>
             <FeatureText {...args2} heading={{ ...args2.heading, level: 2 }} />
           </div>
-          <div>
+          <div style={{ marginBottom: '4rem' }}>
             <span style={{ ...styleHeadingLabel }}>Heading level 3</span>
             <FeatureText {...args2} heading={{ ...args2.heading, level: 3 }} />
           </div>
-          <div>
+          <div style={{ marginBottom: '4rem' }}>
             <span style={{ ...styleHeadingLabel }}>Heading level 4</span>
             <FeatureText {...args2} heading={{ ...args2.heading, level: 4 }} />
           </div>
-          <div>
+          <div style={{ marginBottom: '4rem' }}>
             <span style={{ ...styleHeadingLabel }}>Heading level 5</span>
             <FeatureText {...args2} heading={{ ...args2.heading, level: 5 }} />
           </div>

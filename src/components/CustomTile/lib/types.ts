@@ -53,7 +53,8 @@ export interface CTL_iconContentPropsType {
   iconName: AIC_nameOptPropsType | undefined;
 }
 
-export type ValidRoute = `/${string}` | `/${string}/${string}/`;
+// export type ValidRoute = `/${string}` | `/${string}/${string}`;
+export type ValidRoute = `/best-work` | `/${string}/${string}`;
 export type ExternalLink = `https://${string}` | `http://${string}`;
 
 // Props types ...
