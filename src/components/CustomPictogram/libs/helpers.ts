@@ -1,4 +1,10 @@
-import { Hills, AppDeveloper, Leadership } from '@carbon/pictograms-react';
+import {
+  Hills,
+  AppDeveloper,
+  Leadership,
+  DevicePairing,
+  CodeExplanation,
+} from '@carbon/pictograms-react';
 import type { ComponentType, SVGProps } from 'react';
 import {
   CP_nameOpt,
@@ -19,6 +25,8 @@ export const CI_pictogramMap: Record<
   Hills,
   'App Developer': AppDeveloper,
   Leadership,
+  DevicePairing,
+  CodeExplanation,
 };
 
 // Calculates the icon width and height based on the size type provided

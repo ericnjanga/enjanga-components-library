@@ -1,7 +1,13 @@
 // CustomPictogram props type
 // ----------------
 
-export const CP_nameOpt = ['Hills', 'App Developer', 'Leadership'] as const;
+export const CP_nameOpt = [
+  'Hills',
+  'App Developer',
+  'Leadership',
+  'DevicePairing',
+  'CodeExplanation',
+] as const;
 export const CP_sizeOpt = ['sm', 'md', 'lg', 'xl'] as const;
 export type CP_nameType = (typeof CP_nameOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
 export type CP_sizeType = (typeof CP_sizeOpt)[number]; // Creating union type 'sm' | 'md' | '...
