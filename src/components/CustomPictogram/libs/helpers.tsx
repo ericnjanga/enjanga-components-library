@@ -15,6 +15,11 @@ import {
   Goals,
   TransactionalTrust,
   Teacher,
+  Carbon,
+  Multitask,
+  PoughkeepsieBridge,
+  AssetManagement,
+  Presenter,
 } from '@carbon/pictograms-react';
 import type { ComponentType, SVGProps } from 'react';
 import {
@@ -55,6 +60,11 @@ export const CP_pictogramMap: Record<
   Goals,
   TransactionalTrust,
   Teacher,
+  Carbon,
+  Multitask,
+  PoughkeepsieBridge,
+  AssetManagement,
+  Presenter,
 };
 
 // ...

@@ -17,4 +17,9 @@ declare module '@carbon/pictograms-react' {
   export const Goals: React.FC<React.SVGProps<SVGSVGElement>>;
   export const TransactionalTrust: React.FC<React.SVGProps<SVGSVGElement>>;
   export const Teacher: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const Carbon: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const Multitask: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const PoughkeepsieBridge: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const AssetManagement: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const Presenter: React.FC<React.SVGProps<SVGSVGElement>>;
 }

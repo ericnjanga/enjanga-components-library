@@ -18,6 +18,11 @@ export const CP_nameOpt = [
   'Goals',
   'TransactionalTrust',
   'Teacher',
+  'Carbon',
+  'Multitask',
+  'PoughkeepsieBridge',
+  'AssetManagement',
+  'Presenter',
 ] as const;
 export const CP_sizeOpt = ['sm', 'md', 'lg', 'xl'] as const;
 export type CP_nameType = (typeof CP_nameOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
