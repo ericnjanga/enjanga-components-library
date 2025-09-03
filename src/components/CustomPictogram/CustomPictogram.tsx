@@ -6,10 +6,10 @@
 
 import clsx from 'clsx';
 import { CP_propsType } from './libs/types';
-import { CI_pictogramMap, CI_getSize } from './libs/helpers';
+import { CP_getPictogram, CI_getSize } from './libs/helpers';
 
 const CustomPictogram = ({ name, size = 'md', className }: CP_propsType) => {
-  const Pictogram = CI_pictogramMap[name];
+  const Pictogram = CP_getPictogram({ name });
   const { sizeWidth, sizeHeight } = CI_getSize(size);
 
   return (

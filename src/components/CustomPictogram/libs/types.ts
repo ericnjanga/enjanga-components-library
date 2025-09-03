@@ -7,6 +7,17 @@ export const CP_nameOpt = [
   'Leadership',
   'DevicePairing',
   'CodeExplanation',
+  'MagicWand',
+  'Question',
+  'User',
+  'UserInterface',
+  'Collaboration',
+  'Presentation',
+  'Transform_01',
+  'Networking_04',
+  'Goals',
+  'TransactionalTrust',
+  'Teacher',
 ] as const;
 export const CP_sizeOpt = ['sm', 'md', 'lg', 'xl'] as const;
 export type CP_nameType = (typeof CP_nameOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...
