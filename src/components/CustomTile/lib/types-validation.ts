@@ -1,4 +1,4 @@
-import { CTL_LinkTargetType } from './types';
+import { CTL_LinkTargetType, CTL_valid_linkTo } from './types';
 
 /**
  * Props validations rules
@@ -10,14 +10,16 @@ import { CTL_LinkTargetType } from './types';
  */
 type ErrorMessage<T extends string> = `🚨 Prop Validation Error: ${T}`;
 
+/** Normal link props (default case, modalIsAvailable omitted or false) */
 interface LinkProps {
-  linksTo: string;
+  linksTo: CTL_valid_linkTo;
   linkTarget?: CTL_LinkTargetType;
-  modalIsAvailable?: ErrorMessage<"Component cannot be both a link and a modal - remove either 'modalIsAvailable' or 'linksTo'">;
+  modalIsAvailable?: false; // explicitly false or absent
 }
 
+/** Strict modal props (only when true) */
 interface ModalProps {
-  modalIsAvailable: boolean;
+  modalIsAvailable: true;
   linksTo?: ErrorMessage<"Modal version cannot have 'linksTo' - remove this prop">;
   linkTarget?: ErrorMessage<"Modal version cannot have 'linkTarget' - remove this prop">;
 }

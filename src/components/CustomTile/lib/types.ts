@@ -18,7 +18,7 @@ import { AIC_nameOptPropsType } from '@/components/ArrowIcon/libs/types';
 
 export interface CTL_CSSClassesPropsType {
   layoutStyle?: CTL_LayoutStyleType;
-  linksTo?: string;
+  linksTo?: CTL_valid_linkTo;
   linkIsExternal: boolean;
   modalIsAvailable?: boolean;
   iconIsOnDisplay?: boolean;
@@ -28,7 +28,7 @@ export interface CTL_CSSClassesPropsType {
 
 export interface CTL_linkWrapperPropsType {
   heading?: string;
-  linksTo?: string;
+  linksTo?: CTL_valid_linkTo;
   linkTarget?: CTL_LinkTargetType;
   linkIsExternal: boolean;
 }
@@ -53,9 +53,9 @@ export interface CTL_iconContentPropsType {
   iconName: AIC_nameOptPropsType | undefined;
 }
 
-// export type ValidRoute = `/${string}` | `/${string}/${string}`;
-export type ValidRoute = `/best-work` | `/${string}/${string}`;
+export type ValidRoute = `/${string}`;
 export type ExternalLink = `https://${string}` | `http://${string}`;
+export type CTL_valid_linkTo = ValidRoute | ExternalLink;
 
 // Props types ...
 export type CTL_propsType = {
@@ -72,6 +72,6 @@ export type CTL_propsType = {
   modalPlainDescription?: string;
   modalRichDescription?: { json: { content: Node[] } };
 
-  linksTo?: ValidRoute | ExternalLink;
+  linksTo?: CTL_valid_linkTo;
   linkTarget?: CTL_LinkTargetType;
 } & CTL_propsType1Validation;
