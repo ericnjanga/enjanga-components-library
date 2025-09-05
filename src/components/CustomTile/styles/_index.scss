@@ -25,6 +25,9 @@
   // Text & Link styling
   @include mixins.CT-textLinkTheming;
 
+  // Theming
+  @include mixins.CT-pictogram-theming;
+
   .enj-FeatureText {
     @include mixins.CT-richTextDefaults;
   }

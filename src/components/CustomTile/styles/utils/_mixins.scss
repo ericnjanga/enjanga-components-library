@@ -46,7 +46,15 @@
 
 @mixin CT-hover {
   cursor: pointer;
-  background-color: $blue-60; // $gray-30;
+  background-color: $purple-70;
+
+  .enj-CustomTile-pictogram {
+    color: $blue-30;
+  }
+
+  .enj-CustomTile-icon-wrapper svg {
+    color: $magenta-50;
+  }
 }
 
 @mixin CT-textLinkTheming-hover {
@@ -150,7 +158,7 @@
     --enj-CTL-card-pad: #{$spacing-04};
   }
   &.enj-CustomTile-md {
-    --enj-CTL-card-pad: #{$spacing-04};
+    --enj-CTL-card-pad: #{$spacing-06};
   }
 }
 
@@ -220,6 +228,16 @@
   &.enj-CustomTile-max {
     --enj-CTL-card-withIcon-gap: 2rem;
     @include CT-card-pictogram-horizontal-positionning;
+  }
+}
+
+@mixin CT-pictogram-theming {
+  .enj-CustomTile-pictogram {
+    color: $blue-60;
+  }
+  .enj-CustomTile-icon-wrapper svg {
+    color: $gray-50;
+    // color: $magenta-60;
   }
 }
 
