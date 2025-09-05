@@ -43,29 +43,31 @@ const AppHeader = ({
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
-        <Header aria-label={brandLabel}>
-          <SkipToContent />
-          <HeaderMenuButton
-            aria-label={labelOpenMenu}
-            onClick={onClickSideNavExpand}
-            isActive={isSideNavExpanded}
-          />
-          <HeaderName prefix="" as={Link} href={brandRoute} passHref>
-            {brand}
-          </HeaderName>
-          <HeaderNavigation aria-label={brandLabel}>
-            {navigation}
-          </HeaderNavigation>
-          <SideNav
-            aria-label={labelSideNav}
-            expanded={isSideNavExpanded}
-            isPersistent={false}
-          >
-            <SideNavItems>
-              <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
-            </SideNavItems>
-          </SideNav>
-          <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar>
+        <Header aria-label={brandLabel} className="enj-AppHeader">
+          <div className="header-inner">
+            <SkipToContent />
+            <HeaderMenuButton
+              aria-label={labelOpenMenu}
+              onClick={onClickSideNavExpand}
+              isActive={isSideNavExpanded}
+            />
+            <HeaderName prefix="" as={Link} href={brandRoute} passHref>
+              {brand}
+            </HeaderName>
+            <HeaderNavigation aria-label={brandLabel}>
+              {navigation}
+            </HeaderNavigation>
+            <SideNav
+              aria-label={labelSideNav}
+              expanded={isSideNavExpanded}
+              isPersistent={false}
+            >
+              <SideNavItems>
+                <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
+              </SideNavItems>
+            </SideNav>
+            <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar>
+          </div>
         </Header>
       )}
     />

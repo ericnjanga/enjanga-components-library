@@ -1,2 +1,9 @@
 .enj-AppHeader {
+  .header-inner {
+    max-width: 95rem; /* or use Carbon token, e.g. var(--cds-layout-max-width) */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 }

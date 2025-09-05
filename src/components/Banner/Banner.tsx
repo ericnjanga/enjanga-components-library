@@ -36,7 +36,9 @@ const Banner = ({
 
   return (
     <header className={cssClasses}>
-      <Grid fullWidth>
+      <Grid>
+        {' '}
+        {/*  fullWidth */}
         <Column lg={8} md={6} sm={4}>
           <FeatureText {...featuredText} />
         </Column>

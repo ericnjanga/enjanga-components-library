@@ -6,10 +6,6 @@
  * Global stylings
  * ----------------------------
 */
-@mixin CT-hover {
-  cursor: pointer;
-  background-color: $gray-30;
-}
 
 @mixin CT-iconPositionning {
   .enj-CustomTile-icon-wrapper {
@@ -48,17 +44,22 @@
   }
 }
 
+@mixin CT-hover {
+  cursor: pointer;
+  background-color: $blue-60; // $gray-30;
+}
+
 @mixin CT-textLinkTheming-hover {
   .enj-CustomTile-title {
-    color: $blue-60;
+    color: white; // $blue-60;
     a {
-      color: $blue-60;
+      color: white; // $blue-60;
     }
   }
   .enj-FeatureText-article {
-    color: $blue-60;
+    color: white; // $blue-60;
     a {
-      color: $blue-60;
+      color: white; // $blue-60;
     }
   }
 }
