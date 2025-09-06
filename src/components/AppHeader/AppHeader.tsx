@@ -66,7 +66,7 @@ const AppHeader = ({
                 <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
               </SideNavItems>
             </SideNav>
-            <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar>
+            {/* <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar> */}
           </div>
         </Header>
       )}

@@ -10,6 +10,7 @@ import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatur
 import { mockHeading } from '@/mockData/mixed';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { mockRichTextSmall } from '@/mockData/mockRichText';
+import { Grid, Column } from '@carbon/react';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
@@ -27,7 +28,42 @@ export default meta;
 
 type Story = StoryObj<typeof Banner>;
 
-export const PlainTextVersion: Story = {};
+export const PlainTextVersion: Story = {
+  render: (args) => {
+    return (
+      <>
+        <div style={{ marginBottom: '3rem' }}>
+          <span style={{ ...styleHeadingLabel }}>With plain text</span>
+          <Banner {...args} />
+        </div>
+
+        <Grid fullWidth>
+          <Column lg={16}>
+            <h1 style={{ textAlign: 'center' }}>Resoponsive size</h1>
+          </Column>
+        </Grid>
+
+        <section>
+          <Grid fullWidth>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <Banner {...args} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+      </>
+    );
+  },
+};
 
 export const RichTextVersions: Story = {
   // Rich heading with plain smartText ...
@@ -90,6 +126,53 @@ export const RichTextVersions: Story = {
           </span>
           <Banner {...args3} />
         </div>
+      </>
+    );
+  },
+};
+
+export const Responsiveness: Story = {
+  // Rich heading with plain smartText ...
+  args: {
+    ...argsBanner,
+    featuredText: {
+      ...argsBanner.featuredText,
+      heading: {
+        ...argsHeadingJSX,
+      },
+    },
+  },
+  render: (args) => {
+    // Compositions ...
+    const argsBanner_WithRichHeadingPlainSmartText = {
+      ...args,
+    };
+
+    return (
+      <>
+        <Grid>
+          <Column lg={16}>
+            <h1 style={{ textAlign: 'center' }}>Banner's size</h1>
+          </Column>
+        </Grid>
+
+        <section>
+          <Grid>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <Banner {...argsBanner_WithRichHeadingPlainSmartText} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
       </>
     );
   },

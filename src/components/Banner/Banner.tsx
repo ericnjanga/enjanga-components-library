@@ -21,7 +21,7 @@
  */
 
 import clsx from 'clsx';
-import { Grid, Column } from '@carbon/react';
+// import { Grid, Column } from '@carbon/react';
 import { BNN_propsType } from './libs/types';
 import { FeatureText } from '../FeatureText';
 
@@ -36,13 +36,20 @@ const Banner = ({
 
   return (
     <header className={cssClasses}>
-      <Grid>
-        {' '}
-        {/*  fullWidth */}
+      <div className="cds--css-grid">
+        <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-8 cds--css-grid-column">
+          <FeatureText {...featuredText} />
+        </div>
+      </div>
+
+      {/* 
+        I'm not using <Grid /> because it becomes a subgrid under another <Grid /> and loses all its formatting.
+      
+        <Grid fullWidth>
         <Column lg={8} md={6} sm={4}>
           <FeatureText {...featuredText} />
         </Column>
-      </Grid>
+      </Grid> */}
     </header>
   );
 };
