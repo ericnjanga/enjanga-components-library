@@ -37,6 +37,15 @@ import {
   Inline,
 } from '@contentful/rich-text-types';
 
+// Check if URL is external (not relative and not your domain)
+const isExternalLink = (url: string): boolean => {
+  const appDomain = 'enjanga.com';
+  return (
+    (url.startsWith('http://') && !url.includes('localhost')) ||
+    (url.startsWith('https://') && !url.includes(appDomain))
+  );
+};
+
 export const renderContentfulNode = (
   node: Node,
   key: string
@@ -126,8 +135,14 @@ export const renderContentfulNode = (
     case INLINES.HYPERLINK: {
       const link = node as Inline;
       const uri = link.data.uri;
+      const isExternal = isExternalLink(uri);
       return (
-        <a key={key} href={uri} target="_blank" rel="noopener noreferrer">
+        <a
+          key={key}
+          href={uri}
+          target={isExternal ? '_blank' : '_self'}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+        >
           {link.content.map((child, i) =>
             renderContentfulNode(child, `${key}-link-${i}`)
           )}
