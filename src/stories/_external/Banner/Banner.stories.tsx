@@ -213,6 +213,40 @@ export const HugeBanner: Story = {
   args: {
     isHuge: true,
   },
+  render: (args) => {
+    return (
+      <>
+        <div style={{ marginBottom: '3rem' }}>
+          <span style={{ ...styleHeadingLabel }}>Huge Banner</span>
+          <Banner {...args} />
+        </div>
+
+        <Grid fullWidth>
+          <Column lg={16}>
+            <h1 style={{ textAlign: 'center' }}>Resoponsive size</h1>
+          </Column>
+        </Grid>
+
+        <section>
+          <Grid fullWidth>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+              (index) => (
+                <Column
+                  key={index}
+                  style={{ marginBottom: '1.5rem' }}
+                  lg={index}
+                  md={8}
+                  sm={4}
+                >
+                  <Banner {...args} />
+                </Column>
+              )
+            )}
+          </Grid>
+        </section>
+      </>
+    );
+  },
 };
 
 export const EmptyVersions: Story = {

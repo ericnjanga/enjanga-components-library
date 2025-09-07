@@ -24,6 +24,7 @@ import clsx from 'clsx';
 // import { Grid, Column } from '@carbon/react';
 import { BNN_propsType } from './libs/types';
 import { FeatureText } from '../FeatureText';
+import { useContainerSize } from '@/libs/useContainerSize';
 
 const Banner = ({
   className,
@@ -31,11 +32,21 @@ const Banner = ({
   isHuge = false, // Small banner by default
 }: BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
-    'enj-Banner--jumbotron': isHuge,
+    'enj-Banner--isHuge': isHuge,
   });
 
+  // [*] Activate container size responsiveness
+  // ----------------------------
+  const {
+    containerRef, // Reference to component wrapper
+    activeBreakpoint, // Closest possible breakpoint to wrapper's width
+  } = useContainerSize();
+
   return (
-    <header className={cssClasses}>
+    <header
+      className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
+      ref={containerRef}
+    >
       <div className="cds--css-grid">
         <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-8 cds--css-grid-column">
           <FeatureText {...featuredText} />

@@ -1,0 +1,20 @@
+// @use '@carbon/react/scss/spacing' as *;
+@use './../styles/utils/vars';
+@use './../styles/utils/mixins';
+
+/**
+  * Bigger banner
+  * ------------------
+*/
+.enj-Banner {
+  &.enj-Banner--isHuge {
+    // Variables ...
+    --enj-Banner-jumbotron-padd: var(--enj-Banner-gap) 0
+      var(--enj-Banner-padd-bot) 0;
+
+    // Declarations ...
+    padding: var(--enj-Banner-jumbotron-padd);
+
+    @include mixins.BNN-isHuge-responsive-padding;
+  }
+}

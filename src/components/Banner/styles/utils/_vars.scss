@@ -1,0 +1,7 @@
+@use '@carbon/react/scss/spacing' as *;
+
+:root {
+  // Variables ...
+  --enj-Banner-gap: #{$spacing-09};
+  --enj-Banner-p-font-size: 1.25rem;
+}

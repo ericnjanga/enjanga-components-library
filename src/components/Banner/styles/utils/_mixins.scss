@@ -1,0 +1,84 @@
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use './vars';
+
+@mixin BNN-responsive-padding {
+  // Variables ...
+  --enj-Banner-padd: var(--enj-Banner-gap) 0 var(--enj-Banner-gap) 0;
+
+  // Declarations ...
+  padding: var(--enj-Banner-padd);
+
+  // &.enj-Banner-sm {
+  //   // border: 4px solid red;
+  // }
+  &.enj-Banner-md {
+    // border: 4px solid orange;
+    --enj-Banner-gap: #{$spacing-11};
+  }
+  &.enj-Banner-lg {
+    // border: 4px solid blue;
+    --enj-Banner-gap: #{$spacing-11};
+  }
+  &.enj-Banner-xlg {
+    // border: 4px solid green;
+    --enj-Banner-gap: #{$spacing-12};
+  }
+  &.enj-Banner-max {
+    // border: 4px solid rgb(255, 47, 227);
+    --enj-Banner-gap: #{$spacing-12};
+  }
+}
+
+@mixin BNN-large-paragraph {
+  p {
+    font-size: map-get($heading-03, 'font-size'); // Explicitly get font-size
+  }
+}
+
+@mixin BNN-isHuge-responsive-padding {
+  // Variables ...
+  --enj-Banner-padd-bot: #{$spacing-13};
+  --enj-Banner-jumbotron-padd: var(--enj-Banner-gap) 0
+    var(--enj-Banner-padd-bot) 0;
+
+  // Declarations ...
+  padding: var(--enj-Banner-jumbotron-padd);
+
+  &.enj-Banner-sm {
+    // border: 4px dashed red;
+    --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13};
+  }
+  &.enj-Banner-md {
+    // border: 4px dashed orange;
+    --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13 + $spacing-04};
+  }
+  &.enj-Banner-lg {
+    // border: 4px dashed blue;
+    @include BNN-large-paragraph;
+    --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13 + $spacing-04 +
+      $spacing-05};
+  }
+  &.enj-Banner-xlg {
+    // border: 4px dashed green;
+    @include BNN-large-paragraph;
+    --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13 + $spacing-04 +
+      $spacing-05 + $spacing-06};
+  }
+  &.enj-Banner-max {
+    // border: 4px dashed rgb(255, 47, 227);
+    @include BNN-large-paragraph;
+    --enj-Banner-padd-bot: #{$spacing-06 + $spacing-13 + $spacing-04 +
+      $spacing-05 + $spacing-06 + $spacing-06};
+  }
+}
+
+@mixin BNN-isHuge-text-cleaup {
+  .enj-FeatureText-article,
+  .enj-CMSRichText {
+    > p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
