@@ -4,17 +4,20 @@
  * A flexible and reusable header component that functions as either a compact banner or a jumbotron-style hero section.
  *
  * Features:
- * - Responsive layout using Carbon's Grid/Column
- * - Supports both plain text and rich text descriptions
- * - Toggleable jumbotron mode (`isHuge`)
- * - Displays skeleton fallback when `title` is not provided
  * - Accepts custom CSS classes via `className`
+ * - Inherits features from FeatureText component
+ * - Container-based responsiveness
+ * - Supports both plain text and rich text descriptions
+ * - Height can be increased (`isHuge`)
  *
  * Props:
  * -------
  * @param {boolean} [isHuge=false]
  *   - Enables jumbotron styling with a larger and more prominent visual appearance.
  *   - Default is `false`, rendering a standard banner.
+ *
+ * @param {FeatureText} [featuredText]
+ *   - Featured text component properties
  *
  * @param {string} [className]
  *   - Additional custom CSS classes to apply to the banner container.
@@ -52,15 +55,6 @@ const Banner = ({
           <FeatureText {...featuredText} />
         </div>
       </div>
-
-      {/* 
-        I'm not using <Grid /> because it becomes a subgrid under another <Grid /> and loses all its formatting.
-      
-        <Grid fullWidth>
-        <Column lg={8} md={6} sm={4}>
-          <FeatureText {...featuredText} />
-        </Column>
-      </Grid> */}
     </header>
   );
 };

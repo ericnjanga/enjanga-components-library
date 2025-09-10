@@ -28,6 +28,8 @@ export default meta;
 
 type Story = StoryObj<typeof Banner>;
 
+export const Default: Story = {};
+
 export const PlainTextVersion: Story = {
   render: (args) => {
     return (
