@@ -12,8 +12,7 @@ import ArrowIcon from '../../../components/ArrowIcon/ArrowIcon';
   ## Table of Contents
   <ul style={{ position: 'relative', zIndex: '10' }}>
     <li><a href="#purpose-what-is-it" target="_self">Purpose / What it is?</a></li>
-    <li><a href="#when-to-use" target="_self">When to use</a></li>
-    <li><a href="#property-validation" target="_self">Property validation</a></li>
+    <li><a href="#when-to-use" target="_self">When to use</a></li> 
     <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
     <li><a href="#features" target="_self">Features</a></li>
     <li><a href="#design-reference" target="_self">Design reference</a></li>
@@ -25,7 +24,7 @@ import ArrowIcon from '../../../components/ArrowIcon/ArrowIcon';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>Purpose / What it is?</h2>  
-  <div>(coming soon) ...</div>
+  <div>The ArrowIcon component provides a reusable wrapper for displaying directional arrow icons from the Carbon icon set. It standardizes icon size, accessibility attributes, and className handling, ensuring consistent use of arrow symbols across the application.</div>
 
   <Primary /> 
 </div>
@@ -33,26 +32,49 @@ import ArrowIcon from '../../../components/ArrowIcon/ArrowIcon';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
-  <div>(coming soon) ...</div>
-</div>
-
-
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2> 
-  <div>One of the properties "plainText" or "richText" must be provided (But cannot be both at the same time).</div>
-</div>
+  <ul>
+    <li>To indicate navigation or direction (e.g., “Read more”, “Next step”).</li> 
+    <li>When linking to another page, section, or external resource.</li> 
+    <li>To visually reinforce call-to-action buttons or links.</li>  
+  </ul>
+</div> 
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
-  <div>(coming soon) ...</div>
+  <ul>
+    <li>As a decorative element without meaning (icons should support, not replace, text).</li> 
+    <li>For complex navigation patterns — use Carbon’s Link or Button components instead.</li> 
+    <li>When another icon communicates the intent more clearly (e.g., Download, Upload, ChevronDown).</li>  
+  </ul>
 </div>
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="753" data-end="1092">
+  <li data-start="753" data-end="903">
+  <p data-start="755" data-end="779">Supports two variants:</p>
+  <ul data-start="782" data-end="903">
+  <li data-start="782" data-end="841">
+  <p data-start="784" data-end="841"><strong data-start="784" data-end="814">Right arrow (<code data-start="799" data-end="811">ArrowRight</code>)</strong> for internal navigation.</p>
+  </li>
+  <li data-start="844" data-end="903">
+  <p data-start="846" data-end="903"><strong data-start="846" data-end="881">Up-right arrow (<code data-start="864" data-end="878">ArrowUpRight</code>)</strong> for external links.</p>
+  </li>
+  </ul>
+  </li>
+  <li data-start="904" data-end="967">
+  <p data-start="906" data-end="967">Accessible: adds an <code data-start="926" data-end="938">aria-label</code> based on the <code data-start="952" data-end="959">title</code> prop.</p>
+  </li>
+  <li data-start="968" data-end="1036">
+  <p data-start="970" data-end="1036">Adjustable sizing via <code data-start="992" data-end="999">width</code> and <code data-start="1004" data-end="1012">height</code> (defaults: <code data-start="1024" data-end="1032">1.3rem</code>).</p>
+  </li>
+  <li data-start="1037" data-end="1092">
+  <p data-start="1039" data-end="1092">Accepts a <code data-start="1049" data-end="1060">className</code> prop for styling integration.</p>
+  </li>
+  </ul>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>

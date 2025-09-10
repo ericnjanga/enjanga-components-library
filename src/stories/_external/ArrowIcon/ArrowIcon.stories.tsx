@@ -23,7 +23,7 @@ export const Default: Story = {};
 export const UpRight: Story = {
   args: {
     ...argsArrowIcon,
-    orientation: 'UpRight',
     title: 'Arrow facing up and right',
+    name: 'UpRight',
   },
 };
