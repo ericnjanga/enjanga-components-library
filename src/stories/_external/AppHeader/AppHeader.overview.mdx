@@ -37,26 +37,90 @@ import AppHeader from '../../../components/AppHeader/AppHeader';
   
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="when-to-use" style={{ position: 'relative' }}>When to Use</h2> 
+  <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
   <ul>
-    <li>✅ Application frameworks - Main navigation for web apps</li> 
-    <li>✅ Multi-page sites - Consistent header across routes</li> 
-    <li>✅ Complex navigation - Supports nested menus and utilities</li> 
-    <li>❌ Simple marketing pages - Consider lighter headers for content sites</li> 
+    <li>Application frameworks - Main navigation for web apps</li> 
+    <li>Multi-page sites - Consistent header across routes</li> 
+    <li>Complex navigation - Supports nested menus and utilities</li>  
   </ul>
 </div>
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="when-not-to-use" style={{ position: 'relative' }}>When not to use</h2>
-  <div>(coming soon) ...</div>
+  <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
+  <div>AppHeader is an application-level navigation shell, not a general-purpose header.</div>
+  <ul> 
+    <li>Do not use AppHeader for simple in-page headers (e.g., section titles, page banners). Use Banner or a semantic h1 instead.</li> 
+    <li>Avoid it in micro-frontends or isolated widgets where global navigation isn’t required.</li> 
+    <li>Don’t use it if you only need a standalone navigation menu; use HeaderNavigation or SideNav directly from Carbon.</li> 
+    <li>If you need a marketing/landing page hero (visual focus, imagery, CTAs), use a Banner or custom hero component instead.</li> 
+  </ul>
 </div>
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="features" style={{ position: 'relative' }}>Features</h2>
-  <div>(coming soon) ...</div>
+  <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
+  <ul data-start="253" data-end="1135">
+    <li data-start="253" data-end="391">
+    <p data-start="255" data-end="269"><strong data-start="255" data-end="267">Branding</strong></p>
+    <ul data-start="272" data-end="391">
+    <li data-start="272" data-end="327">
+    <p data-start="274" data-end="327">Displays a brand name or logo via the <code data-start="312" data-end="319">brand</code> prop.</p>
+    </li>
+    <li data-start="330" data-end="391">
+    <p data-start="332" data-end="391">Supports linking the brand to any route via <code data-start="376" data-end="388">brandRoute</code>.</p>
+    </li>
+    </ul>
+    </li>
+    <li data-start="393" data-end="578">
+    <p data-start="395" data-end="411"><strong data-start="395" data-end="409">Navigation</strong></p>
+    <ul data-start="414" data-end="578">
+    <li data-start="414" data-end="468">
+    <p data-start="416" data-end="468">Primary navigation area via the <code data-start="448" data-end="460">navigation</code> prop.</p>
+    </li>
+    <li data-start="471" data-end="578">
+    <p data-start="473" data-end="578">Side navigation panel (<code data-start="496" data-end="505">SideNav</code>) that expands/collapses with Carbon’s built-in accessibility features.</p>
+    </li>
+    </ul>
+    </li>
+    <li data-start="580" data-end="703">
+    <p data-start="582" data-end="607"><strong data-start="582" data-end="605">Actions &amp; Utilities</strong></p>
+    <ul data-start="610" data-end="703">
+    <li data-start="610" data-end="703">
+    <p data-start="612" data-end="703"><code data-start="612" data-end="628">globalBarItems</code> prop for global actions such as profile menus, search, or notifications.</p>
+    </li>
+    </ul>
+    </li>
+    <li data-start="705" data-end="911">
+    <p data-start="707" data-end="726"><strong data-start="707" data-end="724">Accessibility</strong></p>
+    <ul data-start="729" data-end="911">
+    <li data-start="729" data-end="782">
+    <p data-start="731" data-end="782">Built-in <code data-start="740" data-end="755">SkipToContent</code> link for keyboard users.</p>
+    </li>
+    <li data-start="785" data-end="844">
+    <p data-start="787" data-end="844">ARIA labels applied to nav, side nav, and menu buttons.</p>
+    </li>
+    <li data-start="847" data-end="911">
+    <p data-start="849" data-end="911">Works with Carbon’s spacing and focus states out of the box.</p>
+    </li>
+    </ul>
+    </li>
+    <li data-start="913" data-end="1135">
+    <p data-start="915" data-end="934"><strong data-start="915" data-end="932">Extensibility</strong></p>
+    <ul data-start="937" data-end="1135">
+    <li data-start="937" data-end="1028">
+    <p data-start="939" data-end="1028">Props accept any <code data-start="956" data-end="967">ReactNode</code>, so you can pass in custom nav items, icons, or SVG logos.</p>
+    </li>
+    <li data-start="1031" data-end="1099">
+    <p data-start="1033" data-end="1099">Fully compatible with Next.js <code data-start="1063" data-end="1069">Link</code> for client-side navigation.</p>
+    </li>
+    <li data-start="1102" data-end="1135">
+    <p data-start="1104" data-end="1135">Type-safe API via TypeScript.</p>
+    </li>
+    </ul>
+    </li>
+  </ul>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
