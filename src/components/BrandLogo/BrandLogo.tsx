@@ -11,6 +11,58 @@ import clsx from 'clsx';
 import { BL_propsType } from './libs/types';
 // Styles are imported globally
 
+// ...
+const BrandLogoString = ({ style, className, value }: BL_propsType) => {
+  return (
+    <span
+      style={style}
+      className={clsx('enj-BrandLogo', 'enj-BrandLogo--text', className)}
+    >
+      {value}
+    </span>
+  );
+};
+
+// ...
+const BrandLogoComponents = ({
+  style,
+  className,
+  value,
+  alt,
+}: BL_propsType) => {
+  // Type guard to ensure value is a ReactElement
+  if (!React.isValidElement(value)) {
+    return (
+      <BrandLogoFallback style={style} className={className} value={value} />
+    );
+  }
+
+  const element = value as React.ReactElement<{
+    className?: string;
+    style?: React.CSSProperties;
+    alt?: string;
+  }>;
+
+  // Safely access props with defaults
+  const elementProps = element.props || {};
+  const elementType = element.type;
+
+  return React.cloneElement(element, {
+    className: clsx('enj-BrandLogo', elementProps.className, className),
+    style: { ...elementProps.style, ...style },
+    ...(elementType === 'img' ? { alt } : {}), // Add alt text if it's an image
+  });
+};
+
+// ...
+const BrandLogoFallback = ({ style, className, value }: BL_propsType) => {
+  return React.cloneElement(
+    <span style={style} className={clsx('enj-BrandLogo', className)}>
+      {value}
+    </span>
+  );
+};
+
 const BrandLogo = ({
   value,
   className = '',
@@ -20,37 +72,25 @@ const BrandLogo = ({
   // Handle string (text content)
   if (typeof value === 'string') {
     return (
-      <span
-        style={style}
-        className={clsx('enj-BrandLogo', 'enj-BrandLogo--text', className)}
-      >
-        {value}
-      </span>
+      <BrandLogoString className={className} style={style} value={value} />
     );
   }
 
   // Handle React elements (Components, SVG, etc ...)
   if (React.isValidElement(value)) {
-    return React.cloneElement(
-      value as React.ReactElement<{
-        // Clarifying the cloned element's props to TypeScript
-        className?: string;
-        style?: React.CSSProperties;
-        alt?: string;
-      }>,
-      {
-        className: clsx('enj-BrandLogo', value.props?.className, className),
-        style: { ...value.props?.style, ...style },
-        ...(value.type === 'img' ? { alt } : {}), // Add alt text if it's an image
-      }
+    return (
+      <BrandLogoComponents
+        className={className}
+        style={style}
+        value={value}
+        alt={alt}
+      />
     );
   }
 
   // Fallback for other cases (numbers, null, etc.)
   return (
-    <span style={style} className={clsx('enj-BrandLogo', className)}>
-      {value}
-    </span>
+    <BrandLogoFallback className={className} style={style} value={value} />
   );
 };
 

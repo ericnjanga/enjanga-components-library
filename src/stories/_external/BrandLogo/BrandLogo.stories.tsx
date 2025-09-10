@@ -27,7 +27,7 @@ const meta: Meta<typeof BrandLogo> = {
           <ClickableComponent
             onClickHandler={() => alert('clicked on component')}
             prop1="Click"
-            prop2="me ..."
+            prop2="here ..."
           />
         ),
       },
