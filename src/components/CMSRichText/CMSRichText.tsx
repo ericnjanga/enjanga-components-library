@@ -47,10 +47,20 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
     return <CMSRichTextSkeleton />;
   }
 
+  // 🔑 Build asset lookup map
+  const assetsMap: Record<
+    string,
+    { sys: { id: string }; url: string; title: string; description?: string }
+  > = {};
+
+  data.links?.assets.block.forEach((asset) => {
+    assetsMap[asset.sys.id] = asset;
+  });
+
   return (
     <article className={clsx('enj-CMSRichText', className)}>
       {data.json?.content?.map((node: Node, index: number) =>
-        renderContentfulNode(node, `node-${index}`)
+        renderContentfulNode(node, `node-${index}`, { assets: assetsMap })
       )}
     </article>
   );

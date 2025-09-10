@@ -36,8 +36,20 @@ import {
   Block,
   Inline,
 } from '@contentful/rich-text-types';
+import React from 'react';
 
-// Check if URL is external (not relative and not your domain)
+type Asset = {
+  sys: { id: string };
+  url: string;
+  title: string;
+  description?: string;
+};
+
+type RenderOptions = {
+  assets?: Record<string, Asset>;
+};
+
+// ✅ Helper: check if a link is external
 const isExternalLink = (url: string): boolean => {
   const appDomain = 'enjanga.com';
   return (
@@ -46,9 +58,13 @@ const isExternalLink = (url: string): boolean => {
   );
 };
 
+/**
+ * Recursive renderer for Contentful Rich Text
+ */
 export const renderContentfulNode = (
   node: Node,
-  key: string
+  key: string,
+  options: RenderOptions = {}
 ): JSX.Element | null => {
   switch (node.nodeType) {
     case BLOCKS.PARAGRAPH: {
@@ -56,42 +72,28 @@ export const renderContentfulNode = (
       return (
         <p key={key}>
           {paragraph.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-p-${i}`)
+            renderContentfulNode(child, `${key}-p-${i}`, options)
           )}
         </p>
       );
     }
 
-    case BLOCKS.HEADING_1: {
-      const heading = node as Block;
-      return (
-        <h1 key={key}>
-          {heading.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-h1-${i}`)
-          )}
-        </h1>
-      );
-    }
-
-    case BLOCKS.HEADING_2: {
-      const heading = node as Block;
-      return (
-        <h2 key={key}>
-          {heading.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-h2-${i}`)
-          )}
-        </h2>
-      );
-    }
-
+    case BLOCKS.HEADING_1:
+    case BLOCKS.HEADING_2:
     case BLOCKS.HEADING_3: {
+      const HeadingTag =
+        node.nodeType === BLOCKS.HEADING_1
+          ? 'h1'
+          : node.nodeType === BLOCKS.HEADING_2
+          ? 'h2'
+          : 'h3';
       const heading = node as Block;
       return (
-        <h3 key={key}>
+        <HeadingTag key={key}>
           {heading.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-h3-${i}`)
+            renderContentfulNode(child, `${key}-h-${i}`, options)
           )}
-        </h3>
+        </HeadingTag>
       );
     }
 
@@ -100,9 +102,20 @@ export const renderContentfulNode = (
       return (
         <ul key={key}>
           {list.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-ul-${i}`)
+            renderContentfulNode(child, `${key}-ul-${i}`, options)
           )}
         </ul>
+      );
+    }
+
+    case BLOCKS.OL_LIST: {
+      const list = node as Block;
+      return (
+        <ol key={key}>
+          {list.content.map((child, i) =>
+            renderContentfulNode(child, `${key}-ol-${i}`, options)
+          )}
+        </ol>
       );
     }
 
@@ -111,7 +124,7 @@ export const renderContentfulNode = (
       return (
         <li key={key}>
           {listItem.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-li-${i}`)
+            renderContentfulNode(child, `${key}-li-${i}`, options)
           )}
         </li>
       );
@@ -122,14 +135,26 @@ export const renderContentfulNode = (
       return (
         <blockquote key={key}>
           {blockquote.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-quote-${i}`)
+            renderContentfulNode(child, `${key}-quote-${i}`, options)
           )}
         </blockquote>
       );
     }
 
-    case BLOCKS.HR: {
+    case BLOCKS.HR:
       return <hr key={key} />;
+
+    case BLOCKS.EMBEDDED_ASSET: {
+      const assetId = (node.data?.target?.sys?.id as string) || '';
+      const asset = options.assets?.[assetId];
+      if (!asset) return null;
+
+      return (
+        <figure key={key}>
+          <img src={asset.url} alt={asset.description || asset.title} />
+          {asset.title && <figcaption>{asset.title}</figcaption>}
+        </figure>
+      );
     }
 
     case INLINES.HYPERLINK: {
@@ -144,7 +169,7 @@ export const renderContentfulNode = (
           rel={isExternal ? 'noopener noreferrer' : undefined}
         >
           {link.content.map((child, i) =>
-            renderContentfulNode(child, `${key}-link-${i}`)
+            renderContentfulNode(child, `${key}-link-${i}`, options)
           )}
         </a>
       );
@@ -154,7 +179,7 @@ export const renderContentfulNode = (
       const textNode = node as Text;
       let textElement: React.ReactNode = textNode.value;
 
-      // Handle line breaks (\n)
+      // Handle line breaks
       if (typeof textElement === 'string' && textElement.includes('\n')) {
         const parts = textElement.split('\n');
         textElement = parts.flatMap((part, i) =>
@@ -162,7 +187,7 @@ export const renderContentfulNode = (
         );
       }
 
-      // Apply marks
+      // Marks (bold, italic, underline)
       if (textNode.marks?.length) {
         textNode.marks.forEach((mark) => {
           switch (mark.type) {

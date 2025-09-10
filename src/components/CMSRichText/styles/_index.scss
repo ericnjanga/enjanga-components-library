@@ -1,0 +1,14 @@
+@use './../styles/utils/mixins';
+
+.enj-CMSRichText {
+  // Variables ...
+  --enj-CMSRichText-ul-pad-left: 1.4rem;
+  --enj-CMSRichText-ul-mb: 1.4rem;
+  --enj-CMSRichText-hr-gap: 1.7rem;
+
+  @include mixins.CRT_lists_styling;
+  @include mixins.CRT_paragraphs_styling;
+  @include mixins.CRT_blockquote_styling;
+  @include mixins.CRT_hr_styling;
+  @include mixins.CRT_image_styling;
+}
