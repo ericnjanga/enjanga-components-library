@@ -13,7 +13,6 @@ import FeatureText from '../../../components/FeatureText/FeatureText';
   <ul style={{ position: 'relative', zIndex: '10' }}>
     <li><a href="#purpose-what-is-it" target="_self">Purpose / What it is?</a></li>
     <li><a href="#when-to-use" target="_self">When to use</a></li>
-    <li><a href="#property-validation" target="_self">Property validation</a></li>
     <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
     <li><a href="#features" target="_self">Features</a></li>
     <li><a href="#design-reference" target="_self">Design reference</a></li>
@@ -24,8 +23,8 @@ import FeatureText from '../../../components/FeatureText/FeatureText';
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>Purpose / What it is?</h2>  
-  <div>(coming soon) ...</div>
+  <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>📌 Purpose / What it is?</h2>  
+  <div>The <code>FeatureText</code> component is used to display a heading with supporting descriptive text. It ensures both heading and body text are consistently styled, optionally trimmed to a specified length, and conditionally rendered based on visibility settings.</div>
 
   <Primary /> 
 </div>
@@ -33,26 +32,58 @@ import FeatureText from '../../../components/FeatureText/FeatureText';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
-  <div>(coming soon) ...</div>
+  <ul data-start="433" data-end="696">
+  <li data-start="433" data-end="523">
+  <p data-start="435" data-end="523">To highlight a feature or key piece of information with a title and short description.</p>
+  </li>
+  <li data-start="524" data-end="612">
+  <p data-start="526" data-end="612">When you need consistent heading and text styling across different parts of the app.</p>
+  </li>
+  <li data-start="613" data-end="696">
+  <p data-start="615" data-end="696">When text length needs to be controlled (e.g., tiles, cards, feature sections).</p>
+  </li>
+  </ul>
 </div>
 
 
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2> 
-  <div>One of the properties "plainText" or "richText" must be provided (But cannot be both at the same time).</div>
-</div>
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="731" data-end="994">
+  <li data-start="731" data-end="813">
+  <p data-start="733" data-end="813">When you only need a standalone heading → use the <code data-start="783" data-end="792">Heading</code> component instead.</p>
+  </li>
+  <li data-start="814" data-end="894">
+  <p data-start="816" data-end="894">When you need long-form text or complex layouts → use <code data-start="870" data-end="883">CMSRichText</code> instead.</p>
+  </li>
+  <li data-start="895" data-end="994">
+  <p data-start="897" data-end="994">When trimming content would negatively impact meaning (e.g., accessibility labels, legal text).</p>
+  </li>
+  </ul>
 </div>
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="1022" data-end="1414">
+  <li data-start="1022" data-end="1083">
+  <p data-start="1024" data-end="1083">Renders a <strong data-start="1034" data-end="1045">heading</strong> (configurable level and className).</p>
+  </li>
+  <li data-start="1084" data-end="1148">
+  <p data-start="1086" data-end="1148">Renders <strong data-start="1094" data-end="1113">supporting text</strong> using the <code data-start="1124" data-end="1135">SmartText</code> component.</p>
+  </li>
+  <li data-start="1149" data-end="1225">
+  <p data-start="1151" data-end="1225">Supports <strong data-start="1160" data-end="1185">conditional rendering</strong> of heading or text (<code data-start="1206" data-end="1216">isHidden</code> prop).</p>
+  </li>
+  <li data-start="1226" data-end="1332">
+  <p data-start="1228" data-end="1332">Automatically <strong data-start="1242" data-end="1256">trims text</strong> to a specified maximum length (<code data-start="1288" data-end="1306">headingMaxLength</code>, <code data-start="1308" data-end="1328">plainTextMaxLength</code>).</p>
+  </li>
+  <li data-start="1333" data-end="1414">
+  <p data-start="1335" data-end="1414">Ensures consistent typography and semantic HTML (<code data-start="1384" data-end="1390">&lt;h1&gt;</code>–<code data-start="1391" data-end="1397">&lt;h6&gt;</code>, <code data-start="1399" data-end="1410">&lt;article&gt;</code>).</p>
+  </li>
+  </ul>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
