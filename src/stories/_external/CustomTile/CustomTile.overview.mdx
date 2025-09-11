@@ -15,6 +15,7 @@ import CustomTile from '../../../components/CustomTile/CustomTile';
     <li><a href="#when-to-use" target="_self">When to use</a></li>
     <li><a href="#property-validation" target="_self">Property validation</a></li>
     <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
+    <li><a href="#property-validation" target="_self">Property validation</a></li>
     <li><a href="#features" target="_self">Features</a></li>
     <li><a href="#design-reference" target="_self">Design reference</a></li>
     <li><a href="#accessibility" target="_self">Accessibility Notes</a></li>
@@ -24,17 +25,18 @@ import CustomTile from '../../../components/CustomTile/CustomTile';
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="overview" style={{ position: 'relative' }}>Overview </h2>
-  <div>Presentational component ment for presenting a type of information that must be acted on. By clicking on it, the user</div>
-  <ul>
-    <li>Redirected to a different application route</li>
-    <li>Opens up an external link</li>
-    <li>Opens up a modal</li>
-  </ul>
-  <div>The CustomTile component can take 2 shapes:</div>
-  <ul>
-    <li><b>Vertical</b>: With the content staked vertically --- The component has maximum width.</li>
-    <li><b>Hotizontal</b>: With the content staked horiontally --- No maximum width in this case.</li>
+  <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>Purpose / What it is?</h2>
+  <p data-start="287" data-end="450">The <strong data-start="291" data-end="305">CustomTile</strong> component is a flexible, reusable content block that displays a <strong data-start="370" data-end="432">title, media (image/pictogram), and optional interactivity</strong>. It can act as:</p>
+  <ul data-start="451" data-end="644">
+  <li data-start="451" data-end="514">
+  <p data-start="453" data-end="514">A <strong data-start="455" data-end="476">navigational card</strong> (linking internally or externally).</p>
+  </li>
+  <li data-start="515" data-end="583">
+  <p data-start="517" data-end="583">An <strong data-start="520" data-end="540">interactive tile</strong> that opens a modal for detailed content.</p>
+  </li>
+  <li data-start="584" data-end="644">
+  <p data-start="586" data-end="644">A <strong data-start="588" data-end="603">visual tile</strong> for highlighting featured information.</p>
+  </li>
   </ul>
 
 
@@ -45,42 +47,139 @@ import CustomTile from '../../../components/CustomTile/CustomTile';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
-  <div>(coming soon) ...</div>
-</div>
-  
-
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2> 
-  <h3>Property Validation 1</h3>
-  <div>CustomTile must be either (But cannot be both at the same time):</div>
-  <ul>
-    <li>A link (provide 'linksTo' and optionally 'linkTarget')</li>
-    <li>A modal trigger (provide 'showsModal')</li>
-  </ul>
-
-  <h3>Property Validation 2</h3>
-  <div>Only one property for the modal's main content can be provided at the time:</div>
-  <ul>
-    <li>Either plainDescription (string)</li>
-    <li>Or richDescription (rich text)</li>
+  <p data-start="729" data-end="767">Use <strong data-start="733" data-end="747">CustomTile</strong> when you need to:</p>
+  <ul data-start="768" data-end="1085">
+  <li data-start="768" data-end="856">
+  <p data-start="770" data-end="856">Present <strong data-start="778" data-end="808">clickable content previews</strong>, like blog posts, resources, or case studies.</p>
+  </li>
+  <li data-start="857" data-end="930">
+  <p data-start="859" data-end="930">Highlight <strong data-start="869" data-end="893">features or services</strong> with an icon, image, or pictogram.</p>
+  </li>
+  <li data-start="931" data-end="1014">
+  <p data-start="933" data-end="1014">Provide <strong data-start="941" data-end="963">expandable details</strong> inside a modal without leaving the current page.</p>
+  </li>
+  <li data-start="1015" data-end="1085">
+  <p data-start="1017" data-end="1085">Create <strong data-start="1024" data-end="1056">consistent card-like layouts</strong> across different sections.</p>
+  </li>
   </ul>
 </div>
-
-
-
-
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
-  <div>(coming soon) ...</div>
+  <p data-start="1114" data-end="1148">Avoid using <strong data-start="1126" data-end="1140">CustomTile</strong> when:</p>
+  <ul data-start="1149" data-end="1503">
+  <li data-start="1149" data-end="1210">
+  <p data-start="1151" data-end="1210">You just need a <strong data-start="1167" data-end="1184">simple button</strong> (use <code data-start="1190" data-end="1198">Button</code> instead).</p>
+  </li>
+  <li data-start="1211" data-end="1287">
+  <p data-start="1213" data-end="1287">The content belongs in a <strong data-start="1238" data-end="1252">list/table</strong> rather than a card-based layout.</p>
+  </li>
+  <li data-start="1288" data-end="1399">
+  <p data-start="1290" data-end="1399">You don’t need <strong data-start="1305" data-end="1347">interactivity, links, or modal support</strong> — a plain <code data-start="1358" data-end="1364">Tile</code> or <code data-start="1368" data-end="1376">Banner</code> may be a better fit.</p>
+  </li>
+  <li data-start="1400" data-end="1503">
+  <p data-start="1402" data-end="1503">You want <strong data-start="1411" data-end="1442">form inputs or user actions</strong> inside; this component is for display and navigation only.</p>
+  </li>
+  </ul>
 </div>
+  
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2> 
+
+  <div>
+    <div>
+    <strong data-start="434" data-end="472">Rule 1: Tile mode (Link vs. Modal)</strong>
+    </div>
+    
+    <div>
+    A <code data-start="477" data-end="489">CustomTile</code> must be either:
+    </div>
+  </div>
+
+
+  <ul data-start="508" data-end="636" style={{ marginTop: '-0.8rem', marginBottom: '-0.8rem' }}>
+  <li data-start="508" data-end="578">
+  <p data-start="510" data-end="578"><strong data-start="510" data-end="525">A link tile</strong> → Provide <code data-start="536" data-end="545">linksTo</code> (and optionally <code data-start="562" data-end="574">linkTarget</code>).</p>
+  </li>
+  <li data-start="579" data-end="636">
+  <p data-start="581" data-end="636"><strong data-start="581" data-end="597">A modal tile</strong> → Provide <code data-start="608" data-end="633">modalIsAvailable={true}</code>.</p>
+  </li>
+  </ul>
+
+
+  <div style={{ marginBottom: '30px' }}>
+   🚫 <strong data-start="641" data-end="672">Never both at the same time</strong> — a <code data-start="677" data-end="689">CustomTile</code> cannot act as a link and modal trigger simultaneously. 
+  </div>
+ 
+
+
+
+  <div>
+    <div>
+      <strong data-start="753" data-end="783">Rule 2: Modal content type</strong>
+      </div>
+  When <code data-start="791" data-end="816">modalIsAvailable={true}</code>, you must provide <strong data-start="835" data-end="850">exactly one</strong> type of modal description: 
+  </div>
+
+
+  <ul data-start="880" data-end="959" style={{ marginTop: '-0.8rem', marginBottom: '-0.8rem' }}>
+  <li data-start="880" data-end="918">
+  <p data-start="882" data-end="918"><code data-start="882" data-end="905">modalPlainDescription</code> <em data-start="906" data-end="916">(string)</em></p>
+  </li>
+  <li data-start="919" data-end="959">
+  <p data-start="921" data-end="959"><code data-start="921" data-end="943">modalRichDescription</code> <em data-start="944" data-end="957">(rich text)</em></p>
+  </li>
+  </ul>
+
+  <p data-start="961" data-end="1042">🚫 <strong data-start="964" data-end="986">Never provide both</strong> — only one description prop should be used at a time.</p>
+
+
+</div>
+
+
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="1525" data-end="2071">
+  <li data-start="1525" data-end="1599">
+  <p data-start="1527" data-end="1599"><strong data-start="1527" data-end="1544">Layout styles</strong>: Supports multiple layouts (<code data-start="1573" data-end="1579">card</code>, <code data-start="1581" data-end="1589">banner</code>, etc.).</p>
+  </li>
+  <li data-start="1600" data-end="1679">
+  <p data-start="1602" data-end="1679"><strong data-start="1602" data-end="1619">Media support</strong>: Displays <strong data-start="1630" data-end="1639">image</strong> or <strong data-start="1643" data-end="1656">pictogram</strong>, depending on props.</p>
+  </li>
+  <li data-start="1680" data-end="1802">
+  <p data-start="1682" data-end="1708"><strong data-start="1682" data-end="1705">Interactive options</strong>:</p>
+  <ul data-start="1711" data-end="1802">
+  <li data-start="1711" data-end="1754">
+  <p data-start="1713" data-end="1754">Link to internal/external destinations.</p>
+  </li>
+  <li data-start="1757" data-end="1802">
+  <p data-start="1759" data-end="1802">Open a <strong data-start="1766" data-end="1775">modal</strong> with plain or rich text.</p>
+  </li>
+  </ul>
+  </li>
+  <li data-start="1803" data-end="1864">
+  <p data-start="1805" data-end="1864"><strong data-start="1805" data-end="1830">Responsive by default</strong> using container size detection.</p>
+  </li>
+  <li data-start="1865" data-end="1973">
+  <p data-start="1867" data-end="1884"><strong data-start="1867" data-end="1881">Accessible</strong>:</p>
+  <ul data-start="1887" data-end="1973">
+  <li data-start="1887" data-end="1911">
+  <p data-start="1889" data-end="1911">ARIA labels applied.</p>
+  </li>
+  <li data-start="1914" data-end="1973">
+  <p data-start="1916" data-end="1973">Clickable wrapper behaves as expected for links/modals.</p>
+  </li>
+  </ul>
+  </li>
+  <li data-start="1974" data-end="2071">
+  <p data-start="1976" data-end="2071"><strong data-start="1976" data-end="1991">Smart icons</strong>: Displays directional arrows for links or contextual icons for modal actions.</p>
+  </li>
+  </ul>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>

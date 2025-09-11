@@ -77,24 +77,6 @@ export const Cards: Story = {
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <nav>
-            <h3>Summary</h3>
-            <p>TODO: Fix this in-page navigation.</p>
-            <ol>
-              <li>
-                <a href="#specificities">Specificities</a>
-              </li>
-              <li>
-                <a href="#compositions">Compositions</a>
-              </li>
-              <li>
-                <a href="#specificities-with-rich-text">
-                  Specificities with rich text
-                </a>
-              </li>
-            </ol>
-          </nav>
-
           <section id="specificities">
             <h1 style={{ marginTop: '2.5rem' }}>Specificities</h1>
 
@@ -252,24 +234,6 @@ export const Banners: Story = {
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <nav>
-            <h3>Summary</h3>
-            <p>TODO: Fix this in-page navigation.</p>
-            <ol>
-              <li>
-                <a href="#specificities">Specificities</a>
-              </li>
-              <li>
-                <a href="#compositions">Compositions</a>
-              </li>
-              <li>
-                <a href="#specificities-with-rich-text">
-                  Specificities with rich text
-                </a>
-              </li>
-            </ol>
-          </nav>
-
           <section id="specificities">
             <h1 style={{ marginTop: '2.5rem' }}>Specificities</h1>
 
@@ -892,24 +856,6 @@ export const EmptyCards: Story = {
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          {/* <nav>
-            <h3>Summary</h3>
-            <p>TODO: Fix this in-page navigation.</p>
-            <ol>
-              <li>
-                <a href="#specificities">Specificities</a>
-              </li>
-              <li>
-                <a href="#compositions">Compositions</a>
-              </li>
-              <li>
-                <a href="#specificities-with-rich-text">
-                  Specificities with rich text
-                </a>
-              </li>
-            </ol>
-          </nav> */}
-
           <header style={{ marginBottom: '2.5rem' }}>
             <h1 style={{ color: 'blue' }}>
               What happens if the expected props aren't there yet?
@@ -1101,24 +1047,6 @@ export const EmptyBanners: Story = {
     return (
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: '1.5rem' }}>
-          <nav>
-            <h3>Summary</h3>
-            <p>TODO: Fix this in-page navigation.</p>
-            <ol>
-              <li>
-                <a href="#specificities">Specificities</a>
-              </li>
-              <li>
-                <a href="#compositions">Compositions</a>
-              </li>
-              <li>
-                <a href="#specificities-with-rich-text">
-                  Specificities with rich text
-                </a>
-              </li>
-            </ol>
-          </nav>
-
           <section id="specificities">
             <h1 style={{ marginTop: '2.5rem' }}>Specificities</h1>
 
