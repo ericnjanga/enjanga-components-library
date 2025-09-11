@@ -61,51 +61,6 @@ const ContactButton = ({
         modalPrimaryButtonText={modalPrimaryButtonText}
         modalSecondaryButtonText={modalSecondaryButtonText}
       />
-      {/* 
-      <Modal
-        open={isOpen}
-        modalLabel={modalLabel}
-        modalHeading={modalHeading}
-        primaryButtonText={modalPrimaryButtonText}
-        secondaryButtonText={modalSecondaryButtonText}
-        onRequestClose={() => setIsOpen(false)}
-        onRequestSubmit={() => {
-          console.log('Form submitted');
-          setIsOpen(false);
-        }}
-      >
-        <p style={{ marginBottom: '1rem' }}>{modalSubHeading}</p>
-        <Form>
-          <Stack gap={5}>
-            <FormGroup legendText="">
-              <TextInput
-                id="name"
-                labelText="Name"
-                placeholder="Enter your name"
-                required
-              />
-            </FormGroup>
-            <FormGroup legendText="">
-              <TextInput
-                id="email"
-                labelText="Email"
-                placeholder="Enter your email"
-                required
-                type="email"
-              />
-            </FormGroup>
-            <FormGroup legendText="">
-              <TextArea
-                id="message"
-                labelText="Message"
-                placeholder="Enter your message"
-                required
-                rows={4}
-              />
-            </FormGroup>
-          </Stack>
-        </Form>
-      </Modal> */}
     </>
   );
 };
