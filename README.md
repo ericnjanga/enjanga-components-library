@@ -1,6 +1,6 @@
 # Eric Njanga Portfolio – Component Library
 
-This is a [React component library](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2) built for Eric Njanga’s portfolio. The library is designed for **consumption only** — JavaScript and CSS files are minified and optimized for external use.
+This is a [React component library](https://6856ac512f4faa67a7d9c5c2-ijmvkylkad.chromatic.com/) built for Eric Njanga’s portfolio. The library is designed for **consumption only** — JavaScript and CSS files are minified and optimized for external use.
 
 > ⚠️ **Important:** This library depends on the [IBM Carbon Design System](https://carbondesignsystem.com/). It leverages Carbon’s components, patterns, and styles. To function correctly, **Carbon must be installed and configured** in the consuming project.
 
