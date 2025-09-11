@@ -1,8 +1,7 @@
 /**
  * Contact Modal:
  * ----------------
- * This modal contains a contact form
- * NOTE: This component IS NOT exported (Because the consumer app doesn't need to use it directly)
+ * The ContactModal is a modal dialog that provides users with a quick way to submit their name, email, and a message. It combines the Carbon Design System’s Modal, Form, TextInput, and TextArea components into a prebuilt contact form.
  */
 
 import {
