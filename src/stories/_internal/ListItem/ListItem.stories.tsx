@@ -13,17 +13,17 @@ const meta: Meta<typeof ListItem> = {
     ...classNameStoryArgType,
     href: {
       control: 'text',
-      description: '###',
+      description: '(coming soon)',
     },
     children: {
       control: 'object',
-      description: '###',
+      description: '(coming soon)',
     },
   },
   parameters: {
     docs: {
       description: {
-        component: '###',
+        component: '(coming soon)',
       },
     },
   },

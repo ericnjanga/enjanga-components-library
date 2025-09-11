@@ -1,8 +1,7 @@
 /**
  * List Item:
  * --------------
- * Note: In the case where the list of items grows in complexity (e.g., icons, nested elements)
- * - Allows to pass children down
+ * The ListItem component represents a single item within a list. It can display text, links, or custom child elements. It ensures consistent styling and provides a skeleton loader when content is not available.
  */
 import clsx from 'clsx';
 import { LIT_propsType } from './libs/types';
