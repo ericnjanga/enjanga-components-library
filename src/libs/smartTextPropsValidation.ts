@@ -16,8 +16,3 @@ export function smartTextPropsValidation({
     );
   }
 }
-
-// type FTX_propsType =
-//   | { plainText: string; richText?: never }
-//   | { richText: { json: { content: Node[] } }; plainText?: never }
-//   | { plainText?: never; richText?: never }; // Optional empty state

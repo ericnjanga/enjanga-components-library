@@ -1,6 +1,5 @@
 import { HDG_propsType } from './libs/types';
 import { SkeletonAnimation } from '../SkeletonAnimation';
-import { className_propsType } from '@/libs/commonTypes';
 
 const Heading = ({ level = 1, children, className = '' }: HDG_propsType) => {
   if (children === undefined) {

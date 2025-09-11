@@ -24,7 +24,7 @@ import SkeletonAnimation from '../../../components/SkeletonAnimation/SkeletonAni
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>📌 Purpose / What it is?</h2>  
-  <div>(coming soon) ...</div>
+  <p>The <code>SkeletonAnimation</code> component provides a visual placeholder while content is loading. It mimics the shape and structure of text or list elements using animated skeleton blocks, giving users a sense of layout before real data is available.</p>
 
   <Primary /> 
 </div>
@@ -32,20 +32,67 @@ import SkeletonAnimation from '../../../components/SkeletonAnimation/SkeletonAni
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
-  <div>(coming soon) ...</div>
+  <ul data-start="451" data-end="757">
+  <li data-start="451" data-end="567">
+  <p data-start="453" data-end="567">When content is being fetched from an API (e.g., Contentful, REST, GraphQL) and you want to avoid layout shifts.</p>
+  </li>
+  <li data-start="568" data-end="650">
+  <p data-start="570" data-end="650">To indicate loading states for <strong data-start="601" data-end="613">headings</strong>, <strong data-start="615" data-end="628">body text</strong>, or <strong data-start="633" data-end="647">list items</strong>.</p>
+  </li>
+  <li data-start="651" data-end="757">
+  <p data-start="653" data-end="757">When you want to provide a smoother perceived performance by showing placeholders instead of spinners.</p>
+  </li>
+  </ul>
 </div>
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="788" data-end="1083">
+  <li data-start="788" data-end="887">
+  <p data-start="790" data-end="887">If loading times are very short (milliseconds) — in such cases a skeleton may feel unnecessary.</p>
+  </li>
+  <li data-start="888" data-end="976">
+  <p data-start="890" data-end="976">For non-visual content (like background tasks) where the user doesn’t need feedback.</p>
+  </li>
+  <li data-start="977" data-end="1083">
+  <p data-start="979" data-end="1083">When exact element dimensions are unknown (as skeletons are designed to mimic expected content sizes).</p>
+  </li>
+  </ul>
 </div>
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="1107" data-end="1637">
+  <li data-start="1107" data-end="1382">
+  <p data-start="1109" data-end="1158">Supports multiple variants via the <code data-start="1144" data-end="1150">part</code> prop:</p>
+  <ul data-start="1161" data-end="1382">
+  <li data-start="1161" data-end="1214">
+  <p data-start="1163" data-end="1214"><code data-start="1163" data-end="1172">heading</code> → renders a skeleton title placeholder.</p>
+  </li>
+  <li data-start="1217" data-end="1270">
+  <p data-start="1219" data-end="1270"><code data-start="1219" data-end="1225">body</code> → renders multiple lines of skeleton text.</p>
+  </li>
+  <li data-start="1273" data-end="1325">
+  <p data-start="1275" data-end="1325"><code data-start="1275" data-end="1281">list</code> → renders a group of skeleton list items.</p>
+  </li>
+  <li data-start="1328" data-end="1382">
+  <p data-start="1330" data-end="1382"><code data-start="1330" data-end="1341">list-item</code> → renders a single skeleton list item.</p>
+  </li>
+  </ul>
+  </li>
+  <li data-start="1383" data-end="1464">
+  <p data-start="1385" data-end="1464">Lightweight and reusable with configurable <code data-start="1428" data-end="1439">className</code> for styling overrides.</p>
+  </li>
+  <li data-start="1465" data-end="1560">
+  <p data-start="1467" data-end="1560">Built with <strong data-start="1478" data-end="1503">accessibility in mind</strong> (can be paired with <code data-start="1524" data-end="1535">aria-busy</code> on parent containers).</p>
+  </li>
+  <li data-start="1561" data-end="1637">
+  <p data-start="1563" data-end="1637">Works well across different layouts by preserving spacing and structure.</p>
+  </li>
+  </ul>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>

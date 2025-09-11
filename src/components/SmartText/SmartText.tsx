@@ -22,19 +22,4 @@ const SmartText = ({ className, plainText, richText }: SMT_propsType) => {
   );
 };
 
-// /**
-//  * TODO: Move this as a separate component/story/test...
-//  */
-// const PlainText = ({ plainText } : { plainText: string }) => {
-//   return (
-//     <>
-//     {plainText ? (
-//        <>{plainText}</>
-//     ) : (
-//       <SkeletonAnimation part='body' />
-//     )}
-//     </>
-//   );
-// };
-
 export default SmartText;

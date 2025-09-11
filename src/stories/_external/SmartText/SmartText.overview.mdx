@@ -25,7 +25,9 @@ import SmartText from '../../../components/SmartText/SmartText';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>📌 Purpose / What it is?</h2>  
-  <div>(coming soon) ...</div>
+  <div>The <code>SmartText</code> component is a lightweight wrapper for rendering text content. It intelligently decides whether to display plain text (<code>&lt;p&gt;</code>) or render structured Contentful rich text via the <code>CMSRichText</code> component.</div>
+  <div>It ensures consistent text rendering across the design system while supporting both simple and complex text inputs.</div>
+
 
   <Primary /> 
 </div>
@@ -33,24 +35,76 @@ import SmartText from '../../../components/SmartText/SmartText';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
-  <div>(coming soon) ...</div>
+  <ul data-start="596" data-end="906">
+  <li data-start="596" data-end="676">
+  <p data-start="598" data-end="676">When text content may be provided as either <strong data-start="642" data-end="656">plain text</strong> or <strong data-start="660" data-end="673">rich text</strong>.</p>
+  </li>
+  <li data-start="677" data-end="755">
+  <p data-start="679" data-end="755">For fields in Contentful or APIs that could return different text formats.</p>
+  </li>
+  <li data-start="756" data-end="824">
+  <p data-start="758" data-end="824">To handle fallback cases where rich text might not be available.</p>
+  </li>
+  <li data-start="825" data-end="906">
+  <p data-start="827" data-end="906">When you want a consistent UI layer that abstracts away formatting decisions.</p>
+  </li>
+  </ul>
 </div>
   
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2> 
-  <h3>Property Validation 1</h3>
-  <div>One of the properties "plainText" or "richText" must be provided (But cannot be both at the same time).</div>
-  
-  <h3>Property Validation 2</h3>
-  <div>Properties "plainText" and "richText" cannot be both undefined.</div>
+  <div>The <code>SmartText</code> component accepts <strong>either</strong> a <code>plainText</code> prop or a <code>richText</code> prop, but <strong>never both at the same time</strong>.</div>
+
+  <ul data-start="440" data-end="678">
+  <li data-start="440" data-end="571">
+  <p data-start="442" data-end="462">✅ <strong data-start="444" data-end="459">Valid cases</strong>:</p>
+  <ul data-start="465" data-end="571">
+  <li data-start="465" data-end="515">
+  <p data-start="467" data-end="515">Pass only <code data-start="477" data-end="488">plainText</code> (simple string of text).</p>
+  </li>
+  <li data-start="518" data-end="571">
+  <p data-start="520" data-end="571">Pass only <code data-start="530" data-end="540">richText</code> (Contentful Rich Text JSON).</p>
+  </li>
+  </ul>
+  </li>
+  <li data-start="573" data-end="678">
+  <p data-start="575" data-end="596">❌ <strong data-start="577" data-end="593">Invalid case</strong>:</p>
+  <ul data-start="599" data-end="678">
+  <li data-start="599" data-end="678">
+  <p data-start="601" data-end="678">Passing both <code data-start="614" data-end="625">plainText</code> and <code data-start="630" data-end="640">richText</code> at once will throw a runtime error.</p>
+  </li>
+  </ul>
+  </li>
+  </ul>
+
+  <div>This validation is enforced by the helper function <code>smartTextPropsValidation()</code>, which checks the props on render and throws a descriptive error if the rule is violated.</div>
+
+  <div>If neither prop is provided, the component gracefully falls back to displaying a <strong>skeleton animation placeholder</strong>, ensuring the layout remains consistent.</div>
+
 </div>
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="1309" data-end="1836">
+  <li data-start="1309" data-end="1419">
+  <p data-start="1311" data-end="1419">✅ <strong data-start="1313" data-end="1337">Automatic validation</strong> — prevents improper usage by ensuring only <code data-start="1381" data-end="1392">plainText</code> or <code data-start="1396" data-end="1406">richText</code> is passed.</p>
+  </li>
+  <li data-start="1420" data-end="1514">
+  <p data-start="1422" data-end="1514">✅ <strong data-start="1424" data-end="1450">Skeleton loading state</strong> — renders a <code data-start="1463" data-end="1482">SkeletonAnimation</code> when no content is available.</p>
+  </li>
+  <li data-start="1515" data-end="1608">
+  <p data-start="1517" data-end="1608">✅ <strong data-start="1519" data-end="1537">Fallback logic</strong> — chooses between plain text and Contentful rich text automatically.</p>
+  </li>
+  <li data-start="1609" data-end="1737">
+  <p data-start="1611" data-end="1737">✅ <strong data-start="1613" data-end="1634">Consistent markup</strong> — outputs semantic HTML (<code data-start="1660" data-end="1665">&lt;p&gt;</code>, rich text blocks) that integrates well with accessibility standards.</p>
+  </li>
+  <li data-start="1738" data-end="1836">
+  <p data-start="1740" data-end="1836">✅ <strong data-start="1742" data-end="1756">Composable</strong> — can be embedded inside other components without worrying about text source.</p>
+  </li>
+  </ul>
 </div>
 
 
