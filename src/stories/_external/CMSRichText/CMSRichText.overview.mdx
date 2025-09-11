@@ -24,26 +24,68 @@ import CMSRichText from '../../../components/CMSRichText/CMSRichText';
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>Purpose / What it is?</h2>  
-  <div>A presentational React component that renders Contentful Rich Text JSON content into HTML elements.</div>
+  <div>The <code>CMSRichText</code> component renders structured rich text content from Contentful into React. It supports headings, paragraphs, lists, quotes, inline links, and embedded media such as images. It ensures that rich text stored in Contentful is displayed consistently within the design system.</div>
 </div>
   
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
-  <div>(coming soon) ...</div>
+  <ul data-start="612" data-end="915">
+  <li data-start="612" data-end="741">
+  <p data-start="614" data-end="741">When you need to display rich text fields coming from Contentful (e.g., blog posts, project descriptions, marketing content).</p>
+  </li>
+  <li data-start="742" data-end="819">
+  <p data-start="744" data-end="819">When your content editors embed images or links inside a rich text field.</p>
+  </li>
+  <li data-start="820" data-end="915">
+  <p data-start="822" data-end="915">When you want structured content instead of plain text (headings, paragraphs, lists, etc.).</p>
+  </li>
+  </ul>
 </div>
 
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="951" data-end="1304">
+  <li data-start="951" data-end="1095">
+  <p data-start="953" data-end="1095">Do not use for static, developer-authored content (e.g., a hard-coded heading or button). Use semantic HTML or dedicated components instead.</p>
+  </li>
+  <li data-start="1096" data-end="1195">
+  <p data-start="1098" data-end="1195">Do not use if your data source is <strong data-start="1132" data-end="1165">not Contentful rich text JSON</strong> (e.g., Markdown, raw HTML).</p>
+  </li>
+  <li data-start="1196" data-end="1304">
+  <p data-start="1198" data-end="1304">Avoid for highly interactive layouts — this component is intended for content rendering, not UI widgets.</p>
+  </li>
+  </ul>
 </div>
 
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
-  <div>(coming soon) ...</div>
+  <ul data-start="1333" data-end="1972">
+  <li data-start="1333" data-end="1476">
+  <p data-start="1335" data-end="1476">✅ Renders standard Contentful rich text nodes: paragraphs, headings (H1–H3), lists (ordered/unordered), block quotes, and horizontal rules.</p>
+  </li>
+  <li data-start="1477" data-end="1618">
+  <p data-start="1479" data-end="1618">✅ Handles inline elements such as hyperlinks with automatic external link detection (<code data-start="1564" data-end="1581">target="_blank"</code> with <code data-start="1587" data-end="1614">rel="noopener noreferrer"</code>).</p>
+  </li>
+  <li data-start="1619" data-end="1676">
+  <p data-start="1621" data-end="1676">✅ Supports text formatting (bold, italic, underline).</p>
+  </li>
+  <li data-start="1677" data-end="1747">
+  <p data-start="1679" data-end="1747">✅ Renders embedded image assets when included in rich text fields.</p>
+  </li>
+  <li data-start="1748" data-end="1833">
+  <p data-start="1750" data-end="1833">✅ Provides a skeleton loader (<code data-start="1780" data-end="1801">CMSRichTextSkeleton</code>) while data is being fetched.</p>
+  </li>
+  <li data-start="1834" data-end="1892">
+  <p data-start="1836" data-end="1892">✅ Customizable with <code data-start="1856" data-end="1867">className</code> for styling overrides.</p>
+  </li>
+  <li data-start="1893" data-end="1972">
+  <p data-start="1895" data-end="1972">✅ Safe rendering: ignores unsupported nodes gracefully instead of breaking.</p>
+  </li>
+  </ul>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
