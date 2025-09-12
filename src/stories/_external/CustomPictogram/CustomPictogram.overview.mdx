@@ -16,7 +16,7 @@ import CustomPictogram from '../../../components/CustomPictogram/CustomPictogram
     <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
     <li><a href="#features" target="_self">Features</a></li>
     <li><a href="#design-reference" target="_self">Design reference</a></li>
-    <li><a href="#accessibility" target="_self">Accessibility Notes</a></li>
+    <li><a href="#accessibility" target="_self">Accessibility (A11y)</a></li>
     <li><a href="#api-reference" target="_self">API Reference</a></li>
   </ul> 
 </div>
@@ -90,8 +90,9 @@ import CustomPictogram from '../../../components/CustomPictogram/CustomPictogram
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility Notes</h2>
-  <div>(coming soon) ...</div>
+  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility (A11y)</h2>
+  <p class="ds-markdown-paragraph"><span>This component is built with accessibility in mind. The </span><code>aria-label</code><span> dynamically uses the </span><code>name</code><span> prop to provide a contextual description for assistive technologies (e.g., </span><code>aria-label="user pictogram"</code><span>). This is crucial for users who rely on screen readers to understand the icon's purpose.</span></p>
+  <p class="ds-markdown-paragraph"><span>Conversely, the </span><code>aria-hidden="true"</code><span> attribute is applied by default. This is because a pictogram is often decorative or redundant to adjacent text. Use this default state when the icon doesn't convey unique information. If the icon </span><em><span>is</span></em><span> the sole content of an interactive element (like a button), you should manage the accessible name on the parent element and potentially remove </span><code>aria-hidden</code><span>.</span></p>
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>

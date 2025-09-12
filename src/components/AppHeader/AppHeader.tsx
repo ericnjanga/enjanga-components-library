@@ -19,10 +19,10 @@ import {
   HeaderName,
   HeaderNavigation,
   HeaderMenuButton,
-  HeaderGlobalBar,
   SkipToContent,
   SideNav,
-  SideNavItems,
+  // HeaderGlobalBar,
+  // SideNavItems,
   HeaderSideNavItems,
 } from '@carbon/react';
 

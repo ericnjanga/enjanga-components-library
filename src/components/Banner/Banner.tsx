@@ -32,32 +32,30 @@ import { useContainerSize } from '@/libs/useContainerSize';
 const Banner = ({
   className,
   featuredText,
-  isHuge = false, // Small banner by default
-  role = 'banner', // ✅ default to banner, can be overridden
+  isHuge = false,
+  role = 'banner', // ✅ default to banner
 }: BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
     'enj-Banner--isHuge': isHuge,
   });
 
-  // [*] Activate container size responsiveness
-  // ----------------------------
-  const {
-    containerRef, // Reference to component wrapper
-    activeBreakpoint, // Closest possible breakpoint to wrapper's width
-  } = useContainerSize();
+  const { containerRef, activeBreakpoint } = useContainerSize();
+
+  // Determine the correct HTML element based on the role
+  const Tag = role === 'banner' ? 'header' : 'div';
 
   return (
-    <header
+    <Tag // ✅ Now uses <header> for banner, <div> for presentation
       className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
       ref={containerRef}
-      role={role} // ✅ explicit + overridable
+      role={role} // role is still explicitly set for clarity and for cases where Tag is 'div'
     >
       <div className="cds--css-grid">
         <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-8 cds--css-grid-column">
           <FeatureText {...featuredText} />
         </div>
       </div>
-    </header>
+    </Tag>
   );
 };
 

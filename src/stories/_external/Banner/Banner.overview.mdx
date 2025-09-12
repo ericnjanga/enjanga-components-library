@@ -16,7 +16,7 @@ import Banner from '../../../components/Banner/Banner';
     <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
     <li><a href="#features" target="_self">Features</a></li>
     <li><a href="#design-reference" target="_self">Design reference</a></li>
-    <li><a href="#accessibility" target="_self">Accessibility Notes</a></li>
+    <li><a href="#accessibility" target="_self">Accessibility (A11y)</a></li>
     <li><a href="#api-reference" target="_self">API Reference</a></li>
   </ul> 
 </div>
@@ -90,8 +90,15 @@ import Banner from '../../../components/Banner/Banner';
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility Notes</h2>
-  <div>(coming soon) ...</div>
+  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility (A11y)</h2>
+  <div>The Banner component is built with accessibility in mind. Here are the key considerations:</div>
+
+  - **Implicit Landmark:** By default, the component renders a `<header>` element with `role="banner"`. This creates a primary landmark region, which screen readers use for navigation. A page should have only one `banner` landmark.
+  - **Role Override:** The `role` prop is exposed, allowing you to change it to `role="presentation"` if this banner is not the main page header or if it appears multiple times on a page. **Important:** Only do this if the content is purely presentational and not a primary landmark.
+  - **Semantic Structure:** The content inside the banner (provided via the `FeatureText` component) should use proper heading hierarchy (e.g., `h2`, `h3`). The banner should typically contain a heading (`h1`-`h6`) to label the landmark for screen reader users.
+  - **Keyboard Navigation & Focus:** Since this is a static content section, no internal interactive elements (like buttons or links) are shown in your example. If interactive elements are added via the `featuredText` or children in the future, ensure they are keyboard accessible and have visible focus states.
+  - **Color Contrast:** The text and background colors passed into the banner (likely through the `featuredText` prop or parent styles) must meet WCAG AA guidelines for contrast (at least 4.5:1 for normal text).
+  - **Responsive Considerations:** The `activeBreakpoint` class ensures styles are adaptive, which helps maintain readability and usability across all device sizes.
 </div>
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
