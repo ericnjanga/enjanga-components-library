@@ -62,9 +62,7 @@ const AppHeader = ({
               expanded={isSideNavExpanded}
               isPersistent={false}
             >
-              <SideNavItems>
-                <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
-              </SideNavItems>
+              <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
             </SideNav>
             {/* <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar> */}
           </div>
