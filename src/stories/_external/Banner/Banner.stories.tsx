@@ -11,6 +11,7 @@ import { mockHeading } from '@/mockData/mixed';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { mockRichTextSmall } from '@/mockData/mockRichText';
 import { Grid, Column } from '@carbon/react';
+import { BNN_roleOptPropsType } from '@/components/Banner/libs/types';
 
 const meta: Meta<typeof Banner> = {
   title: 'External Components/Banner',
@@ -92,6 +93,7 @@ export const RichTextVersions: Story = {
           richText: mockRichTextSmall.description,
         },
       },
+      role: 'presentation' as BNN_roleOptPropsType,
     };
 
     // Rich heading with rich smartText ...
@@ -106,6 +108,7 @@ export const RichTextVersions: Story = {
           richText: mockRichTextSmall.description,
         },
       },
+      role: 'presentation' as BNN_roleOptPropsType,
     };
 
     return (
@@ -169,7 +172,14 @@ export const Responsiveness: Story = {
                   md={8}
                   sm={4}
                 >
-                  <Banner {...argsBanner_WithRichHeadingPlainSmartText} />
+                  <Banner
+                    {...argsBanner_WithRichHeadingPlainSmartText}
+                    role={
+                      `${
+                        index > 0 ? 'presentation' : 'banner'
+                      }` as BNN_roleOptPropsType
+                    }
+                  />
                 </Column>
               )
             )}
@@ -204,7 +214,7 @@ export const WithHiddenProps: Story = {
         </div>
         <div style={{ marginBottom: '3rem' }}>
           <span style={{ ...styleHeadingLabel }}>Hidden description</span>
-          <Banner {...args2} />
+          <Banner {...args2} role={'presentation' as BNN_roleOptPropsType} />
         </div>
       </>
     );
@@ -240,7 +250,14 @@ export const HugeBanner: Story = {
                   md={8}
                   sm={4}
                 >
-                  <Banner {...args} />
+                  <Banner
+                    {...args}
+                    role={
+                      `${
+                        index > 0 ? 'presentation' : 'banner'
+                      }` as BNN_roleOptPropsType
+                    }
+                  />
                 </Column>
               )
             )}
@@ -296,7 +313,10 @@ export const EmptyVersions: Story = {
 
     return (
       <>
-        <header style={{ marginBottom: '2.5rem' }}>
+        <header
+          style={{ marginBottom: '2.5rem' }}
+          role={'presentation' as BNN_roleOptPropsType}
+        >
           <h1 style={{ color: 'blue' }}>
             What happens if the expected props aren't there yet?
           </h1>
@@ -312,11 +332,11 @@ export const EmptyVersions: Story = {
         </div>
         <div style={{ marginBottom: '3rem' }}>
           <span style={{ ...styleHeadingLabel }}>Empty text</span>
-          <Banner {...args2} />
+          <Banner {...args2} role={'presentation' as BNN_roleOptPropsType} />
         </div>
         <div>
           <span style={{ ...styleHeadingLabel }}>Empty heading and text</span>
-          <Banner {...args3} />
+          <Banner {...args3} role={'presentation' as BNN_roleOptPropsType} />
         </div>
       </>
     );
@@ -369,13 +389,13 @@ export const EmptyVersionsWithHiddenProps: Story = {
           <span style={{ ...styleHeadingLabel }}>
             Empty heading & Hidden smartText
           </span>
-          <Banner {...args} />
+          <Banner {...args} role={'presentation' as BNN_roleOptPropsType} />
         </div>
         <div style={{ marginBottom: '3rem' }}>
           <span style={{ ...styleHeadingLabel }}>
             Hidden heading & empty smartText
           </span>
-          <Banner {...args2} />
+          <Banner {...args2} role={'presentation' as BNN_roleOptPropsType} />
         </div>
       </>
     );

@@ -33,6 +33,7 @@ const Banner = ({
   className,
   featuredText,
   isHuge = false, // Small banner by default
+  role = 'banner', // ✅ default to banner, can be overridden
 }: BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
     'enj-Banner--isHuge': isHuge,
@@ -49,6 +50,7 @@ const Banner = ({
     <header
       className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
       ref={containerRef}
+      role={role} // ✅ explicit + overridable
     >
       <div className="cds--css-grid">
         <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-8 cds--css-grid-column">

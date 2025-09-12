@@ -23,6 +23,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials', // Includes docs, controls, etc.
     '@storybook/addon-themes',
     '@storybook/addon-mdx-gfm',
+    '@storybook/addon-a11y',
   ],
   framework: {
     name: '@storybook/nextjs',
