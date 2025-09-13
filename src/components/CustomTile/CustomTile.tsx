@@ -24,6 +24,7 @@ import { getHeadingContent } from './lib/getHeadingContent';
 import { isValidLinkTo } from './lib/mix';
 import { CI_isValidPictogram } from '@/components/CustomPictogram/libs/helpers';
 import { getIconContent } from './lib/getIconContent';
+import { get_CTL_role } from './lib/accessibility';
 
 const CustomTile = ({
   className,
@@ -118,6 +119,10 @@ const CustomTile = ({
     iconContent,
   });
 
+  // [*] Accessibility: role
+  // ----------------------------
+  const ctl_role = get_CTL_role({ layoutStyle });
+
   // [*] Activate container size responsiveness
   // ----------------------------
   const {
@@ -130,6 +135,7 @@ const CustomTile = ({
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
         aria-label={`${componentTitle} tile`}
+        role={ctl_role}
         onClick={() =>
           handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
         }

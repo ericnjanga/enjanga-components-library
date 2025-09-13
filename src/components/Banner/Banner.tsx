@@ -33,6 +33,9 @@ const Banner = ({
   className,
   featuredText,
   isHuge = false,
+
+  //  * A banner is usually a page-level landmark (site-wide header, hero, jumbotron, etc.).
+  // 👉 Use role="banner" if it’s the primary page banner.
   role = 'banner', // ✅ default to banner
 }: BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
