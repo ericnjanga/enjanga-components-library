@@ -32,7 +32,13 @@ const meta: Meta<typeof ListItem> = {
 export default meta;
 type Story = StoryObj<typeof ListItem>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  render: (args) => (
+    <ul>
+      <ListItem {...args} />
+    </ul>
+  ),
+};
 
 export const Empty: Story = {
   args: {
@@ -45,16 +51,31 @@ export const Linked: Story = {
   args: {
     ...mockListMixed[0],
   },
+  render: (args) => (
+    <ul>
+      <ListItem {...args} />
+    </ul>
+  ),
 };
 
 export const WithRandomChildren: Story = {
   args: {
     ...mockListMixed[1],
   },
+  render: (args) => (
+    <ul>
+      <ListItem {...args} />
+    </ul>
+  ),
 };
 
 export const WithChildrenComponent: Story = {
   args: {
     ...mockListMixed[2],
   },
+  render: (args) => (
+    <ul>
+      <ListItem {...args} />
+    </ul>
+  ),
 };
