@@ -40,6 +40,7 @@
   },
   "homepage": "https://github.com/ericnjanga/enjanga-next-3-components-lib#readme",
   "scripts": {
+    "prepare": "yarn build",
     "build": "yarn build:css && tsup src/index.ts --dts --dts-resolve --format esm,cjs --out-dir dist --external react --external @carbon/react --external clsx",
     "build:css": "sass -I node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
