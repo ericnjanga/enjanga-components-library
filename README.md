@@ -1,197 +1,159 @@
-# Eric Njanga Portfolio – Component Library
+# enjanga-next-3-components-lib
 
 [![npm version](https://img.shields.io/npm/v/enjanga-next-3-components-lib?color=blue)](https://www.npmjs.com/package/enjanga-next-3-components-lib)
 
-This is a [React component library](https://6856ac512f4faa67a7d9c5c2-ijmvkylkad.chromatic.com/) built for Eric Njanga’s portfolio. The library is designed for **consumption only** — JavaScript and CSS files are minified and optimized for external use.
+A reusable React component library built for Next.js 13+ applications, implementing the IBM Carbon Design System. This library is designed for **consumption only** — JavaScript and CSS files are pre-built, minified, and optimized for production use.
 
-> ⚠️ **Important:** This library depends on the [IBM Carbon Design System](https://carbondesignsystem.com/). It leverages Carbon’s components, patterns, and styles. To function correctly, **Carbon must be installed and configured** in the consuming project.
+> ⚠️ **Important:** This library is built on top of the [IBM Carbon Design System](https://carbondesignsystem.com/). To function correctly, **Carbon must be installed and configured** in the consuming project.
 
-## <br />
+## 📚 Live Storybook
 
-<br />
+Explore the interactive documentation and try all components in Storybook, hosted on Chromatic:  
+**[https://6856ac512f4faa67a7d9c5c2-ijmvkylkad.chromatic.com/](https://6856ac512f4faa67a7d9c5c2-ijmvkylkad.chromatic.com/)**
 
 ## 🚀 Stack & Features
 
-- **Next.js (React)**
-- **TypeScript**
-- **IBM Carbon Design System**
-- **SASS**
-- **Storybook**
-- **Chromatic CLI** (for live Storybook deployment)
-- **React Testing Library**
+- **Framework:** Next.js 13+ (App Router), React 18+
+- **Language:** TypeScript
+- **Design System:** IBM Carbon Design System
+- **Styling:** SASS
+- **Development & Testing:** Storybook, Chromatic, React Testing Library, Vitest
+- **Build Tool:** Tsup
 
-## <br />
+## 📦 Installation
 
-<br />
+1. **Install the library and peer dependencies:**
 
-## 🛠 Development Workflow
+   ```bash
+   npm install enjanga-next-3-components-lib next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
+   # or
+   yarn add enjanga-next-3-components-lib next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
+   ```
 
-### Storybook for UI Development
+2. **Install and configure IBM Carbon:**
+   Follow the [official Carbon React setup guide](https://carbondesignsystem.com/developing/frameworks/react#install).
+   ```bash
+   npm install @carbon/react @carbon/styles
+   # or
+   yarn add @carbon/react @carbon/styles
+   ```
+   Import Carbon’s global styles (e.g., in `app/layout.tsx`):
+   ```tsx
+   import '@carbon/styles/css/index.css';
+   ```
 
-Storybook is used to develop and test components in isolation. The development environment mirrors production by:
+## 🔧 Usage
 
-- Injecting Carbon styles via `.storybook/preview.ts`
-- Including **only** the component styles from this library in the npm package (not Carbon’s), to reduce duplication and keep the package lightweight
+Import components directly from the package. Only components listed in the public API (`src/components/index.ts`) are exposed.
 
-## <br />
+```tsx
+// Example: Using the ContactButton component
+import { ContactButton } from 'enjanga-next-3-components-lib';
 
-<br />
+export default function MyPage() {
+  return <ContactButton text="Get in Touch" />;
+}
+```
 
-## 📘 Live Storybook
+✅ **Note:** Component CSS is automatically included — no manual CSS imports needed.
 
-View the published version of this component library on [Chromatic](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2).
+## 🧪 Testing
 
-## <br />
+This library is tested for quality and reliability:
 
-<br />
+- **Unit Tests**: React Testing Library + Vitest
+- **Interaction Tests**: Covers complex user flows
+- **Accessibility (a11y)**: Validated via Storybook’s a11y addon
+- **Visual Regression**: Chromatic snapshots prevent UI regressions
 
-## 📁 Project Structure
+Run tests locally:
+
+```bash
+yarn test
+# or in watch mode
+yarn test:watch
+```
+
+## 🛠 Development
+
+For contributors and maintainers.
+
+### Prerequisites
+
+- Node.js (LTS recommended)
+- Yarn
+
+### Local Setup
+
+```bash
+git clone https://github.com/ericnjanga/enjanga-next-3-components-lib.git
+cd enjanga-next-3-components-lib
+yarn install
+yarn storybook
+```
+
+Visit **http://localhost:6006** to start developing components.
+
+### Key Scripts
+
+| Command                | Description                          |
+| ---------------------- | ------------------------------------ |
+| `yarn storybook`       | Start Storybook dev server           |
+| `yarn build`           | Build the library (TypeScript + CSS) |
+| `yarn build-storybook` | Export static Storybook site         |
+| `yarn chromatic`       | Publish Storybook to Chromatic       |
+| `yarn lint`            | Run ESLint + TypeScript checks       |
+| `yarn format`          | Format code with Prettier            |
+
+### Project Structure
 
 ```txt
-eric-njanga-component-library/
-├── .next/ # Next.js configuration
-├── .storybook/ # Storybook configuration
+enjanga-next-3-components-lib/
+├── .storybook/        # Storybook config
 ├── src/
-│ ├── app/ # ...
-│ ├── components/ # All React components
-│ │ ├── ContactButton/ # Example component (contains both public & internal)
-│ │ │ ├── ContactButton.tsx # Component implementation
-│ │ │ ├── \_ContactButton.scss # Component styles
-│ │ │ └── index.ts # Component exporting file
-│ │ ├── ... # Other components follow same pattern
-│ │ └── index.ts # Public API (exports only public components)
-│ ├── stories/ # Storybook stories
-│ │ ├── components/ # All React components
-│ │ │ ├── ContactButton.stories.tsx # Component implementation
-│ │ │ ├── \*\*\*.stories.tsx # Other stories
-│ ├── tests/ # Components tests
-│ ├── styles/ # Global styles and SASS utilities
-│ └── utils/ # Shared utility functions
+│   ├── app/           # Next.js App Router setup
+│   ├── components/    # React components
+│   │   ├── ContactButton/
+│   │   │   ├── ContactButton.tsx
+│   │   │   ├── _ContactButton.scss
+│   │   │   └── index.ts
+│   │   └── index.ts   # Public API (exports components)
+│   ├── stories/       # Storybook stories
+│   ├── tests/         # Component tests
+│   ├── styles/        # Global styles + SASS utilities
+│   └── utils/         # Shared utilities
 ├── package.json
 └── tsconfig.json
 ```
 
-<br />
+## 🧠 Philosophy
 
-### Component Visibility
+### Carbon as Foundation
 
-The library maintains two types of components ([see live implementation](https://www.chromatic.com/library?appId=6856ac512f4faa67a7d9c5c2)):
+This library builds on [Carbon](https://carbondesignsystem.com/) to create opinionated, purpose-driven components.  
+For example, `ContactButton` wraps Carbon’s `Button`, exposing only a simplified prop API for consistency.
 
-1. **Public Components**
+### Design Principles
 
-   - Exported in `src/components/index.ts`
-   - Available for external consumption
-   - Fully documented in Storybook
-   - Type definitions automatically generated
+- **Modularity** – Components built in isolation, easily extended
+- **Reusability** – Single-purpose, but broadly applicable
+- **Robustness** – Strong typing & validated props
+- **Performance** – Memoized components minimize re-renders
+- **Flexibility** – Smart defaults, minimal configuration needed
 
-2. **Internal Components**
-   - Used only by other components in the library
-   - Not exported in the public API
-   - Example: `ContactModal` (used internally but not exposed externally)
+### Component Types
 
-<br />
-
-### Key Implementation Details
-
-- **Carbon Integration**: All components build upon IBM Carbon's design system
-- **Scoped Styles**: Each component manages its own styles via SASS modules
-- **Type Safety**: Full TypeScript support with generated type definitions
-- **Testing**: Components include React Testing Library unit tests and accessibility checks
-
-<br />
-
-### Using the Library
-
-1. Install the library:
-
-   ```bash
-   npm install eric-njanga-component-library
-   # or
-   yarn add eric-njanga-component-library
-   ```
-
-2. Ensure [Carbon Design System](https://carbondesignsystem.com/) is properly configured in your project
-
-3. Import components from the public API:
-   ```ts
-   import { ContactButton } from 'eric-njanga-component-library';
-   ```
-
------------- (the part below needs refinement | last uodate: Jun 23, 2024) ------------
-...
-
-## 📦 Getting Started
-
-...
-
-## 🧪 Testing
-
-...
-
-## 📚 Component Library
-
-...
+- **Public Components** – Exported via `src/components/index.ts` (documented, tested, stable)
+- **Internal Components** – Used only inside the library (not exported)
 
 ## 📄 License
 
-...
+Licensed under the **Apache License 2.0**. See [LICENSE](./LICENSE).
 
-## 📦 Getting Started
+## 🤝 Contributing
 
-1. **Install the library** (coming soon):
+This is primarily a personal portfolio/project library. Contributions are welcome — open an issue before major changes.
 
-# Philosophy
+## 🐛 Reporting Issues
 
-A few observations on what's the thoughts behind the creation of this components' library
-
-## Carbon's Selective implementation
-
-[Carbon](https://carbondesignsystem.com/) is a toolbox from which I pick my library's features. It is the design prototypes that drive my implementation decisions. For example, the "ContactButton" component will always be a primary, or secondary button at most and will always display a select number of icons related to the action of connecting with someone (email, chat, ...). Therefore, the component will have limited properties, options, and the story will have limites edge cases (no need of a "ContactButton" story with no icons, or in danger mode). See the component story for illustration.
-
-the component will only offer the following possibilities to consummers:
-
-- text: (string)
-- kind: 'primary' | 'secondary' (Optional and 'primary' by default)
-- size: 'sm' | 'md' (Optional and 'md' by default)
-
-## Scalabiity
-
-This component library follows the following principles:
-
-- Modularity: Components built in isolation and made easier to extens
-- Reusability: Components focused on a single purpose, needed in many places
-- Separation of concerns: Larger components recompose smaller components in a cleaner way
-
-## Robustness
-
-- Type Safety: Component props are strictly typed with TypeScript
-- Props validation: Props validations help enfore props rules during development --TypeScript errors-- or at runtime --Storybook and client errors-- (See CustomTile for example).
-
-## Flexibility Through Polymorphism
-
-- Flexible value props: Making component flexible enough to accept different types of value props
-- Flexible rendering: Some components support dynamic wrapper tags (div/section, ul/ol, ...)
-- Conditional rendering: Using safely checks before rendering (list?.content?.length)
-
-## Performance Optimization
-
-A memoized version is offered for components that tends to grow in complexity, re-renders frequency, and have diverse usage patterns. These components are:
-Most components can be imported in their .
-
-- HeadlinedList
-- List
-- CustomTile
-  Note: Lightweight components unusally don't need to be memoized
-
-# How to use this component library
-
-## Installation:
-
-Run the commands:
-
-- yarn install (All hey dependencies will be installed)
-
-## Ready for export after changes
-
-yarn build (Bundles up the component library)
-yarn link (Registers the component library with yarn)
+Please report bugs or request features via [GitHub Issues](https://github.com/ericnjanga/enjanga-next-3-components-lib/issues).
