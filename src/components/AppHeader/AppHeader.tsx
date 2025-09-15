@@ -34,8 +34,8 @@ const AppHeader = ({
   brandLabel,
   brandRoute = '/',
   navigation,
-  globalBarItems,
-}: AH_propsType) => {
+}: // globalBarItems,
+AH_propsType) => {
   // ARIA labels
   const labelOpenMenu = 'Open menu';
   const labelSideNav = 'Side navigation';
