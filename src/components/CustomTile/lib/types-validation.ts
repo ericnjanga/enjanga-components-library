@@ -12,7 +12,7 @@ type ErrorMessage<T extends string> = `🚨 Prop Validation Error: ${T}`;
 
 /** Normal link props (default case, modalIsAvailable omitted or false) */
 interface LinkProps {
-  linksTo: CTL_valid_linkTo;
+  linksTo?: CTL_valid_linkTo;
   linkTarget?: CTL_LinkTargetType;
   modalIsAvailable?: false; // explicitly false or absent
 }
