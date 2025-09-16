@@ -66,8 +66,6 @@
     "@carbon/pictograms-react": "^11.79.0",
     "@carbon/react": "^1.90.0",
     "@contentful/rich-text-types": "^17.1.0",
-    "carbon-components": "^10.58.15",
-    "carbon-components-react": "^8.67.0",
     "clsx": "^2.1.1",
     "next": "^15.3.4",
     "sass": "^1.89.2",
