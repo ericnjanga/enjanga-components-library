@@ -1,6 +1,6 @@
 {
   "name": "enjanga-next-3-components-lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Reusable component library for Next.js 13+ projects with Carbon design system.",
   "main": "dist/index.js",
   "style": "dist/styles.css",
