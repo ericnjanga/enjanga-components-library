@@ -15,6 +15,10 @@
   // Declarations ...
   background-color: $cool-gray-90;
 
+  .enj-FeatureText-title {
+    margin-bottom: 1rem;
+  }
+
   @include mixins.BNN-isHuge-text-cleaup;
   @include mixins.BNN-responsive-padding;
 }
