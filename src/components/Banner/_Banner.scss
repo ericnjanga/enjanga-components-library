@@ -1,4 +1,4 @@
-@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/colors' as colors;
 @use '@carbon/react/scss/breakpoint' as *;
 
 @use './styles/utils/vars';
@@ -13,7 +13,7 @@
 */
 .enj-Banner {
   // Declarations ...
-  background-color: $cool-gray-90;
+  background-color: colors.$cool-gray-90;
 
   .enj-FeatureText-title {
     margin-bottom: 1rem;

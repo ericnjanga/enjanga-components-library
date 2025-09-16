@@ -1,4 +1,4 @@
-@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/colors' as colors;
 
 // ...
 @mixin CRT_lists_styling {
@@ -34,7 +34,7 @@
 // ...
 @mixin CRT_blockquote_styling {
   blockquote {
-    border-left: 0.6rem solid $gray-40;
+    border-left: 0.6rem solid colors.$gray-40;
     padding-left: 1rem;
     margin-bottom: var(--enj-CMSRichText-ul-mb);
 

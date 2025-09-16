@@ -1,4 +1,4 @@
-@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/colors' as colors;
 
 /**
  * Skeleton Animation
@@ -6,6 +6,6 @@
 */
 .enj-Banner {
   .skeleton {
-    background-color: $gray-50;
+    background-color: colors.$gray-50;
   }
 }
