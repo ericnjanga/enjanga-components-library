@@ -1,5 +1,5 @@
 {
-  "name": "@enjanga-com/enjanga-components-library",
+  "name": "enjanga-components-library",
   "version": "1.0.4",
   "description": "Reusable component library for Next.js 13+ projects with Carbon design system.",
   "main": "dist/index.js",
