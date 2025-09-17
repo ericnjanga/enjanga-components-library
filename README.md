@@ -1,6 +1,6 @@
-# enjanga-next-3-components-lib
+# enjanga-components-library
 
-[![npm version](https://img.shields.io/npm/v/enjanga-next-3-components-lib?color=blue)](https://www.npmjs.com/package/enjanga-next-3-components-lib)
+[![npm version](https://img.shields.io/npm/v/enjanga-components-library?color=blue)](https://www.npmjs.com/package/enjanga-components-library)
 
 A reusable React component library built for Next.js 13+ applications, implementing the IBM Carbon Design System. This library is designed for **consumption only** — JavaScript and CSS files are pre-built, minified, and optimized for production use.
 
@@ -25,9 +25,9 @@ Explore the interactive documentation and try all components in Storybook, hoste
 1. **Install the library and peer dependencies:**
 
    ```bash
-   npm install enjanga-next-3-components-lib next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
+   npm install enjanga-components-library next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
    # or
-   yarn add enjanga-next-3-components-lib next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
+   yarn add enjanga-components-library next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
    ```
 
 2. **Install and configure IBM Carbon:**
@@ -48,7 +48,7 @@ Import components directly from the package. Only components listed in the publi
 
 ```tsx
 // Example: Using the ContactButton component
-import { ContactButton } from 'enjanga-next-3-components-lib';
+import { ContactButton } from 'enjanga-components-library';
 
 export default function MyPage() {
   return <ContactButton text="Get in Touch" />;
@@ -86,8 +86,8 @@ For contributors and maintainers.
 ### Local Setup
 
 ```bash
-git clone https://github.com/ericnjanga/enjanga-next-3-components-lib.git
-cd enjanga-next-3-components-lib
+git clone https://github.com/ericnjanga/enjanga-components-library.git
+cd enjanga-components-library
 yarn install
 yarn storybook
 ```
@@ -108,7 +108,7 @@ Visit **http://localhost:6006** to start developing components.
 ### Project Structure
 
 ```txt
-enjanga-next-3-components-lib/
+enjanga-components-library/
 ├── .storybook/        # Storybook config
 ├── src/
 │   ├── app/           # Next.js App Router setup
@@ -156,4 +156,4 @@ This is primarily a personal portfolio/project library. Contributions are welcom
 
 ## 🐛 Reporting Issues
 
-Please report bugs or request features via [GitHub Issues](https://github.com/ericnjanga/enjanga-next-3-components-lib/issues).
+Please report bugs or request features via [GitHub Issues](https://github.com/ericnjanga/enjanga-components-library/issues).
