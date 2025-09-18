@@ -8,7 +8,9 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "*": ["dist/*"]
+      "*": [
+        "dist/*"
+      ]
     }
   },
   "exports": {
@@ -20,8 +22,13 @@
     "./styles.css": "./dist/styles.css",
     "./*.css": "./dist/*.css"
   },
-  "sideEffects": ["**/*.css", "**/*.scss"],
-  "files": ["dist"],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "yarn build",
     "build": "yarn build:css && tsup src/index.ts --dts --format esm,cjs --out-dir dist --external react --external react-dom --external @carbon/react --external clsx",
@@ -33,18 +40,18 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "enjanga-core-setup": "^1.0.0",
+    "enjanga-core-setup": "^1.0.2",
+    "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "next": "^13.0.0 || ^14.0.0 || ^15.0.0"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "tsup": "^8.5.0",
-    "sass": "^1.89.2",
-    "concurrently": "^9.1.2",
     "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0"
+    "@types/react-dom": "^18.2.0",
+    "concurrently": "^9.1.2",
+    "sass": "^1.89.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.0.0"
   },
   "repository": {
     "type": "git",
