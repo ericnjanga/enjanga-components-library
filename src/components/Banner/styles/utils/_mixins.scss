@@ -1,6 +1,5 @@
-@use '@carbon/react/scss/colors' as colors;
-@use '@carbon/react/scss/spacing' as *;
-@use '@carbon/react/scss/type' as *;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 @use './vars';
 
 @mixin BNN-responsive-padding {
@@ -33,7 +32,7 @@
 
 @mixin BNN-large-paragraph {
   p {
-    font-size: map-get($heading-03, 'font-size'); // Explicitly get font-size
+    @include type-style('heading-03'); // Explicitly get font-size
   }
 }
 

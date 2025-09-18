@@ -1,5 +1,5 @@
-@use '@carbon/react/scss/colors' as colors;
-@use '@carbon/react/scss/breakpoint' as *;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 
 @use './styles/utils/vars';
 @use './styles/utils/mixins';
@@ -13,7 +13,7 @@
 */
 .enj-Banner {
   // Declarations ...
-  background-color: colors.$cool-gray-90;
+  background-color: $cool-gray-90;
 
   .enj-FeatureText-title {
     margin-bottom: 1rem;

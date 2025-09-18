@@ -1,6 +1,5 @@
-@use '@carbon/styles/scss/themes' as *;
-@use '@carbon/styles/scss/theme' as theme;
-@use '@carbon/react/scss/colors' as colors;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 
 /**
  * TO DO:
@@ -16,11 +15,11 @@
   h4,
   h5,
   h6 {
-    color: theme.$text-on-color;
+    color: $text-on-color;
   }
   p,
   span {
-    color: colors.$gray-20;
+    color: $gray-20;
     font-size: var(--enj-Banner-p-font-size);
   }
   a {

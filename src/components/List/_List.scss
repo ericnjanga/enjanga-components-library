@@ -1,5 +1,5 @@
-@use '@carbon/react/scss/spacing' as *;
-@use '@carbon/react/scss/colors' as colors;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 
 .enj-list {
   // ...

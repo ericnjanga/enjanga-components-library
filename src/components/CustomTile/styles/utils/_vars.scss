@@ -1,5 +1,5 @@
-@use '@carbon/react/scss/spacing' as *;
-@use '@carbon/react/scss/colors' as colors;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 
 :root {
   // Banners ...
@@ -12,7 +12,7 @@
   --enj-CTL-bann-article-flex: unset;
 
   // Cards ...
-  --enj-CTL-br-col: #{colors.$gray-60};
+  --enj-CTL-br-col: #{$gray-60};
   --enj-CTL-card-pad: #{$spacing-07};
   --enj-CTL-card-img-col-gap: 1.5rem;
   --enj-CTL-card-withIcon-gap: 1rem;

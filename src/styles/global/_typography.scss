@@ -1,6 +1,5 @@
-@use '@carbon/react/scss/spacing' as *;
-@use '@carbon/react/scss/breakpoint' as *;
-@use '@carbon/react/scss/type' as *;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 
 :root {
   // Mobile-first values (sm breakpoint)
@@ -8,7 +7,7 @@
   --enj-h1-ft: 1.75rem; // 28px (heading-04)
 
   --enj-h2-mb: #{$spacing-03}; // 1rem (16px)
-  --enj-h2-ft: 1.5rem; // 24px (between heading-03/04)
+  --enj-h2-ft: 1.5rem; // 24px (between heading-03/04).  
 
   --enj-h3-mb: #{$spacing-04}; // 0.75rem (12px)
   --enj-h3-ft: 1.25rem; // 20px (heading-03)

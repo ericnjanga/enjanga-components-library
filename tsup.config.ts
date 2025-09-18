@@ -1,6 +1,6 @@
 // enjanga-components-library/tsup.config.ts
 import { defineConfig } from "tsup";
-import coreConfig from "enjanga-core-setup/tsup.config";
+import shared from "enjanga-core-setup/tsup.shared.js"; // must include .js
 
 export default defineConfig({
   entry: ["src/index.ts"],
@@ -8,5 +8,5 @@ export default defineConfig({
   dts: true,
   outDir: "dist",
   clean: true,
-  external: coreConfig.external // 🔥 re-use externals from core
+  external: shared.externals
 });

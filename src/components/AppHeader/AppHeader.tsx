@@ -26,7 +26,7 @@ import {
   HeaderSideNavItems,
 } from '@carbon/react';
 
-import Link from 'next/link';
+import { Link } from "enjanga-core-setup/next";
 import { AHC_propsType, AH_propsType } from './libs/types';
 
 const AppHeader = ({

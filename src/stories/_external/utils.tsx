@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderMenuItem } from '@carbon/react';
 import { HeaderGlobalAction } from '@carbon/react';
 import { BrightnessContrast, Bookmark, Branch } from '@carbon/icons-react';
-import Link from 'next/link';
+import { Link } from "enjanga-core-setup/next";
 
 // Sample componant using <HeaderMenuItem />
 export const Navigation1 = () => {

@@ -1,6 +1,5 @@
-@use '@carbon/react/scss/spacing' as *;
-@use '@carbon/react/scss/breakpoint' as *;
-@use '@carbon/react/scss/colors' as colors;
+// Import Carbon Design Tokens & Utilities ...
+@use 'enjanga-core-setup/src/styles/index' as *;
 
 @use './utils/vars';
 @use './utils/mixins';
@@ -17,7 +16,7 @@
 @use './variants/customTile-has-pictogram';
 
 .enj-CustomTile {
-  border: 1px solid colors.$gray-50;
+  border: 1px solid $gray-50;
 
   // Structure the icon positionning and styling
   @include mixins.CT-iconPositionning;
