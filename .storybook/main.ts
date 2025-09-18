@@ -1,56 +1,37 @@
-import type { StorybookConfig } from '@storybook/nextjs';
+// .storybook/main.ts
+import type { StorybookConfig } from '@storybook/types';
 import path from 'path';
 
 const config: StorybookConfig = {
-  docs: {
-    defaultName: 'Overview', // 👈 This changes ALL "Docs" to "Overview"
-  },
-  stories: [
-    // 1) Listing MDX files in explicit order
-    '../src/stories/getting-started/Welcome.mdx',
-    '../src/stories/getting-started/FeatureFlags.mdx',
-
-    // 2) External/public components
-    // (Story files are not encapsulated with component to avoid polluting exported files)
-    '../src/stories/_external/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
-    '../src/stories/_external/**/*.docs.mdx', // Explicit docs files
-
-    // 3) Internal/private components (optional - you might exclude these)
-    '../src/stories/_internal/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
-  ],
+  framework: '@storybook/react',
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [
-    '@storybook/addon-docs', // ← required for MDX support
-    '@storybook/addon-essentials', // Includes docs, controls, etc.
-    '@storybook/addon-themes',
-    '@storybook/addon-mdx-gfm',
+    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
+    '@storybook/addon-docs',
   ],
-  framework: {
-    name: '@storybook/nextjs',
-    options: {},
-  },
-  // staticDirs: ['../public'],
-  // staticDirs: ['../dist'], // Serve files from dist folder
-
   staticDirs: [
-    { from: '../dist', to: '/dist' }, // Explicit mapping
-    '../public',
+    { from: '../dist', to: '/dist' },
+    { from: '../public', to: '/' },
   ],
-  webpackFinal: async (config) => {
-    config.resolve = config.resolve || {};
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../src'),
-    };
-    return config;
-  },
-
   typescript: {
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    check: true,
+  },
+  // webpack overrides go here, **but TS will not allow it directly on StorybookConfig**
+  core: {
+    builder: {
+      name: 'webpack5',
+      options: {
+        // TS-safe place to inject webpack config
+        webpackFinal: async (config: any) => {
+          config.resolve = config.resolve || {};
+          config.resolve.alias = {
+            ...config.resolve.alias,
+            '@': path.resolve(__dirname, '../src'),
+          };
+          return config;
+        },
+      },
     },
   },
 };

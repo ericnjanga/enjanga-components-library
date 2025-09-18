@@ -1,12 +1,12 @@
 // .storybook/manager.ts
 import { addons } from '@storybook/manager-api';
 import { create } from '@storybook/theming';
-import appLogo from './logo.svg';
+// import appLogo from './logo.svg';
 
 const theme = create({
   base: 'light', // or 'dark'
   brandTitle: 'ENjanga Design System',
-  brandImage: appLogo,
+  // brandImage: appLogo,
   brandUrl: '/',
   // Optional additional theming
   colorPrimary: '#3A10E5',
