@@ -2,7 +2,7 @@
 ╭ Incompatible packages found ────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                                                     │
 │   The following packages are incompatible with Storybook 8.6.14 as they depend on different major versions of Storybook packages:   │
-│   - @storybook/addon-webpack5-compiler-swc@4.0.1                                                                                    │
+│   - @chromatic-com/storybook@5.0.0-next.1                                                                                           │
 │                                                                                                                                     │
 │                                                                                                                                     │
 │   Please consider updating your packages or contacting the maintainers for compatibility details.                                   │

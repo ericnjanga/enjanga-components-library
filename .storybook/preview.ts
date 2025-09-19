@@ -5,7 +5,7 @@ import { fn } from '@storybook/test';
  * Carbon styles load only in Storybook
  * They don’t pollute your final npm package
  */
-import 'enjanga-core-setup/carbon.css'; // Carbon global styles
+import 'enjanga-core-setup/carbon-css'; // Carbon global styles
 import '../src/styles/index.scss'; // Component library styles
 
 const preview: Preview = {
@@ -29,7 +29,7 @@ const preview: Preview = {
     onSubmit: fn(),
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs', 'autodocs']
 };
 
 export default preview;

@@ -1,0 +1,5 @@
+yarn add v1.22.22
+[1/4] Resolving packages...
+warning Lockfile has incorrect entry for "@chromatic-com/storybook@^3.5.0". Ignoring it.
+error Couldn't find any versions for "@chromatic-com/storybook" that matches "^3.5.0"
+info Visit https://yarnpkg.com/en/docs/cli/add for documentation about this command.
