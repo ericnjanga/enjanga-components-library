@@ -5,10 +5,7 @@ const CustomTabs = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <>
-      <h1>???????????</h1>
-
-      <Tabs
+    <Tabs
         selectedIndex={selected}
         onChange={({ selectedIndex }) => setSelected(selectedIndex)}
       >
@@ -23,9 +20,6 @@ const CustomTabs = () => {
           <TabPanel>Content for Tab Three</TabPanel>
         </TabPanels>
       </Tabs>
-
-      <h1>???????????</h1>
-    </>
   );
 };
 
