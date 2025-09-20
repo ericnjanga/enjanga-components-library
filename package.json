@@ -93,6 +93,7 @@
   "homepage": "https://github.com/ericnjanga/enjanga-components-library#readme",
   "license": "Apache-2.0",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
