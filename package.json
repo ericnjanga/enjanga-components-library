@@ -38,7 +38,8 @@
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn build && npm version patch && npm publish"
+    "release": "yarn build && npm version patch && npm publish",
+    "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
     "@carbon/react": "^1",
