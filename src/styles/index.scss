@@ -1,4 +1,25 @@
 // src/styles/index.scss
+// ---------
+// This file bundles all global and component-level styles for
+// enjanga-components-library. It serves as the *public Sass entry point*
+// for this package.
+//
+// - Global styles (typography, utils, animations) are pulled in here.
+// - Component styles are also aggregated here, so consumers can import one file
+//   instead of handling each component individually.
+//
+// When the library is built, this file compiles into dist/styles.css
+// which can be imported by Next.js apps or other consumers:
+//
+//   import 'enjanga-components-library/styles.css';
+//
+// NOTE: This file is intended as the single place where new global or
+// component styles should be registered.
+
+
+
+
+
 
 /**
  * Global styles affect go beyond compnents' boundaries as they affect 

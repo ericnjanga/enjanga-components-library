@@ -1,18 +1,22 @@
-// Import Carbon Design Tokens & Utilities ...
-@use 'enjanga-core-setup/styles' as *;
+// Import core Carbon design tokens, utilities, and mixins from
+// enjanga-core-setup. This ensures all components use the same
+// spacing, type, colors, motion, and theme settings consistently.
+//
+// Example: core.$spacing-03, core.type-style('heading-02'), etc.
+@use 'enjanga-core-setup/styles' as core;
 
 :root {
   // Mobile-first values (sm breakpoint)
-  --enj-h1-mb: #{$spacing-04}; // 1.5rem (24px)
+  --enj-h1-mb: #{core.$spacing-04}; // 1.5rem (24px)
   --enj-h1-ft: 1.75rem; // 28px (heading-04)
 
-  --enj-h2-mb: #{$spacing-03}; // 1rem (16px)
+  --enj-h2-mb: #{core.$spacing-03}; // 1rem (16px)
   --enj-h2-ft: 1.5rem; // 24px (between heading-03/04).  
 
-  --enj-h3-mb: #{$spacing-04}; // 0.75rem (12px)
+  --enj-h3-mb: #{core.$spacing-04}; // 0.75rem (12px)
   --enj-h3-ft: 1.25rem; // 20px (heading-03)
 
-  --enj-h4-mb: #{$spacing-03}; // 0.5rem (8px)
+  --enj-h4-mb: #{core.$spacing-03}; // 0.5rem (8px)
   --enj-h4-ft: 1rem; // 16px (heading-02)
 }
 
@@ -23,18 +27,18 @@ h1 {
   margin-bottom: var(--enj-h1-mb);
   line-height: 1.2;
 
-  @include breakpoint('md') {
+  @include core.breakpoint('md') {
     // border: 2px solid orange;
     --enj-h1-ft: 2rem; // 32px (heading-05)
-    --enj-h1-mb: #{$spacing-05}; // 2rem (32px)
+    --enj-h1-mb: #{core.$spacing-05}; // 2rem (32px)
   }
 
-  @include breakpoint('lg') {
+  @include core.breakpoint('lg') {
     // border: 2px solid rgb(94, 255, 0);
     --enj-h1-ft: 2.825rem; // 36px (custom between 05-06)
   }
 
-  @include breakpoint('xlg') {
+  @include core.breakpoint('xlg') {
     // border: 2px solid rgb(255, 153, 0);
     --enj-h1-ft: 3.1rem; // 40px (heading-06)
   }
@@ -47,18 +51,18 @@ h2 {
   margin-bottom: var(--enj-h2-mb);
   line-height: 1.25;
 
-  @include breakpoint('md') {
+  @include core.breakpoint('md') {
     // border: 2px solid orange;
     --enj-h2-ft: 1.75rem; // 28px (heading-04)
-    --enj-h2-mb: #{$spacing-06}; // 1.5rem (24px)
+    --enj-h2-mb: #{core.$spacing-06}; // 1.5rem (24px)
   }
 
-  @include breakpoint('lg') {
+  @include core.breakpoint('lg') {
     // border: 2px solid rgb(94, 255, 0);
     --enj-h2-ft: 2rem; // 32px (heading-05)
   }
 
-  @include breakpoint('xlg') {
+  @include core.breakpoint('xlg') {
     // border: 2px solid rgb(94, 255, 0);
     --enj-h2-ft: 2.25rem; // 36px (custom)
   }
@@ -71,12 +75,12 @@ h3 {
   margin-bottom: var(--enj-h3-mb);
   line-height: 1.3;
 
-  @include breakpoint('md') {
+  @include core.breakpoint('md') {
     --enj-h3-ft: 1.5rem; // 24px
-    --enj-h3-mb: #{$spacing-05}; // 1rem (16px)
+    --enj-h3-mb: #{core.$spacing-05}; // 1rem (16px)
   }
 
-  @include breakpoint('lg') {
+  @include core.breakpoint('lg') {
     --enj-h3-ft: 1.75rem; // 28px (heading-04)
   }
 }
@@ -88,8 +92,8 @@ h4 {
   margin-bottom: var(--enj-h4-mb);
   line-height: 1.4;
 
-  @include breakpoint('md') {
+  @include core.breakpoint('md') {
     --enj-h4-ft: 1.25rem; // 20px (heading-03)
-    --enj-h4-mb: #{$spacing-04}; // 0.75rem (12px)
+    --enj-h4-mb: #{core.$spacing-04}; // 0.75rem (12px)
   }
 }

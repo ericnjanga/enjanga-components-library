@@ -6,6 +6,22 @@ A reusable React component library built for Next.js 13+ applications, implement
 
 > ⚠️ **Important:** This library is built on top of the [IBM Carbon Design System](https://carbondesignsystem.com/). To function correctly, **Carbon must be installed and configured** in the consuming project.
 
+---
+
+## 🔗 Dependency on enjanga-core-setup
+
+This library depends on **[enjanga-core-setup](https://github.com/ericnjanga/enjanga-core-setup)** for design tokens, Carbon utilities, and shared SASS configuration.  
+- `enjanga-core-setup` bundles Carbon’s design tokens (spacing, type, colors, motion, grid, etc.) and forwards them through a single entry point:  
+
+  ```scss
+  @use 'enjanga-core-setup/styles' as core;
+  ```
+
+- Components in this library rely on these tokens to ensure **consistent theming, spacing, and typography** across all consuming projects.  
+- This separation keeps **core design tokens/utilities** (in `enjanga-core-setup`) independent from **components** (in `enjanga-components-library`).
+
+---
+
 ## 📚 Live Storybook
 
 Explore the interactive documentation and try all components in Storybook, hosted on Chromatic:  
@@ -16,7 +32,7 @@ Explore the interactive documentation and try all components in Storybook, hoste
 - **Framework:** Next.js 13+ (App Router), React 18+
 - **Language:** TypeScript
 - **Design System:** IBM Carbon Design System
-- **Styling:** SASS
+- **Styling:** SASS (+ enjanga-core-setup)
 - **Development & Testing:** Storybook, Chromatic, React Testing Library, Vitest
 - **Build Tool:** Tsup
 
@@ -30,14 +46,14 @@ Explore the interactive documentation and try all components in Storybook, hoste
    yarn add enjanga-components-library next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
    ```
 
-2. **Install and configure IBM Carbon:**
-   Follow the [official Carbon React setup guide](https://carbondesignsystem.com/developing/frameworks/react#install).
+2. **Install and configure IBM Carbon and core setup:**  
    ```bash
-   npm install @carbon/react @carbon/styles
+   npm install @carbon/react @carbon/styles enjanga-core-setup
    # or
-   yarn add @carbon/react @carbon/styles
+   yarn add @carbon/react @carbon/styles enjanga-core-setup
    ```
-   Import Carbon’s global styles (e.g., in `app/layout.tsx`):
+
+   Import Carbon’s global styles (e.g., in `app/layout.tsx`):  
    ```tsx
    import '@carbon/styles/css/index.css';
    ```
@@ -56,6 +72,32 @@ export default function MyPage() {
 ```
 
 ✅ **Note:** Component CSS is automatically included — no manual CSS imports needed.
+
+---
+
+## 🎨 Styling Structure
+
+This library’s styles follow a **three-tier structure** for clarity and maintainability:
+
+1. **Core (via `enjanga-core-setup`)**  
+   - Provides Carbon design tokens, utilities, and mixins.  
+   - Always imported with:  
+     ```scss
+     @use 'enjanga-core-setup/styles' as core;
+     ```
+   - Example usage: `core.$spacing-03`, `core.type-style('heading-02')`.
+
+2. **Global (library-wide styles in `src/styles/global/`)**  
+   - Apply across components (e.g., typography, skeleton loading animation, utilities).  
+   - Imported into the main stylesheet (`src/styles/index.scss`).  
+
+3. **Component-level (scoped styles in `src/components/*/_Component.scss`)**  
+   - Define structure, layout, and visuals for individual components.  
+   - Can extend/override global styles when necessary.
+
+This separation ensures **consistent design foundations (core)**, **predictable global rules**, and **flexible, isolated component styles**.
+
+---
 
 ## 🧪 Testing
 

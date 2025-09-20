@@ -1,7 +1,10 @@
-// Import Carbon Design Tokens & Utilities ...
-@use 'enjanga-core-setup/styles' as *;
+// Import core Carbon design tokens, utilities, and mixins from
+// enjanga-core-setup. This ensures all components use the same
+// spacing, type, colors, motion, and theme settings consistently.
+//
+// Example: core.$spacing-03, core.type-style('heading-02'), etc.
+@use 'enjanga-core-setup/styles' as core;
 
-@use './styles/utils/vars';
 @use './styles/utils/mixins';
 @use './styles/Banner-isHuge';
 @use './styles/Banner-heading-and-content';
@@ -13,7 +16,7 @@
 */
 .enj-Banner {
   // Declarations ...
-  background-color: $cool-gray-90;
+  background-color: core.$cool-gray-90;
 
   .enj-FeatureText-title {
     margin-bottom: 1rem;

@@ -1,12 +1,16 @@
-// Import Carbon Design Tokens & Utilities ...
-@use 'enjanga-core-setup/styles' as *;
+// Import core Carbon design tokens, utilities, and mixins from
+// enjanga-core-setup. This ensures all components use the same
+// spacing, type, colors, motion, and theme settings consistently.
+//
+// Example: core.$spacing-03, core.type-style('heading-02'), etc.
+@use 'enjanga-core-setup/styles' as core;
 
 .enj-list {
   // ...
   padding-left: 1.1rem;
 
   li {
-    line-height: $spacing-06;
+    line-height: core.$spacing-06;
   }
 }
 
