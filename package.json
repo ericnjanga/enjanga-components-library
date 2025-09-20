@@ -1,11 +1,11 @@
 {
   "name": "enjanga-components-library",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Reusable component library for Next.js 13+ projects with Carbon design system.",
   "main": "dist/index.js",
-  "style": "dist/styles.css",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "style": "dist/styles.css",
   "typesVersions": {
     "*": {
       "*": [
@@ -17,10 +17,12 @@
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
     },
-    "./styles.css": "./dist/styles.css",
-    "./*.css": "./dist/*.css"
+    "./styles.css": {
+      "default": "./dist/styles.css"
+    }
   },
   "sideEffects": [
     "**/*.css",
@@ -37,7 +39,8 @@
     "watch:ts": "tsup src/index.ts --dts --format esm,cjs --out-dir dist --watch --external react --external react-dom --external @carbon/react --external clsx",
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "release": "yarn build && npm version patch && npm publish"
   },
   "peerDependencies": {
     "@carbon/react": "^1",
@@ -77,6 +80,9 @@
     "tsup": "^8.5.0",
     "typescript": "^5.0.0"
   },
+  "dependencies": {
+    "enjanga-core-setup": "^1.0.14"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ericnjanga/enjanga-components-library.git"
@@ -88,8 +94,5 @@
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "enjanga-core-setup": "^1.0.14"
   }
 }
