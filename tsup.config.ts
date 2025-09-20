@@ -7,6 +7,6 @@ export default defineConfig({
   format: ["esm", "cjs"],
   dts: true,
   outDir: "dist",
-  clean: true,
-  external: shared.externals
+  clean: false, // 🚨 keep dist/styles.css
+  external: shared.externals,
 });
