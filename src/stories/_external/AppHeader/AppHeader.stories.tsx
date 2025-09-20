@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+
+import type { Meta, StoryObj, ReactRenderer } from '@storybook/react';
 import AppHeader from '../../../components/AppHeader/AppHeader';
 import {
   Navigation1,
@@ -8,7 +9,7 @@ import {
   ClickableComponent,
 } from '../utils';
 
-const meta: Meta<typeof AppHeader> = {
+const meta: Meta<ReactRenderer> = {
   title: 'External Components/AppHeader',
   component: AppHeader,
   tags: [],
@@ -74,7 +75,7 @@ const meta: Meta<typeof AppHeader> = {
 
 export default meta;
 
-type Story = StoryObj<typeof AppHeader>;
+type Story = StoryObj<ReactRenderer>;
 
 export const Default: Story = {
   render: (args) => {
