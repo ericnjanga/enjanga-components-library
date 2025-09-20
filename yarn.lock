@@ -3033,10 +3033,10 @@ enhanced-resolve@^5.17.3:
     graceful-fs "^4.2.4"
     tapable "^2.2.0"
 
-enjanga-core-setup@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/enjanga-core-setup/-/enjanga-core-setup-1.0.14.tgz#7e46ab1a9dd2f5713f01b0ecfb843dc708d6bdb1"
-  integrity sha512-LwAD/hGkiZ8PQXV0Afiy9FtF329P+fn733x1qcl+lkrL06IZt3hLv6B0UW6pCC4PU6atYqq+FGF4uW2OMwtVDg==
+enjanga-core-setup@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/enjanga-core-setup/-/enjanga-core-setup-1.0.15.tgz#b7770786d9a80916d8da3ffe69b11a6f17e6b461"
+  integrity sha512-5Hv9YdJ7N0I5oyPoDebtHMZ1KW5qV/fklY3FFWuV4fszqmEC1BpNJieZi3tVOwuY6l1d/NHYLSks5yAc9TeoIA==
   dependencies:
     "@carbon/icons-react" "^11.67.0"
     "@carbon/pictograms-react" "^11.67.0"
