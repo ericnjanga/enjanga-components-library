@@ -34,7 +34,7 @@
   "scripts": {
     "prepare": "yarn build",
     "build": "yarn build:css && tsup src/index.ts --dts --format esm,cjs --out-dir dist --external react --external react-dom --external @carbon/react --external clsx",
-    "build:css": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
+    "build:css": "sass --load-path=node_modules --load-path=node_modules/enjanga-core-setup/src/styles --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
     "watch:ts": "tsup src/index.ts --dts --format esm,cjs --out-dir dist --watch --external react --external react-dom --external @carbon/react --external clsx",
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
