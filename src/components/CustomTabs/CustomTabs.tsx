@@ -7,7 +7,9 @@ const CustomTabs = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <Tabs selectedIndex={selected} onChange={({ selectedIndex }) => setSelected(selectedIndex)}>
+    <>
+      <h2>********</h2>
+      <Tabs selectedIndex={selected} onChange={({ selectedIndex }) => setSelected(selectedIndex)}>
       <TabList aria-label="Sample Tabs">
         <Tab>Tab One *</Tab>
         <Tab>Tab Two #</Tab>
@@ -19,6 +21,8 @@ const CustomTabs = () => {
         <TabPanel>Content for Tab Three</TabPanel>
       </TabPanels>
     </Tabs>
+      <h2>########</h2>
+    </>
   );
 };
 

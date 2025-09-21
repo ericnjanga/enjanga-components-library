@@ -3044,9 +3044,9 @@ enhanced-resolve@^5.17.3:
     tapable "^2.2.0"
 
 enjanga-components-library@^1.0.12:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/enjanga-components-library/-/enjanga-components-library-1.0.18.tgz#ba667fd1fe3a5bbce8feae1e86baf97db9781dd5"
-  integrity sha512-uHLodBSEgj4AUbsRUMNIorgg0uVuYXytgzO8f8ZFt5Riyl5WvZ3s4KySrlYCxt/1JvpIEfoRmDwW4y+8uemIbw==
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/enjanga-components-library/-/enjanga-components-library-1.0.19.tgz#b7fad377264bc50dc0a2512c5d8f6b1c9fc49b75"
+  integrity sha512-3pUWpCcw/UMyW8y4FIHuwvAjlHzTE67of0I36/1x7Ky/nqJEDq7Xw86RFxSRCpV12/p2RxSwzpjYmss+ZE/gig==
   dependencies:
     enjanga-core-setup "^1.0.19"
 
@@ -4812,6 +4812,11 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-is@^19.0.0:
+  version "19.1.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.1.tgz#038ebe313cf18e1fd1235d51c87360eb87f7c36a"
+  integrity sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==
 
 react@19.1.1, "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version "19.1.1"
