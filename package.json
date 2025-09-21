@@ -80,7 +80,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "enjanga-core-setup": "^1.0.17"
+    "enjanga-core-setup": "^1.0.19"
   },
   "repository": {
     "type": "git",
