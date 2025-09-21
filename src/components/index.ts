@@ -16,6 +16,7 @@ export {
   CP_pictogramMap,
 } from './CustomPictogram';
 export { CustomTile, type CTL_valid_linkTo } from './CustomTile';
+export { CustomTabs } from './CustomTabs';
 export { HeadlinedList } from './HeadlinedList';
 export { List } from './List';
 export { SmartText } from './SmartText';
