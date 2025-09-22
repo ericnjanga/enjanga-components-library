@@ -39,7 +39,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "yarn build && npm version patch && npm publish",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf node_modules dist && yarn cache clean && yarn install",
+    "clean:hard": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn install",
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
