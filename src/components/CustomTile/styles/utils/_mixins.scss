@@ -22,8 +22,7 @@
   .enj-CustomTile-icon {
     margin-top: 1rem;
     width: var(--enj-CTL-icon-dimg);
-    height: var(--enj-CTL-icon-dimg);
-    color: core.$blue-60;
+    height: var(--enj-CTL-icon-dimg); 
   }
 }
 
@@ -49,14 +48,14 @@
 
 @mixin CT-hover {
   cursor: pointer;
-  background-color: core.$purple-80;
+  background-color: #0547C4; // TODO: Convert to enjanga-core-setup color token
 
   .enj-CustomTile-pictogram {
-    color: core.$blue-30;
+    color: #A8C2F2; // TODO: Convert to enjanga-core-setup color token
   }
 
   .enj-CustomTile-icon-wrapper svg {
-    color: core.$magenta-50;
+    color: #A8C2F2; // TODO: Convert to enjanga-core-setup color token
   }
 }
 
@@ -242,11 +241,10 @@
 
 @mixin CT-pictogram-theming {
   .enj-CustomTile-pictogram {
-    color: core.$blue-60;
+    color: #4A75C6 // TODO: Convert to enjanga-core-setup color token
   }
   .enj-CustomTile-icon-wrapper svg {
-    color: core.$gray-50;
-    // color: $magenta-60;
+    color: #0F62FE; // TODO: Convert to enjanga-core-setup color token
   }
 }
 

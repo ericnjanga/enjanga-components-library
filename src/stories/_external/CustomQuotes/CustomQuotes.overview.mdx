@@ -1,0 +1,100 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, ArgsTable, Stories, Canvas } from '@storybook/blocks';
+import * as CustomQuotesStories from './CustomQuotes.stories'; // Relative import
+import CustomQuotes from '../../../components/CustomQuotes/CustomQuotes';
+
+<Meta of={CustomQuotesStories} />
+
+<Title />
+
+
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  ## Table of Contents
+  <ul style={{ position: 'relative', zIndex: '10' }}>
+    <li><a href="#purpose-what-is-it" target="_self">Purpose / What it is?</a></li>
+    <li><a href="#when-to-use" target="_self">When to use</a></li>
+    <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
+    <li><a href="#features" target="_self">Features</a></li>
+    <li><a href="#design-reference" target="_self">Design reference</a></li>
+    <li><a href="#accessibility" target="_self">Accessibility (A11y)</a></li>
+    <li><a href="#api-reference" target="_self">API Reference</a></li>
+  </ul> 
+</div>
+
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>📌 Purpose / What it is?</h2>  
+  <div>The <code>CustomQuotes</code> component represents a single item within a list. It can display text, links, or custom child elements. It ensures consistent styling and provides a skeleton loader when content is not available.</div>
+
+  <Primary /> 
+</div>
+  
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
+  <ul data-start="517" data-end="715">
+  <li data-start="517" data-end="591">
+  <p data-start="519" data-end="591">To render items inside an unordered (<code data-start="556" data-end="562">&lt;ul&gt;</code>) or ordered (<code data-start="576" data-end="582">&lt;ol&gt;</code>) list.</p>
+  </li>
+  <li data-start="592" data-end="648">
+  <p data-start="594" data-end="648">When you need list items that may also act as links.</p>
+  </li>
+  <li data-start="649" data-end="715">
+  <p data-start="651" data-end="715">When you want a built-in skeleton state while data is loading.</p>
+  </li>
+  </ul>
+</div>
+
+
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
+  <ul data-start="749" data-end="1066">
+  <li data-start="749" data-end="865">
+  <p data-start="751" data-end="865">Don’t use <code data-start="761" data-end="771">CustomQuotes</code> for standalone navigation menus; use <code data-start="809" data-end="818">NavLink</code> or a dedicated navigation component instead.</p>
+  </li>
+  <li data-start="866" data-end="967">
+  <p data-start="868" data-end="967">Don’t use it to render complex card layouts — use <code data-start="918" data-end="930">CustomTile</code> or another higher-level component.</p>
+  </li>
+  <li data-start="968" data-end="1066">
+  <p data-start="970" data-end="1066">Avoid wrapping non-list elements with <code data-start="1008" data-end="1018">CustomQuotes</code>; it should only be used within list contexts.</p>
+  </li>
+  </ul>
+</div>
+
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
+  <ul data-start="1093" data-end="1434">
+  <li data-start="1093" data-end="1156">
+  <p data-start="1095" data-end="1156">Supports <strong data-start="1104" data-end="1121">plain content</strong> or <strong data-start="1125" data-end="1144">clickable links</strong> (<code data-start="1146" data-end="1152">href</code>).</p>
+  </li>
+  <li data-start="1157" data-end="1238">
+  <p data-start="1159" data-end="1238">Accepts <code data-start="1167" data-end="1177">children</code> to render additional custom elements inside the list item.</p>
+  </li>
+  <li data-start="1239" data-end="1315">
+  <p data-start="1241" data-end="1315">Includes a <strong data-start="1252" data-end="1271">skeleton loader</strong> (<code data-start="1273" data-end="1292">SkeletonAnimation</code>) for loading states.</p>
+  </li>
+  <li data-start="1316" data-end="1372">
+  <p data-start="1318" data-end="1372">Flexible styling with <code data-start="1340" data-end="1351">className</code> for customization.</p>
+  </li>
+  <li data-start="1373" data-end="1434">
+  <p data-start="1375" data-end="1434">Lightweight and accessible, using semantic <code data-start="1418" data-end="1424">&lt;li&gt;</code> markup.</p>
+  </li> 
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="design-reference" style={{ position: 'relative' }}>Design reference</h2>
+  <div><a href="https://www.figma.com/design/FcQnKvrSyOVvEo893vQOLL/2025-Portfolio---Solution-Engineer?node-id=13-85&t=cCGyGC2gZg13ZtBr-1" target="_blank">Design files (Figma)</a></div>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility (A11y)</h2>
+  <p>Accessibility depends on semantic usage of internal components, which is determined by the consumer’s implementation (e.g., heading levels, text alternatives). This component itself does not enforce accessibility patterns. Testing should be performed within the consuming application using tools such as <a href="https://developer.chrome.com/docs/lighthouse/overview" target="_blank">Lighthouse</a>, <a href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1" target="_blank">AXE</a>, or <a href="https://wave.webaim.org/" target="_blank">WAVE</a> to ensure compliance with WCAG guidelines.</p>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="api-reference" style={{ position: 'relative' }}>API Reference</h2> 
+  <Controls />
+</div>

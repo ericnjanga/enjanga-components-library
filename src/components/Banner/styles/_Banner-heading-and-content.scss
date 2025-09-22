@@ -27,9 +27,9 @@
     font-size: var(--enj-Banner-p-font-size);
   }
   a {
-    color: #fb00ff;
+    color: #20a2ff; // TODO: Convert to enjanga-core-setup color token
     span {
-      color: #fb00ff;
+      color: #20a2ff; // TODO: Convert to enjanga-core-setup color token
     }
     &:hover {
       text-decoration: none;

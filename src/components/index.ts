@@ -15,6 +15,7 @@ export {
   CP_getPictogram,
   CP_pictogramMap,
 } from './CustomPictogram';
+export { CustomQuotes } from './CustomQuotes';
 export { CustomTile, type CTL_valid_linkTo } from './CustomTile';
 export { CustomTabs } from './CustomTabs';
 export { HeadlinedList } from './HeadlinedList';

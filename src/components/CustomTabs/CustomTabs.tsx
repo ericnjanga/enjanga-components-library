@@ -8,7 +8,6 @@ const CustomTabs = () => {
 
   return (
     <>
-      <h2>********</h2>
       <Tabs selectedIndex={selected} onChange={({ selectedIndex }) => setSelected(selectedIndex)}>
       <TabList aria-label="Sample Tabs">
         <Tab>Tab One *</Tab>
@@ -21,7 +20,6 @@ const CustomTabs = () => {
         <TabPanel>Content for Tab Three</TabPanel>
       </TabPanels>
     </Tabs>
-      <h2>########</h2>
     </>
   );
 };
