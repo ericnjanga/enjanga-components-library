@@ -8,5 +8,8 @@ export default defineConfig({
   dts: true,
   outDir: "dist",
   clean: false, // 🚨 keep dist/styles.css
-  external: shared.externals,
+  external: [
+    ...shared.externals,
+    "react-is"
+  ]
 });
