@@ -31,10 +31,10 @@
   ],
   "scripts": {
     "prepare": "yarn build",
-    "build": "yarn build:css && tsup src/index.ts --dts --format esm,cjs --out-dir dist --external react --external react-dom --external @carbon/react --external clsx",
+    "build": "yarn build:css && tsup src/index.ts --dts --format esm,cjs --out-dir dist --external react --external react-dom --external @carbon/react --external clsx --external react-is",
     "build:css": "mkdir -p dist && sass --load-path=node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
-    "watch:ts": "tsup src/index.ts --dts --format esm,cjs --out-dir dist --watch --external react --external react-dom --external @carbon/react --external clsx",
+    "watch:ts": "tsup src/index.ts --dts --format esm,cjs --out-dir dist --watch --external react --external react-dom --external @carbon/react --external clsx --external react-is",
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -63,27 +63,26 @@
     "@storybook/react-webpack5": "^8.6.14",
     "@storybook/types": "^8.6.14",
     "@types/node": "^24.5.2",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react": "19",
+    "@types/react-dom": "19",
     "@types/webpack": "^5.28.5",
     "babel-loader": "^10.0.0",
     "clsx": "^2.1.1",
     "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
-    "react": "19.1.1",
+    "enjanga-core-setup": "^1.0.19",
+    "react": "^19.0.0",
     "react-docgen-typescript": "^2.4.0",
-    "react-dom": "19.1.1",
+    "react-dom": "^19.0.0",
+    "react-is": "^19.0.0",
     "sass": "^1.93.0",
     "sass-loader": "^16.0.5",
     "storybook": "^8.6.14",
     "style-loader": "^4.0.0",
     "tsup": "^8.5.0",
-    "typescript": "^5.0.0",
-    "react-is": "^19.0.0"
+    "typescript": "^5.0.0"
   },
-  "dependencies": {
-    "enjanga-core-setup": "^1.0.19"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/ericnjanga/enjanga-components-library.git"
