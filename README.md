@@ -29,7 +29,7 @@ Explore the interactive documentation and try all components in Storybook, hoste
 
 ## 🚀 Stack & Features
 
-- **Framework:** Next.js 13+ (App Router), React 18+
+- **Framework:** Next.js 13+ (App Router), React 19
 - **Language:** TypeScript
 - **Design System:** IBM Carbon Design System
 - **Styling:** SASS (+ enjanga-core-setup)
@@ -41,10 +41,12 @@ Explore the interactive documentation and try all components in Storybook, hoste
 1. **Install the library and peer dependencies:**
 
    ```bash
-   npm install enjanga-components-library next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
+   npm install enjanga-components-library next@^15.0.0 react@^19.0.0 react-dom@^19.0.0 react-is@^19.0.0
    # or
-   yarn add enjanga-components-library next@^15.0.0 react@^18.0.0 react-dom@^18.0.0
+   yarn add enjanga-components-library next@^15.0.0 react@^19.0.0 react-dom@^19.0.0 react-is@^19.0.0
    ```
+
+   > 🔑 `react-is` is required when using **Carbon Tabs** (and certain other Carbon components) with React 19, due to compatibility issues in Carbon’s internals.
 
 2. **Install and configure IBM Carbon and core setup:**  
    ```bash
@@ -57,6 +59,8 @@ Explore the interactive documentation and try all components in Storybook, hoste
    ```tsx
    import '@carbon/styles/css/index.css';
    ```
+
+---
 
 ## 🔧 Usage
 
@@ -72,6 +76,19 @@ export default function MyPage() {
 ```
 
 ✅ **Note:** Component CSS is automatically included — no manual CSS imports needed.
+
+---
+
+## 🐛 Troubleshooting
+
+- **Error:**  
+  ```
+  Dynamic require of "react-is" is not supported
+  ```
+  **Fix:** Ensure `react-is` is installed as a direct dependency in your project:  
+  ```bash
+  npm install react-is@^19.0.0
+  ```
 
 ---
 

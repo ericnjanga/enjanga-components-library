@@ -3064,6 +3064,26 @@ enjanga-core-setup@^1.0.19:
     smoothscroll-polyfill "^0.4.4"
     wicg-inert "^3.1.3"
 
+enjanga-core-setup@^1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/enjanga-core-setup/-/enjanga-core-setup-1.0.20.tgz#435963a92c236703619c342b19a79e25abdae435"
+  integrity sha512-VS8J+uD/U4Nv/3I0l9OPnmG1naXWnYckJbxUH77u9H2zkYM2cDaQvaTDIWL+UXqT4OC4xf+EnzgyeMaMQbdKIw==
+  dependencies:
+    "@carbon/icons-react" "^11.67.0"
+    "@carbon/pictograms-react" "^11.67.0"
+    "@carbon/react" "^1.91.0"
+    "@carbon/styles" "^1.90.0"
+    "@contentful/rich-text-types" "^17.1.0"
+    "@tanstack/react-query" "^5.83.0"
+    "@tanstack/react-query-devtools" "^5.83.0"
+    axios "^1.11.0"
+    carbon-components "^10.58.15"
+    clsx "^2.1.1"
+    enjanga-components-library "^1.0.12"
+    sass "^1.89.2"
+    smoothscroll-polyfill "^0.4.4"
+    wicg-inert "^3.1.3"
+
 entities@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
@@ -4780,7 +4800,7 @@ react-docgen@^7.0.0:
     resolve "^1.22.1"
     strip-indent "^4.0.0"
 
-react-dom@19.1.1, "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^19.0.0:
   version "19.1.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.1.1.tgz#2daa9ff7f3ae384aeb30e76d5ee38c046dc89893"
   integrity sha512-Dlq/5LAZgF0Gaz6yiqZCf6VCcZs1ghAJyrsu84Q/GT0gV+mCxbfmKNoGRKBYMJ8IEdGPqu49YWXD02GCknEDkw==
@@ -4812,7 +4832,7 @@ react-is@^19.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.1.tgz#038ebe313cf18e1fd1235d51c87360eb87f7c36a"
   integrity sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==
 
-react@19.1.1, "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.0.0:
   version "19.1.1"
   resolved "https://registry.yarnpkg.com/react/-/react-19.1.1.tgz#06d9149ec5e083a67f9a1e39ce97b06a03b644af"
   integrity sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==

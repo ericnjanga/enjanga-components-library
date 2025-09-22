@@ -39,6 +39,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "yarn build && npm version patch && npm publish",
+    "clean": "rm -rf dist",
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
@@ -70,7 +71,7 @@
     "clsx": "^2.1.1",
     "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
-    "enjanga-core-setup": "^1.0.19",
+    "enjanga-core-setup": "^1.0.20",
     "react": "^19.0.0",
     "react-docgen-typescript": "^2.4.0",
     "react-dom": "^19.0.0",
