@@ -38,7 +38,7 @@
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn build && npm version patch && npm publish",
+    "release": "yarn clean:hard && yarn build && npm version patch && npm publish",
     "clean": "rm -rf node_modules dist && yarn cache clean && yarn install",
     "clean:hard": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn install",
     "prepublishOnly": "yarn build"
