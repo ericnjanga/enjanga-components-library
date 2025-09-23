@@ -9,7 +9,7 @@ const meta: Meta<typeof CustomQuotes> = {
     quotes: [
       ...quoteSamples
     ],
-    rotationTimer: 2
+    rotationTimer: (2 * 60) // seconds
   },
   argTypes: {
     className: {
@@ -21,7 +21,7 @@ const meta: Meta<typeof CustomQuotes> = {
       description: 'Array of quotes to display and rotate through'
     },
     rotationTimer: {
-      control: { type: 'number', min: 1, max: 60, step: 1 },
+      control: { type: 'number', min: 1, max: (5 * 60), step: 1 },
       description: 'Rotation interval in minutes'
     }
   },
@@ -37,44 +37,82 @@ const meta: Meta<typeof CustomQuotes> = {
 export default meta;
 type Story = StoryObj<typeof CustomQuotes>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: { 
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
+};
+
 
 export const WithCustomTimer: Story = {
   args: {
     rotationTimer: 5 // 5 minutes rotation
-  }
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
 };
 
 export const SingleQuote: Story = {
   args: {
-    quotes: ["Only one quote available - no rotation will occur."]
-  }
+    quotes: [quoteSamples[0]]
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
 };
 
 export const ManyQuotes: Story = {
   args: {
     quotes: [
-      "Quote 1",
-      "Quote 2", 
-      "Quote 3",
-      "Quote 4",
-      "Quote 5",
-      "Quote 6",
-      "Quote 7",
-      "Quote 8"
+      ...quoteSamples
     ],
     rotationTimer: 1 // Rotate every minute
-  }
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
 };
 
 export const WithCustomClassName: Story = {
   args: {
     className: 'my-custom-quotes-class'
-  }
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
 };
 
 export const EmptyQuotes: Story = {
   args: {
     quotes: []
-  }
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
+};
+
+export const UndefinedQuotes: Story = {
+  args: {
+    quotes: undefined
+  },
+  render: (args) => (
+    <div style={{ padding: '120px' }}>
+      <CustomQuotes {...args} />
+    </div>
+  )
 };

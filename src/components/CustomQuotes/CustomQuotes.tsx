@@ -3,7 +3,6 @@
  * ---------------
  * The CustomQuotes ...
  */
-
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { Quotes } from '@carbon/icons-react'; 
@@ -15,62 +14,71 @@ import { CMSRichText } from '../CMSRichText';
 const CustomQuotes = ({ 
   className,
   quotes, 
-  rotationTimer = 2 
+  rotationTimer = 2 // minutes by default
 }: CQ_propsType) => {
-  const [currentQuote, setCurrentQuote] = useState<CQ_quote_propsType | undefined>(undefined);
+  // Both states allow undefined for safer initialization
+  const [currentQuote, setCurrentQuote] = useState<CQ_quote_propsType | undefined>(
+    quotes && quotes.length > 0 ? quotes[0] : undefined // ✅ sync init avoids flashing undefined
+  );
   const [previousQuote, setPreviousQuote] = useState<CQ_quote_propsType | undefined>(undefined);
 
-  // Initialize on component mount
+  /**
+   * Initialize current quote when `quotes` changes
+   * (this covers the case when quotes load async from an API or CMS)
+   */
   useEffect(() => {
-    if (quotes.length > 0) {
+    if (quotes?.length > 0) {
       const initialQuote = getRandomQuote({
         quotes,
-        previousQuote: undefined // Start with empty previous quote
+        previousQuote: undefined
       });
-      setCurrentQuote(initialQuote);
-      setPreviousQuote(initialQuote);
+      if (initialQuote) {
+        setCurrentQuote(initialQuote);
+        setPreviousQuote(initialQuote);
+      }
     }
-  }, [quotes]); // Added quotes dependency
+  }, [quotes]);
 
-  // Set up rotation timer - using functional updates to avoid stale closures
+  /**
+   * Set up rotation interval
+   * Runs only if we have 2+ quotes to rotate through
+   */
   useEffect(() => {
-    if (quotes.length <= 1) return;
-    
+    if (!quotes || quotes.length <= 1) return;
+
+    // Convert minutes → ms
     const intervalMs = rotationTimer * 60 * 1000;
+
     const intervalId = setInterval(() => {
-      // Use functional updates to get latest state
-      setCurrentQuote(prevCurrent => {
-        const newQuote = getRandomQuote({
-          quotes,
-          previousQuote: prevCurrent
-        });
-        setPreviousQuote(prevCurrent); // Update previous quote
-        return newQuote;
+      rotateQuote({
+        quotes,
+        previousQuote,
+        getRandomQuote,
+        setCurrentQuote,
+        setPreviousQuote,
+        currentQuote
       });
     }, intervalMs);
 
     return () => clearInterval(intervalId);
-  }, [quotes, rotationTimer]); // Removed currentQuote dependency
+  }, [quotes, rotationTimer, previousQuote, currentQuote]);
 
-  // Handle empty quotes array
-  if (quotes.length === 0) {
-    return (
-      <>
-        <SkeletonAnimation part="body" />
-      </>
-    );
+  /**
+   * Handle empty quotes (undefined or [])
+   * → Show skeleton animation placeholder
+   */
+  if (!quotes || quotes.length === 0) {
+    return <SkeletonAnimation part="body" />;
   }
 
   return (
-    <>
-      <div className={clsx(className, 'custom-quotes')}>
-        <Quotes className="custom-quotes__icon" />
-        <blockquote className="custom-quotes__text">
-          <CMSRichText data={currentQuote} /> 
-        </blockquote>
-        <hr className="custom-quotes__hr" />
-      </div>
-    </>
+    <div className={clsx(className, 'custom-quotes')}>
+      <Quotes className="custom-quotes__icon" />
+      <blockquote className="custom-quotes__text">
+        {currentQuote ? <CMSRichText data={currentQuote} /> : <SkeletonAnimation part="body" />}
+      </blockquote>
+      <hr className="custom-quotes__hr" />
+    </div>
   );
 };
 

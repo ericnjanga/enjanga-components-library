@@ -6,6 +6,8 @@ import {
 } from '@/components/CustomPictogram/libs/types';
 import { CP_propsType } from '@/components/CustomPictogram/libs/types';
 
+import { CQ_quote_propsType } from '@/components';
+
 export const mockPlainText =
   'Marzipan halvah topping chocolate bonbon chocolate cake cupcake jujubes. Soufflé tiramisu gummies brownie bonbon. Dragée lemon drops jelly-o powder marzipan chocolate cake candy canes pastry. Tiramisu apple pie halvah tootsie roll apple pie. Chocolate pie gummi bears danish wafer cake shortbread. Dessert cake lemon drops toffee apple pie. Donut lemon drops caramels oat cake sweet roll chupa chups cake carrot cake. Muffin cake wafer cheesecake tart cotton candy jelly.';
 
@@ -482,4 +484,4 @@ export const quoteSamples = [
       ]
     }
   }
-];
+] as CQ_quote_propsType[];

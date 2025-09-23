@@ -1,4 +1,4 @@
-// CustomPictogram props type
+// CustomQuotes props type
 // ----------------
   
 import type { Node } from '@contentful/rich-text-types';
