@@ -38,7 +38,8 @@ export default meta;
 type Story = StoryObj<typeof CustomQuotes>;
 
 export const Default: Story = {
-  args: { 
+  args: {
+    rotationTimer: 1
   },
   render: (args) => (
     <div style={{ padding: '120px' }}>

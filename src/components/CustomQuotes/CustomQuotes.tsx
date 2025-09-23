@@ -1,7 +1,7 @@
 /**
  * CustomQuotes:
  * ---------------
- * The CustomQuotes ...
+ * Rotates through a list of quotes on a timer.
  */
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
@@ -14,17 +14,16 @@ import { CMSRichText } from '../CMSRichText';
 const CustomQuotes = ({ 
   className,
   quotes, 
-  rotationTimer = 2 // minutes by default
+  rotationTimer = 10 // ✅ seconds (default 10s)
 }: CQ_propsType) => {
-  // Both states allow undefined for safer initialization
+  // Track the current and previous quotes
   const [currentQuote, setCurrentQuote] = useState<CQ_quote_propsType | undefined>(
-    quotes && quotes.length > 0 ? quotes[0] : undefined // ✅ sync init avoids flashing undefined
+    quotes && quotes.length > 0 ? quotes[0] : undefined
   );
   const [previousQuote, setPreviousQuote] = useState<CQ_quote_propsType | undefined>(undefined);
 
   /**
-   * Initialize current quote when `quotes` changes
-   * (this covers the case when quotes load async from an API or CMS)
+   * Initialize with a random quote once quotes are available.
    */
   useEffect(() => {
     if (quotes?.length > 0) {
@@ -40,14 +39,14 @@ const CustomQuotes = ({
   }, [quotes]);
 
   /**
-   * Set up rotation interval
-   * Runs only if we have 2+ quotes to rotate through
+   * Rotate quotes every `rotationTimer` seconds.
+   * Only runs if there are 2 or more quotes.
    */
   useEffect(() => {
     if (!quotes || quotes.length <= 1) return;
 
-    // Convert minutes → ms
-    const intervalMs = rotationTimer * 60 * 1000;
+    // ✅ Convert seconds → milliseconds
+    const intervalMs = rotationTimer * 1000;
 
     const intervalId = setInterval(() => {
       rotateQuote({
@@ -64,8 +63,7 @@ const CustomQuotes = ({
   }, [quotes, rotationTimer, previousQuote, currentQuote]);
 
   /**
-   * Handle empty quotes (undefined or [])
-   * → Show skeleton animation placeholder
+   * Show skeleton if there are no quotes yet.
    */
   if (!quotes || quotes.length === 0) {
     return <SkeletonAnimation part="body" />;
@@ -75,7 +73,9 @@ const CustomQuotes = ({
     <div className={clsx(className, 'custom-quotes')}>
       <Quotes className="custom-quotes__icon" />
       <blockquote className="custom-quotes__text">
-        {currentQuote ? <CMSRichText data={currentQuote} /> : <SkeletonAnimation part="body" />}
+        {currentQuote 
+          ? <CMSRichText data={currentQuote.description} /> 
+          : <SkeletonAnimation part="body" />}
       </blockquote>
       <hr className="custom-quotes__hr" />
     </div>

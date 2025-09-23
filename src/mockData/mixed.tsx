@@ -43,445 +43,193 @@ export const styleHeadingLabel = {
 
 
 export const quoteSamples = [
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "paragraph",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "Great design is ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "not just what it looks like",
-              "marks": [
-                { "type": "bold" },
-                { "type": "italic" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": " but ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "how it works",
-              "marks": [
-                { "type": "underline" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": ". - Steve Jobs",
-              "marks": [],
-              "data": {}
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "heading-2",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "Innovation distinguishes",
-              "marks": [
-                { "type": "bold" }
-              ],
-              "data": {}
-            }
-          ]
+    {
+        "sys": {
+            "id": "3ATxDVOweuGOcZVfkqNIak"
         },
-        {
-          "nodeType": "paragraph",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "Between a ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "leader",
-              "marks": [
-                { "type": "bold" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": " and a ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "follower",
-              "marks": [
-                { "type": "italic" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": ". Stay hungry, stay foolish.",
-              "marks": [],
-              "data": {}
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "blockquote",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "The only way to do ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "great work",
-                  "marks": [
-                    { "type": "bold" },
-                    { "type": "underline" }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": " is to ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "love what you do",
-                  "marks": [
-                    { "type": "italic" }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": ".",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "paragraph",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "Check out our ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "hyperlink",
-              "data": {
-                "uri": "https://example.com/portfolio"
-              },
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "latest portfolio",
-                  "marks": [
-                    { "type": "bold" }
-                  ],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "text",
-              "value": " for more ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "inspiring work",
-              "marks": [
-                { "type": "italic" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "!",
-              "marks": [],
-              "data": {}
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "unordered-list",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "list-item",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "paragraph",
-                  "data": {},
-                  "content": [
+        "description": {
+            "json": {
+                "data": {},
+                "content": [
                     {
-                      "nodeType": "text",
-                      "value": "Quality is ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "more important",
-                      "marks": [
-                        { "type": "bold" }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " than quantity",
-                      "marks": [],
-                      "data": {}
+                        "data": {},
+                        "content": [
+                            {
+                                "data": {},
+                                "marks": [],
+                                "value": "Giving up too early is the surest path to mediocrity. Resilience is what separates good engineers from great ones.",
+                                "nodeType": "text"
+                            }
+                        ],
+                        "nodeType": "paragraph"
                     }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "list-item",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "paragraph",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "text",
-                      "value": "One home run is ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "much better",
-                      "marks": [
-                        { "type": "italic" }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " than two doubles",
-                      "marks": [],
-                      "data": {}
-                    }
-                  ]
-                }
-              ]
+                ],
+                "nodeType": "document"
             }
-          ]
         }
-      ]
-    }
-  },
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "paragraph",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "Simple can be ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "harder than complex",
-              "marks": [
-                { "type": "bold" },
-                { "type": "underline" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": ": You have to work hard to get your thinking ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "clean",
-              "marks": [
-                { "type": "italic" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": " to make it simple.",
-              "marks": [],
-              "data": {}
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "json": {
-      "nodeType": "document",
-      "data": {},
-      "content": [
-        {
-          "nodeType": "heading-3",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "Mixed formatting example",
-              "marks": [
-                { "type": "bold" }
-              ],
-              "data": {}
-            }
-          ]
+    },
+    {
+        "sys": {
+            "id": "4zLtlAvfEGGxAVa79mqBUh"
         },
-        {
-          "nodeType": "paragraph",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "text",
-              "value": "This text has ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "bold",
-              "marks": [
-                { "type": "bold" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": ", ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "italic",
-              "marks": [
-                { "type": "italic" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": ", and ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "underlined",
-              "marks": [
-                { "type": "underline" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": " text. Even ",
-              "marks": [],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "combined styles",
-              "marks": [
-                { "type": "bold" },
-                { "type": "italic" },
-                { "type": "underline" }
-              ],
-              "data": {}
-            },
-            {
-              "nodeType": "text",
-              "value": "!",
-              "marks": [],
-              "data": {}
+        "description": {
+            "json": {
+                "nodeType": "document",
+                "data": {},
+                "content": [
+                    {
+                        "nodeType": "paragraph",
+                        "data": {},
+                        "content": [
+                            {
+                                "nodeType": "text",
+                                "value": "It's all about ",
+                                "marks": [],
+                                "data": {}
+                            },
+                            {
+                                "nodeType": "text",
+                                "value": "focusing on the next step",
+                                "marks": [
+                                    {
+                                        "type": "bold"
+                                    }
+                                ],
+                                "data": {}
+                            },
+                            {
+                                "nodeType": "text",
+                                "value": "—consistent, small steps of progress. The rest is history.",
+                                "marks": [],
+                                "data": {}
+                            }
+                        ]
+                    }
+                ]
             }
-          ]
         }
-      ]
+    },
+    {
+        "sys": {
+            "id": "1QvStbBpnrH6owRo0akbuZ"
+        },
+        "description": {
+            "json": {
+                "nodeType": "document",
+                "data": {},
+                "content": [
+                    {
+                        "nodeType": "paragraph",
+                        "data": {},
+                        "content": [
+                            {
+                                "nodeType": "text",
+                                "value": "A roadblock is a challenge that ",
+                                "marks": [],
+                                "data": {}
+                            },
+                            {
+                                "nodeType": "text",
+                                "value": "hasn't been solved yet",
+                                "marks": [
+                                    {
+                                        "type": "bold"
+                                    }
+                                ],
+                                "data": {}
+                            },
+                            {
+                                "nodeType": "text",
+                                "value": ". Period!",
+                                "marks": [],
+                                "data": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "sys": {
+            "id": "1Kuva9w4aCDPmd96RbBYrB"
+        },
+        "description": {
+            "json": {
+                "nodeType": "document",
+                "data": {},
+                "content": [
+                    {
+                        "nodeType": "paragraph",
+                        "data": {},
+                        "content": [
+                            {
+                                "nodeType": "text",
+                                "value": "The most exceptional software engineers are defined by a relentless pursuit of ",
+                                "marks": [],
+                                "data": {}
+                            },
+                            {
+                                "nodeType": "text",
+                                "value": "better solutions",
+                                "marks": [
+                                    {
+                                        "type": "bold"
+                                    }
+                                ],
+                                "data": {}
+                            },
+                            {
+                                "nodeType": "text",
+                                "value": ".",
+                                "marks": [],
+                                "data": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "sys": {
+            "id": "5UbwtfLpW5S8ZcUYQ73tQJ"
+        },
+        "description": {
+            "json": {
+                "data": {},
+                "content": [
+                    {
+                        "data": {},
+                        "content": [
+                            {
+                                "data": {},
+                                "marks": [],
+                                "value": "Think critically, leverage AI as a ",
+                                "nodeType": "text"
+                            },
+                            {
+                                "data": {},
+                                "marks": [
+                                    {
+                                        "type": "bold"
+                                    }
+                                ],
+                                "value": "strategic tool",
+                                "nodeType": "text"
+                            },
+                            {
+                                "data": {},
+                                "marks": [],
+                                "value": "—not as a god—and you'll always be invaluable.",
+                                "nodeType": "text"
+                            }
+                        ],
+                        "nodeType": "paragraph"
+                    }
+                ],
+                "nodeType": "document"
+            }
+        }
     }
-  }
 ] as CQ_quote_propsType[];
