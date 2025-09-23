@@ -3038,9 +3038,9 @@ enhanced-resolve@^5.17.3:
     tapable "^2.2.0"
 
 enjanga-components-library@^1.0.12:
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/enjanga-components-library/-/enjanga-components-library-1.0.22.tgz#e8fa95fdb9807bee17865d482bf4385fdcacd5fb"
-  integrity sha512-3qbSN/X1rsrWhsglNqhqmwF1ht7+8LNb7SOUL0rY9o7I/iDpZo2vGvJNpBZ/Sdl1jHd7Q/ZOZgvNpBHMhA6Exw==
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/enjanga-components-library/-/enjanga-components-library-1.0.23.tgz#27e50e592d63c656808ef779b3f1148189a763b3"
+  integrity sha512-SUtNhPn208dCQT5fBFj5f6la1oCwt4FwxSLGHqOT8o2kDskcOZ3i6eLnJWArZUWb84DxuCJHjWtAu6Vp4FtC6g==
 
 enjanga-core-setup@^1.0.20:
   version "1.0.20"
