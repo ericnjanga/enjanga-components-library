@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { quoteSamples } from '@/mockData/mixed';
 import { CustomQuotes } from '../../../components/CustomQuotes';
 
 const meta: Meta<typeof CustomQuotes> = {
@@ -6,11 +7,7 @@ const meta: Meta<typeof CustomQuotes> = {
   component: CustomQuotes,
   args: {
     quotes: [
-      "The only way to do great work is to love what you do.",
-      "Innovation distinguishes between a leader and a follower.",
-      "Life is what happens to you while you're busy making other plans.",
-      "The future belongs to those who believe in the beauty of their dreams.",
-      "Success is not final, failure is not fatal: it is the courage to continue that counts."
+      ...quoteSamples
     ],
     rotationTimer: 2
   },

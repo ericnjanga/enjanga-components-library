@@ -1,21 +1,23 @@
+import type { Node } from '@contentful/rich-text-types';
+import { CQ_quote_propsType } from './types';
 
 interface getRandomQuote_propsType {
-  quotes: string[]; 
-  previousQuote: string;
+  quotes: CQ_quote_propsType[]; // TODO: Quotes should be of tyoe SmartText; 
+  previousQuote: CQ_quote_propsType | undefined;
 };
 
 interface rotateQuote_propsType {
-  quotes: string[]; 
-  previousQuote: string;
-  getRandomQuote: (props: getRandomQuote_propsType) => string;
-  setCurrentQuote: React.Dispatch<React.SetStateAction<string>>;
-  setPreviousQuote: React.Dispatch<React.SetStateAction<string>>;
-  currentQuote: string;
+  quotes: CQ_quote_propsType[]; // TODO: Quotes should be of tyoe SmartText; 
+  previousQuote: CQ_quote_propsType;
+  getRandomQuote: (props: getRandomQuote_propsType) => CQ_quote_propsType;
+  setCurrentQuote: React.Dispatch<React.SetStateAction<CQ_quote_propsType>>;
+  setPreviousQuote: React.Dispatch<React.SetStateAction<CQ_quote_propsType>>;
+  currentQuote: CQ_quote_propsType;
 };
 
   // Function to get a random quote that's not the same as the previous one
-export const getRandomQuote = ({ quotes, previousQuote }: getRandomQuote_propsType): string => {
-  if (quotes.length === 0) return '';
+export const getRandomQuote = ({ quotes, previousQuote }: getRandomQuote_propsType): CQ_quote_propsType | undefined => {
+  if (quotes.length === 0) return undefined;
   if (quotes.length === 1) return quotes[0];
   
   const availableQuotes = quotes.filter(quote => quote !== previousQuote);
