@@ -22,12 +22,10 @@ import {
   HeaderMenuButton,
   SkipToContent,
   SideNav,
-  // HeaderGlobalBar,
-  // SideNavItems,
   HeaderSideNavItems,
 } from '@carbon/react';
 
-import { Link } from "enjanga-core-setup/next";
+import { Link } from 'enjanga-core-setup/next';
 import { AHC_propsType, AH_propsType } from './libs/types';
 
 const AppHeader = ({
@@ -35,9 +33,7 @@ const AppHeader = ({
   brandLabel,
   brandRoute = '/',
   navigation,
-}: // globalBarItems,
-AH_propsType) => {
-  // ARIA labels
+}: AH_propsType) => {
   const labelOpenMenu = 'Open menu';
   const labelSideNav = 'Side navigation';
 
@@ -55,17 +51,19 @@ AH_propsType) => {
             <HeaderName prefix="" as={Link} href={brandRoute} passHref>
               {brand}
             </HeaderName>
+
             <HeaderNavigation aria-label={brandLabel}>
               {navigation}
             </HeaderNavigation>
+
             <SideNav
               aria-label={labelSideNav}
               expanded={isSideNavExpanded}
               isPersistent={false}
+              onOverlayClick={onClickSideNavExpand} // ✅ use the same toggle handler
             >
               <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
             </SideNav>
-            {/* <HeaderGlobalBar>{globalBarItems}</HeaderGlobalBar> */}
           </div>
         </Header>
       )}

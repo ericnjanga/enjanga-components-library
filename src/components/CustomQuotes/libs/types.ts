@@ -10,7 +10,7 @@ export interface CQ_propsType {
 }
 
 export type CQ_quote_propsType = { // TODO: Maybeuotes should be of tyoe SmartText?
-  sys?: {
+  sys: {
       id: string
   },
   description: {
