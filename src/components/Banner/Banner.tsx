@@ -54,7 +54,7 @@ const Banner = ({
       role={role} // role is still explicitly set for clarity and for cases where Tag is 'div'
     >
       <div className="cds--css-grid">
-        <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-8 cds--css-grid-column">
+        <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-10 cds--css-grid-column">
           <FeatureText {...featuredText} />
         </div>
       </div>
