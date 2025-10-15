@@ -39,7 +39,7 @@ import {
   ModalFooter,
   Button,
 } from '@carbon/react';
-import { ContentM_propsType } from './libs/types';
+import { ContentM_propsType } from './libs/types'; 
 
 /**
  * Props for the ContentModal component
@@ -66,6 +66,7 @@ export const ContentModal = ({
           open={isOpen}
           onClose={handleClose}
           size="md" // Medium-sized modal (options: 'xs' | 'sm' | 'md' | 'lg')
+          className="enj-contentModal"
         >
           <ModalHeader
             label={modalLabel}

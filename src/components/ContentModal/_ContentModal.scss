@@ -1,0 +1,42 @@
+@use 'enjanga-core-setup/styles' as core;
+
+.enj-contentModal {
+  --enj-contModal-closeBtn-right: 0;
+  --enj-contModal-header-paddInline: 1.5rem;
+  --enj-contModal-header-paddBlockStr: 2rem;
+  --enj-contModal-content-paddInline: 1.5rem;
+
+  .cds--modal-header__heading {
+    color: #0547C4;
+  }
+
+  .cds--modal-close-button {
+    top: 1rem;
+    right: var(--enj-contModal-closeBtn-right);
+  }
+
+  .cds--modal-header {
+    padding-block-start: var(--enj-contModal-header-paddBlockStr);
+    padding-inline: var(--enj-contModal-header-paddInline);
+  }
+
+  .cds--modal-content {
+    padding-inline: var(--enj-contModal-content-paddInline);
+  }
+
+  @include core.breakpoint('md') {
+    --enj-contModal-closeBtn-right: 1rem;
+    --enj-contModal-header-paddInline: 2rem;
+    --enj-contModal-content-paddInline: 2rem;
+  }
+
+  @include core.breakpoint('lg') {
+    --enj-contModal-header-paddInline: 3rem;
+    --enj-contModal-content-paddInline: 3rem;
+  }
+
+  @include core.breakpoint('xlg') {
+    --enj-contModal-header-paddInline: 4rem;
+    --enj-contModal-content-paddInline: 4rem;
+  }
+}
