@@ -41,7 +41,8 @@
     "release": "yarn clean:hard && yarn build && npm version patch && npm publish",
     "clean": "rm -rf node_modules dist && yarn cache clean && yarn install",
     "clean:hard": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn install",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "chromatic": "yarn build-storybook && chromatic --exit-zero-on-changes --project-token=chpt_7ebec659e451720"
   },
   "peerDependencies": {
     "@carbon/react": "^1",
@@ -69,6 +70,7 @@
     "@types/react-dom": "19",
     "@types/webpack": "^5.28.5",
     "babel-loader": "^10.0.0",
+    "chromatic": "^13.3.0",
     "clsx": "^2.1.1",
     "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
