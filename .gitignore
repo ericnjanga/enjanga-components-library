@@ -4,3 +4,12 @@ node_modules
 dist
 build-storybook.log
 .DS_Store
+
+# Storybook build output
+storybook-static/
+
+# Logs
+*.log
+
+# Yarn
+yarn.lock
