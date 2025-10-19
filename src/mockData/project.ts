@@ -1,537 +1,1484 @@
 export const project = {
-  data: {
-    en: {
-      sys: {
-        id: '5y2JSha3mykWdGkUf6XcQp',
+   "data": {
+    "en": {
+      "sys": {
+        "id": "2UJqmr6lFkc80z1Qm3LUfr"
       },
-      description: {
-        json: {
-          nodeType: 'document',
-          data: {},
-          content: [
+      "title": "Bridging Design and Engineering: A Next.js Contentful Platform",
+      "blurb": "A Next.js app powered by Contentful and a custom React component library — delivering scalable, accessible, CMS-driven experiences that accelerate content publishing and strengthen design consistency.",
+      "description": {
+        "json": {
+          "nodeType": "document",
+          "data": {},
+          "content": [
             {
-              nodeType: 'heading-2',
-              data: {},
-              content: [
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
                 {
-                  nodeType: 'text',
-                  value: 'Introduction',
-                  marks: [],
-                  data: {},
-                },
-              ],
+                  "nodeType": "text",
+                  "value": "1. Context & Problem",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
             },
             {
-              nodeType: 'unordered-list',
-              data: {},
-              content: [
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
                 {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
+                  "nodeType": "text",
+                  "value": "As digital products scale, three recurring challenges surface:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
                     {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
                         {
-                          nodeType: 'text',
-                          value:
-                            'Project stack: NextJS, React, TypeScript, ContentFul, IBM Carbon Design System, GraphQL',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'React Storybook',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'React Component library',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'Consummer project',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: '',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'heading-2',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: 'Key features',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'unordered-list',
-              data: {},
-              content: [
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'Flexible components',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'Responsiveness',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'ContentFul data API fetching',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: '',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'heading-2',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: 'How Components are created',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value:
-                    'Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels.',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: '',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'heading-2',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: 'How data is fed to components',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: 'Introduce ',
-                  marks: [],
-                  data: {},
-                },
-                {
-                  nodeType: 'text',
-                  value: 'ContentfulFetcher',
-                  marks: [
-                    {
-                      type: 'bold',
-                    },
-                  ],
-                  data: {},
-                },
-                {
-                  nodeType: 'text',
-                  value: ', explain what it does and how it does it.',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value:
-                    'Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels.',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: '',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'blockquote',
-              data: {},
-              content: [
-                {
-                  nodeType: 'paragraph',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'text',
-                      value: 'Blockquote:',
-                      marks: [
-                        {
-                          type: 'bold',
+                          "nodeType": "text",
+                          "value": "Content bottlenecks",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
                         },
                         {
-                          type: 'underline',
-                        },
-                      ],
-                      data: {},
-                    },
+                          "nodeType": "text",
+                          "value": " — Marketing and business teams relied on developers for content updates, slowing time-to-market.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
                     {
-                      nodeType: 'text',
-                      value:
-                        ' Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels.',
-                      marks: [],
-                      data: {},
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: '',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'heading-2',
-              data: {},
-              content: [
-                {
-                  nodeType: 'text',
-                  value: 'Cases of flexibility',
-                  marks: [],
-                  data: {},
-                },
-              ],
-            },
-            {
-              nodeType: 'unordered-list',
-              data: {},
-              content: [
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
                         {
-                          nodeType: 'text',
-                          value:
-                            'A rendered component with undefined props still displays a skeleton animation',
-                          marks: [],
-                          data: {},
+                          "nodeType": "text",
+                          "value": "Inconsistent design",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
                         },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  nodeType: 'list-item',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'paragraph',
-                      data: {},
-                      content: [
                         {
-                          nodeType: 'text',
-                          value:
-                            "Some properties change the component's shape, size, and appearance",
-                          marks: [],
-                          data: {},
+                          "nodeType": "text",
+                          "value": " — New pages were built without a unified component system, causing design drift.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Limited scalability",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
                         },
-                      ],
-                    },
+                        {
+                          "nodeType": "text",
+                          "value": " — Each new feature required duplicated effort across content, code, and design.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "5euzSDvP8fBTqUCSoCkfKs",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "During my years as a front-end developer, I saw how these issues grow costly in enterprise environments. For this project, I set out to build not just a site, but a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "scalable platform",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
                   ],
+                  "data": {}
                 },
-              ],
-            },
-            {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
                 {
-                  nodeType: 'text',
-                  value: '',
-                  marks: [],
-                  data: {},
-                },
-              ],
+                  "nodeType": "text",
+                  "value": " where design, content, and code worked together.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
             },
             {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
                 {
-                  nodeType: 'text',
-                  value:
-                    'Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels. Jelly gummi bears I love toffee soufflé dragée soufflé. I love tootsie roll ice cream jelly beans biscuit marshmallow bonbon oat cake chocolate bar. Tart pudding brownie tart cake liquorice pudding. Chupa chups I love cake jelly-o icing fruitcake.',
-                  marks: [],
-                  data: {},
-                },
-              ],
+                  "nodeType": "text",
+                  "value": "2. Solution",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
             },
             {
-              nodeType: 'hr',
-              data: {},
-              content: [],
-            },
-            {
-              nodeType: 'heading-2',
-              data: {},
-              content: [
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
                 {
-                  nodeType: 'text',
-                  value: 'Tart pudding brownie tart cake liquorice pudding ',
-                  marks: [],
-                  data: {},
+                  "nodeType": "text",
+                  "value": "I built a ",
+                  "marks": [],
+                  "data": {}
                 },
-              ],
+                {
+                  "nodeType": "text",
+                  "value": "React-based application with Next.js",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", powered by a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "headless CMS (Contentful)",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " and integrated with my ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "custom component library",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ".",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
             },
             {
-              nodeType: 'paragraph',
-              data: {},
-              content: [
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
                 {
-                  nodeType: 'text',
-                  value:
-                    'Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels. Jelly gummi bears I love toffee soufflé dragée soufflé. I love tootsie roll ice cream jelly beans biscuit marshmallow bonbon oat cake chocolate bar. Tart pudding brownie tart cake liquorice pudding. Chupa chups I love cake jelly-o icing fruitcake.',
-                  marks: [],
-                  data: {},
-                },
-              ],
+                  "nodeType": "text",
+                  "value": "Key goals, each tied to business value:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
             },
-          ],
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Reusable, CMS-driven components →",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Faster feature development and reduced duplication.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Design consistency →",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Strengthening brand identity and reduced design drift.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Decoupled content from code →",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Empowering business teams to update content without developer bottlenecks.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Accessibility baked in →",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Minimizing compliance risks and broadened user reach.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "SEO & performance →",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Leveraging Next.js static site generation to deliver fast, optimized, and discoverable pages.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "2tmCvQTj5NkT33x54NGifS",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "3. Implementation",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I built this app on top of ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "hyperlink",
+                  "data": {
+                    "uri": "https://carbondesignsystem.com/"
+                  },
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Carbon Design Systems",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", chosen NextJS for its ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "built-in server-side rendering (SSR) and static site generation (SSG)",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", and went for ContentFul because it’s a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "headless CMS with a clean GraphQL/REST API",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", which makes it easy to ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "fetch structured content",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ".",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "heading-3",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Tech Stack & Architecture",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Framework:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Next.js (for hybrid static & server-side rendering, SEO, and performance).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "CMS:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Contentful (for structured content modeling and editorial flexibility).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "UI Foundation:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Custom React component library (",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "http://localhost:3000/blog/19oHD8PCWxtpsAQ0vrZm80/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "ensuring accessibility,",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " consistency, and reusability).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Documentation:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Storybook (for component showcase and developer onboarding).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "CI/CD:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " GitHub Actions (for automated build, test, and deploy).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "heading-3",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Example: Page Assembly with Contentful + Component Library",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Here is how everything works:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Content authors",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " build pages by combining reusable modules (hero banners, tiles, etc.).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "React components",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " consume structured data from Contentful, rendering accessible, responsive layouts.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Design system tokens",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " ensure consistent typography, spacing, and color usage across all pages.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "2PTOFm9dXKBR0MPsr711XG",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "4. Impact",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "✨ ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "Business + Technical Outcomes:",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Integrating library components made the building process so much faster. The bulk of the development process had to do with the scaffholding, the routing system, pulling the content from ContentFul and more. Given that I completed the project on my own, here are some estimations:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "40% faster feature delivery",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " due to reusable, CMS-powered components.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Content author empowerment:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Easy to manage and publish without developer intervention, improving marketing agility.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Strengthened design consistency:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Reduced drift and accessibility gaps.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "📸 ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "[Insert chart or graphic comparing time-to-publish before vs. after CMS integration]",
+                  "marks": [
+                    {
+                      "type": "italic"
+                    }
+                  ],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "“These results validated that the platform was not just a technical improvement but a business-enabling solution.”",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "5. Solution Engineering Mindset",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "This project demonstrates my approach as a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "Design Technologist bridging design, engineering, and business goals",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ":",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Business Alignment:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Designed architecture to reduce content bottlenecks and accelerate marketing initiatives.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Cross-Functional Collaboration:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Partnered with designers to define reusable modules, and with content stakeholders to model flexible structures in Contentful.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Scalability:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Built the app as a platform, not a one-off site, enabling long-term growth and reuse.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Enablement:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Documentation and Storybook empowered developers to contribute confidently, while content teams gained autonomy.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "🎥 ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "[Optional short video: walkthrough of component library in Storybook + integration with CMS]",
+                  "marks": [
+                    {
+                      "type": "italic"
+                    }
+                  ],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "6. Commitment to Quality",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "This application is more than a demo — it’s a blueprint for scalable, enterprise-grade digital platforms. My commitments include:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "ordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Performance benchmarking",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " (Lighthouse scores and Core Web Vitals).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Comprehensive testing",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " (unit + integration).",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "SEO optimization",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " (leveraging Next.js static site generation)",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Future roadmap",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ": localization, visual regression testing, and multi-site scalability.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "✨ Takeaway",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "This project reflects my role as a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "Design Technologist with solution engineering focus",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ":",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "I don’t just build features — I design systems.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "I don’t just code interfaces — I create scalable solutions that empower teams, improve workflows, and deliver measurable business impact.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            }
+          ]
         },
-      },
-      title:
-        '[Case Study] Cotton candy pastry fruitcake shortbread jelly-o gummi bears',
-      blurb:
-        'Soufflé shortbread chupa chups lollipop carrot cake lollipop gingerbread. Chocolate cake topping caramels cupcake chocolate bar apple pie. Cotton candy pastry fruitcake shortbread jelly-o gummi bears. Icing fruitcake dragée pie cheesecake pastry.',
-    },
-    fr: {
-      sys: {
-        id: '5y2JSha3mykWdGkUf6XcQp',
-      },
-      description: {
-        json: {
-          data: {},
-          content: [
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value:
-                    'Soufflé shortbread chupa chups lollipop carrot cake lollipop gingerbread. ',
-                  nodeType: 'text',
+        "links": {
+          "assets": {
+            "block": [
+              {
+                "sys": {
+                  "id": "5euzSDvP8fBTqUCSoCkfKs"
                 },
-              ],
-              nodeType: 'heading-2',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value:
-                    'Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels. Jelly gummi bears I love toffee soufflé dragée soufflé. I love tootsie roll ice cream jelly beans biscuit marshmallow bonbon oat cake chocolate bar. Tart pudding brownie tart cake liquorice pudding. Chupa chups I love cake jelly-o icing fruitcake.',
-                  nodeType: 'text',
+                "url": "https://images.ctfassets.net/z41mabrhnu57/5euzSDvP8fBTqUCSoCkfKs/411d2f2df48806e44c68290a8ce61559/case_study_2_-_Figure_1.png",
+                "title": "Case study 2 - Figure 1: Screenshot of portfolio with consistent UI patterns.",
+                "description": "Screenshot of portfolio with consistent UI patterns."
+              },
+              {
+                "sys": {
+                  "id": "2tmCvQTj5NkT33x54NGifS"
                 },
-              ],
-              nodeType: 'paragraph',
-            },
-            {
-              data: {},
-              content: [],
-              nodeType: 'hr',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value: 'Tart pudding brownie tart cake liquorice pudding ',
-                  nodeType: 'text',
+                "url": "https://videos.ctfassets.net/z41mabrhnu57/2tmCvQTj5NkT33x54NGifS/2f2acbb6041c4068f2874e7c10c50ba0/Case_study_2_-_Video_1.mp4",
+                "title": "Case study 2: Contentful seemless integration with a React app",
+                "description": null
+              },
+              {
+                "sys": {
+                  "id": "2PTOFm9dXKBR0MPsr711XG"
                 },
-              ],
-              nodeType: 'heading-2',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value:
-                    'Cupcake ipsum dolor sit amet I love jelly tart cake. Gummies danish dessert halvah jelly beans candy canes. Candy canes jelly beans jelly-o jelly beans danish biscuit gummies sugar plum. Cake pudding jelly jelly beans cheesecake. Sweet croissant chupa chups bear claw pastry jelly croissant tootsie roll biscuit. Dragée cotton candy cotton candy halvah croissant caramels. Jelly gummi bears I love toffee soufflé dragée soufflé. I love tootsie roll ice cream jelly beans biscuit marshmallow bonbon oat cake chocolate bar. Tart pudding brownie tart cake liquorice pudding. Chupa chups I love cake jelly-o icing fruitcake.',
-                  nodeType: 'text',
-                },
-              ],
-              nodeType: 'paragraph',
-            },
-          ],
-          nodeType: 'document',
-        },
-      },
-      title:
-        '[Case Study] Cotton candy pastry fruitcake shortbread jelly-o gummi bears',
-      blurb: 'fr',
-    },
-  },
+                "url": "https://images.ctfassets.net/z41mabrhnu57/2PTOFm9dXKBR0MPsr711XG/2af9129f2dbc52968b2102dde6340558/case-study2-screenshot-3.png",
+                "title": "Screenshot of Contentful content model with a “Page” entry referencing reusable components.",
+                "description": ""
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
 };

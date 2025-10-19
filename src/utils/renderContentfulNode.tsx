@@ -35,8 +35,8 @@ import {
   Node,
   Block,
   Inline,
-} from '@contentful/rich-text-types';
-import React from 'react';
+} from "@contentful/rich-text-types";
+import React from "react";
 
 type Asset = {
   sys: { id: string };
@@ -51,10 +51,10 @@ type RenderOptions = {
 
 // ✅ Helper: check if a link is external
 const isExternalLink = (url: string): boolean => {
-  const appDomain = 'enjanga.com';
+  const appDomain = "enjanga.com";
   return (
-    (url.startsWith('http://') && !url.includes('localhost')) ||
-    (url.startsWith('https://') && !url.includes(appDomain))
+    (url.startsWith("http://") && !url.includes("localhost")) ||
+    (url.startsWith("https://") && !url.includes(appDomain))
   );
 };
 
@@ -80,13 +80,16 @@ export const renderContentfulNode = (
 
     case BLOCKS.HEADING_1:
     case BLOCKS.HEADING_2:
-    case BLOCKS.HEADING_3: {
+    case BLOCKS.HEADING_3:
+    case BLOCKS.HEADING_4: {
       const HeadingTag =
         node.nodeType === BLOCKS.HEADING_1
-          ? 'h1'
+          ? "h1"
           : node.nodeType === BLOCKS.HEADING_2
-          ? 'h2'
-          : 'h3';
+          ? "h2"
+          : node.nodeType === BLOCKS.HEADING_3
+          ? "h3"
+          : "h4";
       const heading = node as Block;
       return (
         <HeadingTag key={key}>
@@ -145,13 +148,27 @@ export const renderContentfulNode = (
       return <hr key={key} />;
 
     case BLOCKS.EMBEDDED_ASSET: {
-      const assetId = (node.data?.target?.sys?.id as string) || '';
+      const assetId = (node.data?.target?.sys?.id as string) || "";
       const asset = options.assets?.[assetId];
       if (!asset) return null;
 
+      const isVideo = asset.url?.match(/\.(mp4|webm|ogg)$/i);
+
       return (
         <figure key={key}>
-          <img src={asset.url} alt={asset.description || asset.title} />
+          {isVideo ? (
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              style={{ maxWidth: "100%", height: "auto" }}
+            >
+              <source src={asset.url} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img src={asset.url} alt={asset.description || asset.title} />
+          )}
           {asset.title && <figcaption>{asset.title}</figcaption>}
         </figure>
       );
@@ -165,8 +182,8 @@ export const renderContentfulNode = (
         <a
           key={key}
           href={uri}
-          target={isExternal ? '_blank' : '_self'}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
+          target={isExternal ? "_blank" : "_self"}
+          rel={isExternal ? "noopener noreferrer" : undefined}
         >
           {link.content.map((child, i) =>
             renderContentfulNode(child, `${key}-link-${i}`, options)
@@ -175,13 +192,13 @@ export const renderContentfulNode = (
       );
     }
 
-    case 'text': {
+    case "text": {
       const textNode = node as Text;
       let textElement: React.ReactNode = textNode.value;
 
       // Handle line breaks
-      if (typeof textElement === 'string' && textElement.includes('\n')) {
-        const parts = textElement.split('\n');
+      if (typeof textElement === "string" && textElement.includes("\n")) {
+        const parts = textElement.split("\n");
         textElement = parts.flatMap((part, i) =>
           i < parts.length - 1 ? [part, <br key={`${key}-br-${i}`} />] : part
         );
