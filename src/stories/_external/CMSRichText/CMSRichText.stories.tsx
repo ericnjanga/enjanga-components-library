@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CMSRichText from '../../../components/CMSRichText/CMSRichText';
-import { project } from '@/mockData/project';
+import { project1, project2 } from '@/mockData/project';
 
 const activeLang = 'en';
 const meta: Meta<typeof CMSRichText> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof CMSRichText> = {
   tags: [],
   args: {
     data: {
-      ...project?.data[activeLang]?.description,
+      ...project1?.data[activeLang]?.description,
     },
   },
   argTypes: {
@@ -26,6 +26,14 @@ export default meta;
 type Story = StoryObj<typeof CMSRichText>;
 
 export const Default: Story = {};
+
+export const WithHTMTable: Story = {
+  args: {
+    data: {
+      ...project2?.data[activeLang]?.description
+    }
+  },
+};
 
 export const EmptyVersion: Story = {
   args: {

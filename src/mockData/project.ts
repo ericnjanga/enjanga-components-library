@@ -1,4 +1,4 @@
-export const project = {
+export const project1 = {
    "data": {
     "en": {
       "sys": {
@@ -1481,4 +1481,1319 @@ export const project = {
       }
     }
   }
+};
+
+
+
+export const project2 = { 
+  "data": {
+    "en": {
+      "sys": {
+        "id": "3t7j9BUNAZNUwsc7alBNJ1"
+      },
+      "title": "Composition Principle in JavaScript: Acheiving code reuse",
+      "blurb": "Discover the reasons behind the Composition Principle in JavaScript, its usefulness for code resuse, and some of its techniques.",
+      "description": {
+        "json": {
+          "nodeType": "document",
+          "data": {},
+          "content": [
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "In JavaScript, composition is a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "code-reuse",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " principle. Instead of relying on rigid class hierarchies with inheritance, composition allows UI engineers ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "to build complex objects by combining smaller, more focused ones",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ".",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "blockquote",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Composition encourages the ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "building of complex",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " objects using simpler ones, thus fostering code reuse..",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "The underlying principle of composition",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Composition is the foundation upon which mixins and decorators are built. It's a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "\"has-a\"",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " relationship, contrasting with the ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "\"is-a\"",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " relationship of inheritance.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Example:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " A ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "Car",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " class doesn't inherit from an ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "Engine",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " class. Instead, it holds a reference to an ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "Engine",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " object.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Flexibility:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " It promotes loose coupling and greater flexibility because you can swap out the smaller, \"composed\" parts without affecting the larger object.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "5r85DyaeWZRGK75BT1CmVR",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "How to acheive composition?",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Let's explore two composition techniques: ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "Mixins",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " and ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "the Decorator Pattern",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ".",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "heading-3",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Option 1: Mixins",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "In JavaScript, mixins are ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "objects that provide reusable methods",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ". You can \"mix\" their functionality into a class or object by copying the methods over. This allows a class to gain new abilities without extending from the mixin, which is not possible in JavaScript's single-inheritance model.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "blockquote",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "🧐 ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "Drawbacks",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": ": There are risks of ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "collision",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " (method name conflicts) and",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " implicit contracts",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " (implicit dependencies making the code hard to understand).",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "d08nibZsFEgveJ3ZnOU0a",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-3",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Option 2: Decorator pattern",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "The decorator pattern involves creating a \"wrapper\" object that contains the original object. The wrapper ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "delegates method calls to the original object",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " while potentially ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "adding or overriding behavior before or after.",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "blockquote",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "😀 Ideal for Composition:",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " he decorator pattern is ideal for ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "achieving",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " composition because ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "of its",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " flexibility. It conforms to the object's interface ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "and",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " allows the addition or removal of specific behavior ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "from",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " an individual object without affecting all instances of the class",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": ",",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": " like mixins do.",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "2RMRfeB0gAKqGpdnPF0mMX",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Recap and relationships at a glance",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "table",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "table-row",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "table-header-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Aspect \t\t\t",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-header-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Composition",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-header-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Mixins",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-header-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Decorator Pattern",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "table-row",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Concept",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "The general principle of building complex objects by combining simpler ones.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "A pattern for sharing reusable functionality between classes or objects without inheritance",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "A structural design pattern that wraps an object to dynamically add new behaviors.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "table-row",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Mechanism",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "An object \"has\" or \"uses\" another object to perform a task.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Copies methods and properties from one object (the mixin) onto another.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Wraps an object with another object that implements the same interface.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "table-row",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Analogy",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "A car is made of a wheel, an engine, and a steering wheel.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Adding toppings (mixins) to vanilla ice cream (the target object) to create a custom flavor.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Putting on layers of clothing (decorators) over a base outfit (the core object) for extra warmth.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "table-row",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "When to use",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "For building flexible, reusable systems, often favored over inheritance.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "To add related behaviors, especially to multiple unrelated classes.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "table-cell",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "To add or remove specific, optional functionality to individual objects at runtime.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Takeaway",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "JavaScript composition",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " is the underlying principle for creating complex objects by combining simple ones.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "It can be acheived through two techniques:",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "unordered-list",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "list-item",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "paragraph",
+                              "data": {},
+                              "content": [
+                                {
+                                  "nodeType": "text",
+                                  "value": "Mixins:",
+                                  "marks": [
+                                    {
+                                      "type": "bold"
+                                    }
+                                  ],
+                                  "data": {}
+                                },
+                                {
+                                  "nodeType": "text",
+                                  "value": " Adding reusable methods to a class prototype (all class instances ",
+                                  "marks": [],
+                                  "data": {}
+                                },
+                                {
+                                  "nodeType": "text",
+                                  "value": "will have the new functionality",
+                                  "marks": [
+                                    {
+                                      "type": "bold"
+                                    }
+                                  ],
+                                  "data": {}
+                                },
+                                {
+                                  "nodeType": "text",
+                                  "value": ").",
+                                  "marks": [],
+                                  "data": {}
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "list-item",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "paragraph",
+                              "data": {},
+                              "content": [
+                                {
+                                  "nodeType": "text",
+                                  "value": "Decorator pattern:",
+                                  "marks": [
+                                    {
+                                      "type": "bold"
+                                    }
+                                  ],
+                                  "data": {}
+                                },
+                                {
+                                  "nodeType": "text",
+                                  "value": " Wrapping a single object with new methods (only that object ",
+                                  "marks": [],
+                                  "data": {}
+                                },
+                                {
+                                  "nodeType": "text",
+                                  "value": "gets the new functionality",
+                                  "marks": [
+                                    {
+                                      "type": "bold"
+                                    }
+                                  ],
+                                  "data": {}
+                                },
+                                {
+                                  "nodeType": "text",
+                                  "value": ").",
+                                  "marks": [],
+                                  "data": {}
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "The decorator pattern is the most ideal ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "of the two because",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " of its flexibility and ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "because it is",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " less invasive.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            }
+          ]
+        },
+        "links": {
+          "assets": {
+            "block": [
+              {
+                "sys": {
+                  "id": "5r85DyaeWZRGK75BT1CmVR"
+                },
+                "url": "https://images.ctfassets.net/z41mabrhnu57/5r85DyaeWZRGK75BT1CmVR/aa2decaf19d953c3f5c55c8fde91fd0a/js-composition-1.png",
+                "title": "js-composition-1",
+                "description": "js-composition-1"
+              },
+              {
+                "sys": {
+                  "id": "d08nibZsFEgveJ3ZnOU0a"
+                },
+                "url": "https://images.ctfassets.net/z41mabrhnu57/d08nibZsFEgveJ3ZnOU0a/57ff0870f6597309592d6ae4ec0738aa/js-composition-2.png",
+                "title": "js-composition-2",
+                "description": "js-composition-2"
+              },
+              {
+                "sys": {
+                  "id": "2RMRfeB0gAKqGpdnPF0mMX"
+                },
+                "url": "https://images.ctfassets.net/z41mabrhnu57/2RMRfeB0gAKqGpdnPF0mMX/7b187adead4eddaabd921846cbdfdce9/js-composition-3.png",
+                "title": "js-composition-3",
+                "description": "js-composition-3"
+              }
+            ]
+          }
+        }
+      }
+    }
+  } 
 };

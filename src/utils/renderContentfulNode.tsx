@@ -224,6 +224,55 @@ export const renderContentfulNode = (
       return <span key={key}>{textElement}</span>;
     }
 
+    
+    // --- TABLE SUPPORT ---
+    case BLOCKS.TABLE: {
+      const table = node as Block;
+      return (
+        <table key={key}>
+          <tbody>
+            {table.content.map((row, i) =>
+              renderContentfulNode(row, `${key}-table-row-${i}`, options)
+            )}
+          </tbody>
+        </table>
+      );
+    }
+
+    case BLOCKS.TABLE_ROW: {
+      const row = node as Block;
+      return (
+        <tr key={key}>
+          {row.content.map((cell, i) =>
+            renderContentfulNode(cell, `${key}-table-cell-${i}`, options)
+          )}
+        </tr>
+      );
+    }
+
+    case BLOCKS.TABLE_HEADER_CELL: {
+      const th = node as Block;
+      return (
+        <th key={key}>
+          {th.content.map((child, i) =>
+            renderContentfulNode(child, `${key}-th-${i}`, options)
+          )}
+        </th>
+      );
+    }
+
+    case BLOCKS.TABLE_CELL: {
+      const td = node as Block;
+      return (
+        <td key={key}>
+          {td.content.map((child, i) =>
+            renderContentfulNode(child, `${key}-td-${i}`, options)
+          )}
+        </td>
+      );
+    } 
+    // --- TABLE SUPPORT ---
+
     default:
       return null;
   }

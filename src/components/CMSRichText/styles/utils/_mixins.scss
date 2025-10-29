@@ -74,3 +74,51 @@
     }
   }
 }
+
+
+@mixin CRT_table_styling {
+  table {
+    border: 1px solid #99A3B9;
+
+    th, td {
+      padding: 1.0rem;
+      // min-width: 17rem;
+    }
+
+    th {
+      border: 1px solid #99A3B9; 
+      background: #EDF1F9; // TODO: Convert to enjanga-core-setup color token
+
+      font-weight: bold;
+      * { 
+        font-weight: bold;
+      }
+
+      p:last-of-type {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    td {
+      border: 1px solid #99A3B9;
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    tr {
+      &:nth-child(2n) {
+        td {    
+          background: #e8e8e8;
+        }
+      }
+      &:nth-child(2n + 1) {
+        td {
+          background: #f6f6f6;
+        }
+      }
+    }
+  }
+}
