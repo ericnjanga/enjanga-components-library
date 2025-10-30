@@ -20,10 +20,7 @@
 @use './variants/customTile-has-pictogram';
 
 .enj-CustomTile {
-  border: 1px solid core.$gray-50;
-
-  background-color: #EDF1F9; // TODO: Convert to enjanga-core-setup color token
-  border: 1px solid #99A3B9; // TODO: Convert to enjanga-core-setup color token
+  background-color: #e3ebf9; // TODO: Convert to enjanga-core-setup color token 
 
   // Structure the icon positionning and styling
   @include mixins.CT-iconPositionning;

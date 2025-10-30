@@ -27,14 +27,14 @@
     &:hover {
       cursor: pointer;
       color: #fff;
-      background-color: #0547c4;
+      background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token
     }
   }
 
   // Nav items active state
   .cds--header__action {
     &:active {
-      background-color: #0547c4;
+      background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token
       svg {
         fill: #fff;
       }
