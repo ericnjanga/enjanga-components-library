@@ -5,6 +5,14 @@
 // Example: core.$spacing-03, core.type-style('heading-02'), etc.
 @use 'enjanga-core-setup/styles' as core;
 
+
+@mixin CRT_special_color {
+
+    * {
+      color: #0d3a90;
+    }
+}
+
 // ...
 @mixin CRT_lists_styling {
   ul {
@@ -39,13 +47,18 @@
 // ...
 @mixin CRT_blockquote_styling {
   blockquote {
-    border-left: 0.6rem solid core.$gray-40;
+    border-left: 0.6rem solid #0547C4;
     padding-left: 1rem;
     margin-bottom: var(--enj-CMSRichText-ul-mb);
+
+    @include CRT_special_color;
 
     p:last-of-type {
       margin-bottom: 0;
     }
+
+    padding: 1rem;
+    background: #edf1f9;
   }
 }
 
@@ -53,6 +66,7 @@
 @mixin CRT_hr_styling {
   hr {
     margin: var(--enj-CMSRichText-hr-gap) 0;
+    border-top: 1px solid #9daed2;
   }
 }
 
@@ -61,12 +75,15 @@
   figure {
     padding: 2rem;
     background: #EDF1F9; // TODO: Convert to enjanga-core-setup color token
-    border: 1px solid #99A3B9; // TODO: Convert to enjanga-core-setup color token
+    border: 0px solid #99A3B9; // TODO: Convert to enjanga-core-setup color token
     margin-bottom: 1rem;
 
     line-height: 1.4rem;
     font-size: 1rem;
+    font-weight: 400;
     font-style: italic;
+
+    @include CRT_special_color;
 
     img {
       max-width: 100%;
@@ -86,8 +103,10 @@
     }
 
     th {
-      border: 1px solid #99A3B9; 
-      background: #EDF1F9; // TODO: Convert to enjanga-core-setup color token
+      border: 1px solid #9daed2;
+      background: #0d3a90;
+      color: #EDF1F9;
+      // background: #EDF1F9; // TODO: Convert to enjanga-core-setup color token
 
       font-weight: bold;
       * { 
@@ -101,7 +120,7 @@
     }
 
     td {
-      border: 1px solid #99A3B9;
+      border: 1px solid #9daed2;
       p {
         margin: 0;
         padding: 0;
@@ -111,12 +130,12 @@
     tr {
       &:nth-child(2n) {
         td {    
-          background: #e8e8e8;
+          background: #dee5f3;
         }
       }
       &:nth-child(2n + 1) {
         td {
-          background: #f6f6f6;
+          background: #EDF1F9;
         }
       }
     }
