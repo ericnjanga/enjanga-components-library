@@ -26,3 +26,4 @@ export { List } from './List';
 export { SmartText } from './SmartText';
 export { FeatureText } from './FeatureText';
 export { CMSRichText } from './CMSRichText';
+export { useContainerSize } from './../libs/useContainerSize';
