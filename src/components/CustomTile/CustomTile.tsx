@@ -128,7 +128,7 @@ const CustomTile = ({
   const {
     containerRef, // Reference to component wrapper
     activeBreakpoint, // Closest possible breakpoint to wrapper's width
-  } = useContainerSize();
+  } = useContainerSize<HTMLDivElement>();
 
   return (
     <div className="enj-CustomTile-wrapper" ref={containerRef}>

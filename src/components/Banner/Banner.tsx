@@ -42,7 +42,7 @@ const Banner = ({
     'enj-Banner--isHuge': isHuge,
   });
 
-  const { containerRef, activeBreakpoint } = useContainerSize();
+  const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
   // Determine the correct HTML element based on the role
   const Tag = role === 'banner' ? 'header' : 'div';
