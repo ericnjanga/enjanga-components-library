@@ -24,8 +24,8 @@ interface UseContainerSizeOptions {
   defaultSize?: SizeClass;
 }
 
-export const useContainerSize = (options?: UseContainerSizeOptions) => {
-  const ref = useRef<HTMLDivElement>(null); // Container reference
+export const useContainerSize = <T extends HTMLElement>(options?: UseContainerSizeOptions) => {
+  const ref = useRef<T>(null); // Container reference
   const [size, setSize] = useState<SizeClass>(options?.defaultSize || 'max');
 
   // Set the appropriate breakpoint:
