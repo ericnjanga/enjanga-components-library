@@ -6,6 +6,7 @@ export const BNN_roleOpt = ['banner', 'presentation', 'none'] as const;
 export type BNN_roleOptPropsType = (typeof BNN_roleOpt)[number]; // Creating union type 'Right' | 'presentation' | ...
 
 export interface BNN_propsType {
+  id?: string;
   className?: string;
   featuredText: FTX_propsType;
 

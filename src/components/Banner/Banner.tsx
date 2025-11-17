@@ -30,6 +30,7 @@ import { FeatureText } from '../FeatureText';
 import { useContainerSize } from '@/libs/useContainerSize';
 
 const Banner = ({
+  id,
   className,
   featuredText,
   isHuge = false,
@@ -49,6 +50,7 @@ const Banner = ({
 
   return (
     <Tag // ✅ Now uses <header> for banner, <div> for presentation
+      id={id}
       className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
       ref={containerRef}
       role={role} // role is still explicitly set for clarity and for cases where Tag is 'div'

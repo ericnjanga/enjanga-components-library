@@ -3,6 +3,7 @@ import { argsFeatureTextWithPlainText } from './argsFeatureText';
 
 // For Banner.stories.tsx ...
 export const argsBanner = {
+  id: '',
   className: '',
   featuredText: {
     ...argsFeatureTextWithPlainText,
