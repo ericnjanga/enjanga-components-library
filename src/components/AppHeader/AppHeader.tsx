@@ -13,7 +13,6 @@
  *  ✔️ Type-safe – children validated via TypeScript
  */
 
-
 import {
   Header,
   HeaderContainer,
@@ -23,45 +22,45 @@ import {
   SkipToContent,
   SideNav,
   HeaderSideNavItems,
-} from '@carbon/react';
+} from "@carbon/react";
 
-import { Link } from 'enjanga-core-setup/next';
-import { AHC_propsType, AH_propsType } from './libs/types';
-import { useContainerSize } from '@/libs/useContainerSize';
-import { useEffect, useState } from 'react';
-import { modalEvents, MODAL_OPEN, MODAL_CLOSE } from '@/utils/EventEmitters/modalEvents';
-
-
+import { Link } from "enjanga-core-setup/next";
+import { AHC_propsType, AH_propsType } from "./libs/types";
+import { useWindowBreakpoint } from '@/libs/useWindowBreakpoint';
+import { useEffect, useState } from "react";
+import {
+  modalEvents,
+  MODAL_OPEN,
+  MODAL_CLOSE,
+} from "@/utils/EventEmitters/modalEvents";
 
 const AppHeader = ({
   brand,
   brandLabel,
-  brandRoute = '/',
-  navigation
+  brandRoute = "/",
+  navigation,
 }: AH_propsType) => {
-  const labelOpenMenu = 'Open menu';
-  const labelSideNav = 'Side navigation';
+  const labelOpenMenu = "Open menu";
+  const labelSideNav = "Side navigation";
   const [visible, setVisible] = useState<boolean>(true);
 
-  // Tracking container size
-  const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
-
+  // Track viewport breakpoint
+  const { activeBreakpoint } = useWindowBreakpoint();
 
   /**
    * Register 2 events and toggle the component visibility accordingly,
    * then unregister these events when the component unmounts
    */
   useEffect(() => {
-  
     // Hide component when the modal opens up (if breakpoint is 'sm' or 'md')
     const handleOpen = () => {
-      if (activeBreakpoint !== 'sm' && activeBreakpoint !== 'md') return;
+      if (activeBreakpoint !== "sm" && activeBreakpoint !== "md") return;
       setVisible(false);
     };
 
     // Show component when the modal closes up (if breakpoint is 'sm' or 'md')
     const handleClose = () => {
-      if (activeBreakpoint !== 'sm' && activeBreakpoint !== 'md') return;
+      if (activeBreakpoint !== "sm" && activeBreakpoint !== "md") return;
       setVisible(true);
     };
 
@@ -70,50 +69,46 @@ const AppHeader = ({
     modalEvents.on(MODAL_CLOSE, handleClose);
 
     // Unregister events on component unmount ...
-    return () => { 
+    return () => {
       modalEvents.off(MODAL_OPEN, handleOpen);
       modalEvents.off(MODAL_CLOSE, handleClose);
-    }
+    };
   }, [activeBreakpoint]);
-
 
   // Don't render this component visibility flag is set to false
   if (!visible) return null;
 
-
   return (
-    <div ref={containerRef}>
-      <HeaderContainer
-        render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
-          <Header aria-label={brandLabel} className="enj-AppHeader">
-            <div className={`header-inner header-inner-${activeBreakpoint}`}>
-              <SkipToContent />
-              <HeaderMenuButton
-                aria-label={labelOpenMenu}
-                onClick={onClickSideNavExpand}
-                isActive={isSideNavExpanded}
-              />
-              <HeaderName prefix="" as={Link} href={brandRoute} passHref>
-                {brand}
-              </HeaderName>
+    <HeaderContainer
+      render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
+        <Header aria-label={brandLabel} className="enj-AppHeader"> 
+          <div className={`header-inner header-inner-${activeBreakpoint}`}>
+            <SkipToContent />
+            <HeaderMenuButton
+              aria-label={labelOpenMenu}
+              onClick={onClickSideNavExpand}
+              isActive={isSideNavExpanded}
+            />
+            <HeaderName prefix="" as={Link} href={brandRoute} passHref>
+              {brand}
+            </HeaderName>
 
-              <HeaderNavigation aria-label={brandLabel}>
-                {navigation}
-              </HeaderNavigation>
+            <HeaderNavigation aria-label={brandLabel}>
+              {navigation}
+            </HeaderNavigation>
 
-              <SideNav
-                aria-label={labelSideNav}
-                expanded={isSideNavExpanded}
-                isPersistent={false}
-                onOverlayClick={onClickSideNavExpand} // ✅ use the same toggle handler
-              >
-                <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
-              </SideNav>
-            </div>
-          </Header>
-        )}
-      />
-    </div>
+            <SideNav
+              aria-label={labelSideNav}
+              expanded={isSideNavExpanded}
+              isPersistent={false}
+              onOverlayClick={onClickSideNavExpand} // ✅ use the same toggle handler
+            >
+              <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
+            </SideNav>
+          </div> 
+        </Header>
+      )}
+    />
   );
 };
 
