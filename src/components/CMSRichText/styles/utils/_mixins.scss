@@ -73,7 +73,9 @@
 // ...
 @mixin CRT_image_styling {
   figure {
-    padding: 2rem;
+    // Declaration
+    --enj-CMSRichText-fig-pad: 1rem;
+    padding: var(--enj-CMSRichText-fig-pad);
     background: #e3ebf9; // TODO: Convert to enjanga-core-setup color token
     border: 0px solid #99A3B9; // TODO: Convert to enjanga-core-setup color token
     margin-bottom: 1rem;
@@ -88,6 +90,15 @@
     img {
       max-width: 100%;
       margin-bottom: 1rem;
+    }
+
+
+    @include core.breakpoint-up(md) {
+      --enj-CMSRichText-fig-pad: 1.5rem;
+    }
+
+    @include core.breakpoint-up(lg) {
+      --enj-CMSRichText-fig-pad: 2rem;
     }
   }
 }
