@@ -43,6 +43,7 @@ const Banner = ({
     'enj-Banner--isHuge': isHuge,
   });
 
+  // Tracking container size
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
   // Determine the correct HTML element based on the role

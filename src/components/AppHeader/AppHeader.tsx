@@ -27,47 +27,93 @@ import {
 
 import { Link } from 'enjanga-core-setup/next';
 import { AHC_propsType, AH_propsType } from './libs/types';
+import { useContainerSize } from '@/libs/useContainerSize';
+import { useEffect, useState } from 'react';
+import { modalEvents, MODAL_OPEN, MODAL_CLOSE } from '@/utils/EventEmitters/modalEvents';
+
+
 
 const AppHeader = ({
   brand,
   brandLabel,
   brandRoute = '/',
-  navigation,
+  navigation
 }: AH_propsType) => {
   const labelOpenMenu = 'Open menu';
   const labelSideNav = 'Side navigation';
+  const [visible, setVisible] = useState<boolean>(true);
+
+  // Tracking container size
+  const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
+
+
+  /**
+   * Register 2 events and toggle the component visibility accordingly,
+   * then unregister these events when the component unmounts
+   */
+  useEffect(() => {
+  
+    // Hide component when the modal opens up (if breakpoint is 'sm' or 'md')
+    const handleOpen = () => {
+      if (activeBreakpoint !== 'sm' && activeBreakpoint !== 'md') return;
+      setVisible(false);
+    };
+
+    // Show component when the modal closes up (if breakpoint is 'sm' or 'md')
+    const handleClose = () => {
+      if (activeBreakpoint !== 'sm' && activeBreakpoint !== 'md') return;
+      setVisible(true);
+    };
+
+    // Register events ...
+    modalEvents.on(MODAL_OPEN, handleOpen);
+    modalEvents.on(MODAL_CLOSE, handleClose);
+
+    // Unregister events on component unmount ...
+    return () => { 
+      modalEvents.off(MODAL_OPEN, handleOpen);
+      modalEvents.off(MODAL_CLOSE, handleClose);
+    }
+  }, [activeBreakpoint]);
+
+
+  // Don't render this component visibility flag is set to false
+  if (!visible) return null;
+
 
   return (
-    <HeaderContainer
-      render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
-        <Header aria-label={brandLabel} className="enj-AppHeader">
-          <div className="header-inner">
-            <SkipToContent />
-            <HeaderMenuButton
-              aria-label={labelOpenMenu}
-              onClick={onClickSideNavExpand}
-              isActive={isSideNavExpanded}
-            />
-            <HeaderName prefix="" as={Link} href={brandRoute} passHref>
-              {brand}
-            </HeaderName>
+    <div ref={containerRef}>
+      <HeaderContainer
+        render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
+          <Header aria-label={brandLabel} className="enj-AppHeader">
+            <div className={`header-inner header-inner-${activeBreakpoint}`}>
+              <SkipToContent />
+              <HeaderMenuButton
+                aria-label={labelOpenMenu}
+                onClick={onClickSideNavExpand}
+                isActive={isSideNavExpanded}
+              />
+              <HeaderName prefix="" as={Link} href={brandRoute} passHref>
+                {brand}
+              </HeaderName>
 
-            <HeaderNavigation aria-label={brandLabel}>
-              {navigation}
-            </HeaderNavigation>
+              <HeaderNavigation aria-label={brandLabel}>
+                {navigation}
+              </HeaderNavigation>
 
-            <SideNav
-              aria-label={labelSideNav}
-              expanded={isSideNavExpanded}
-              isPersistent={false}
-              onOverlayClick={onClickSideNavExpand} // ✅ use the same toggle handler
-            >
-              <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
-            </SideNav>
-          </div>
-        </Header>
-      )}
-    />
+              <SideNav
+                aria-label={labelSideNav}
+                expanded={isSideNavExpanded}
+                isPersistent={false}
+                onOverlayClick={onClickSideNavExpand} // ✅ use the same toggle handler
+              >
+                <HeaderSideNavItems>{navigation}</HeaderSideNavItems>
+              </SideNav>
+            </div>
+          </Header>
+        )}
+      />
+    </div>
   );
 };
 

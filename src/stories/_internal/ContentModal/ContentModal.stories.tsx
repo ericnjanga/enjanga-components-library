@@ -56,6 +56,8 @@ export const Default: Story = {
     // This modal is primarily made to receive ReactNode children
     return (
       <ContentModal {...args}>
+        <h1>Liquorice gingerbread lollipop oat cake</h1>
+        <h2>Liquorice gingerbread lollipop oat cake</h2>
         <h3>Liquorice gingerbread lollipop oat cake</h3>
         <p>
           Ice cream brownie dragée marshmallow pie jelly-o candy cake biscuit.

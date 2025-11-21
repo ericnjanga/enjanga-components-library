@@ -40,6 +40,8 @@ import {
   Button,
 } from '@carbon/react';
 import { ContentM_propsType } from './libs/types'; 
+import { useEffect } from 'react';
+import { modalEvents, MODAL_OPEN, MODAL_CLOSE } from '@/utils/EventEmitters/modalEvents';
 
 /**
  * Props for the ContentModal component
@@ -55,46 +57,53 @@ export const ContentModal = ({
   onSecondaryButtonClick,
   children,
 }: ContentM_propsType) => {
+
+  // Close the modal and emit the 'close' event
   const handleClose = () => {
     setIsOpen(false);
   };
 
+  // Emit whenever isOpen changes (including on mount) ...
+  useEffect(() => {
+    if (isOpen) { console.log('-MODAL_OPEN=', MODAL_OPEN);
+      modalEvents.emit(MODAL_OPEN);
+    } else { console.log('-MODAL_CLOSE=', MODAL_CLOSE);
+      modalEvents.emit(MODAL_CLOSE);
+    }
+  }, [isOpen]);
+
   return (
-    <>
-      {setIsOpen !== undefined && (
-        <ComposedModal
-          open={isOpen}
-          onClose={handleClose}
-          size="md" // Medium-sized modal (options: 'xs' | 'sm' | 'md' | 'lg')
-          className="enj-contentModal"
+    <ComposedModal
+      open={isOpen}
+      onClose={handleClose}
+      size="md" // Medium-sized modal (options: 'xs' | 'sm' | 'md' | 'lg')
+      className="enj-contentModal"
+    >
+      <ModalHeader
+        label={modalLabel}
+        title={modalHeading}
+        closeModal={handleClose}
+      />
+
+      <ModalBody>
+        {modalSubHeading && (
+          <p style={{ marginBottom: '1rem' }}>{modalSubHeading}</p>
+        )}
+        {children}
+      </ModalBody>
+
+      <ModalFooter>
+        <Button
+          kind="secondary"
+          onClick={() => {
+            onSecondaryButtonClick?.();
+            setIsOpen(false);
+          }}
         >
-          <ModalHeader
-            label={modalLabel}
-            title={modalHeading}
-            closeModal={handleClose}
-          />
-
-          <ModalBody>
-            {modalSubHeading && (
-              <p style={{ marginBottom: '1rem' }}>{modalSubHeading}</p>
-            )}
-            {children}
-          </ModalBody>
-
-          <ModalFooter>
-            <Button
-              kind="secondary"
-              onClick={() => {
-                onSecondaryButtonClick?.();
-                setIsOpen(false);
-              }}
-            >
-              {modalSecondaryButtonText}
-            </Button>
-          </ModalFooter>
-        </ComposedModal>
-      )}
-    </>
+          {modalSecondaryButtonText}
+        </Button>
+      </ModalFooter>
+    </ComposedModal>
   );
 };
 

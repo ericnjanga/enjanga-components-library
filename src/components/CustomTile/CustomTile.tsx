@@ -136,9 +136,9 @@ const CustomTile = ({
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
         aria-label={`${componentTitle} tile`}
         role={ctl_role}
-        onClick={() =>
-          handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
-        }
+        onClick={() => {
+          handleCustomTileClick({ modalIsAvailable, setModalIsOpen });
+        }}
       >
         {linksTo ? (
           <>{React.cloneElement(LinkWrapper, {}, tileContent)}</>
@@ -149,7 +149,7 @@ const CustomTile = ({
 
       {modalIsAvailable && modalIsOpen !== undefined && (
         <ContentModal
-          isOpen={modalIsOpen}
+          isOpen={!!modalIsOpen}
           modalHeading={featuredText.heading.children}
           modalSecondaryButtonText="Cancel"
           setIsOpen={setModalIsOpen}

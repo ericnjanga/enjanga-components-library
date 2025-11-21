@@ -10,7 +10,5 @@ export const handleCustomTileClick = ({
 }) => {
   if (modalIsAvailable !== undefined) {
     setModalIsOpen(true);
-    // ...
-    // ...
   }
 };
