@@ -6,6 +6,11 @@
   --enj-contModal-header-paddBlockStr: 2rem;
   --enj-contModal-content-paddInline: 1.5rem;
 
+  // keep headings' width no-responsive on the modal
+  --enj-contModal-h1: 1.75rem;
+  --enj-contModal-h2: 1.5rem;
+  --enj-contModal-h3: 1.25rem;
+
   .cds--modal-header__heading {
     color: #0100C0; // TODO: Convert to enjanga-core-setup color token
   }
@@ -22,6 +27,16 @@
 
   .cds--modal-content {
     padding-inline: var(--enj-contModal-content-paddInline);
+  }
+
+  h1 {
+    font-size: var(--enj-contModal-h1);
+  } 
+  h2 {
+    font-size: var(--enj-contModal-h2);
+  }
+  h3 {
+    font-size: var(--enj-contModal-h3);
   }
 
   @include core.breakpoint('md') {
