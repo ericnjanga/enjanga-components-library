@@ -65,9 +65,9 @@ export const ContentModal = ({
 
   // Emit whenever isOpen changes (including on mount) ...
   useEffect(() => {
-    if (isOpen) { console.log('-MODAL_OPEN=', MODAL_OPEN);
+    if (isOpen) {
       modalEvents.emit(MODAL_OPEN);
-    } else { console.log('-MODAL_CLOSE=', MODAL_CLOSE);
+    } else {
       modalEvents.emit(MODAL_CLOSE);
     }
   }, [isOpen]);
