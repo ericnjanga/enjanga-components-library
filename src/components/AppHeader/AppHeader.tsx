@@ -96,7 +96,7 @@ const AppHeader = ({
               as={Link} 
               href={brandRoute} 
               passHref
-              isCurrentPage={isHomeRoute}
+              isActive={isHomeRoute}
               className={isHomeRoute ? 'cds--header__name--current' : ''}
             >
               {brand}
