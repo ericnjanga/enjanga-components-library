@@ -96,7 +96,7 @@ const AppHeader = ({
               as={Link} 
               href={brandRoute} 
               passHref
-              isActive={isHomeRoute}
+              aria-current={isHomeRoute ? 'page' : undefined}
               className={isHomeRoute ? 'cds--header__name--current' : ''}
             >
               {brand}
