@@ -13,6 +13,7 @@ export interface AH_propsType {
   brandRoute: string;
   // ReactNode can be anything we want: string, number, JSX, component, etc ...
   brand: React.ReactNode;
+  isHomeRoute: boolean;
   navigation: React.ReactNode;
   globalBarItems: React.ReactNode;
 }
