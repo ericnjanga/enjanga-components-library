@@ -24,7 +24,7 @@ import {
   HeaderSideNavItems,
 } from "@carbon/react";
 
-import { Link } from "enjanga-core-setup/next";
+import { Link, usePathname } from "enjanga-core-setup/next";
 import { AHC_propsType, AH_propsType } from "./libs/types";
 import { useWindowBreakpoint } from '@/libs/useWindowBreakpoint';
 import { useEffect, useState } from "react";
@@ -43,9 +43,13 @@ const AppHeader = ({
   const labelOpenMenu = "Open menu";
   const labelSideNav = "Side navigation";
   const [visible, setVisible] = useState<boolean>(true);
+  const pathname = usePathname();
 
   // Track viewport breakpoint
   const { activeBreakpoint } = useWindowBreakpoint();
+
+  // Check if current route is home route
+  const isHomeRoute = pathname === '/';
 
   /**
    * Register 2 events and toggle the component visibility accordingly,
@@ -89,7 +93,13 @@ const AppHeader = ({
               onClick={onClickSideNavExpand}
               isActive={isSideNavExpanded}
             />
-            <HeaderName prefix="" as={Link} href={brandRoute} passHref>
+            <HeaderName 
+              prefix="" 
+              as={Link} 
+              href={brandRoute} 
+              passHref
+              isCurrentPage={isHomeRoute}
+            >
               {brand}
             </HeaderName>
 
