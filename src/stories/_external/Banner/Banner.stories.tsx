@@ -7,7 +7,7 @@ import {
   argsHeadingJSX,
 } from '@/mockData/stories/args/argsHeading';
 import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
-import { mockHeading } from '@/mockData/mixed';
+import { mockHeading, imageUrls } from '@/mockData/mixed';
 import { styleHeadingLabel } from '@/mockData/mixed';
 import { mockRichTextSmall } from '@/mockData/mockRichText';
 import { Grid, Column } from '@carbon/react';
@@ -30,6 +30,26 @@ export default meta;
 type Story = StoryObj<typeof Banner>;
 
 export const Default: Story = {};
+
+export const WithBackgroundImage: Story = {
+  // Background image ...
+
+    //   background-repeat: no-repeat;
+    // background-size: cover;
+
+
+  args: {
+    id: 'xxxx',
+    style: {
+      backgroundImage: `url(${imageUrls[0]})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover'
+    }
+  },
+  render: (args) => (
+    <Banner {...args} />
+  )
+};
 
 export const PlainTextVersion: Story = {
   render: (args) => {

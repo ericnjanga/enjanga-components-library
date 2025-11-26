@@ -31,8 +31,10 @@ import { useContainerSize } from '@/libs/useContainerSize';
 
 const Banner = ({
   id,
+  style,
   className,
   featuredText,
+  imgBgUrl,
   isHuge = false,
 
   //  * A banner is usually a page-level landmark (site-wide header, hero, jumbotron, etc.).
@@ -53,6 +55,7 @@ const Banner = ({
     <Tag // ✅ Now uses <header> for banner, <div> for presentation
       id={id}
       className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
+      style={style}
       ref={containerRef}
       role={role} // role is still explicitly set for clarity and for cases where Tag is 'div'
     >

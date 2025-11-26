@@ -7,10 +7,12 @@ export type BNN_roleOptPropsType = (typeof BNN_roleOpt)[number]; // Creating uni
 
 export interface BNN_propsType {
   id?: string;
+  style?: React.CSSProperties;
   className?: string;
   featuredText: FTX_propsType;
 
   // Local propsType ...
+  imgBgUrl?: string | null;
   isHuge?: boolean;
   role?: BNN_roleOptPropsType;
 }
