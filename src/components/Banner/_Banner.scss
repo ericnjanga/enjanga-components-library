@@ -2,7 +2,7 @@
 // enjanga-core-setup. This ensures all components use the same
 // spacing, type, colors, motion, and theme settings consistently.
 //
-// Example: core.$spacing-03, core.type-style('heading-02'), etc.
+// Example: core.$spacing-03, etc.
 @use 'enjanga-core-setup/styles' as core;
 
 @use './styles/utils/mixins';

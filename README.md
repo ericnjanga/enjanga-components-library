@@ -102,7 +102,7 @@ This library’s styles follow a **three-tier structure** for clarity and mainta
      ```scss
      @use 'enjanga-core-setup/styles' as core;
      ```
-   - Example usage: `core.$spacing-03`, `core.type-style('heading-02')`.
+   - Example usage: `core.$spacing-03`.
 
 2. **Global (library-wide styles in `src/styles/global/`)**  
    - Apply across components (e.g., typography, skeleton loading animation, utilities).  
