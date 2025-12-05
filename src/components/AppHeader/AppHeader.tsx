@@ -23,6 +23,7 @@ import {
   SideNav,
   HeaderSideNavItems,
 } from "@carbon/react";
+import './_AppHeader.scss';
 
 import { Link, usePathname } from "enjanga-core-setup/next";
 import { AHC_propsType, AH_propsType } from "./libs/types";

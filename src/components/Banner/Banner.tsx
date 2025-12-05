@@ -28,6 +28,7 @@ import clsx from 'clsx';
 import { BNN_propsType } from './libs/types';
 import { FeatureText } from '../FeatureText';
 import { useContainerSize } from '@/libs/useContainerSize';
+import './_Banner.scss';
 
 const Banner = ({
   id,
@@ -43,6 +44,7 @@ const Banner = ({
 }: BNN_propsType) => {
   const cssClasses = clsx('enj-Banner', className, {
     'enj-Banner--isHuge': isHuge,
+    'enj-Banner--hasBgImage': isValidImageUrl(imgBgUrl),
   });
 
   // Tracking container size
@@ -51,11 +53,17 @@ const Banner = ({
   // Determine the correct HTML element based on the role
   const Tag = role === 'banner' ? 'header' : 'div';
 
+  // Combine inline styles if needed
+  const combinedStyle = {
+    ...style,
+    '--banner-bg-image': imgBgUrl ? `url(${imgBgUrl})` : undefined,
+  };
+
   return (
     <Tag // ✅ Now uses <header> for banner, <div> for presentation
       id={id}
       className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
-      style={style}
+      style={combinedStyle}
       ref={containerRef}
       role={role} // role is still explicitly set for clarity and for cases where Tag is 'div'
     >
@@ -63,9 +71,21 @@ const Banner = ({
         <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-10 cds--css-grid-column">
           <FeatureText {...featuredText} />
         </div>
+        {imgBgUrl && <div className='enj-Banner-bgimg' role="img" aria-hidden="true" />}
       </div>
     </Tag>
   );
 };
 
 export default Banner;
+
+
+
+const isValidImageUrl = (url: string | null | undefined) => {
+  if (!url) return false;
+  const trimmed = url.trim();
+  return trimmed.length > 0 && 
+         (trimmed.startsWith('http') || 
+          trimmed.startsWith('/') || 
+          trimmed.startsWith('data:'));
+};

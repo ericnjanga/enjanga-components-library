@@ -13,6 +13,7 @@ import { ListItem } from '../ListItem';
 import { LST_propsType } from './libs/types';
 import { LIT_propsType } from '@/components/ListItem/libs/types';
 import { SkeletonAnimation } from '../SkeletonAnimation';
+import './_List.scss';
 
 const List = ({ type = 'unordered', className, content }: LST_propsType) => {
   const ListWrapper = type === 'unordered' ? 'ul' : 'ol'; // Dynamically creating the list tag

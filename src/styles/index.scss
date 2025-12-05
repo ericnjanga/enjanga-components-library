@@ -17,10 +17,6 @@
 // component styles should be registered.
 
 
-
-
-
-
 /**
  * Global styles affect go beyond compnents' boundaries as they affect 
  * every DOM elements and have influence over patterns found everywhere.
@@ -28,20 +24,3 @@
 @use '../styles/global/typography';
 @use '../styles/global/skeleton-loading-animation';
 @use '../styles/global/utils';
-
-/**
- * Component-level styles deal mostly with structure and layout. It is
- * up to consummer developers override global styles assigning custiom
- * classes to the component using "className" prop
- * 
-*/
-@use '../components/AppHeader/AppHeader';
-@use '../components/Banner/Banner';
-@use '../components/HeadlinedList/HeadlinedList';
-@use '../components/BrandLogo/BrandLogo';
-@use '../components/CustomPictogram/CustomPictogram';
-@use '../components/CustomQuotes/CustomQuotes';
-@use '../components/ContentModal/ContentModal';
-@use '../components/CustomTile/styles/index' as customTile;
-@use '../components/List/List';
-@use '../components/CMSRichText/styles/index' as CMSRichText;

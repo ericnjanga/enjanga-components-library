@@ -7,6 +7,7 @@
 import clsx from 'clsx';
 import { CP_propsType } from './libs/types';
 import { CP_getPictogram, CI_getSize } from './libs/helpers';
+import './_CustomPictogram.scss';
 
 const CustomPictogram = ({ name, size = 'md', className }: CP_propsType) => {
   const Pictogram = CP_getPictogram({ name });

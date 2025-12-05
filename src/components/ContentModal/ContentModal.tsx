@@ -42,6 +42,7 @@ import {
 import { ContentM_propsType } from './libs/types'; 
 import { useEffect } from 'react';
 import { modalEvents, MODAL_OPEN, MODAL_CLOSE } from '@/utils/EventEmitters/modalEvents';
+import './_ContentModal.scss';
 
 /**
  * Props for the ContentModal component

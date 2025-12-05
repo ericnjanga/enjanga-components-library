@@ -9,7 +9,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { BL_propsType, BL_roleOptPropsType } from './libs/types';
-// Styles are imported globally
+import './_BrandLogo.scss';
 
 // ...
 const BrandLogoString = ({ style, className, value, role }: BL_propsType) => {

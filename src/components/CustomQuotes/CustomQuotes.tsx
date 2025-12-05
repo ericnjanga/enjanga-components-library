@@ -10,6 +10,7 @@ import { SkeletonAnimation } from '../SkeletonAnimation';
 import { CQ_propsType, CQ_quote_propsType } from './libs/types'; 
 import { getRandomQuote, rotateQuote } from './libs/functionUtils'; 
 import { CMSRichText } from '../CMSRichText';
+import './_CustomQuotes.scss';
 
 const CustomQuotes = ({ 
   className,

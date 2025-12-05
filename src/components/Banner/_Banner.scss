@@ -19,9 +19,14 @@
   background-color: #191947; // TODO: Convert to enjanga-core-setup color token
 
   .enj-FeatureText-title {
+    margin-top: 0;
     margin-bottom: 1rem;
   }
 
   @include mixins.BNN-isHuge-text-cleaup;
   @include mixins.BNN-responsive-padding;
+
+  &.enj-Banner--hasBgImage {
+    @include mixins.BNN-has-background-image;
+  }
 }

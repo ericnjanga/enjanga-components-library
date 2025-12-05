@@ -9,7 +9,7 @@ import { CP_propsType } from '@/components/CustomPictogram/libs/types';
 import { CQ_quote_propsType } from '@/components';
 
 export const imageUrls = [
-    'https://images.ctfassets.net/z41mabrhnu57/4inHKl5yMYfQHDc5en3FT2/35a1596018c9ad969aae0aad5402c18a/enjanga-hero-bg.png'
+    '/img/banner-bg.png'
 ];
 
 export const mockPlainText =

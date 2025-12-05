@@ -32,19 +32,9 @@ type Story = StoryObj<typeof Banner>;
 export const Default: Story = {};
 
 export const WithBackgroundImage: Story = {
-  // Background image ...
-
-    //   background-repeat: no-repeat;
-    // background-size: cover;
-
-
   args: {
-    id: 'xxxx',
-    style: {
-      backgroundImage: `url(${imageUrls[0]})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover'
-    }
+    id: 'xxxx', 
+    imgBgUrl: imageUrls[0]
   },
   render: (args) => (
     <Banner {...args} />
@@ -286,6 +276,17 @@ export const HugeBanner: Story = {
       </>
     );
   },
+};
+
+export const HugeWithBackgroundImage: Story = {
+  args: {
+    id: 'xxxx',
+    imgBgUrl: imageUrls[0],
+    isHuge: true
+  },
+  render: (args) => (
+    <Banner {...args} />
+  )
 };
 
 export const EmptyVersions: Story = {

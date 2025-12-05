@@ -87,3 +87,54 @@
     }
   }
 }
+
+
+
+/**
+ * The styles below only applies if the background image is provided.
+ * (can only be done through style={ backgroundImage: `url(${imageUrlParam})` }
+ *
+ * Image 
+**/
+@mixin BNN-has-background-image {
+  // Variables ...
+  --enj-Banner-bg-display: none;
+  --enj-Banner-bg-width: 30rem;
+  --enj-Banner-bg-size: 30rem;
+  --enj-Banner-bg-right: -15rem;
+
+  // Declarations ...
+  position: relative; // Container's position
+  overflow: hidden;
+
+  .enj-Banner-bgimg {
+    position: absolute;
+    display: var(--enj-Banner-bg-display);
+    top: 0;
+    right: var(--enj-Banner-bg-right);
+    bottom: 0;
+    width: var(--enj-Banner-bg-width);
+    background-image: var(--banner-bg-image);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: var(--enj-Banner-bg-size);
+    z-index: 0;
+  }
+
+  @include core.breakpoint('md') {
+    --enj-Banner-bg-display: block;
+    --enj-Banner-bg-right: max(-280px, calc((100vw - 1584px) / 2)); 
+  }
+
+  @include core.breakpoint('lg') {
+    --enj-Banner-bg-width: min(45rem, 100%);
+    --enj-Banner-bg-right: max(-140px, calc((100vw - 1584px) / 2));
+    --enj-Banner-bg-width: 35rem;
+    --enj-Banner-bg-size: 35rem; 
+  }
+
+  @include core.breakpoint('xlg') {
+    --enj-Banner-bg-width: 40rem;
+    --enj-Banner-bg-size: 40rem;
+  }
+}
