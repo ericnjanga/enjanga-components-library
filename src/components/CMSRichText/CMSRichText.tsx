@@ -27,7 +27,6 @@ import CMSRichTextSkeleton from './parts/CMSRichTextSkeleton';
 import clsx from 'clsx';
 import type { Node } from '@contentful/rich-text-types';
 import { CRT_propsType } from './libs/types';
-import './styles/_index.scss';
 
 const CMSRichText = ({ data, className }: CRT_propsType) => {
   // Getting the currently active locale...

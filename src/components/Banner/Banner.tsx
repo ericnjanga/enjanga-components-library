@@ -28,7 +28,6 @@ import clsx from 'clsx';
 import { BNN_propsType } from './libs/types';
 import { FeatureText } from '../FeatureText';
 import { useContainerSize } from '@/libs/useContainerSize';
-import './_Banner.scss';
 
 const Banner = ({
   id,

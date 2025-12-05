@@ -25,7 +25,6 @@ import { isValidLinkTo } from './lib/mix';
 import { CI_isValidPictogram } from '@/components/CustomPictogram/libs/helpers';
 import { getIconContent } from './lib/getIconContent';
 import { get_CTL_role } from './lib/accessibility';
-import './styles/_index.scss';
 
 const CustomTile = ({
   className,
