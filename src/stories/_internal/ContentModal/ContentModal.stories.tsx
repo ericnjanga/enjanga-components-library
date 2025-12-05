@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test'; // Correct import for Storybook 7+
 import ContentModal from '../../../components/ContentModal/ContentModal';
+import SmartText from '../../../components/SmartText/SmartText';
+import { mockCareerObjectiveText } from '@/mockData/mockRichText';
+
+
+
 
 const meta: Meta<typeof ContentModal> = {
   title: 'Internal Components/ContentModal',
@@ -210,6 +215,27 @@ export const WithLabelAndSubHeading: Story = {
           wafer. Danish soufflé cake jelly beans danish wafer shortbread. Jelly
           chupa chups sweet pie chocolate donut carrot cake brownie croissant.
         </p>
+      </ContentModal>
+    );
+  },
+};
+
+export const WithSmartText: Story = {
+  args: {
+    isOpen: true,
+    setIsOpen: fn(),
+    modalLabel: '*** Modal label ***',
+    modalSubHeading: '*** Modal SubHeading ***',
+    modalHeading: 'Shortbread brownie gingerbread caramels',
+    modalSecondaryButtonText: 'Cancel',
+  },
+  render: (args) => {
+    // This modal is primarily made to receive ReactNode children
+    return (
+      <ContentModal {...args}>
+        <SmartText
+          richText={mockCareerObjectiveText.description}
+        />
       </ContentModal>
     );
   },
