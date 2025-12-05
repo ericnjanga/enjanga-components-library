@@ -31,10 +31,10 @@
   ],
   "scripts": {
     "prepare": "yarn build",
-    "build": "yarn build:css && tsup src/index.ts --dts --format esm,cjs --out-dir dist --external react --external react-dom --external @carbon/react --external clsx --external react-is",
+    "build": "yarn build:css && tsup",
     "build:css": "mkdir -p dist && sass --load-path=node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
-    "watch:ts": "tsup src/index.ts --dts --format esm,cjs --out-dir dist --watch --external react --external react-dom --external @carbon/react --external clsx --external react-is",
+    "watch:ts": "tsup --watch",
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
