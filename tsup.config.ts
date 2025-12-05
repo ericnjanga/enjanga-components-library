@@ -20,10 +20,9 @@ export default defineConfig({
   },
   esbuildPlugins: [
     sassPlugin({
-      // "style" = injects <style> tags at runtime when the JS bundle is loaded
-      // This works well for component-level styles.
-      type: "style",
-      // optional: loadPaths: ["src", "node_modules"],
+      // ✅ Emit real CSS files and turn SCSS imports into CSS imports
+      type: "css",
+      cssImports: true, // makes `import './x.scss'` become `import './x.css'`
     }),
   ],
 });
