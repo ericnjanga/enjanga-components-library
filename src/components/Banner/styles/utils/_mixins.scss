@@ -35,11 +35,11 @@
 }
 
 @mixin BNN-large-paragraph {
-  p {
-    border: 1px dashed gray;
-    // (The style type below has to be applied separately)
-    // @include core.type-style('heading-03'); // Explicitly get font-size
-  }
+  // p {
+  //   border: 1px dashed gray;
+  //   // (The style type below has to be applied separately)
+  //   // @include core.type-style('heading-03'); // Explicitly get font-size
+  // }
 }
 
 @mixin BNN-isHuge-responsive-padding {
