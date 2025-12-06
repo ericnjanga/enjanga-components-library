@@ -2,8 +2,8 @@
 // enjanga-core-setup. This ensures all components use the same
 // spacing, type, colors, motion, and theme settings consistently.
 //
-// Example: core.$spacing-03, etc.
-@use 'enjanga-core-setup/styles' as core;
+// Example: sp.$spacing-03, etc.
+@use 'enjanga-core-setup/styles-colors' as cl;
 
 :root {
   --enj-skeleton-anim-title-h: 24px;
@@ -24,7 +24,7 @@
 /* Base skeleton effect */
 .skeleton {
   display: inline-block;
-  background-color: core.$gray-40;
+  background-color: cl.$gray-40;
   border-radius: 4px;
   position: relative;
   overflow: hidden;

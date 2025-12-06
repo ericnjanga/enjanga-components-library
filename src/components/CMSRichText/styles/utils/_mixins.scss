@@ -1,16 +1,9 @@
-// Import core Carbon design tokens, utilities, and mixins from
-// enjanga-core-setup. This ensures all components use the same
-// spacing, type, colors, motion, and theme settings consistently.
-//
-// Example: core.$spacing-03, etc.
-@use 'enjanga-core-setup/styles' as core;
-
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
 
 @mixin CRT_special_color {
-
-    * {
-      color: #0d3a90;
-    }
+  * {
+    color: #0d3a90;
+  }
 }
 
 // ...
@@ -93,11 +86,11 @@
     }
 
 
-    @include core.breakpoint-up(md) {
+    @include bp.breakpoint-up(md) {
       --enj-CMSRichText-fig-pad: 1.5rem;
     }
 
-    @include core.breakpoint-up(lg) {
+    @include bp.breakpoint-up(lg) {
       --enj-CMSRichText-fig-pad: 2rem;
     }
   }

@@ -1,4 +1,4 @@
-@use 'enjanga-core-setup/styles' as core;
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
 
 .custom-quotes {
   // Variables ...
@@ -28,15 +28,15 @@
     font-weight: bold;
 
     // Responsive adjustments using Carbon breakpoints
-    @include core.breakpoint-down(md) {}
+    @include bp.breakpoint-down(md) {}
 
-    @include core.breakpoint-down(sm) {
+    @include bp.breakpoint-down(sm) {
       --enj-CusQuotes--fs: 20px;
       --enj-CusQuotes--lh: 32px;
       --enj-CusQuotes--mg: 20px 16px 30px 16px;
     }
 
-    @include core.breakpoint-down(sm) {
+    @include bp.breakpoint-down(sm) {
       --enj-CusQuotes--fs: 18px;
       --enj-CusQuotes--lh: 28px;
       --enj-CusQuotes--mg: 15px 12px 25px 12px;
@@ -62,7 +62,7 @@
   }
 
   // Responsive adjustments using Carbon breakpoints
-  @include core.breakpoint-down(md) {
+  @include bp.breakpoint-down(md) {
     padding: 80px 0; // Reduce stroke for medium screens
 
     &__icon {
@@ -71,7 +71,7 @@
     }
   }
 
-  @include core.breakpoint-down(sm) {
+  @include bp.breakpoint-down(sm) {
     padding: 60px 0; // Reduce stroke for small screens
 
     &__icon {
@@ -80,7 +80,7 @@
     }
   }
 
-  @include core.breakpoint-down(sm) {
+  @include bp.breakpoint-down(sm) {
     padding: 40px 0; // Reduce stroke for extra small screens
 
     &__icon {

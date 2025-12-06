@@ -17,6 +17,11 @@ This library depends on **[enjanga-core-setup](https://github.com/ericnjanga/enj
   @use 'enjanga-core-setup/styles' as core;
   ```
 
+- You can have access to fine grained entrypoints with:  
+```scss
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
+```
+
 - Components in this library rely on these tokens to ensure **consistent theming, spacing, and typography** across all consuming projects.  
 - This separation keeps **core design tokens/utilities** (in `enjanga-core-setup`) independent from **components** (in `enjanga-components-library`).
 
@@ -100,9 +105,9 @@ This library’s styles follow a **three-tier structure** for clarity and mainta
    - Provides Carbon design tokens, utilities, and mixins.  
    - Always imported with:  
      ```scss
-     @use 'enjanga-core-setup/styles' as core;
+     @use 'enjanga-core-setup/styles-breakpoint' as bp;
      ```
-   - Example usage: `core.$spacing-03`.
+   - Example usage: `bp.breakpoint('md')`.
 
 2. **Global (library-wide styles in `src/styles/global/`)**  
    - Apply across components (e.g., typography, skeleton loading animation, utilities).  

@@ -1,10 +1,3 @@
-// Import core Carbon design tokens, utilities, and mixins from
-// enjanga-core-setup. This ensures all components use the same
-// spacing, type, colors, motion, and theme settings consistently.
-//
-// Example: core.$spacing-03, etc.
-@use 'enjanga-core-setup/styles' as core;
-
 @use './utils/vars';
 @use './utils/mixins';
 

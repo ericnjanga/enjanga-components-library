@@ -1,4 +1,4 @@
-@use 'enjanga-core-setup/styles' as core;
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
 
 .enj-contentModal {
   --enj-contModal-closeBtn-right: 0;
@@ -39,18 +39,18 @@
     font-size: var(--enj-contModal-h3);
   }
 
-  @include core.breakpoint('md') {
+  @include bp.breakpoint('md') {
     --enj-contModal-closeBtn-right: 1rem;
     --enj-contModal-header-paddInline: 2rem;
     --enj-contModal-content-paddInline: 2rem;
   }
 
-  @include core.breakpoint('lg') {
+  @include bp.breakpoint('lg') {
     --enj-contModal-header-paddInline: 3rem;
     --enj-contModal-content-paddInline: 3rem;
   }
 
-  @include core.breakpoint('xlg') {
+  @include bp.breakpoint('xlg') {
     --enj-contModal-header-paddInline: 4rem;
     --enj-contModal-content-paddInline: 4rem;
   }

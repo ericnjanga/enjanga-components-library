@@ -2,15 +2,15 @@
 // enjanga-core-setup. This ensures all components use the same
 // spacing, type, colors, motion, and theme settings consistently.
 //
-// Example: core.$spacing-03, etc.
-@use 'enjanga-core-setup/styles' as core;
+// Example: sp.$spacing-03, etc.
+@use 'enjanga-core-setup/styles-spacing' as sp;
 
 .enj-list {
   // ...
   padding-left: 1.1rem;
 
   li {
-    line-height: core.$spacing-06;
+    line-height: sp.$spacing-06;
   }
 }
 

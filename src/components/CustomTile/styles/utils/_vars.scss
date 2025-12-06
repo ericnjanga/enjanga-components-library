@@ -1,9 +1,5 @@
-// Import core Carbon design tokens, utilities, and mixins from
-// enjanga-core-setup. This ensures all components use the same
-// spacing, type, colors, motion, and theme settings consistently.
-//
-// Example: core.$spacing-03, etc.
-@use 'enjanga-core-setup/styles' as core;
+@use 'enjanga-core-setup/styles-spacing' as sp;
+@use 'enjanga-core-setup/styles-colors' as cl;
 
 :root {
   // Banners ...
@@ -11,13 +7,13 @@
   --enj-CTL-bann-align-items: flex-start;
   --enj-CTL-bann-flex-gap: 1rem;
   --enj-CTL-bann-title-mb: 0;
-  --enj-CTL-banner-pad: #{core.$spacing-10};
+  --enj-CTL-banner-pad: #{sp.$spacing-10};
   --enj-CTL-bann-title-flex: unset;
   --enj-CTL-bann-article-flex: unset;
 
   // Cards ...
-  --enj-CTL-br-col: #{core.$gray-60};
-  --enj-CTL-card-pad: #{core.$spacing-07};
+  --enj-CTL-br-col: #{cl.$gray-60};
+  --enj-CTL-card-pad: #{sp.$spacing-07};
   --enj-CTL-card-img-col-gap: 1.5rem;
   --enj-CTL-card-withIcon-gap: 1rem;
 

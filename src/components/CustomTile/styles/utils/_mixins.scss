@@ -1,9 +1,6 @@
-// Import core Carbon design tokens, utilities, and mixins from
-// enjanga-core-setup. This ensures all components use the same
-// spacing, type, colors, motion, and theme settings consistently.
-//
-// Example: core.$spacing-03, etc.
-@use 'enjanga-core-setup/styles' as core;
+@use 'enjanga-core-setup/styles-spacing' as sp;
+@use 'enjanga-core-setup/styles-colors' as cl;
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
 
 /**
  * Global stylings
@@ -32,16 +29,16 @@
     text-decoration: none;
   }
   .enj-CustomTile-title {
-    color: core.$gray-90;
+    color: cl.$gray-90;
     a {
-      color: core.$gray-90;
+      color: cl.$gray-90;
     }
   }
   .enj-FeatureText-article,
   .enj-CustomTile-pictogram {
-    color: core.$gray-70;
+    color: cl.$gray-70;
     a {
-      color: core.$gray-70;
+      color: cl.$gray-70;
     }
   }
 }
@@ -95,15 +92,15 @@
 
   &.enj-CustomTile-sm {
     // Adapts padding ...
-    --enj-CTL-banner-pad: #{core.$spacing-04};
+    --enj-CTL-banner-pad: #{sp.$spacing-04};
   }
   &.enj-CustomTile-md {
     // Adapts padding ...
-    --enj-CTL-banner-pad: #{core.$spacing-07};
+    --enj-CTL-banner-pad: #{sp.$spacing-07};
   }
   &.enj-CustomTile-max {
     // Adapts padding ...
-    --enj-CTL-banner-pad: #{core.$spacing-12};
+    --enj-CTL-banner-pad: #{sp.$spacing-12};
   }
 }
 
@@ -157,10 +154,10 @@
   padding: var(--enj-CTL-card-pad);
 
   &.enj-CustomTile-sm {
-    --enj-CTL-card-pad: #{core.$spacing-04};
+    --enj-CTL-card-pad: #{sp.$spacing-04};
   }
   &.enj-CustomTile-md {
-    --enj-CTL-card-pad: #{core.$spacing-06};
+    --enj-CTL-card-pad: #{sp.$spacing-06};
   }
 }
 
