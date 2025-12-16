@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { CTL_globalContentPropsType } from './types';
 import { CustomPictogram } from '@/components/CustomPictogram';
 import { FeatureText } from '@/components/FeatureText';
+import { Image } from 'enjanga-core-setup/next';
 
 // Puts together component's core content
 export const getTileContent = ({
@@ -29,10 +30,12 @@ export const getTileContent = ({
       )}
 
       {mediaImage && (
-        <img
-          className={clsx('enj-CustomTile-image img-fluid')}
-          src={mediaImage}
-          alt=""
+        <Image
+          className='enj-CustomTile-image object-cover'
+          width={mediaImage.width}
+          height={mediaImage.height}
+          src={mediaImage.url}
+          alt={mediaImage.alt}
           aria-hidden="true"
         />
       )}
