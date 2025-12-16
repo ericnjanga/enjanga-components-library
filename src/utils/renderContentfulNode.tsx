@@ -36,7 +36,8 @@ import {
   Block,
   Inline,
 } from "@contentful/rich-text-types";
-import React from "react";
+import React from "react"; 
+import { Image } from 'enjanga-core-setup/next';
 
 type Asset = {
   sys: { id: string };
@@ -168,6 +169,8 @@ export const renderContentfulNode = (
             </video>
           ) : (
             <img src={asset.url} alt={asset.description || asset.title} />
+
+            
           )}
           {asset.title && <figcaption>{asset.title}</figcaption>}
         </figure>
