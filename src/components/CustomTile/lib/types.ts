@@ -39,16 +39,18 @@ export type LinkWrapperType = React.ReactElement<{
   children?: React.ReactNode;
 }>;
 
+export type CTL_mediaImg = {
+  url: string;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
 // Proptypes for heading, blurb, icon, and link
 export interface CTL_globalContentPropsType {
   featuredText: FTX_propsType;
   mediaPictogram?: CP_nameType;
-  mediaImage?: {
-    url: string;
-    alt: string;
-    width?: number;
-    height?: number;
-  };
+  mediaImage?: CTL_mediaImg;
   iconContent: React.ReactNode | undefined;
 }
 
@@ -71,7 +73,7 @@ export type CTL_propsType = {
 
   media?: CTL_MediaType;
   mediaPictogram?: CP_nameType;
-  mediaImage?: string;
+  mediaImage?: CTL_mediaImg;
 
   modalIsAvailable?: boolean;
   modalPlainDescription?: string;
