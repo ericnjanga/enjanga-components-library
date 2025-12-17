@@ -158,7 +158,7 @@ export const renderContentfulNode = (
       const isVideo = asset.url?.match(/\.(mp4|webm|ogg)$/i);
 
       return (
-        <figure key={key}>
+        <figure key={key} style={{ position: 'relative' }}>
           {isVideo ? (
             <video
               controls
@@ -172,11 +172,12 @@ export const renderContentfulNode = (
           ) : (
             <Image
               className='asset-image'
+              fill
               width={asset.width}
               height={asset.height}
+              objectFit="cover"
               src={asset.url}
-              alt={asset.title || asset.description}
-              aria-hidden="true"
+              alt={asset.title || asset.description || ''}
             />
           )}
           {asset.title && <figcaption>{asset.title}</figcaption>}

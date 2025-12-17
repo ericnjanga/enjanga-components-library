@@ -80,10 +80,10 @@
 
     @include CRT_special_color;
 
-    img {
-      max-width: 100%;
-      margin-bottom: 1rem;
-    }
+    // img {
+    //   max-width: 100%;
+    //   margin-bottom: 1rem;
+    // }
 
 
     @include bp.breakpoint-up(md) {

@@ -1,5 +1,1553 @@
 export const project1 = {
-   "data": {
+  "data": {
+    "en": {
+      "sys": {
+        "id": "5y2JSha3mykWdGkUf6XcQp"
+      },
+      "title": "Accelerating Development with a Scalable React Component Library",
+      "blurb": "A scalable React component library built with accessibility, performance, and usability in mind — delivering faster development, consistent UI, and measurable business impact across projects.",
+      "description": {
+        "json": {
+          "nodeType": "document",
+          "data": {},
+          "content": [
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "1. Context & Problem",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I chose to build my 2025 portfolio in React, and reflecting on my 10 years of development experience, I decided to tackle three recurring challenges:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Inconsistent UI",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " — Developers often re-implemented common components like buttons, modals, and accordions, leading to design drift.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Reduced productivity",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " — Duplicate code, common in many projects, slows down development and increases maintenance overhead.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Accessibility gaps",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " — Accessibility is now a business requirement. Embedding WCAG standards directly into library components proactively reduces compliance risks.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "770OsVEsmtqZ1CVFeYfEIV",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "During my years as a front-end developer for large companies, I witnessed the challenges that come with scaling applications: increased ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "user experience",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " complexity, longer ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "development cycles",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", and more ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "onboarding time",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " for new engineers.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "2. Solution",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I designed and built a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "hyperlink",
+                  "data": {
+                    "uri": "https://www.enjanga.com/blog/7x5VF5tcp4XcpYdutT6SAV/"
+                  },
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "React component library",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "text",
+                  "value": " to centralize and standardize reusable UI elements. More importantly, I was committed to ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "enterprise-grade quality,",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " ensuring that the library was not just functional, but scalable and impactful.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I framed the project around key goals, each directly mapped to a business outcome:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Reusability & scalability",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Reduced duplicated code and enabled faster feature development.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Visual & functional consistency",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Strengthened brand identity and improved user trust.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Easy integration + clear documentation",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Lowered onboarding time for developers and accelerated adoption.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "WCAG 2.1 AA accessibility compliance",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Improved inclusivity and minimized accessibility-related risks.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Responsiveness",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Delivered seamless user experiences across devices.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Performance",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Improved load times and UI responsiveness for better customer satisfaction.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Reliability through unit testing",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " → Reduced production bugs and improved overall product reliability.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "7KRhu1g0Iv6UVcaFkxZZfg",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "3. Implementation",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I built the library on top of Carbon Design Systems, chosen for its sleek, minimalist, and enterprise-focused design principles. This ensured that the components would not only look consistent but also align with enterprise-grade usability and ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "hyperlink",
+                  "data": {
+                    "uri": "https://www.enjanga.com/blog/19oHD8PCWxtpsAQ0vrZm80/"
+                  },
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "accessibility standards (WCAG 2.1 AA)",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "text",
+                  "value": ". I also selected a stack that reflects my ambitions to build scalable, production-ready solutions:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Tech Stack:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " React, TypeScript, ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/4RsaGDtsUkDojJZl6XFpES/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Next.js",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ", Storybook, Jest",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Design System:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Carbon Design Systems (components, tokens, types, etc.)",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Architecture:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Published as a standalone npm package and integrated seamlessly into the main application",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Developer Tools:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Storybook (as a living style guide), GitHub Actions (for CI/CD)",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "heading-4",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Example: CustomTile Component",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I designed the ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "hyperlink",
+                  "data": {
+                    "uri": "https://www.enjanga.com/blog/86pppo6sH5OcLgmBD6eWm/"
+                  },
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "CustomTile component",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "text",
+                  "value": " to address the common trade-off between ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "presenting data clearly",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " and ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "providing actionable user interfaces",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ". This reflects my solution engineering approach: solving not only for UI aesthetics but also for usability, scalability, and business impact.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "4Fli3j2ru8MiJeOxkDAhyd",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "heading-3",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "Features:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Multiple variants:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Banner and Card",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Media display:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Image or icon (optional)",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "User interactions:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Supports routes, links, and modal windows",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Flexible configuration:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Fully configurable via props, with documented usage in Storybook",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "4. Impact",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "✨ ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "Business + Technical Outcomes:",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "After piloting the library with a group of consumer developers who integrated it into their local apps and tested multiple use cases, I gathered the following results:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "30% faster feature development",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " due to readily available reusable components.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Consistency across the app",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ", significantly reducing design drift.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Improved onboarding",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ", enabling new developers to become productive more quickly.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "These results validated that the library was not just a technical improvement but a business-enabling solution.",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "5. Solution Engineering Mindset",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "This project wasn’t just about UI components — it was about delivering a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "solution with measurable impact",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ":",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Business Alignment:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Faster time-to-market for features.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Collaboration:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Partnered with designers and product owners to align with design and UX goals.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Scalability:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Built as a foundation for a broader design system.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Enablement:",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " Packaged + documented for easy adoption across projects.",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "31i21J2bwlWv31PvVhMTpY",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
+                }
+              },
+              "content": []
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "6. Commitment to Quality",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "The library is currently in a stable beta release. My commitment to enterprise-grade quality includes:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "ordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Performance benchmarking",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "Comprehensive ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "unit test coverage",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " ahead of its planned v1.0 release",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "heading-3",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "✨ Takeaway:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "This project demonstrates my ability to identify inefficiencies, design scalable solutions, and deliver measurable business value — the same skills I aim to bring to a ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "Solution Engineer role",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ".",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "hr",
+              "data": {},
+              "content": []
+            },
+            {
+              "nodeType": "heading-2",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "7. Your feedback matters",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "I'd love to get your feedback. What use cases would you use a component like this for? Check out the links below to explore the Storybook prototype and let me know your thoughts:",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            },
+            {
+              "nodeType": "unordered-list",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/7x5VF5tcp4XcpYdutT6SAV/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "How I have created a high-performant component library",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "list-item",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "paragraph",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "text",
+                          "value": "",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://6856ac512f4faa67a7d9c5c2-zbqpmyejjp.chromatic.com/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Eric Njanga’s Component Library on Storybook",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "",
+                          "marks": [],
+                          "data": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nodeType": "paragraph",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "text",
+                  "value": "",
+                  "marks": [],
+                  "data": {}
+                }
+              ]
+            }
+          ]
+        },
+        "links": {
+          "assets": {
+            "block": [
+              {
+                "sys": {
+                  "id": "770OsVEsmtqZ1CVFeYfEIV"
+                },
+                "url": "https://images.ctfassets.net/z41mabrhnu57/770OsVEsmtqZ1CVFeYfEIV/f1a8c974383821e4370b9608cf432910/Case_Study_1_-_Figure_1.png",
+                "width": 1352,
+                "height": 644,
+                "title": "📸 Case Study 1: Maintaining visual consistency by reusing a single master component across multiple contexts—like banners, cards, and tiles—with optional customizations.",
+                "description": "xxx — to highlight inconsistency"
+              },
+              {
+                "sys": {
+                  "id": "7KRhu1g0Iv6UVcaFkxZZfg"
+                },
+                "url": "https://videos.ctfassets.net/z41mabrhnu57/7KRhu1g0Iv6UVcaFkxZZfg/d2e055e0bac825a99662a14d6c343443/case_study_1_-_5.mp4",
+                "width": null,
+                "height": null,
+                "title": "🎥 An interactive catalog of all components, searchable and organized in Storybook. This streamlines the design-to-development handoff and ensures everyone is using the correct, latest versions.",
+                "description": null
+              },
+              {
+                "sys": {
+                  "id": "4Fli3j2ru8MiJeOxkDAhyd"
+                },
+                "url": "https://videos.ctfassets.net/z41mabrhnu57/4Fli3j2ru8MiJeOxkDAhyd/acb764b19fd13770365521e6613f8219/Case_study_1_-_video_2.mp4",
+                "width": null,
+                "height": null,
+                "title": "🎥 Demonstrating the 'CustomTile' component in Storybook: interactively exploring its variants, verifying its responsiveness, and finally viewing it in the live app context.",
+                "description": null
+              },
+              {
+                "sys": {
+                  "id": "31i21J2bwlWv31PvVhMTpY"
+                },
+                "url": "https://videos.ctfassets.net/z41mabrhnu57/31i21J2bwlWv31PvVhMTpY/ebb22e018ab3766020c8bb5406bdf923/Case_study_1_-_video_3.mp4",
+                "width": null,
+                "height": null,
+                "title": "🎥 Case study 1: Showcasing the end-to-end integration: the library is consumed as an NPM dependency, its components are imported into a React application, and they instantly provide consistent, production-ready UI.",
+                "description": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+};
+
+
+
+export const project2 = { 
+  "data": {
     "en": {
       "sys": {
         "id": "2UJqmr6lFkc80z1Qm3LUfr"
@@ -194,14 +1742,22 @@ export const project1 = {
                   "data": {}
                 },
                 {
-                  "nodeType": "text",
-                  "value": "React-based application with Next.js",
-                  "marks": [
+                  "nodeType": "hyperlink",
+                  "data": {
+                    "uri": "https://www.enjanga.com/blog/4RsaGDtsUkDojJZl6XFpES/"
+                  },
+                  "content": [
                     {
-                      "type": "bold"
+                      "nodeType": "text",
+                      "value": "React-based application with Next.js",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
                     }
-                  ],
-                  "data": {}
+                  ]
                 },
                 {
                   "nodeType": "text",
@@ -226,14 +1782,22 @@ export const project1 = {
                   "data": {}
                 },
                 {
-                  "nodeType": "text",
-                  "value": "custom component library",
-                  "marks": [
+                  "nodeType": "hyperlink",
+                  "data": {
+                    "uri": "https://www.enjanga.com/blog/7x5VF5tcp4XcpYdutT6SAV/"
+                  },
+                  "content": [
                     {
-                      "type": "bold"
+                      "nodeType": "text",
+                      "value": "custom component library",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
                     }
-                  ],
-                  "data": {}
+                  ]
                 },
                 {
                   "nodeType": "text",
@@ -391,7 +1955,27 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " Leveraging Next.js static site generation to deliver fast, optimized, and discoverable pages.",
+                          "value": " Leveraging ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/4RsaGDtsUkDojJZl6XFpES/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Next.js Static Site Generation (SSG)",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " to deliver fast, optimized, and discoverable pages.",
                           "marks": [],
                           "data": {}
                         }
@@ -437,19 +2021,19 @@ export const project1 = {
               "content": [
                 {
                   "nodeType": "text",
-                  "value": "I built this app on top of ",
+                  "value": "I built this app on top of Carbon Design Systems, chosen ",
                   "marks": [],
                   "data": {}
                 },
                 {
                   "nodeType": "hyperlink",
                   "data": {
-                    "uri": "https://carbondesignsystem.com/"
+                    "uri": "https://www.enjanga.com/blog/4RsaGDtsUkDojJZl6XFpES/"
                   },
                   "content": [
                     {
                       "nodeType": "text",
-                      "value": "Carbon Design Systems",
+                      "value": "Next.js for its flexible and efficient rendering methods",
                       "marks": [],
                       "data": {}
                     }
@@ -457,23 +2041,7 @@ export const project1 = {
                 },
                 {
                   "nodeType": "text",
-                  "value": ", chosen NextJS for its ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "built-in server-side rendering (SSR) and static site generation (SSG)",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": ", and went for ContentFul because it’s a ",
+                  "value": " (Server Side Rendering and Static Site Generation), and went for ContentFul because it’s a ",
                   "marks": [],
                   "data": {}
                 },
@@ -559,7 +2127,27 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " Next.js (for hybrid static & server-side rendering, SEO, and performance).",
+                          "value": " ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/4RsaGDtsUkDojJZl6XFpES/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Next.js",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " (folder routing, server-side and client components, renderding methods, optimization).",
                           "marks": [],
                           "data": {}
                         }
@@ -615,14 +2203,34 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " Custom React component library (",
+                          "value": " Custom ",
                           "marks": [],
                           "data": {}
                         },
                         {
                           "nodeType": "hyperlink",
                           "data": {
-                            "uri": "http://localhost:3000/blog/19oHD8PCWxtpsAQ0vrZm80/"
+                            "uri": "https://www.enjanga.com/blog/7x5VF5tcp4XcpYdutT6SAV/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "React component library",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " (",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/19oHD8PCWxtpsAQ0vrZm80/"
                           },
                           "content": [
                             {
@@ -663,7 +2271,27 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " Storybook (for component showcase and developer onboarding).",
+                          "value": " ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://6856ac512f4faa67a7d9c5c2-zbqpmyejjp.chromatic.com/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Storybook",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " (for component showcase and developer onboarding).",
                           "marks": [],
                           "data": {}
                         }
@@ -691,7 +2319,7 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " GitHub Actions (for automated build, test, and deploy).",
+                          "value": " Vercel (for automated build, test, and deploy).",
                           "marks": [],
                           "data": {}
                         }
@@ -971,7 +2599,27 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " Reduced drift and accessibility gaps.",
+                          "value": " ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/19oHD8PCWxtpsAQ0vrZm80/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Reduced drift and accessibility gaps",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ".",
                           "marks": [],
                           "data": {}
                         }
@@ -982,36 +2630,53 @@ export const project1 = {
               ]
             },
             {
-              "nodeType": "paragraph",
+              "nodeType": "blockquote",
               "data": {},
               "content": [
                 {
-                  "nodeType": "text",
-                  "value": "📸 ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "[Insert chart or graphic comparing time-to-publish before vs. after CMS integration]",
-                  "marks": [
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
                     {
-                      "type": "italic"
+                      "nodeType": "text",
+                      "value": "📸 ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "\"",
+                      "marks": [
+                        {
+                          "type": "italic"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "[Analytics dashboard preview coming soon] ",
+                      "marks": [
+                        {
+                          "type": "italic"
+                        },
+                        {
+                          "type": "bold"
+                        }
+                      ],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "The application has successfully launched, and we are now in the data collection phase. The upcoming analytics will focus on validating the platform not just as a technical achievement, but as a tangible business-enabling solution.\"",
+                      "marks": [
+                        {
+                          "type": "italic"
+                        }
+                      ],
+                      "data": {}
                     }
-                  ],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "“These results validated that the platform was not just a technical improvement but a business-enabling solution.”",
-                  "marks": [],
-                  "data": {}
+                  ]
                 }
               ]
             },
@@ -1044,7 +2709,55 @@ export const project1 = {
                 },
                 {
                   "nodeType": "text",
-                  "value": "Design Technologist bridging design, engineering, and business goals",
+                  "value": "Design Technologist",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " bridging",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": " design",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "engineering",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": ", and ",
+                  "marks": [],
+                  "data": {}
+                },
+                {
+                  "nodeType": "text",
+                  "value": "business goals",
                   "marks": [
                     {
                       "type": "bold"
@@ -1179,26 +2892,17 @@ export const project1 = {
               ]
             },
             {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "🎥 ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "[Optional short video: walkthrough of component library in Storybook + integration with CMS]",
-                  "marks": [
-                    {
-                      "type": "italic"
-                    }
-                  ],
-                  "data": {}
+              "nodeType": "embedded-asset-block",
+              "data": {
+                "target": {
+                  "sys": {
+                    "id": "5yZB00ZWa3WqBGC9ZJReGk",
+                    "type": "Link",
+                    "linkType": "Asset"
+                  }
                 }
-              ]
+              },
+              "content": []
             },
             {
               "nodeType": "hr",
@@ -1309,7 +3013,27 @@ export const project1 = {
                         },
                         {
                           "nodeType": "text",
-                          "value": " (leveraging Next.js static site generation)",
+                          "value": " (leveraging ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "hyperlink",
+                          "data": {
+                            "uri": "https://www.enjanga.com/blog/4RsaGDtsUkDojJZl6XFpES/"
+                          },
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Next.js Static Site Generation, and Server Components",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ")",
                           "marks": [],
                           "data": {}
                         }
@@ -1370,13 +3094,13 @@ export const project1 = {
               "content": [
                 {
                   "nodeType": "text",
-                  "value": "This project reflects my role as a ",
+                  "value": "This project reflects my role as a Design Technologist with ",
                   "marks": [],
                   "data": {}
                 },
                 {
                   "nodeType": "text",
-                  "value": "Design Technologist with solution engineering focus",
+                  "value": "solution engineering",
                   "marks": [
                     {
                       "type": "bold"
@@ -1386,7 +3110,7 @@ export const project1 = {
                 },
                 {
                   "nodeType": "text",
-                  "value": ":",
+                  "value": " focus:",
                   "marks": [],
                   "data": {}
                 }
@@ -1406,7 +3130,23 @@ export const project1 = {
                       "content": [
                         {
                           "nodeType": "text",
-                          "value": "I don’t just build features — I design systems.",
+                          "value": "I don’t just build features — ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "I design systems",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": ".",
                           "marks": [],
                           "data": {}
                         }
@@ -1424,7 +3164,23 @@ export const project1 = {
                       "content": [
                         {
                           "nodeType": "text",
-                          "value": "I don’t just code interfaces — I create scalable solutions that empower teams, improve workflows, and deliver measurable business impact.",
+                          "value": "I don’t just code interfaces — I create ",
+                          "marks": [],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": "scalable solutions",
+                          "marks": [
+                            {
+                              "type": "bold"
+                            }
+                          ],
+                          "data": {}
+                        },
+                        {
+                          "nodeType": "text",
+                          "value": " that empower teams, improve workflows, and deliver measurable business impact.",
                           "marks": [],
                           "data": {}
                         }
@@ -1456,7 +3212,9 @@ export const project1 = {
                   "id": "5euzSDvP8fBTqUCSoCkfKs"
                 },
                 "url": "https://images.ctfassets.net/z41mabrhnu57/5euzSDvP8fBTqUCSoCkfKs/411d2f2df48806e44c68290a8ce61559/case_study_2_-_Figure_1.png",
-                "title": "Case study 2 - Figure 1: Screenshot of portfolio with consistent UI patterns.",
+                "width": 1487,
+                "height": 1034,
+                "title": "📸 Case study 2 - Figure 1: Design prototypes depicting consistent UI patterns.",
                 "description": "Screenshot of portfolio with consistent UI patterns."
               },
               {
@@ -1464,7 +3222,9 @@ export const project1 = {
                   "id": "2tmCvQTj5NkT33x54NGifS"
                 },
                 "url": "https://videos.ctfassets.net/z41mabrhnu57/2tmCvQTj5NkT33x54NGifS/2f2acbb6041c4068f2874e7c10c50ba0/Case_study_2_-_Video_1.mp4",
-                "title": "Case study 2: Contentful seemless integration with a React app",
+                "width": null,
+                "height": null,
+                "title": "🎥 Case study 2: Contentful seemless integration with a React app",
                 "description": null
               },
               {
@@ -1472,8 +3232,20 @@ export const project1 = {
                   "id": "2PTOFm9dXKBR0MPsr711XG"
                 },
                 "url": "https://images.ctfassets.net/z41mabrhnu57/2PTOFm9dXKBR0MPsr711XG/2af9129f2dbc52968b2102dde6340558/case-study2-screenshot-3.png",
+                "width": 2874,
+                "height": 1352,
                 "title": "Screenshot of Contentful content model with a “Page” entry referencing reusable components.",
                 "description": ""
+              },
+              {
+                "sys": {
+                  "id": "5yZB00ZWa3WqBGC9ZJReGk"
+                },
+                "url": "https://videos.ctfassets.net/z41mabrhnu57/5yZB00ZWa3WqBGC9ZJReGk/d03f67bde04b0798db61f1572eeb9b2d/Case_Study_2_-_Video_2.mp4",
+                "width": null,
+                "height": null,
+                "title": "🎥 Case Study 2: Walkthrough of component library in Storybook + integration with CMS",
+                "description": null
               }
             ]
           }
@@ -1481,1319 +3253,4 @@ export const project1 = {
       }
     }
   }
-};
-
-
-
-export const project2 = { 
-  "data": {
-    "en": {
-      "sys": {
-        "id": "3t7j9BUNAZNUwsc7alBNJ1"
-      },
-      "title": "Composition Principle in JavaScript: Acheiving code reuse",
-      "blurb": "Discover the reasons behind the Composition Principle in JavaScript, its usefulness for code resuse, and some of its techniques.",
-      "description": {
-        "json": {
-          "nodeType": "document",
-          "data": {},
-          "content": [
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "In JavaScript, composition is a ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "code-reuse",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": " principle. Instead of relying on rigid class hierarchies with inheritance, composition allows UI engineers ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "to build complex objects by combining smaller, more focused ones",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": ".",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "blockquote",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "paragraph",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "text",
-                      "value": "Composition encourages the ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "building of complex",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " objects using simpler ones, thus fostering code reuse..",
-                      "marks": [],
-                      "data": {}
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "hr",
-              "data": {},
-              "content": []
-            },
-            {
-              "nodeType": "heading-2",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "The underlying principle of composition",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "Composition is the foundation upon which mixins and decorators are built. It's a ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "\"has-a\"",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": " relationship, contrasting with the ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "\"is-a\"",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": " relationship of inheritance.",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "unordered-list",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "list-item",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "paragraph",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "text",
-                          "value": "Example:",
-                          "marks": [
-                            {
-                              "type": "bold"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " A ",
-                          "marks": [],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": "Car",
-                          "marks": [
-                            {
-                              "type": "code"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " class doesn't inherit from an ",
-                          "marks": [],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": "Engine",
-                          "marks": [
-                            {
-                              "type": "code"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " class. Instead, it holds a reference to an ",
-                          "marks": [],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": "Engine",
-                          "marks": [
-                            {
-                              "type": "code"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " object.",
-                          "marks": [],
-                          "data": {}
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "list-item",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "paragraph",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "text",
-                          "value": "Flexibility:",
-                          "marks": [
-                            {
-                              "type": "bold"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " It promotes loose coupling and greater flexibility because you can swap out the smaller, \"composed\" parts without affecting the larger object.",
-                          "marks": [],
-                          "data": {}
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "embedded-asset-block",
-              "data": {
-                "target": {
-                  "sys": {
-                    "id": "5r85DyaeWZRGK75BT1CmVR",
-                    "type": "Link",
-                    "linkType": "Asset"
-                  }
-                }
-              },
-              "content": []
-            },
-            {
-              "nodeType": "hr",
-              "data": {},
-              "content": []
-            },
-            {
-              "nodeType": "heading-2",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "How to acheive composition?",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "Let's explore two composition techniques: ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "Mixins",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": " and ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "the Decorator Pattern",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": ".",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "heading-3",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "Option 1: Mixins",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "In JavaScript, mixins are ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "objects that provide reusable methods",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": ". You can \"mix\" their functionality into a class or object by copying the methods over. This allows a class to gain new abilities without extending from the mixin, which is not possible in JavaScript's single-inheritance model.",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "blockquote",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "paragraph",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "text",
-                      "value": "🧐 ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "Drawbacks",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": ": There are risks of ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "collision",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " (method name conflicts) and",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " implicit contracts",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " (implicit dependencies making the code hard to understand).",
-                      "marks": [],
-                      "data": {}
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "embedded-asset-block",
-              "data": {
-                "target": {
-                  "sys": {
-                    "id": "d08nibZsFEgveJ3ZnOU0a",
-                    "type": "Link",
-                    "linkType": "Asset"
-                  }
-                }
-              },
-              "content": []
-            },
-            {
-              "nodeType": "hr",
-              "data": {},
-              "content": []
-            },
-            {
-              "nodeType": "heading-3",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "Option 2: Decorator pattern",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "The decorator pattern involves creating a \"wrapper\" object that contains the original object. The wrapper ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "delegates method calls to the original object",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": " while potentially ",
-                  "marks": [],
-                  "data": {}
-                },
-                {
-                  "nodeType": "text",
-                  "value": "adding or overriding behavior before or after.",
-                  "marks": [
-                    {
-                      "type": "bold"
-                    }
-                  ],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "blockquote",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "paragraph",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "text",
-                      "value": "😀 Ideal for Composition:",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " he decorator pattern is ideal for ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "achieving",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " composition because ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "of its",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " flexibility. It conforms to the object's interface ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "and",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " allows the addition or removal of specific behavior ",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": "from",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " an individual object without affecting all instances of the class",
-                      "marks": [],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": ",",
-                      "marks": [
-                        {
-                          "type": "bold"
-                        }
-                      ],
-                      "data": {}
-                    },
-                    {
-                      "nodeType": "text",
-                      "value": " like mixins do.",
-                      "marks": [],
-                      "data": {}
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "embedded-asset-block",
-              "data": {
-                "target": {
-                  "sys": {
-                    "id": "2RMRfeB0gAKqGpdnPF0mMX",
-                    "type": "Link",
-                    "linkType": "Asset"
-                  }
-                }
-              },
-              "content": []
-            },
-            {
-              "nodeType": "hr",
-              "data": {},
-              "content": []
-            },
-            {
-              "nodeType": "heading-2",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "Recap and relationships at a glance",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "table",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "table-row",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "table-header-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Aspect \t\t\t",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-header-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Composition",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-header-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Mixins",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-header-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Decorator Pattern",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "table-row",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Concept",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "The general principle of building complex objects by combining simpler ones.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "A pattern for sharing reusable functionality between classes or objects without inheritance",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "A structural design pattern that wraps an object to dynamically add new behaviors.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "table-row",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Mechanism",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "An object \"has\" or \"uses\" another object to perform a task.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Copies methods and properties from one object (the mixin) onto another.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Wraps an object with another object that implements the same interface.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "table-row",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Analogy",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "A car is made of a wheel, an engine, and a steering wheel.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Adding toppings (mixins) to vanilla ice cream (the target object) to create a custom flavor.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "Putting on layers of clothing (decorators) over a base outfit (the core object) for extra warmth.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "table-row",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "When to use",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "For building flexible, reusable systems, often favored over inheritance.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "To add related behaviors, especially to multiple unrelated classes.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "table-cell",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "paragraph",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "text",
-                              "value": "To add or remove specific, optional functionality to individual objects at runtime.",
-                              "marks": [],
-                              "data": {}
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "heading-2",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "Takeaway",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            },
-            {
-              "nodeType": "unordered-list",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "list-item",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "paragraph",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "text",
-                          "value": "JavaScript composition",
-                          "marks": [
-                            {
-                              "type": "bold"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " is the underlying principle for creating complex objects by combining simple ones.",
-                          "marks": [],
-                          "data": {}
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "list-item",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "paragraph",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "text",
-                          "value": "It can be acheived through two techniques:",
-                          "marks": [],
-                          "data": {}
-                        }
-                      ]
-                    },
-                    {
-                      "nodeType": "unordered-list",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "list-item",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "paragraph",
-                              "data": {},
-                              "content": [
-                                {
-                                  "nodeType": "text",
-                                  "value": "Mixins:",
-                                  "marks": [
-                                    {
-                                      "type": "bold"
-                                    }
-                                  ],
-                                  "data": {}
-                                },
-                                {
-                                  "nodeType": "text",
-                                  "value": " Adding reusable methods to a class prototype (all class instances ",
-                                  "marks": [],
-                                  "data": {}
-                                },
-                                {
-                                  "nodeType": "text",
-                                  "value": "will have the new functionality",
-                                  "marks": [
-                                    {
-                                      "type": "bold"
-                                    }
-                                  ],
-                                  "data": {}
-                                },
-                                {
-                                  "nodeType": "text",
-                                  "value": ").",
-                                  "marks": [],
-                                  "data": {}
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "nodeType": "list-item",
-                          "data": {},
-                          "content": [
-                            {
-                              "nodeType": "paragraph",
-                              "data": {},
-                              "content": [
-                                {
-                                  "nodeType": "text",
-                                  "value": "Decorator pattern:",
-                                  "marks": [
-                                    {
-                                      "type": "bold"
-                                    }
-                                  ],
-                                  "data": {}
-                                },
-                                {
-                                  "nodeType": "text",
-                                  "value": " Wrapping a single object with new methods (only that object ",
-                                  "marks": [],
-                                  "data": {}
-                                },
-                                {
-                                  "nodeType": "text",
-                                  "value": "gets the new functionality",
-                                  "marks": [
-                                    {
-                                      "type": "bold"
-                                    }
-                                  ],
-                                  "data": {}
-                                },
-                                {
-                                  "nodeType": "text",
-                                  "value": ").",
-                                  "marks": [],
-                                  "data": {}
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "nodeType": "list-item",
-                  "data": {},
-                  "content": [
-                    {
-                      "nodeType": "paragraph",
-                      "data": {},
-                      "content": [
-                        {
-                          "nodeType": "text",
-                          "value": "The decorator pattern is the most ideal ",
-                          "marks": [],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": "of the two because",
-                          "marks": [
-                            {
-                              "type": "bold"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " of its flexibility and ",
-                          "marks": [],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": "because it is",
-                          "marks": [
-                            {
-                              "type": "bold"
-                            }
-                          ],
-                          "data": {}
-                        },
-                        {
-                          "nodeType": "text",
-                          "value": " less invasive.",
-                          "marks": [],
-                          "data": {}
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "nodeType": "paragraph",
-              "data": {},
-              "content": [
-                {
-                  "nodeType": "text",
-                  "value": "",
-                  "marks": [],
-                  "data": {}
-                }
-              ]
-            }
-          ]
-        },
-        "links": {
-          "assets": {
-            "block": [
-              {
-                "sys": {
-                  "id": "5r85DyaeWZRGK75BT1CmVR"
-                },
-                "url": "https://images.ctfassets.net/z41mabrhnu57/5r85DyaeWZRGK75BT1CmVR/aa2decaf19d953c3f5c55c8fde91fd0a/js-composition-1.png",
-                "title": "js-composition-1",
-                "description": "js-composition-1"
-              },
-              {
-                "sys": {
-                  "id": "d08nibZsFEgveJ3ZnOU0a"
-                },
-                "url": "https://images.ctfassets.net/z41mabrhnu57/d08nibZsFEgveJ3ZnOU0a/57ff0870f6597309592d6ae4ec0738aa/js-composition-2.png",
-                "title": "js-composition-2",
-                "description": "js-composition-2"
-              },
-              {
-                "sys": {
-                  "id": "2RMRfeB0gAKqGpdnPF0mMX"
-                },
-                "url": "https://images.ctfassets.net/z41mabrhnu57/2RMRfeB0gAKqGpdnPF0mMX/7b187adead4eddaabd921846cbdfdce9/js-composition-3.png",
-                "title": "js-composition-3",
-                "description": "js-composition-3"
-              }
-            ]
-          }
-        }
-      }
-    }
-  } 
 };

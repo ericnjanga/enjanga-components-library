@@ -25,13 +25,33 @@ export default meta;
 
 type Story = StoryObj<typeof CMSRichText>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    // data: {
+    //   ...project2?.data[activeLang]?.description
+    // }
+  },
+  render: (args) => {
+    return (
+      <div style={{ maxWidth: '1000px' }}>
+        <CMSRichText {...args} />
+      </div>
+    );
+  }
+};
 
 export const WithHTMTable: Story = {
   args: {
     data: {
       ...project2?.data[activeLang]?.description
     }
+  },
+  render: (args) => {
+    return (
+      <div style={{ maxWidth: '1000px' }}>
+        <CMSRichText {...args} />
+      </div>
+    );
   },
 };
 
@@ -42,7 +62,7 @@ export const EmptyVersion: Story = {
   },
   render: (args) => {
     return (
-      <>
+      <div style={{ maxWidth: '1000px' }}>
         <header style={{ marginBottom: '2.5rem' }}>
           <h1 style={{ color: 'blue' }}>
             What happens if the expected props aren't there yet?
@@ -54,7 +74,7 @@ export const EmptyVersion: Story = {
         </header>
 
         <CMSRichText {...args} />
-      </>
+      </div>
     );
   },
 };
