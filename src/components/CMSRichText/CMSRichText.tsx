@@ -22,15 +22,15 @@
  * />
  */
 
-import { renderContentfulNode } from '@/utils/renderContentfulNode';
-import CMSRichTextSkeleton from './parts/CMSRichTextSkeleton';
-import clsx from 'clsx';
-import type { Node } from '@contentful/rich-text-types';
-import { CRT_propsType } from './libs/types';
+import { renderContentfulNode } from "@/utils/renderContentfulNode";
+import CMSRichTextSkeleton from "./parts/CMSRichTextSkeleton";
+import clsx from "clsx";
+import type { Node } from "@contentful/rich-text-types";
+import { CRT_propsType } from "./libs/types";
 
 const CMSRichText = ({ data, className }: CRT_propsType) => {
   // Getting the currently active locale...
-  const activeLang = 'en'; // (soon)
+  const activeLang = "en"; // (soon)
 
   if (!data) {
     return <CMSRichTextSkeleton />;
@@ -39,7 +39,14 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
   // 🔑 Build asset lookup map
   const assetsMap: Record<
     string,
-    { sys: { id: string }; url: string; title: string; description?: string }
+    { 
+      sys: { id: string }; 
+      url: string; 
+      title: string; 
+      description?: string;
+      width: number;
+      height: number;
+    }
   > = {};
 
   data.links?.assets.block.forEach((asset) => {
@@ -47,7 +54,7 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
   });
 
   return (
-    <article className={clsx('enj-CMSRichText', className)}>
+    <article className={clsx("enj-CMSRichText", className)}>
       {data.json?.content?.map((node: Node, index: number) =>
         renderContentfulNode(node, `node-${index}`, { assets: assetsMap })
       )}

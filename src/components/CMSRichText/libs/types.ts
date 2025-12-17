@@ -13,6 +13,8 @@ export interface CRT_propsType {
           url: string;
           title: string;
           description?: string;
+          width: number;
+          height: number;
         }[];
       };
     };

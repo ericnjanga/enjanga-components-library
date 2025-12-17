@@ -7,7 +7,7 @@
  * @module renderContentfulNode
  * @param {Node} node - Contentful rich text node to render
  * @param {string} key - Unique React key for the element
- * @returns {JSX.Element|null} - Rendered React element or null for unsupported nodes
+ * @returns {React.JSX.Element|null} - Rendered React element or null for unsupported nodes
  *
  * @example
  * // Basic usage
@@ -44,6 +44,8 @@ type Asset = {
   url: string;
   title: string;
   description?: string;
+  width: number;
+  height: number;
 };
 
 type RenderOptions = {
@@ -66,7 +68,7 @@ export const renderContentfulNode = (
   node: Node,
   key: string,
   options: RenderOptions = {}
-): JSX.Element | null => {
+): React.JSX.Element | null => {
   switch (node.nodeType) {
     case BLOCKS.PARAGRAPH: {
       const paragraph = node as Block;
@@ -168,9 +170,14 @@ export const renderContentfulNode = (
               Your browser does not support the video tag.
             </video>
           ) : (
-            <img src={asset.url} alt={asset.description || asset.title} />
-
-            
+            <Image
+              className='asset-image'
+              width={asset.width}
+              height={asset.height}
+              src={asset.url}
+              alt={asset.title || asset.description}
+              aria-hidden="true"
+            />
           )}
           {asset.title && <figcaption>{asset.title}</figcaption>}
         </figure>

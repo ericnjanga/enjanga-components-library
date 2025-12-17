@@ -12,6 +12,6 @@ declare module '*.svg' {
 
 // type declaration file for MDX modules:
 declare module '*.mdx' {
-  const MDXComponent: (props: any) => JSX.Element;
+  const MDXComponent: (props: any) => React.JSX.Element;
   export default MDXComponent;
 }
