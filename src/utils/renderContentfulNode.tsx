@@ -156,9 +156,11 @@ export const renderContentfulNode = (
       if (!asset) return null;
 
       const isVideo = asset.url?.match(/\.(mp4|webm|ogg)$/i);
+      const w = asset.width ?? 16;
+      const h = asset.height ?? 9;
 
       return (
-        <figure key={key} style={{ position: 'relative' }}>
+        <figure key={key}>
           {isVideo ? (
             <video
               controls
@@ -170,15 +172,19 @@ export const renderContentfulNode = (
               Your browser does not support the video tag.
             </video>
           ) : (
-            <Image
-              className='asset-image'
-              fill
-              width={asset.width}
-              height={asset.height}
-              objectFit="cover"
-              src={asset.url}
-              alt={asset.title || asset.description || ''}
-            />
+            <div
+              className="asset-image-wrapper"
+              style={{ aspectRatio: `${w} / ${h}`, position: 'relative',  width: '100%', marginBottom: '1rem' }}
+            >
+              <Image
+                className="asset-image"
+                fill
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
+                src={asset.url}
+                alt={asset.title || asset.description || ''}
+              />
+            </div>
           )}
           {asset.title && <figcaption>{asset.title}</figcaption>}
         </figure>
