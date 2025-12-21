@@ -84,7 +84,7 @@ const AppHeader = ({
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }: AHC_propsType) => (
         <Header aria-label={brandLabel} className="enj-AppHeader"> 
-          <div className={`header-inner header-inner-${activeBreakpoint}`}>
+          <div className={`enj-container header-inner header-inner-${activeBreakpoint}`}>
             <SkipToContent />
             <HeaderMenuButton
               aria-label={labelOpenMenu}

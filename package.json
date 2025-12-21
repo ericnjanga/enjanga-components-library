@@ -103,7 +103,7 @@
     "clsx": "^2.1.1",
     "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
-    "enjanga-core-setup": "^1.0.37",
+    "enjanga-core-setup": "^1.0.41",
     "esbuild-sass-plugin": "^3.3.1",
     "react": "^19.0.0",
     "react-docgen-typescript": "^2.4.0",
