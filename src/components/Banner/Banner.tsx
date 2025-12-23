@@ -23,11 +23,19 @@
  *   - Additional custom CSS classes to apply to the banner container.
  */
 
+import React, { useMemo } from 'react';
 import clsx from 'clsx';
-// import { Grid, Column } from '@carbon/react';
 import { BNN_propsType } from './libs/types';
 import { FeatureText } from '../FeatureText';
 import { useContainerSize } from '@/libs/useContainerSize';
+
+const TEXT_WRAPPER_STYLE: Record<string, React.CSSProperties> = {
+  sm: { maxWidth: '300px' },
+  md: { maxWidth: '500px' },
+  lg: { maxWidth: '550px' },
+  xlg: { maxWidth: '630px' },
+  max: { maxWidth: '730px' },
+};
 
 const Banner = ({
   id,
@@ -36,41 +44,46 @@ const Banner = ({
   featuredText,
   imgBgUrl,
   isHuge = false,
-
-  //  * A banner is usually a page-level landmark (site-wide header, hero, jumbotron, etc.).
-  // 👉 Use role="banner" if it’s the primary page banner.
-  role = 'banner', // ✅ default to banner
+  role = 'banner',
 }: BNN_propsType) => {
-  const cssClasses = clsx('enj-Banner', className, {
-    'enj-Banner--isHuge': isHuge,
-    'enj-Banner--hasBgImage': isValidImageUrl(imgBgUrl),
-  });
-
-  // Tracking container size
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
-  // Determine the correct HTML element based on the role
-  const Tag = role === 'banner' ? 'header' : 'div';
+  const hasBgImage = useMemo(() => isValidImageUrl(imgBgUrl), [imgBgUrl]);
 
-  // Combine inline styles if needed
-  const combinedStyle = {
-    ...style,
-    '--banner-bg-image': imgBgUrl ? `url(${imgBgUrl})` : undefined,
-  };
+  const cssClasses = useMemo(
+    () =>
+      clsx('enj-Banner', className, {
+        'enj-Banner--isHuge': isHuge,
+        'enj-Banner--hasBgImage': hasBgImage,
+      }),
+    [className, isHuge, hasBgImage]
+  );
+
+  const Tag = useMemo(() => (role === 'banner' ? 'header' : 'div'), [role]);
+
+  const wrapperStyle = useMemo(
+    () => ({
+      ...style,
+      ['--banner-bg-image' as any]: imgBgUrl ? `url(${imgBgUrl})` : undefined,
+    }),
+    [style, imgBgUrl]
+  );
+
+  const textStyle = TEXT_WRAPPER_STYLE[activeBreakpoint] ?? undefined;
 
   return (
-    <Tag // ✅ Now uses <header> for banner, <div> for presentation
+    <Tag
       id={id}
       className={`${cssClasses} enj-Banner-${activeBreakpoint}`}
-      style={combinedStyle}
+      style={wrapperStyle}
       ref={containerRef}
-      role={role} // role is still explicitly set for clarity and for cases where Tag is 'div'
+      role={role}
     >
       <div className="enj-container">
-        <div className="cds--sm:col-span-4 cds--md:col-span-6 cds--lg:col-span-10 cds--css-grid-column">
+        <div style={textStyle}>
           <FeatureText {...featuredText} />
         </div>
-        {imgBgUrl && <div className='enj-Banner-bgimg' role="img" aria-hidden="true" />}
+        {imgBgUrl && <div className="enj-Banner-bgimg" role="img" aria-hidden="true" />}
       </div>
     </Tag>
   );
