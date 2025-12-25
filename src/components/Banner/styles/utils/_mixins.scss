@@ -66,19 +66,13 @@
     --enj-Banner-padd-bot: #{sp.$spacing-06 + sp.$spacing-13 + sp.$spacing-04 +
       sp.$spacing-05};
   }
-  &.enj-Banner-xlg {
+  &.enj-Banner-xlg,
+  &.enj-Banner-max {
     // border: 4px dashed green;
     --enj-Banner-padd-top: 8rem;
     @include BNN-large-paragraph;
     --enj-Banner-padd-bot: #{sp.$spacing-06 + sp.$spacing-13 + sp.$spacing-04 +
       sp.$spacing-05 + sp.$spacing-06};
-  }
-  &.enj-Banner-max {
-    // border: 4px dashed rgb(255, 47, 227);
-    @include BNN-large-paragraph;
-    --enj-Banner-padd-top: 10rem;
-    --enj-Banner-padd-bot: #{sp.$spacing-06 + sp.$spacing-13 + sp.$spacing-04 +
-      sp.$spacing-05 + sp.$spacing-06 + sp.$spacing-06};
   }
 }
 
