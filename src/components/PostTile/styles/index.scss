@@ -1,0 +1,43 @@
+@use './utils/vars';
+@use './utils/mixins'; 
+
+@use './variants/postTile-has-img'; 
+
+ 
+
+
+
+/**
+ * postTile of layout Banner/Card with links
+ * <Component />.  <--- We need to cancel the responsive padding here
+ ** <a></a>.       <--- We need to apply the responsive padding here
+*/
+
+.enj-postTile {
+  padding: 0; // We first paddings for all cards and banners
+  background-color: #e3ebf9; // TODO: Convert to enjanga-core-setup color token  
+
+  // Structure the icon positionning and styling
+  @include mixins.PTL-iconPositionning;
+  @include mixins.PTL-iconTheming;
+  @include mixins.PTL-textLinkTheming;
+    @include mixins.PTL-cardResponsivePadding;
+
+  // Text & Link styling
+  @include mixins.PTL-textLinkTheming;
+ 
+  .enj-FeatureText {
+    @include mixins.PTL-richTextDefaults;
+  }
+}
+
+
+// Hover effect for non-link variants
+.enj-postTile-has-hover-effect,
+.enj-postTile-anchor-tag {
+  display: block;
+  &:hover {
+    @include mixins.PTL-hover;
+    @include mixins.PTL-textLinkTheming-hover;
+  }
+}

@@ -10,6 +10,7 @@ import {
   CTL_MediaOpt,
   CTL_LinkTargetOpt,
 } from '@/components/CustomTile/lib/types';
+import { PTL_propsType } from '@/components/PostTile/lib/types';
 import { CP_nameOpt } from '@/components/CustomPictogram/libs/types';
 
 // generic
@@ -81,6 +82,21 @@ export const argTypesArrowIconStories: Partial<ArgTypes<AIC_propsType>> = {
     options: ['Right', 'UpRight'],
     description: '... soon ...',
   },
+};
+
+export const argsTypesPostTileStories: Partial<ArgTypes<PTL_propsType>> = {
+  ...classNameStoryArgType,
+  featuredText: {
+    ...argTypesFeatureTextStories,
+  },
+  mediaImage: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  linksTo: {
+    control: 'text',
+    description: '... soon ...',
+  }
 };
 
 export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {

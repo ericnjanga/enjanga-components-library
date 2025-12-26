@@ -1,0 +1,113 @@
+@use 'enjanga-core-setup/styles-spacing' as sp;
+@use 'enjanga-core-setup/styles-colors' as cl;
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
+
+/**
+ * Global stylings
+ * ----------------------------
+*/
+
+@mixin PTL-iconPositionning {
+  .enj-postTile-icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+@mixin PTL-iconTheming {
+  .enj-postTile-icon {
+    margin-top: 1rem;
+    width: var(--enj-PTL-icon-dimg);
+    height: var(--enj-PTL-icon-dimg); 
+  }
+}
+
+// Text & Link styling ...
+@mixin PTL-textLinkTheming {
+  a {
+    text-decoration: none;
+  }
+  .enj-postTile-title {
+    color: cl.$gray-90;
+    a {
+      color: cl.$gray-90;
+    }
+  }
+  .enj-FeatureText-article,
+  .enj-postTile-pictogram {
+    color: cl.$gray-70;
+    a {
+      color: cl.$gray-70;
+    }
+  }
+}
+
+@mixin PTL-richTextDefaults {
+  .enj-FeatureText-article {
+    // For Feature text / Rich text ...
+    p:last-of-type,
+    blockquote {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+/**
+ * For Cards
+ * ----------------------------
+*/
+// Create initial padding, then adjust based on component size
+@mixin PTL-cardResponsivePadding { 
+  .enj-postTile-anchor-tag {
+    // Initial padding ...
+    padding: var(--enj-PTL-card-pad);
+
+    // We then apply the responsive padding directly on the anchor tag
+  }
+
+  &.enj-postTile-sm {
+    --enj-PTL-card-pad: 1rem;
+  }
+  &.enj-postTile-md {
+    --enj-PTL-card-pad: 2rem;
+  }
+  &.enj-postTile-lg,
+  &.enj-postTile-xlg,
+  &.enj-postTile-max {
+    --enj-PTL-card-pad: 3rem;
+  }
+}
+
+@mixin PTL-hover {
+  cursor: pointer;
+  background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token // TODO: Convert to enjanga-core-setup color token
+}
+
+@mixin PTL-textLinkTheming-hover {
+  .enj-postTile-title {
+    color: white; // $blue-60;
+    a {
+      color: white; // $blue-60;
+    }
+  }
+  .enj-FeatureText-article {
+    color: white; // $blue-60;
+    a {
+      color: white; // $blue-60;
+    }
+  }
+}
+
+ 
+ 
+
+@mixin CT-action-icon-positionning {
+  position: absolute;
+  bottom: var(--enj-PTL-card-pad);
+  right: var(--enj-PTL-card-pad);
+}
+
+ 
