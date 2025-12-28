@@ -8,8 +8,7 @@
 .enj-Banner {
   &.enj-Banner--isHuge {
     // Variables ...
-    --enj-Banner-jumbotron-padd: var(--enj-Banner-gap) 0
-      var(--enj-Banner-padd-bot) 0;
+    --enj-Banner-jumbotron-padd: var(--enj-Banner-padd-top) 0 var(--enj-Banner-padd-bot) 0;
 
     // Declarations ...
     padding: var(--enj-Banner-jumbotron-padd);
