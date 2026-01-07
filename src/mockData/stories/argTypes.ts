@@ -10,6 +10,12 @@ import {
   CTL_MediaOpt,
   CTL_LinkTargetOpt,
 } from '@/components/CustomTile/lib/types';
+import {
+  PGL_propsType,
+  PGL_LayoutStyleOpt,
+  PGL_MediaOpt,
+  PGL_LinkTargetOpt,
+} from '@/components/PictogramTile/lib/types';
 import { PTL_propsType } from '@/components/PostTile/lib/types';
 import { CP_nameOpt } from '@/components/CustomPictogram/libs/types';
 
@@ -143,6 +149,54 @@ export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {
   linkTarget: {
     control: 'select',
     options: [...CTL_LinkTargetOpt],
+    description: '... soon ...',
+  },
+};
+
+export const argTypesPictogramTileStories: Partial<ArgTypes<PGL_propsType>> = {
+  ...classNameStoryArgType,
+  featuredText: {
+    ...argTypesFeatureTextStories,
+  },
+  layoutStyle: {
+    control: 'select',
+    options: [...PGL_LayoutStyleOpt],
+    description: '... soon ...',
+  },
+  media: {
+    control: 'select',
+    options: [...PGL_MediaOpt],
+    description: '... soon ...',
+  },
+  mediaPictogram: {
+    control: 'select',
+    options: [...CP_nameOpt],
+    description: '... soon ...',
+  },
+  mediaImage: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  modalIsAvailable: {
+    control: 'select',
+    options: [true, false],
+    description: '... soon ...',
+  },
+  modalPlainDescription: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  modalRichDescription: {
+    control: 'object',
+    description: '... soon ...',
+  },
+  linksTo: {
+    control: 'text',
+    description: '... soon ...',
+  },
+  linkTarget: {
+    control: 'select',
+    options: [...PGL_LinkTargetOpt],
     description: '... soon ...',
   },
 };

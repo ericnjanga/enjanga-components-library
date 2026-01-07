@@ -1,0 +1,22 @@
+@use 'enjanga-core-setup/styles-spacing' as sp;
+@use 'enjanga-core-setup/styles-colors' as cl;
+
+:root {
+  // Banners ...
+  --enj-PGL-bann-flex-dir: column;
+  --enj-PGL-bann-align-items: flex-start;
+  --enj-PGL-bann-flex-gap: 1rem;
+  --enj-PGL-bann-title-mb: 0;
+  --enj-PGL-banner-pad: #{sp.$spacing-10};
+  --enj-PGL-bann-title-flex: unset;
+  --enj-PGL-bann-article-flex: unset;
+
+  // Cards ...
+  --enj-PGL-br-col: #{cl.$gray-60};
+  --enj-PGL-card-pad: #{sp.$spacing-07};
+  --enj-PGL-card-img-col-gap: 1.5rem;
+  --enj-PGL-card-withIcon-gap: 1rem;
+
+  // Mix ...
+  --enj-PGL-icon-dimg: 1.5rem;
+}

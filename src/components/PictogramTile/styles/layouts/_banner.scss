@@ -1,0 +1,41 @@
+@use './../utils/mixins';
+
+/**
+ * Banner
+ * ----------
+*/
+
+.enj-PictogramTile--banner {
+  // Basic style cleanup ..............
+  .enj-PictogramTile-title {
+    // For title ...
+    margin-bottom: var(--enj-PGL-bann-title-mb);
+    flex: var(--enj-PGL-bann-title-flex);
+  }
+  article {
+    flex: var(--enj-PGL-bann-article-flex);
+  }
+
+  .enj-FeatureText {
+    // For Feature text ...
+    display: flex;
+    gap: var(--enj-PGL-bann-flex-gap);
+    flex-direction: var(--enj-PGL-bann-flex-dir);
+    align-items: var(--enj-PGL-bann-align-items);
+
+    // Custom enhancements ...
+    @include mixins.PGL-bannerRichTextDefaults;
+  }
+
+  /**
+   * Custom enhancements ...
+  */
+  // Regulate padding for all component sizes
+  @include mixins.PGL-bannerResponsivePadding;
+
+  // Regulate flex gap for all component sizes
+  @include mixins.PGL-bannerResponsiveFlexGap;
+
+  // Spread the content horizontally and adjust alignment (for certain component sizes)
+  @include mixins.PGL-bannerResponsiveHorizontal;
+}

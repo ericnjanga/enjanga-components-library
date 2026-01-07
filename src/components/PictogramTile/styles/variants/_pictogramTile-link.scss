@@ -1,0 +1,35 @@
+@use './../utils/mixins';
+
+/**
+ * PictogramTile of layout Banner/Card with links
+ * <Component />.  <--- We need to cancel the responsive padding here
+ ** <a></a>.       <--- We need to apply the responsive padding here
+*/
+
+.enj-PictogramTile--has-link {
+  &.enj-PictogramTile--card,
+  &.enj-PictogramTile--banner {
+    padding: 0; // We first paddings for all cards and banners
+
+    // For Banners ...
+    &.enj-PictogramTile--banner {
+      .enj-PictogramTile-anchor-tag {
+        // We then apply the responsive padding directly on the anchor tag
+        @include mixins.PGL-bannerResponsivePadding;
+      }
+    }
+
+    // For Cards ...
+    &.enj-PictogramTile--card {
+      .enj-PictogramTile-anchor-tag {
+        // We then apply the responsive padding directly on the anchor tag
+        @include mixins.PGL-cardResponsivePadding;
+      }
+    }
+  }
+}
+
+.enj-PictogramTile--has-link,
+.enj-PictogramTile--has-modal {
+  @include mixins.PGL-textLinkTheming;
+}

@@ -20,6 +20,7 @@ export {
   type CQ_quote_propsType
 } from './CustomQuotes';
 export { CustomTile, type CTL_valid_linkTo } from './CustomTile';
+export { PictogramTile, type PGL_valid_linkTo } from './PictogramTile';
 export { PostTile } from './PostTile';
 export { CustomTabs } from './CustomTabs';
 export { HeadlinedList } from './HeadlinedList';
