@@ -45,7 +45,7 @@
 @mixin BNN-isHuge-responsive-padding {
   // Variables ...
   --enj-Banner-padd-top: 1.5rem;
-  --enj-Banner-padd-bot: 9rem;
+  --enj-Banner-padd-bot: 8.5rem;
   --enj-Banner-jumbotron-padd: var(--enj-Banner-padd-top) 0 var(--enj-Banner-padd-bot) 0;
 
   // Declarations ...
@@ -56,7 +56,6 @@
   &.enj-Banner-md {
     // border: 4px dashed orange;
     --enj-Banner-padd-top: 2rem;
-    --enj-Banner-padd-bot: 10rem;
   }
   &.enj-Banner-lg {
     // border: 4px dashed blue;
