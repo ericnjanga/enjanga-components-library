@@ -1,0 +1,139 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, PureArgsTable as ArgsTable, Stories, Canvas } from '@storybook/blocks';
+import * as TilePostStories from './TilePost.stories'; // Relative import
+import { TilePost } from '../../../components/TilePost';
+
+<Meta of={TilePostStories} />
+
+<Title />
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  ## Table of Contents
+  <ul style={{ position: 'relative', zIndex: '10' }}>
+    <li><a href="#purpose-what-is-it" target="_self">Purpose / What it is?</a></li>
+    <li><a href="#when-to-use" target="_self">When to use</a></li>
+    <li><a href="#property-validation" target="_self">Property validation</a></li>
+    <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
+    <li><a href="#property-validation" target="_self">Property validation</a></li>
+    <li><a href="#features" target="_self">Features</a></li>
+    <li><a href="#design-reference" target="_self">Design reference</a></li>
+    <li><a href="#accessibility" target="_self">Accessibility (A11y)</a></li>
+    <li><a href="#api-reference" target="_self">API Reference</a></li>
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>Purpose / What it is?</h2>
+  <p>The <strong>TilePost</strong> component is a flexible, reusable content block that displays a <strong>title, media (image/pictogram), and optional interactivity</strong>. It can act as:</p>
+  <ul>
+  <li>
+  <p>A <strong>navigational card</strong> (linking internally or externally).</p>
+  </li>
+  <li>
+  <p>An <strong>interactive tile</strong> that opens a modal for detailed content.</p>
+  </li>
+  <li>
+  <p>A <strong>visual tile</strong> for highlighting featured information.</p>
+  </li>
+  </ul>
+
+  <Primary />
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2>
+  <p>Use <strong>TilePost</strong> when you need to:</p>
+  <ul>
+  <li>
+  <p>Present <strong>clickable content previews</strong>, like blog posts, resources, or case studies.</p>
+  </li>
+  <li>
+  <p>Highlight <strong>features or services</strong> with an icon, image, or pictogram.</p>
+  </li>
+  <li>
+  <p>Provide <strong>expandable details</strong> inside a modal without leaving the current page.</p>
+  </li>
+  <li>
+  <p>Create <strong>consistent card-like layouts</strong> across different sections.</p>
+  </li>
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
+  <p>Avoid using <strong>TilePost</strong> when:</p>
+  <ul>
+  <li>
+  <p>You just need a <strong>simple button</strong> (use <code>Button</code> instead).</p>
+  </li>
+  <li>
+  <p>The content belongs in a <strong>list/table</strong> rather than a card-based layout.</p>
+  </li>
+  <li>
+  <p>You don't need <strong>interactivity or links</strong> — a plain <code>Tile</code> or <code>Banner</code> may be a better fit.</p>
+  </li>
+  <li>
+  <p>You want <strong>form inputs or user actions</strong> inside; this component is for display and navigation only.</p>
+  </li>
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="property-validation" style={{ position: 'relative' }}>Property validation</h2>
+
+  <div>
+    <div>
+    <strong>Rule 1: Tile mode (Link)</strong>
+    </div>
+
+    <div>
+    A <code>TilePost</code> must be either:
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Link mode</strong>: Set <code>linksTo</code> to a valid URL or route</li>
+    <li><strong>Static mode</strong>: Neither links nor modal (for display only)</li>
+  </ul>
+
+  <div>
+    🚫 <strong>Modal support removed</strong> — the component no longer supports opening modals.
+  </div>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="features" style={{ position: 'relative' }}>Features</h2>
+
+  <ul>
+    <li><strong>Flexible Layouts</strong>: Card and banner layouts with responsive design</li>
+    <li><strong>Media Support</strong>: Images and pictograms with proper positioning</li>
+    <li><strong>Interactive States</strong>: Links and hover effects</li>
+    <li><strong>Rich Text</strong>: Support for formatted content via FeatureText</li>
+    <li><strong>Accessibility</strong>: ARIA labels, keyboard navigation, screen reader support</li>
+    <li><strong>Carbon Integration</strong>: Built on Carbon Design System components</li>
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="design-reference" style={{ position: 'relative' }}>Design reference</h2>
+
+  <p>Based on Carbon Design System Tile component with custom enhancements for:</p>
+  <ul>
+    <li>Enhanced media positioning and responsive behavior</li>
+    <li>Custom hover states and theming</li>
+    <li>Flexible content layouts (card vs banner)</li>
+    <li>Integration with enjanga-core-setup design tokens</li>
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility (A11y)</h2>
+  <p><strong>Accessibility (A11y):</strong><br></br>The TilePost applies appropriate roles (<code>banner</code> or <code>article</code>) for semantic meaning, provides descriptive <code>aria-labels</code>, and integrates with Carbon Design's accessible components. Link states are managed to ensure clear keyboard and screen reader interactions, supporting inclusive and standards-compliant experiences.</p>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="api-reference" style={{ position: 'relative' }}>API Reference</h2>
+
+  <ArgsTable of={TilePost} />
+</div>
+
+<Stories />

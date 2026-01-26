@@ -2,7 +2,6 @@
 @use 'enjanga-core-setup/styles-colors' as cl;
 
 :root {
-  // Banners ...
   --enj-PTL-bann-flex-dir: column;
   --enj-PTL-bann-align-items: flex-start;
   --enj-PTL-bann-flex-gap: 1rem;
@@ -11,12 +10,10 @@
   --enj-PTL-bann-title-flex: unset;
   --enj-PTL-bann-article-flex: unset;
 
-  // Cards ...
   --enj-PTL-br-col: #{cl.$gray-60};
   --enj-PTL-card-pad: #{sp.$spacing-07};
   --enj-PTL-card-img-col-gap: 1.5rem;
   --enj-PTL-card-withIcon-gap: 1rem;
 
-  // Mix ...
   --enj-PTL-icon-dimg: 1.5rem;
 }

@@ -1,40 +1,26 @@
 @use './../utils/mixins';
 
-/**
- * For Cards
- * ----------------------------
-*/
 .enj-postTile--card {
   .enj-postTile-image {
     object-fit: cover;
   }
 }
 
-/**
- * For linked-based cards with images:
- * ----------------------------
- * <Component />.  <--- We need to cancel the responsive horizontal positionning here
- ** <a></a>.       <--- We need to apply the responsive horizontal positionning here
-*/
 .enj-postTile--card {
   &.enj-postTile--has-img {
     &.enj-postTile--has-link {
-      display: block; // <--- Cacelling the responsive horizontal positionning here
+      display: block;
     }
   }
 }
 
 .enj-postTile--card {
-  &.enj-postTile--has-img { 
+  &.enj-postTile--has-img {
     padding-top: var(--enj-postTile-md-img-height);
 
-    // Reducing top padding only on [sm] screen sizes
     &.enj-postTile-sm {
       --enj-postTile-md-img-height: 150px;
     }
-    // -----
-
-
 
     &:not(.enj-postTile--has-link) {
       padding-top: calc(
@@ -47,7 +33,6 @@
       max-height: var(--enj-postTile-md-img-height);
     }
 
-    // ...
     .enj-postTile-image {
       position: absolute;
       top: 0;
@@ -64,7 +49,6 @@
       }
     }
 
-    // Variables ...
     --enj-postTile-md-img-height: 200px;
     --enj-postTile-lg-img-width: 30%;
     --enj-postTile-xlg-img-width: 35%;

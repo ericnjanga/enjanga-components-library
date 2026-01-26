@@ -1,31 +1,21 @@
-import clsx from 'clsx';  
-import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon'; 
-import { PTL_iconContentPropsType } from './types'; 
-import { PTL_linkWrapperPropsType, LinkWrapperType } from './types'; 
-import { CTL_globalContentPropsType } from './types'; 
+import clsx from 'clsx';
+import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
+import { PTL_iconContentPropsType } from './types';
+import { PTL_linkWrapperPropsType, LinkWrapperType } from './types';
+import { CTL_globalContentPropsType } from './types';
 import { FeatureText } from '@/components/FeatureText';
 import { Image } from 'enjanga-core-setup/next';
 
-// Component's CSS classes
-/**
- * APPLY ONLY HOVER CLASS WHEN:
- * 1) THE COMPONENT NEEDS AN ARTIFICIAL HOVER STATE
- * 2) THERE IS VALID REASON TO CLICK
- *
- * ..... enj-postTile-has-hover-effect
- */
- 
-
 export const getPostTileCSSClasses = () => 
   clsx('enj-postTile', `enj-postTile--card`, {
-    'enj-postTile--has-link': true, // Indicates that component opens a link  
+    'enj-postTile--has-link': true,
     'enj-postTile--has-icon': true,
-    'enj-postTile--has-img': true, 
+    'enj-postTile--has-img': true,
   });
 
 
 export const getIconContent = ({
-  title, 
+  title,
   iconName,
 }: PTL_iconContentPropsType) => {
   return (
@@ -36,21 +26,16 @@ export const getIconContent = ({
           title={title}
           name={iconName}
         />
-      )} 
+      )}
     </div>
   );
 };
 
-
-
-
-// Puts together component's core content
 export const getTileContent = ({
-  featuredText, 
+  featuredText,
   mediaImage,
   iconContent,
 }: CTL_globalContentPropsType) => {
-  // Passing custom classes down the pipeline ...
   const featuredTextLocalProps = {
     ...featuredText,
     heading: {
@@ -60,7 +45,7 @@ export const getTileContent = ({
   };
 
   return (
-    <> 
+    <>
       <Image
         className='enj-postTile-image object-cover'
         width={mediaImage?.width}
@@ -68,7 +53,7 @@ export const getTileContent = ({
         src={mediaImage?.url}
         alt={mediaImage?.alt}
         aria-hidden="true"
-      /> 
+      />
 
       <FeatureText {...featuredTextLocalProps} />
 
@@ -77,17 +62,9 @@ export const getTileContent = ({
   );
 };
 
-
-
-
-
-
-
-
-// LinkWrapper pattern for cleanliness and maintainability of all functionality
 export const getLinkWrapper = ({
   heading,
-  linksTo,  
+  linksTo,
 }: PTL_linkWrapperPropsType): LinkWrapperType => {
   const customProps = {
     className: 'enj-postTile-anchor-tag',
@@ -97,7 +74,7 @@ export const getLinkWrapper = ({
   return linksTo ? (
     <a
       href={linksTo}
-      target="_self" 
+      target="_self"
       {...customProps}
     />
   ) : (

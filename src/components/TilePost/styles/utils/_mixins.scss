@@ -2,11 +2,6 @@
 @use 'enjanga-core-setup/styles-colors' as cl;
 @use 'enjanga-core-setup/styles-breakpoint' as bp;
 
-/**
- * Global stylings
- * ----------------------------
-*/
-
 @mixin PTL-iconPositionning {
   .enj-postTile-icon-wrapper {
     display: flex;
@@ -19,11 +14,10 @@
   .enj-postTile-icon {
     margin-top: 1rem;
     width: var(--enj-PTL-icon-dimg);
-    height: var(--enj-PTL-icon-dimg); 
+    height: var(--enj-PTL-icon-dimg);
   }
 }
 
-// Text & Link styling ...
 @mixin PTL-textLinkTheming {
   a {
     text-decoration: none;
@@ -45,7 +39,6 @@
 
 @mixin PTL-richTextDefaults {
   .enj-FeatureText-article {
-    // For Feature text / Rich text ...
     p:last-of-type,
     blockquote {
       margin-bottom: 0;
@@ -53,19 +46,9 @@
   }
 }
 
-
-
-/**
- * For Cards
- * ----------------------------
-*/
-// Create initial padding, then adjust based on component size
-@mixin PTL-cardResponsivePadding { 
+@mixin PTL-cardResponsivePadding {
   .enj-postTile-anchor-tag {
-    // Initial padding ...
     padding: var(--enj-PTL-card-pad);
-
-    // We then apply the responsive padding directly on the anchor tag
   }
 
   &.enj-postTile-sm {
@@ -83,31 +66,26 @@
 
 @mixin PTL-hover {
   cursor: pointer;
-  background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token // TODO: Convert to enjanga-core-setup color token
+  background-color: #0100C0;
 }
 
 @mixin PTL-textLinkTheming-hover {
   .enj-postTile-title {
-    color: white; // $blue-60;
+    color: white;
     a {
-      color: white; // $blue-60;
+      color: white;
     }
   }
   .enj-FeatureText-article {
-    color: white; // $blue-60;
+    color: white;
     a {
-      color: white; // $blue-60;
+      color: white;
     }
   }
 }
-
- 
- 
 
 @mixin CT-action-icon-positionning {
   position: absolute;
   bottom: var(--enj-PTL-card-pad);
   right: var(--enj-PTL-card-pad);
 }
-
- 

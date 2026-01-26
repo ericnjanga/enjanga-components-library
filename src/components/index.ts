@@ -21,7 +21,7 @@ export {
 } from './CustomQuotes';
 export { CustomTile, type CTL_valid_linkTo } from './CustomTile';
 export { TilePictogram, type PGL_valid_linkTo } from './TilePictogram';
-export { PostTile } from './PostTile';
+export { TilePost, type PTL_propsType } from './TilePost';
 export { CustomTabs } from './CustomTabs';
 export { HeadlinedList } from './HeadlinedList';
 export { List } from './List';
