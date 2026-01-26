@@ -15,7 +15,7 @@ import {
   PGL_LayoutStyleOpt,
   PGL_MediaOpt,
   PGL_LinkTargetOpt,
-} from '@/components/PictogramTile/lib/types';
+} from '@/components/TilePictogram/lib/types';
 import { PTL_propsType } from '@/components/PostTile/lib/types';
 import { CP_nameOpt } from '@/components/CustomPictogram/libs/types';
 

@@ -1,0 +1,11 @@
+@use './../utils/mixins';
+
+/**
+ * Card
+ * ----------
+*/
+
+.enj-PictogramTile--card {
+  // background-color: aqua;
+  @include mixins.PGL-cardResponsivePadding;
+}
