@@ -3,7 +3,7 @@ import {
   CTL_LayoutStyleType,
   CTL_propsType,
   CTL_MediaType,
-} from '@/components/CustomTile/lib/types';
+} from '@/components/TileVariants/lib/types';
 import {
   argsFeatureTextWithPlainText,
   argsFeatureTextWithRichText,

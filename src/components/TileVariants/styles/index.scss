@@ -1,0 +1,36 @@
+@use './utils/vars';
+@use './utils/mixins';
+
+@use './layouts/card';
+@use './layouts/banner';
+
+@use './components/icon';
+@use './components/pictogram';
+@use './components/modal';
+
+@use './variants/customTile-link';
+@use './variants/customTile-has-img';
+@use './variants/customTile-has-pictogram';
+
+.enj-CustomTile {
+  background-color: #e3ebf9;
+
+  @include mixins.CT-iconPositionning;
+  @include mixins.CT-iconTheming;
+  @include mixins.CT-textLinkTheming;
+  @include mixins.CT-pictogram-theming;
+
+  .enj-FeatureText {
+    @include mixins.CT-richTextDefaults;
+  }
+}
+
+.enj-CustomTile-has-hover-effect,
+.enj-CustomTile-anchor-tag,
+.enj-CustomTile--has-modal {
+  display: block;
+  &:hover {
+    @include mixins.CT-hover;
+    @include mixins.CT-textLinkTheming-hover;
+  }
+}

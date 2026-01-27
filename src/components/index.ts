@@ -19,9 +19,10 @@ export {
   CustomQuotes,
   type CQ_quote_propsType
 } from './CustomQuotes';
-export { CustomTile, type CTL_valid_linkTo } from './CustomTile';
+export { TileVariants, type CTL_valid_linkTo } from './TileVariants';
 export { TilePictogram, type PGL_valid_linkTo } from './TilePictogram';
-export { TilePost, type PTL_propsType } from './TilePost';
+export { TilePost } from './TilePost';
+export type { PTL_propsType } from './TilePost/lib/types';
 export { CustomTabs } from './CustomTabs';
 export { HeadlinedList } from './HeadlinedList';
 export { List } from './List';

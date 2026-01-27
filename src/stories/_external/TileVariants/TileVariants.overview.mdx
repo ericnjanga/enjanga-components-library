@@ -1,0 +1,42 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, ArgsTable, Stories, Canvas } from '@storybook/blocks';
+import * as TileVariantsStories from './TileVariants.stories'; // Relative import
+import TileVariants from '../../../components/TileVariants/TileVariants';
+
+<Meta of={TileVariantsStories} />
+
+<Title />
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  ## Table of Contents
+  <ul style={{ position: 'relative', zIndex: '10' }}>
+    <li><a href="#purpose-what-is-it" target="_self">Purpose / What it is?</a></li>
+    <li><a href="#when-to-use" target="_self">When to use</a></li>
+    <li><a href="#property-validation" target="_self">Property validation</a></li>
+    <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
+    <li><a href="#features" target="_self">Features</a></li>
+    <li><a href="#design-reference" target="_self">Design reference</a></li>
+    <li><a href="#accessibility" target="_self">Accessibility (A11y)</a></li>
+    <li><a href="#api-reference" target="_self">API Reference</a></li>
+  </ul>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>Purpose / What it is?</h2>
+  <p>The <strong>TileVariants</strong> component is a flexible, reusable content block that displays a <strong>title, media (image/pictogram), and optional interactivity</strong>. It can act as:</p>
+  <Primary />
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2>
+  <p>Use <strong>TileVariants</strong> when you need to present clickable content previews, highlight features with an icon or image, or provide expandable details inside a modal.</p>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility (A11y)</h2>
+  <p>The TileVariants applies appropriate roles and aria-labels and integrates with Carbon Design’s accessible components.</p>
+</div>
+
+<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+  <h2 id="api-reference" style={{ position: 'relative' }}>API Reference</h2>
+  <Controls />
+</div>

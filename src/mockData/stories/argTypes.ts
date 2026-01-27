@@ -9,7 +9,7 @@ import {
   CTL_LayoutStyleOpt,
   CTL_MediaOpt,
   CTL_LinkTargetOpt,
-} from '@/components/CustomTile/lib/types';
+} from '@/components/TileVariants/lib/types';
 import {
   PGL_propsType,
   PGL_LayoutStyleOpt,
