@@ -77,11 +77,9 @@
 @mixin PGL-cardResponsivePadding {
   padding: var(--enj-PGL-card-pad);
 
-  &.enj-PictogramTile-sm {
-    --enj-PGL-card-pad: #{sp.$spacing-04};
-  }
+  &.enj-PictogramTile-sm,
   &.enj-PictogramTile-md {
-    --enj-PGL-card-pad: #{sp.$spacing-06};
+    --enj-PGL-card-pad: 1.5rem;
   }
 }
 
