@@ -1,12 +1,19 @@
 import { PGL_LinkTargetType } from './types';
 
-// Type-safe validation (modal support removed)
+// Validate mutually exclusive props: `linksTo` and `modal` cannot both be set to make
+// a component both a link and a modal trigger.
 export function validatePGL_propsType({
   linksTo,
   linkTarget,
+  modal,
 }: {
   linksTo?: string;
   linkTarget?: PGL_LinkTargetType;
+  modal?: { plainDescription?: string; richDescription?: { json: { content: Node[] } } };
 }) {
-  // No-op for now — previously validated mutual exclusivity with modal
+  if (linksTo && linkTarget && modal) {
+    throw new Error(
+      `Invalid props: TilePictogram cannot be both a link and a modal trigger. Use either "modal" OR "linksTo", never both.`
+    );
+  }
 }

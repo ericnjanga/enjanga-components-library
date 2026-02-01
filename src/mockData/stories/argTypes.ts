@@ -127,18 +127,9 @@ export const argTypesCustomTileStories: Partial<ArgTypes<CTL_propsType>> = {
     control: 'text',
     description: '... soon ...',
   },
-  modalIsAvailable: {
-    control: 'select',
-    options: [true, false],
-    description: '... soon ...',
-  },
-  modalPlainDescription: {
-    control: 'text',
-    description: '... soon ...',
-  },
-  modalRichDescription: {
+  modal: {
     control: 'object',
-    description: '... soon ...',
+    description: 'Modal content object: { plainDescription, richDescription }',
   },
   linksTo: {
     control: 'text',
@@ -161,18 +152,9 @@ export const argTypesPictogramTileStories: Partial<ArgTypes<PGL_propsType>> = {
     options: [...CP_nameOpt],
     description: '... soon ...',
   }, 
-  modalIsAvailable: {
-    control: 'select',
-    options: [true, false],
-    description: '... soon ...',
-  },
-  modalPlainDescription: {
-    control: 'text',
-    description: '... soon ...',
-  },
-  modalRichDescription: {
+  modal: {
     control: 'object',
-    description: '... soon ...',
+    description: 'Modal content object: { plainDescription, richDescription }',
   },
   linksTo: {
     control: 'text',

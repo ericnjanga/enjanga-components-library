@@ -16,6 +16,7 @@ export type PGL_valid_linkTo = ValidRoute | ExternalLink;
 import { PGL_propsType1Validation } from './types-validation';
 
 export interface PGL_CSSClassesPropsType {
+  modal?: PGL_modalPropsType;
   linksTo?: PGL_valid_linkTo;
   linkIsExternal: boolean;
   iconIsOnDisplay?: boolean;
@@ -41,6 +42,11 @@ export interface PGL_globalContentPropsType {
   iconContent: React.ReactNode | undefined;
 }
 
+export interface PGL_modalPropsType {
+  plainDescription?: string;
+  richDescription?: { json: { content: Node[] } };
+}
+
 export interface PGL_iconContentPropsType {
   title: string;
   iconName: AIC_nameOptPropsType | undefined;
@@ -50,6 +56,7 @@ export type PGL_propsType = {
   className?: string;
   featuredText: FTX_propsType;
   pictogram?: CP_nameType;
+  modal?: PGL_modalPropsType;
   linksTo?: PGL_valid_linkTo;
   linkTarget?: PGL_LinkTargetType;
 } & PGL_propsType1Validation;

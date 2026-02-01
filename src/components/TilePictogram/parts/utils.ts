@@ -1,4 +1,11 @@
-// Modal removed — click handler is a noop (kept for API compatibility)
-export const handlePictogramTileClick = () => {
-  // Intentionally empty
+export const handlePictogramTileClick = ({
+  modal,
+  setModalIsOpen,
+}: {
+  modal: { plainDescription?: string; richDescription?: { json: { content: any[] } } } | undefined;
+  setModalIsOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+}) => {
+  if (modal !== undefined) {
+    setModalIsOpen(true);
+  }
 };

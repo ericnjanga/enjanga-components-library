@@ -1,7 +1,7 @@
 /**
  * TilePictogram (renamed from PictogramTile)
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { Tile } from '@carbon/react';
 import { getPictogramTileCSSClasses } from './lib/getPictogramTileCSSClasses';
 import { getLinkWrapper } from './lib/getLinkwrapper';
@@ -11,6 +11,8 @@ import {
   PGL_LinkTargetType,
 } from './lib/types';
 import { handlePictogramTileClick } from './parts/utils';
+import { ContentModal } from '../ContentModal/ContentModal';
+import SmartText from '../SmartText/SmartText';
 import { validatePGL_propsType } from './lib/propsValidation';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { getHeadingContent } from './lib/getHeadingContent';
@@ -22,15 +24,20 @@ const TilePictogram = ({
   className,
   featuredText, 
   pictogram,
+  modal,
   linksTo,
   linkTarget = '_self' as PGL_LinkTargetType,
 }: PGL_propsType) => {
   // Modal support removed for this component
 
   // Props validation
-  validatePGL_propsType({ linksTo, linkTarget });
+  validatePGL_propsType({ linksTo, linkTarget, modal });
 
   // Pictograms are displayed by default; no gating logic required.
+
+  const [modalIsOpen, setModalIsOpen] = useState(
+    modal !== undefined ? false : undefined
+  );
 
   const componentTitle = getHeadingContent(featuredText);
 
@@ -46,13 +53,20 @@ const TilePictogram = ({
   const wrapperClassNames = getPictogramTileCSSClasses({
     linksTo,
     linkIsExternal: linksTo && linkTarget && linkTarget === '_blank' ? true : false,
-    iconIsOnDisplay: isValidLinkTo(linksTo),
+    modal,
+    iconIsOnDisplay: isValidLinkTo(linksTo) || !!modal,
     pictogramIsOnDisplay: true,
   });
 
   const iconContent = getIconContent({
     title: getHeadingContent(featuredText),
-    iconName: linksTo ? (linkIsExternal ? 'UpRight' : 'Right') : undefined,
+    iconName: !modal
+      ? linksTo
+        ? linkIsExternal
+          ? 'UpRight'
+          : 'Right'
+        : undefined
+      : undefined,
   });
 
   const tileContent = getTileContent({
@@ -72,13 +86,25 @@ const TilePictogram = ({
         aria-label={`${componentTitle} tile`}
         role={pgl_role}
         onClick={() => {
-          handlePictogramTileClick();
+          handlePictogramTileClick({ modal, setModalIsOpen });
         }}
       >
         {linksTo ? <>{React.cloneElement(LinkWrapper, {}, tileContent)}</> : tileContent}
       </Tile>
 
-      {/* modal removed */}
+      {modal && modalIsOpen !== undefined && (
+        <ContentModal
+          isOpen={!!modalIsOpen}
+          modalHeading={featuredText.heading.children}
+          modalSecondaryButtonText="Cancel"
+          setIsOpen={setModalIsOpen}
+        >
+          <SmartText
+            plainText={modal.plainDescription}
+            richText={modal.richDescription}
+          />
+        </ContentModal>
+      )}
     </div>
   );
 };

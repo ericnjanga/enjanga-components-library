@@ -30,9 +30,7 @@ const argsPictogramTileDefaultWithPlainT = {
     },
   },  
   pictogram: undefined, 
-  modalIsAvailable: undefined,
-  modalPlainDescription: undefined,
-  modalRichDescription: undefined, 
+  modal: undefined,
   linksTo: undefined,
   linkTarget: '_self' as PGL_LinkTargetType,
 } as PGL_propsType;
