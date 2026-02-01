@@ -2,13 +2,11 @@
 @use './utils/mixins';
 
 @use './layouts/card';
-@use './layouts/banner';
 
 @use './components/icon';
 @use './components/pictogram';
 
 @use './variants/pictogramTile-link';
-@use './variants/pictogramTile-has-img';
 @use './variants/pictogramTile-has-pictogram';
 
 .enj-PictogramTile {

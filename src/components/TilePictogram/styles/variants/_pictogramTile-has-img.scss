@@ -1,7 +1,0 @@
-@use './../utils/mixins';
-
-.enj-PictogramTile--has-img {
-  &.enj-PictogramTile--card {
-    @include mixins.PGL-card-img-responsive-horizontal-positionning;
-  }
-}
