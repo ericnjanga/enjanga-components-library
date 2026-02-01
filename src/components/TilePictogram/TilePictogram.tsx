@@ -16,7 +16,6 @@ import { validatePGL_propsType } from './lib/propsValidation';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { getHeadingContent } from './lib/getHeadingContent';
 import { isValidLinkTo } from './lib/mix';
-import { CI_isValidPictogram } from '@/components/CustomPictogram/libs/helpers';
 import { getIconContent } from './lib/getIconContent';
 import { get_PGL_role } from './lib/accessibility';
 
@@ -28,8 +27,7 @@ const TilePictogram = ({
 
   media,
   mediaPictogram,
-  mediaImage,
-
+  
   linksTo,
   linkTarget = '_self' as PGL_LinkTargetType,
 }: PGL_propsType) => {
@@ -38,14 +36,11 @@ const TilePictogram = ({
   // Props validation
   validatePGL_propsType({ linksTo, linkTarget });
 
-  const pictogramIsOnDisplay =
-    layoutStyle !== 'banner' && media === 'pictogram' && CI_isValidPictogram(mediaPictogram);
+  // Pictograms are displayed by default; no gating logic required.
 
   const componentTitle = getHeadingContent(featuredText);
 
   const linkIsExternal = linksTo && linkTarget && linkTarget === '_blank' ? true : false;
-
-  const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner';
 
   const LinkWrapper = getLinkWrapper({
     heading: componentTitle,
@@ -59,8 +54,7 @@ const TilePictogram = ({
     linksTo,
     linkIsExternal: linksTo && linkTarget && linkTarget === '_blank' ? true : false,
     iconIsOnDisplay: isValidLinkTo(linksTo),
-    imageIsOnDisplay,
-    pictogramIsOnDisplay,
+    pictogramIsOnDisplay: true,
   });
 
   const iconContent = getIconContent({
@@ -70,8 +64,7 @@ const TilePictogram = ({
 
   const tileContent = getTileContent({
     featuredText,
-    mediaPictogram: pictogramIsOnDisplay ? mediaPictogram : undefined,
-    mediaImage: imageIsOnDisplay ? mediaImage : undefined,
+    mediaPictogram: mediaPictogram,
     iconContent,
   });
 

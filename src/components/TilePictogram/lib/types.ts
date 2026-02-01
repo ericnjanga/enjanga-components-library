@@ -8,7 +8,7 @@ import { AIC_nameOptPropsType } from '@/components/ArrowIcon/libs/types';
 
 export const PGL_LayoutStyleOpt = ['card', 'banner'] as const;
 export const PGL_LinkTargetOpt = ['_blank', '_self'] as const;
-export const PGL_MediaOpt = ['pictogram', 'image'] as const;
+export const PGL_MediaOpt = ['pictogram'] as const;
 export type PGL_LayoutStyleType = (typeof PGL_LayoutStyleOpt)[number];
 export type PGL_LinkTargetType = (typeof PGL_LinkTargetOpt)[number];
 export type PGL_MediaType = (typeof PGL_MediaOpt)[number];
@@ -24,7 +24,6 @@ export interface PGL_CSSClassesPropsType {
   linksTo?: PGL_valid_linkTo;
   linkIsExternal: boolean;
   iconIsOnDisplay?: boolean;
-  imageIsOnDisplay?: boolean;
   pictogramIsOnDisplay?: boolean;
 }
 
@@ -41,17 +40,9 @@ export type LinkWrapperType = React.ReactElement<{
   children?: React.ReactNode;
 }>;
 
-export type PGL_mediaImg = {
-  url: string;
-  alt: string;
-  width?: number;
-  height?: number;
-};
-
 export interface PGL_globalContentPropsType {
   featuredText: FTX_propsType;
   mediaPictogram?: CP_nameType;
-  mediaImage?: PGL_mediaImg;
   iconContent: React.ReactNode | undefined;
 }
 
@@ -68,7 +59,6 @@ export type PGL_propsType = {
 
   media?: PGL_MediaType;
   mediaPictogram?: CP_nameType;
-  mediaImage?: PGL_mediaImg;
   linksTo?: PGL_valid_linkTo;
   linkTarget?: PGL_LinkTargetType;
 } & PGL_propsType1Validation;
