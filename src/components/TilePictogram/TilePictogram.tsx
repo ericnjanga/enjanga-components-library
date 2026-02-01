@@ -9,7 +9,6 @@ import { getTileContent } from './lib/getTileContent';
 import {
   PGL_propsType,
   PGL_LinkTargetType,
-  PGL_LayoutStyleType,
 } from './lib/types';
 import { handlePictogramTileClick } from './parts/utils';
 import { validatePGL_propsType } from './lib/propsValidation';
@@ -21,13 +20,8 @@ import { get_PGL_role } from './lib/accessibility';
 
 const TilePictogram = ({
   className,
-  featuredText,
-
-  layoutStyle = 'card' as PGL_LayoutStyleType,
-
-  media,
-  mediaPictogram,
-  
+  featuredText, 
+  pictogram,
   linksTo,
   linkTarget = '_self' as PGL_LinkTargetType,
 }: PGL_propsType) => {
@@ -50,7 +44,6 @@ const TilePictogram = ({
   });
 
   const wrapperClassNames = getPictogramTileCSSClasses({
-    layoutStyle,
     linksTo,
     linkIsExternal: linksTo && linkTarget && linkTarget === '_blank' ? true : false,
     iconIsOnDisplay: isValidLinkTo(linksTo),
@@ -64,11 +57,11 @@ const TilePictogram = ({
 
   const tileContent = getTileContent({
     featuredText,
-    mediaPictogram: mediaPictogram,
+    pictogram: pictogram,
     iconContent,
   });
 
-  const pgl_role = get_PGL_role({ layoutStyle });
+  const pgl_role = get_PGL_role();
 
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 

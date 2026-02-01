@@ -8,7 +8,7 @@ const meta: Meta<typeof TilePictogram> = {
   title: 'External Components/TilePictogram',
   component: TilePictogram,
   args: {
-    ...argsPictogramTile.card.withIcon,
+    ...argsPictogramTile,
   },
   argTypes: {
     ...argTypesPictogramTileStories,
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof TilePictogram>;
 export const Default: Story = {
   render: () => (
     <div style={{ margin: '0 auto', maxWidth: '800px' }}>
-      <TilePictogram {...argsPictogramTile.card.withIcon} />
+      <TilePictogram {...argsPictogramTile} />
     </div>
   ),
 };

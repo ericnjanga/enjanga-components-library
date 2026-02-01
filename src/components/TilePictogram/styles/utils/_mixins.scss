@@ -74,63 +74,6 @@
   }
 }
 
-@mixin PGL-bannerResponsivePadding {
-  padding: var(--enj-PGL-banner-pad);
-
-  &.enj-PictogramTile-sm {
-    --enj-PGL-banner-pad: #{sp.$spacing-04};
-  }
-  &.enj-PictogramTile-md {
-    --enj-PGL-banner-pad: #{sp.$spacing-07};
-  }
-  &.enj-PictogramTile-lg {
-    --enj-PGL-banner-pad: #{sp.$spacing-10};
-  }
-  &.enj-PictogramTile-xlg {
-    --enj-PGL-banner-pad: #{sp.$spacing-12};
-  }
-  &.enj-PictogramTile-max {
-    --enj-PGL-banner-pad: #{sp.$spacing-12};
-  }
-}
-
-@mixin PGL-bannerRichTextDefaults {
-  .enj-FeatureText-article {
-    * {
-      font-size: 1.2rem;
-    }
-  }
-}
-
-@mixin PGL-bannerResponsiveFlexGap {
-  &.enj-PictogramTile-lg {
-    --enj-PGL-bann-flex-gap: 1.2rem;
-  }
-  &.enj-PictogramTile-xlg {
-    --enj-PGL-bann-flex-gap: 1.5rem;
-  }
-  &.enj-PictogramTile-max {
-    --enj-PGL-bann-flex-gap: 2rem;
-  }
-}
-
-@mixin PGL-bannerResponsiveHorizontal {
-  &.enj-PictogramTile-xlg {
-    --enj-PGL-bann-flex-dir: row;
-    --enj-PGL-bann-align-items: center;
-    --enj-PGL-bann-flex-gap: 3.5rem;
-    --enj-PGL-bann-title-flex: 0.6;
-    --enj-PGL-bann-article-flex: 1;
-  }
-  &.enj-PictogramTile-max {
-    --enj-PGL-bann-flex-dir: row;
-    --enj-PGL-bann-align-items: center;
-    --enj-PGL-bann-flex-gap: 6rem;
-    --enj-PGL-bann-title-flex: 0.6;
-    --enj-PGL-bann-article-flex: 1;
-  }
-}
-
 @mixin PGL-cardResponsivePadding {
   padding: var(--enj-PGL-card-pad);
 
@@ -152,47 +95,13 @@
   }
 }
 
-@mixin PGL-card-img-horizontal-positionning {
-  @include PGL-card-img-pictogram-positionning;
-  grid-template: auto auto / auto 1.5rem;
-
-  .enj-PictogramTile-image {
-    grid-row: 3 span;
-    height: 100%;
-  }
-
-  .enj-FeatureText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    grid-row: 2 span;
-  }
-}
-
 @mixin PGL-action-icon-positionning {
   position: absolute;
   bottom: var(--enj-PGL-card-pad);
   right: var(--enj-PGL-card-pad);
 }
 
-@mixin PGL-card-img-responsive-horizontal-positionning {
-  &.enj-PictogramTile-sm {
-    .enj-PictogramTile-image {
-      display: none;
-    }
-  }
-  &.enj-PictogramTile-lg,
-  &.enj-PictogramTile-xlg,
-  &.enj-PictogramTile-max {
-    @include PGL-card-img-horizontal-positionning;
-  }
-  &.enj-PictogramTile-xlg {
-    --enj-PGL-card-img-col-gap: 3rem;
-  }
-  &.enj-PictogramTile-max {
-    --enj-PGL-card-img-col-gap: 4.5rem;
-  }
-}
+
 
 @mixin PGL-card-pictogram-horizontal-positionning {
   @include PGL-card-img-pictogram-positionning;

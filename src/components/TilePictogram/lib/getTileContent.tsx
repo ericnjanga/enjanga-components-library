@@ -5,7 +5,7 @@ import { FeatureText } from '@/components/FeatureText';
 
 export const getTileContent = ({
   featuredText,
-  mediaPictogram,
+  pictogram,
   iconContent,
 }: PGL_globalContentPropsType) => {
   const featuredTextLocalProps = {
@@ -18,9 +18,9 @@ export const getTileContent = ({
 
   return (
     <>
-      {mediaPictogram && (
+      {pictogram && (
         <CustomPictogram
-          name={mediaPictogram}
+          name={pictogram}
           className={clsx('enj-PictogramTile-pictogram')}
         />
       )}

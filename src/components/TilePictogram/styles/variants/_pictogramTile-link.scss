@@ -1,24 +1,11 @@
 @use './../utils/mixins';
 
 .enj-PictogramTile--has-link {
-  &.enj-PictogramTile--card,
-  &.enj-PictogramTile--banner {
-    padding: 0;
+  padding: 0;
 
-    &.enj-PictogramTile--banner {
-      .enj-PictogramTile-anchor-tag {
-        @include mixins.PGL-bannerResponsivePadding;
-      }
-    }
-
-    &.enj-PictogramTile--card {
-      .enj-PictogramTile-anchor-tag {
-        @include mixins.PGL-cardResponsivePadding;
-      }
-    }
+  .enj-PictogramTile-anchor-tag {
+    @include mixins.PGL-cardResponsivePadding;
   }
-}
 
-.enj-PictogramTile--has-link {
   @include mixins.PGL-textLinkTheming;
 }

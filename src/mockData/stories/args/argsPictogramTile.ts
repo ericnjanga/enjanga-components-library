@@ -1,8 +1,6 @@
 import {
-  PGL_LinkTargetType,
-  PGL_LayoutStyleType,
-  PGL_propsType,
-  PGL_MediaType,
+  PGL_LinkTargetType, 
+  PGL_propsType, 
 } from '@/components/TilePictogram/lib/types';
 
 import {
@@ -30,17 +28,11 @@ const argsPictogramTileDefaultWithPlainT = {
       ...argsFeatureTextWithPlainText.heading,
       level: 2,
     },
-  },
-  layoutStyle: 'card' as PGL_LayoutStyleType, // Card by default
-
-  media: undefined, // No media by default
-  mediaPictogram: undefined,
-  mediaImage: undefined,
-
+  },  
+  pictogram: undefined, 
   modalIsAvailable: undefined,
   modalPlainDescription: undefined,
-  modalRichDescription: undefined,
-
+  modalRichDescription: undefined, 
   linksTo: undefined,
   linkTarget: '_self' as PGL_LinkTargetType,
 } as PGL_propsType;
@@ -57,18 +49,7 @@ const argsPictogramTileDefaultWithRichT = {
   // modalRichDescription: mockRichTextLarge.description
 } as PGL_propsType;
 
-export const argsPictogramTile = {
-  /**
-   * Card .....
-   * -------------------------
-   */
-  card: {
-
-    withIcon: {
-      // ...
-      ...argsPictogramTileDefaultWithPlainT,
-      media: 'pictogram' as PGL_MediaType,
-      mediaPictogram: 'Leadership' as CP_nameType,
-    } as PGL_propsType,
-  },
-};
+export const argsPictogramTile = { 
+  ...argsPictogramTileDefaultWithPlainT,
+  pictogram: 'Leadership' as CP_nameType,
+} as PGL_propsType;

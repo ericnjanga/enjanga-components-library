@@ -1,4 +1,4 @@
-import { PGL_LayoutStyleType } from "./types";
+// layoutStyle removed — this component is always a card
 /**
  * Getting the component's role:
  * ----------------
@@ -18,10 +18,4 @@ import { PGL_LayoutStyleType } from "./types";
  * 👉 No role at all (default <div> semantics).
  * @param param0
  */
-export const get_PGL_role = ({
-  layoutStyle,
-}: {
-  layoutStyle: PGL_LayoutStyleType;
-}) => {
-  return `${layoutStyle === 'banner' ? 'region' : 'article'}`;
-};
+export const get_PGL_role = () => 'article';

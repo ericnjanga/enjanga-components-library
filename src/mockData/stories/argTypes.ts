@@ -11,9 +11,7 @@ import {
   CTL_LinkTargetOpt,
 } from '@/components/TileVariants/lib/types';
 import {
-  PGL_propsType,
-  PGL_LayoutStyleOpt,
-  PGL_MediaOpt,
+  PGL_propsType, 
   PGL_LinkTargetOpt,
 } from '@/components/TilePictogram/lib/types';
 import { PTL_propsType } from '@/components/PostTile/lib/types';
@@ -158,25 +156,11 @@ export const argTypesPictogramTileStories: Partial<ArgTypes<PGL_propsType>> = {
   featuredText: {
     ...argTypesFeatureTextStories,
   },
-  layoutStyle: {
-    control: 'select',
-    options: [...PGL_LayoutStyleOpt],
-    description: '... soon ...',
-  },
-  media: {
-    control: 'select',
-    options: [...PGL_MediaOpt],
-    description: '... soon ...',
-  },
-  mediaPictogram: {
+  pictogram: {
     control: 'select',
     options: [...CP_nameOpt],
     description: '... soon ...',
-  },
-  mediaImage: {
-    control: 'text',
-    description: '... soon ...',
-  },
+  }, 
   modalIsAvailable: {
     control: 'select',
     options: [true, false],
