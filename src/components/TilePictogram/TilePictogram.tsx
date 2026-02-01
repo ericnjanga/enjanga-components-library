@@ -13,8 +13,8 @@ import {
 import { handlePictogramTileClick } from './parts/utils';
 import { ContentModal } from '../ContentModal/ContentModal';
 import SmartText from '../SmartText/SmartText';
+import { usePictogramBreakpoint } from './hooks/usePictogramBreakpoint';
 import { validatePGL_propsType } from './lib/propsValidation';
-import { useContainerSize } from '@/libs/useContainerSize';
 import { getHeadingContent } from './lib/getHeadingContent';
 import { isValidLinkTo } from './lib/mix';
 import { getIconContent } from './lib/getIconContent';
@@ -77,12 +77,12 @@ const TilePictogram = ({
 
   const pgl_role = get_PGL_role();
 
-  const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
+  const { containerRef, activeClass } = usePictogramBreakpoint();
 
   return (
     <div className="enj-PictogramTile-wrapper" ref={containerRef}>
       <Tile
-        className={`${wrapperClassNames} ${className} enj-PictogramTile-${activeBreakpoint}`}
+        className={`${wrapperClassNames} ${className} ${activeClass}`}
         aria-label={`${componentTitle} tile`}
         role={pgl_role}
         onClick={() => {

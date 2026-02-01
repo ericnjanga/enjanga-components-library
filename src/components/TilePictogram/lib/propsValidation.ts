@@ -1,4 +1,4 @@
-import { PGL_LinkTargetType } from './types';
+import { PGL_LinkTargetType, PGL_modalPropsType } from './types';
 
 // Validate mutually exclusive props: `linksTo` and `modal` cannot both be set to make
 // a component both a link and a modal trigger.
@@ -9,7 +9,7 @@ export function validatePGL_propsType({
 }: {
   linksTo?: string;
   linkTarget?: PGL_LinkTargetType;
-  modal?: { plainDescription?: string; richDescription?: { json: { content: Node[] } } };
+  modal?: PGL_modalPropsType;
 }) {
   if (linksTo && linkTarget && modal) {
     throw new Error(
