@@ -1,22 +1,17 @@
 /**
- * TilePictogram (renamed from PictogramTile)
+ * TilePictogram
  */
 import React, { useState } from 'react';
 import { Tile } from '@carbon/react';
-import { getPictogramTileCSSClasses } from './lib/getPictogramTileCSSClasses';
-import { getLinkWrapper } from './lib/getLinkwrapper';
+import { getPictogramTileCSSClasses } from './lib/getPictogramTileCSSClasses'; 
 import { getTileContent } from './lib/getTileContent';
-import {
-  PGL_propsType,
-  PGL_LinkTargetType,
-} from './lib/types';
+import { PGL_propsType } from './lib/types';
 import { handlePictogramTileClick } from './parts/utils';
 import { ContentModal } from '../ContentModal/ContentModal';
 import SmartText from '../SmartText/SmartText';
 import { usePictogramBreakpoint } from './hooks/usePictogramBreakpoint';
 import { validatePGL_propsType } from './lib/propsValidation';
 import { getHeadingContent } from './lib/getHeadingContent';
-import { isValidLinkTo } from './lib/mix'; 
 import { get_PGL_role } from './lib/accessibility';
 
 const TilePictogram = ({
@@ -24,15 +19,10 @@ const TilePictogram = ({
   featuredText, 
   pictogram,
   modal,
-  linksTo,
-  linkTarget = '_self' as PGL_LinkTargetType,
-}: PGL_propsType) => {
-  // Modal support removed for this component
+}: PGL_propsType) => { 
 
   // Props validation
-  validatePGL_propsType({ linksTo, linkTarget, modal });
-
-  // Pictograms are displayed by default; no gating logic required.
+  validatePGL_propsType({ modal }); 
 
   const [modalIsOpen, setModalIsOpen] = useState(
     modal !== undefined ? false : undefined
@@ -40,20 +30,11 @@ const TilePictogram = ({
 
   const componentTitle = getHeadingContent(featuredText);
 
-  const linkIsExternal = linksTo && linkTarget && linkTarget === '_blank' ? true : false;
-
-  const LinkWrapper = getLinkWrapper({
-    heading: componentTitle,
-    linksTo,
-    linkTarget,
-    linkIsExternal,
-  });
+  
 
   const wrapperClassNames = getPictogramTileCSSClasses({
-    linksTo,
-    linkIsExternal: linksTo && linkTarget && linkTarget === '_blank' ? true : false,
     modal,
-    iconIsOnDisplay: isValidLinkTo(linksTo) || !!modal,
+    iconIsOnDisplay: !!modal,
     pictogramIsOnDisplay: true,
   });
 
@@ -79,7 +60,7 @@ const TilePictogram = ({
           handlePictogramTileClick({ modal, setModalIsOpen });
         }}
       >
-        {linksTo ? <>{React.cloneElement(LinkWrapper, {}, tileContent)}</> : tileContent}
+        {tileContent}
       </Tile>
 
       {modal && modalIsOpen !== undefined && (

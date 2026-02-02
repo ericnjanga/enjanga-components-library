@@ -17,24 +17,9 @@ import { PGL_propsType1Validation } from './types-validation';
 
 export interface PGL_CSSClassesPropsType {
   modal?: PGL_modalPropsType;
-  linksTo?: PGL_valid_linkTo;
-  linkIsExternal: boolean;
   iconIsOnDisplay?: boolean;
   pictogramIsOnDisplay?: boolean;
 }
-
-export interface PGL_linkWrapperPropsType {
-  heading?: string;
-  linksTo?: PGL_valid_linkTo;
-  linkTarget?: PGL_LinkTargetType;
-  linkIsExternal: boolean;
-}
-
-export type LinkWrapperType = React.ReactElement<{
-  className: string;
-  'aria-label': string;
-  children?: React.ReactNode;
-}>;
 
 export interface PGL_globalContentPropsType {
   featuredText: FTX_propsType;
@@ -57,6 +42,5 @@ export type PGL_propsType = {
   featuredText: FTX_propsType;
   pictogram?: CP_nameType;
   modal?: PGL_modalPropsType;
-  linksTo?: PGL_valid_linkTo;
-  linkTarget?: PGL_LinkTargetType;
+  
 } & PGL_propsType1Validation;
