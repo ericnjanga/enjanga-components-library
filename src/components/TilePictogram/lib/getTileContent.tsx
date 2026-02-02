@@ -2,11 +2,12 @@ import clsx from 'clsx';
 import { PGL_globalContentPropsType } from './types';
 import { CustomPictogram } from '@/components/CustomPictogram';
 import { FeatureText } from '@/components/FeatureText';
+import { Information } from '@carbon/icons-react';
 
 export const getTileContent = ({
   featuredText,
   pictogram,
-  iconContent,
+  modalIsAvailable,
 }: PGL_globalContentPropsType) => {
   const featuredTextLocalProps = {
     ...featuredText,
@@ -23,13 +24,11 @@ export const getTileContent = ({
           name={pictogram}
           className={clsx('enj-PictogramTile-pictogram')}
         />
-      )}
-
-      {/* image support removed */}
+      )} 
 
       <FeatureText {...featuredTextLocalProps} />
 
-      {iconContent && iconContent}
+      {modalIsAvailable && <Information className="enj-CustomTile-icon" />}
     </>
   );
 };

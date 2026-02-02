@@ -39,7 +39,7 @@ export type LinkWrapperType = React.ReactElement<{
 export interface PGL_globalContentPropsType {
   featuredText: FTX_propsType;
   pictogram?: CP_nameType;
-  iconContent: React.ReactNode | undefined;
+  modalIsAvailable?: boolean;
 }
 
 export interface PGL_modalPropsType {

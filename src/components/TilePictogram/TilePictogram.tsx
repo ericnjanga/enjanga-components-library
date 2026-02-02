@@ -16,8 +16,7 @@ import SmartText from '../SmartText/SmartText';
 import { usePictogramBreakpoint } from './hooks/usePictogramBreakpoint';
 import { validatePGL_propsType } from './lib/propsValidation';
 import { getHeadingContent } from './lib/getHeadingContent';
-import { isValidLinkTo } from './lib/mix';
-import { getIconContent } from './lib/getIconContent';
+import { isValidLinkTo } from './lib/mix'; 
 import { get_PGL_role } from './lib/accessibility';
 
 const TilePictogram = ({
@@ -58,21 +57,12 @@ const TilePictogram = ({
     pictogramIsOnDisplay: true,
   });
 
-  const iconContent = getIconContent({
-    title: getHeadingContent(featuredText),
-    iconName: !modal
-      ? linksTo
-        ? linkIsExternal
-          ? 'UpRight'
-          : 'Right'
-        : undefined
-      : undefined,
-  });
+  const modalIsAvailable = !!modal;
 
   const tileContent = getTileContent({
     featuredText,
     pictogram: pictogram,
-    iconContent,
+    modalIsAvailable,
   });
 
   const pgl_role = get_PGL_role();
@@ -80,9 +70,9 @@ const TilePictogram = ({
   const { containerRef, activeClass } = usePictogramBreakpoint();
 
   return (
-    <div className="enj-PictogramTile-wrapper" ref={containerRef}>
+    <div className={`enj-PictogramTile-wrapper  ${className}`} ref={containerRef}>
       <Tile
-        className={`${wrapperClassNames} ${className} ${activeClass}`}
+        className={`${wrapperClassNames} ${activeClass}`}
         aria-label={`${componentTitle} tile`}
         role={pgl_role}
         onClick={() => {
