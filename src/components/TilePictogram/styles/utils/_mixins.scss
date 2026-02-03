@@ -74,70 +74,36 @@
   }
 }
 
-@mixin PGL-cardResponsivePadding {
+@mixin PGL-padding {
+  // Variables ...
+  --enj-PGL-card-pad: 0.75rem;
+
   padding: var(--enj-PGL-card-pad);
 
-  &.enj-PictogramTile-sm,
+  // Responsive adjustments
   &.enj-PictogramTile-md {
     --enj-PGL-card-pad: 1.5rem;
   }
 }
 
-@mixin PGL-card-img-pictogram-positionning {
-  display: grid;
-  grid-template: auto auto / 3rem auto;
-  column-gap: var(--enj-PGL-card-img-col-gap);
-
-  .enj-PictogramTile-icon-wrapper {
-    grid-column: 2;
-  }
-}
-
-@mixin PGL-action-icon-positionning {
-  position: absolute;
-  bottom: var(--enj-PGL-card-pad);
-  right: var(--enj-PGL-card-pad);
-}
-
-
-
-@mixin PGL-card-pictogram-horizontal-positionning {
-  @include PGL-card-img-pictogram-positionning;
-}
-
-@mixin PGL-card-pictogram-responsive-horizontal-positionning {
+@mixin PGL-layout {
+  // Grid system is only for md and up
   &.enj-PictogramTile-md {
-    @include PGL-card-pictogram-horizontal-positionning;
-  }
-  &.enj-PictogramTile-lg,
-  &.enj-PictogramTile-xlg,
-  &.enj-PictogramTile-max {
-    --enj-PGL-card-withIcon-gap: 2rem;
-    @include PGL-card-pictogram-horizontal-positionning;
+    display: grid;
+    grid-template: auto auto / 3rem auto;
+    column-gap: var(--enj-PGL-card-img-col-gap);
+
+    .enj-PictogramTile-icon-wrapper {
+      grid-column: 2;
+    }
   }
 }
 
-@mixin PGL-pictogram-theming {
+@mixin PGL-theming {
   .enj-PictogramTile-pictogram {
     color: #4A75C6
   }
   .enj-PictogramTile-icon-wrapper svg {
     color: #0100C0;
-  }
-}
-
-@mixin PGL-card-linked-pictogram-responsive-horizontal-positionning {
-  &.enj-PictogramTile-md {
-    .enj-PictogramTile-anchor-tag {
-      @include PGL-card-pictogram-horizontal-positionning;
-    }
-  }
-  &.enj-PictogramTile-lg,
-  &.enj-PictogramTile-xlg,
-  &.enj-PictogramTile-max {
-    .enj-PictogramTile-anchor-tag {
-      --enj-PGL-card-withIcon-gap: 2rem;
-      @include PGL-card-pictogram-horizontal-positionning;
-    }
   }
 }

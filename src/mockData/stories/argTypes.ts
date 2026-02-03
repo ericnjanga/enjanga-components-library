@@ -155,14 +155,5 @@ export const argTypesPictogramTileStories: Partial<ArgTypes<PGL_propsType>> = {
   modal: {
     control: 'object',
     description: 'Modal content object: { plainDescription, richDescription }',
-  },
-  linksTo: {
-    control: 'text',
-    description: '... soon ...',
-  },
-  linkTarget: {
-    control: 'select',
-    options: [...PGL_LinkTargetOpt],
-    description: '... soon ...',
-  },
+  }
 };

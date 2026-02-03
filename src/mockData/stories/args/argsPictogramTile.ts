@@ -31,8 +31,6 @@ const argsPictogramTileDefaultWithPlainT = {
   },  
   pictogram: undefined, 
   modal: undefined,
-  linksTo: undefined,
-  linkTarget: '_self' as PGL_LinkTargetType,
 } as PGL_propsType;
 
 const argsPictogramTileDefaultWithRichT = {

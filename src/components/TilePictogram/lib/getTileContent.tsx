@@ -28,7 +28,11 @@ export const getTileContent = ({
 
       <FeatureText {...featuredTextLocalProps} />
 
-      {modalIsAvailable && <Information className="enj-CustomTile-icon" />}
+      {modalIsAvailable && (
+        <div className="enj-PictogramTile-icon-wrapper">
+          <Information className="enj-PictogramTile-icon" />
+        </div>
+      )}
     </>
   );
 };

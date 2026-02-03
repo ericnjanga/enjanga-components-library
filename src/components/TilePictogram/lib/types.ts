@@ -18,7 +18,6 @@ import { PGL_propsType1Validation } from './types-validation';
 export interface PGL_CSSClassesPropsType {
   modal?: PGL_modalPropsType;
   iconIsOnDisplay?: boolean;
-  pictogramIsOnDisplay?: boolean;
 }
 
 export interface PGL_globalContentPropsType {

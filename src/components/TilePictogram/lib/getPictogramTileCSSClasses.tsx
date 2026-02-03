@@ -3,11 +3,9 @@ import { PGL_CSSClassesPropsType } from './types';
 
 export const getPictogramTileCSSClasses = ({
   modal,
-  iconIsOnDisplay,
-  pictogramIsOnDisplay,
+  iconIsOnDisplay
 }: PGL_CSSClassesPropsType) =>
-  clsx('enj-PictogramTile', 'enj-PictogramTile--card', {
+  clsx('enj-PictogramTile', {
     'enj-PictogramTile--has-modal': !!modal,
     'enj-PictogramTile--has-icon': iconIsOnDisplay,
-    'enj-PictogramTile--has-pictogram': pictogramIsOnDisplay,
   });
