@@ -20,6 +20,7 @@ export {
   type CQ_quote_propsType
 } from './CustomQuotes';
 export { TileVariants, type CTL_valid_linkTo } from './TileVariants';
+export { TileBanner } from './TileBanner';
 export { TilePictogram, type PGL_valid_linkTo } from './TilePictogram';
 export { TilePost } from './TilePost';
 export type { PTL_propsType } from './TilePost/lib/types';

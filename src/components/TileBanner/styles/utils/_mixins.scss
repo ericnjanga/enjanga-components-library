@@ -1,0 +1,149 @@
+@use 'enjanga-core-setup/styles-spacing' as sp;
+@use 'enjanga-core-setup/styles-colors' as cl;
+@use 'enjanga-core-setup/styles-breakpoint' as bp;
+
+
+
+
+
+/**
+ * Global stylings
+ * ----------------------------
+*/
+
+@mixin CT-iconPositionning {
+  .enj-CustomTile-icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+@mixin CT-iconTheming {
+  .enj-CustomTile-icon {
+    margin-top: 1rem;
+    width: var(--enj-CTL-icon-dimg);
+    height: var(--enj-CTL-icon-dimg); 
+  }
+}
+
+// Text & Link styling ...
+@mixin CT-textLinkTheming {
+  a {
+    text-decoration: none;
+  }
+  .enj-CustomTile-title {
+    color: cl.$gray-90;
+    a {
+      color: cl.$gray-90;
+    }
+  }
+  .enj-FeatureText-article,
+  .enj-CustomTile-pictogram {
+    color: cl.$gray-70;
+    a {
+      color: cl.$gray-70;
+    }
+  }
+}
+
+@mixin CT-richTextDefaults {
+  .enj-FeatureText-article {
+    // For Feature text / Rich text ...
+    p:last-of-type,
+    blockquote {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin CT-hover {
+  cursor: pointer;
+  background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token // TODO: Convert to enjanga-core-setup color token
+
+  .enj-CustomTile-pictogram {
+    color: #A8C2F2; // TODO: Convert to enjanga-core-setup color token
+  }
+
+  .enj-CustomTile-icon-wrapper svg {
+    color: #A8C2F2; // TODO: Convert to enjanga-core-setup color token
+  }
+}
+
+@mixin CT-textLinkTheming-hover {
+  .enj-CustomTile-title {
+    color: white; // $blue-60;
+    a {
+      color: white; // $blue-60;
+    }
+  }
+  .enj-FeatureText-article {
+    color: white; // $blue-60;
+    a {
+      color: white; // $blue-60;
+    }
+  }
+}
+
+
+
+
+@mixin CT-bannerRichTextDefaults {
+  .enj-FeatureText-article {
+    // For Feature text / Rich text ...
+    * {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+
+// Create initial padding, then adjust based on component size
+@mixin CT-bannerResponsivePadding {
+  // Initial padding ...
+  padding: var(--enj-CTL-banner-pad);
+
+  &.enj-CustomTile-sm {
+    // Adapts padding ...
+    --enj-CTL-banner-pad: #{sp.$spacing-04};
+  }
+  &.enj-CustomTile-md {
+    // Adapts padding ...
+    --enj-CTL-banner-pad: #{sp.$spacing-07};
+  }
+  &.enj-CustomTile-max {
+    // Adapts padding ...
+    --enj-CTL-banner-pad: #{sp.$spacing-12};
+  }
+}
+
+// Regulate flex gap for all component sizes
+@mixin CT-bannerResponsiveFlexGap {
+  &.enj-CustomTile-lg {
+    --enj-CTL-bann-flex-gap: 1.2rem;
+  }
+  &.enj-CustomTile-xlg {
+    --enj-CTL-bann-flex-gap: 1.5rem;
+  }
+  &.enj-CustomTile-max {
+    --enj-CTL-bann-flex-gap: 2rem;
+  }
+}
+
+// Spread the content horizontally and adjust alignment (for certain component sizes)
+@mixin CT-bannerResponsiveHorizontal {
+  &.enj-CustomTile-xlg {
+    --enj-CTL-bann-flex-dir: row;
+    --enj-CTL-bann-align-items: center;
+    --enj-CTL-bann-flex-gap: 3.5rem;
+    --enj-CTL-bann-title-flex: 0.6;
+    --enj-CTL-bann-article-flex: 1;
+  }
+  &.enj-CustomTile-max {
+    --enj-CTL-bann-flex-dir: row;
+    --enj-CTL-bann-align-items: center;
+    --enj-CTL-bann-flex-gap: 6rem;
+    --enj-CTL-bann-title-flex: 0.6;
+    --enj-CTL-bann-article-flex: 1;
+  }
+}
