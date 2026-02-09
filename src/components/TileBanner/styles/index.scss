@@ -7,46 +7,46 @@
   // Basic style cleanup ..............
   .enj-TileBanner-title {
     // For title ...
-    margin-bottom: var(--enj-CTL-bann-title-mb);
-    flex: var(--enj-CTL-bann-title-flex);
+    margin-bottom: var(--enj-TB-bann-title-mb);
+    flex: var(--enj-TB-bann-title-flex);
   }
   article {
-    flex: var(--enj-CTL-bann-article-flex);
+    flex: var(--enj-TB-bann-article-flex);
   }
 
   .enj-FeatureText {
     // For Feature text ...
     display: flex;
-    gap: var(--enj-CTL-bann-flex-gap);
-    flex-direction: var(--enj-CTL-bann-flex-dir);
-    align-items: var(--enj-CTL-bann-align-items);
+    gap: var(--enj-TB-flex-gap);
+    flex-direction: var(--enj-TB-bann-flex-dir);
+    align-items: var(--enj-TB-bann-align-items);
 
     // Custom enhancements ...
-    @include mixins.CT-bannerRichTextDefaults;
+    @include mixins.TB-richTextDefaults;
   }
 
   /**
    * Custom enhancements ...
   */
   // Regulate padding for all component sizes
-  @include mixins.CT-bannerResponsivePadding;
+  @include mixins.TB-padding;
 
   // Regulate flex gap for all component sizes
-  @include mixins.CT-bannerResponsiveFlexGap;
+  @include mixins.TB-flexGap;
 
   // Spread the content horizontally and adjust alignment (for certain component sizes)
-  @include mixins.CT-bannerResponsiveHorizontal;
+  @include mixins.TB-layout;
 }
 
 .enj-TileBanner {
   background-color: #e3ebf9;
 
-  @include mixins.CT-iconPositionning;
-  @include mixins.CT-iconTheming;
-  @include mixins.CT-textLinkTheming; 
+  @include mixins.TB-iconLayout;
+  @include mixins.TB-iconTheming;
+  @include mixins.TB-textLinkTheming; 
 
   .enj-FeatureText {
-    @include mixins.CT-richTextDefaults;
+    @include mixins.TB-richTextDefaults;
   }
 }
 
@@ -55,8 +55,8 @@
 .enj-TileBanner--has-modal {
   display: block;
   &:hover {
-    @include mixins.CT-hover;
-    @include mixins.CT-textLinkTheming-hover;
+    @include mixins.TB-hover;
+    @include mixins.TB-textLinkTheming-hover;
   }
 }
 
