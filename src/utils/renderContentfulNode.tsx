@@ -153,40 +153,59 @@ export const renderContentfulNode = (
     case BLOCKS.EMBEDDED_ASSET: {
       const assetId = (node.data?.target?.sys?.id as string) || "";
       const asset = options.assets?.[assetId];
-      if (!asset) return null;
+      if (!asset?.url) return null;
 
-      const isVideo = asset.url?.match(/\.(mp4|webm|ogg)$/i);
+      const isVideo = asset.url.match(/\.(mp4|webm|ogg)$/i);
       const w = asset.width ?? 16;
       const h = asset.height ?? 9;
+
+      const caption = asset.title || asset.description;
+      const imageAlt = asset.description || asset.title || "";
 
       return (
         <figure key={key}>
           {isVideo ? (
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              style={{ maxWidth: "100%", height: "auto" }}
-            >
-              <source src={asset.url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                style={{ maxWidth: "100%", height: "auto" }}
+                aria-label={asset.title || "Embedded video"}
+                aria-describedby={asset.description ? `asset-desc-${assetId}` : undefined}
+              >
+                <source src={asset.url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              {asset.description && (
+                <p id={`asset-desc-${assetId}`} className="sr-only">
+                  {asset.description}
+                </p>
+              )}
+            </>
           ) : (
             <div
               className="asset-image-wrapper"
-              style={{ aspectRatio: `${w} / ${h}`, position: 'relative',  width: '100%', marginBottom: '1rem' }}
+              style={{
+                aspectRatio: `${w} / ${h}`,
+                position: "relative",
+                width: "100%",
+                marginBottom: "1rem",
+              }}
             >
               <Image
                 className="asset-image"
                 fill
                 sizes="100vw"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: "cover" }}
                 src={asset.url}
-                alt={asset.title || asset.description || ''}
+                alt={imageAlt}
               />
             </div>
           )}
-          {asset.title && <figcaption>{asset.title}</figcaption>}
+
+          {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
     }
