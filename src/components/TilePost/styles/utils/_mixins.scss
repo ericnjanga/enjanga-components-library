@@ -47,7 +47,7 @@
 }
 
 @mixin PTL-cardResponsivePadding {
-  .enj-postTile-anchor-tag {
+  &.enj-postTile--card {
     padding: var(--enj-PTL-card-pad);
   }
 

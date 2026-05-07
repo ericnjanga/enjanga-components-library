@@ -1,8 +1,6 @@
 @use './utils/vars';
 @use './utils/mixins'; 
 
-@use './variants/postTile-has-img'; 
-
 .enj-postTile {
   padding: 0;
   background-color: #e3ebf9;
@@ -12,7 +10,7 @@
   @include mixins.PTL-textLinkTheming;
   @include mixins.PTL-cardResponsivePadding;
 
-  @include mixins.PTL-textLinkTheming;
+  // @include mixins.PTL-textLinkTheming;
  
   .enj-FeatureText {
     @include mixins.PTL-richTextDefaults;

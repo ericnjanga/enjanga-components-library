@@ -3,15 +3,7 @@ import {
 } from '@/components/PostTile/lib/types';
 import {
   argsFeatureTextWithPlainText,
-  argsFeatureTextWithRichText,
 } from './argsFeatureText'; 
-
-const mediaImg = {
-  url: '/img/cust-tile-1.png',
-  alt: '',
-  width: 607,
-  height: 348
-};
 
 // Default ...
 const argsPostTileDefaultWithPlainT = {
@@ -23,15 +15,26 @@ const argsPostTileDefaultWithPlainT = {
       level: 2,
     },
   },  
-  mediaImage: undefined,  
-  linksTo: undefined, 
+  onClick: undefined,
+  orgTitle: 'IBM',
+  orgSlug: 'ibm',
+  orgPictogramName: 'Leadership',
 } as PTL_propsType;
 
 export const argsPostTile = {
   default: {
-    // ...
     ...argsPostTileDefaultWithPlainT,
-    mediaImage: {...mediaImg},
-    linksTo: '/local/route', 
-  } as PTL_propsType,  
+  } as PTL_propsType,
+  engineeringInsights: {
+    ...argsPostTileDefaultWithPlainT,
+    orgTitle: 'Organization 1',
+    orgSlug: 'organization-1',
+    orgPictogramName: 'IbmEloEngineeringInsights',
+  } as PTL_propsType,
+  knowledgeCatalogPremium: {
+    ...argsPostTileDefaultWithPlainT,
+    orgTitle: 'Organization 2',
+    orgSlug: 'organization-2',
+    orgPictogramName: 'IbmKnowledgeCatalogPremium',
+  } as PTL_propsType,
 };

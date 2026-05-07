@@ -2,11 +2,12 @@
  * TilePost (renamed from PostTile)
  */
 import React from "react";
+import { Link } from "enjanga-core-setup/next";
 import { Tile } from "@carbon/react";
+import * as CarbonIcons from "@carbon/icons-react";
 import {
   getPostTileCSSClasses,
   getIconContent,
-  getLinkWrapper,
   getTileContent,
 } from "./lib/utilities";
 import { PTL_propsType } from "./lib/types";
@@ -16,15 +17,12 @@ import { getHeadingContent } from "./lib/getHeadingContent";
 const TilePost = ({
   className,
   featuredText,
-  mediaImage,
-  linksTo,
+  onClick,
+  orgTitle,
+  orgSlug,
+  orgPictogramName,
 }: PTL_propsType) => {
   const componentTitle = getHeadingContent(featuredText);
-
-  const LinkWrapper = getLinkWrapper({
-    heading: componentTitle,
-    linksTo,
-  });
 
   const wrapperClassNames = getPostTileCSSClasses();
 
@@ -35,7 +33,6 @@ const TilePost = ({
 
   const tileContent = getTileContent({
     featuredText,
-    mediaImage,
     iconContent,
   });
 
@@ -44,11 +41,21 @@ const TilePost = ({
   return (
     <div className="enj-postTile-wrapper" ref={containerRef}>
       <Tile
-        className={`${wrapperClassNames} ${className} enj-postTile-${activeBreakpoint}`}
+        className={`${wrapperClassNames} ${className} enj-postTile-anchor-tag enj-postTile-${activeBreakpoint}`}
         aria-label={`${componentTitle} tile`}
         role="article"
+        onClick={onClick}
       >
-        {React.cloneElement(LinkWrapper, {}, tileContent)}
+        <Link
+          href={`/experience/${orgSlug}`}
+          className="xxxx"
+          aria-label={`Navigate to ${orgTitle}`}
+        >
+          {(() => { const Icon = CarbonIcons[orgPictogramName as keyof typeof CarbonIcons] as React.ComponentType<React.SVGProps<SVGSVGElement>>; return Icon ? <Icon width="1.5rem" height="1.5rem" aria-hidden="true" /> : null; })()}
+          <span>{orgTitle}</span>
+        </Link>
+
+          {tileContent}
       </Tile>
     </div>
   );

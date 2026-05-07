@@ -33,6 +33,16 @@ export const Default: Story = {
             <span style={{ ...styleHeadingLabel }}>Default</span>
             <TilePost {...argsCards_Default} />
           </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>IBM® Engineering Lifecycle Optimization Engineering Insights</span>
+            <TilePost {...argsPostTile.engineeringInsights} />
+          </div>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <span style={{ ...styleHeadingLabel }}>IBM® Knowledge Catalog Premium</span>
+            <TilePost {...argsPostTile.knowledgeCatalogPremium} />
+          </div>
         </section>
       </div>
     );

@@ -10,33 +10,13 @@ import { FTX_propsType } from '@/components/FeatureText/libs/types';
 import { AIC_nameOptPropsType } from '@/components/ArrowIcon/libs/types';
 
 export interface PTL_CSSClassesPropsType {
-  linksTo?: CTL_valid_linkTo;
   iconIsOnDisplay?: boolean;
   imageIsOnDisplay?: boolean;
 }
 
-export interface PTL_linkWrapperPropsType {
-  heading?: string;
-  linksTo?: CTL_valid_linkTo;
-}
-
-export type LinkWrapperType = React.ReactElement<{
-  className: string;
-  'aria-label': string;
-  children?: React.ReactNode;
-}>;
-
-export type CTL_mediaImg = {
-  url: string;
-  alt: string;
-  width?: number;
-  height?: number;
-};
-
 export interface CTL_globalContentPropsType {
   featuredText: FTX_propsType;
   mediaPictogram?: CP_nameType;
-  mediaImage?: CTL_mediaImg;
   iconContent: React.ReactNode | undefined;
 }
 
@@ -45,13 +25,11 @@ export interface PTL_iconContentPropsType {
   iconName: AIC_nameOptPropsType | undefined;
 }
 
-export type ValidRoute = `/${string}`;
-export type ExternalLink = `https://${string}` | `http://${string}`;
-export type CTL_valid_linkTo = ValidRoute | ExternalLink;
-
 export type PTL_propsType = {
   className?: string;
   featuredText: FTX_propsType;
-  mediaImage?: CTL_mediaImg;
-  linksTo?: CTL_valid_linkTo;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  orgTitle: string;
+  orgSlug: string;
+  orgPictogramName: string;
 };

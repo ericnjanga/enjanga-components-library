@@ -93,13 +93,21 @@ export const argsTypesPostTileStories: Partial<ArgTypes<PTL_propsType>> = {
   featuredText: {
     ...argTypesFeatureTextStories,
   },
-  mediaImage: {
+  orgTitle: {
     control: 'text',
     description: '... soon ...',
   },
-  linksTo: {
+  orgSlug: {
     control: 'text',
     description: '... soon ...',
+  },
+  orgPictogramName: {
+    control: 'text',
+    description: 'Carbon icon name from @carbon/icons-react (e.g. IbmKnowledgeCatalogPremium)',
+  },
+  onClick: {
+    control: false,
+    description: 'Click event handler for the tile.',
   }
 };
 
