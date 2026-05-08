@@ -12,7 +12,7 @@
   @include mixins.PTL-textLinkTheming;
 
   > .enj-postTile-link {
-    margin-bottom: calc(var(--enj-PTL-card-pad) / 4);
+    margin-bottom: calc(var(--enj-PTL-card-pad) / 3);
   }
  
   .enj-FeatureText {
