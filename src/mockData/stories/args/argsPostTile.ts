@@ -27,13 +27,13 @@ export const argsPostTile = {
   } as PTL_propsType,
   engineeringInsights: {
     ...argsPostTileDefaultWithPlainT,
-    orgTitle: 'Organization 1',
+    orgTitle: `Ontario's Ministry of Public and Business Service Delivery and Procurement`,
     orgSlug: 'organization-1',
     orgPictogramName: 'IbmEloEngineeringInsights',
   } as PTL_propsType,
   knowledgeCatalogPremium: {
     ...argsPostTileDefaultWithPlainT,
-    orgTitle: 'Organization 2',
+    orgTitle: `Mungo Digital Labs: Web Engineering & UX Innovation Practice`,
     orgSlug: 'organization-2',
     orgPictogramName: 'IbmKnowledgeCatalogPremium',
   } as PTL_propsType,

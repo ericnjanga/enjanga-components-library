@@ -25,12 +25,20 @@
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    gap: 0.25rem;
-    text-decoration: none;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: underline;
     background-color: #C7DBFF;
     border-radius: 1rem;
     width: fit-content;
     transition: background-color 660ms cubic-bezier(0.22, 1, 0.36, 1);
+
+
+
+
+
+
 
     span { 
       color: #313131;
