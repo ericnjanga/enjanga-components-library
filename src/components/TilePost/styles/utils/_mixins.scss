@@ -15,6 +15,36 @@
     margin-top: 1rem;
     width: var(--enj-PTL-icon-dimg);
     height: var(--enj-PTL-icon-dimg);
+    transform: translateX(-4rem);
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), fill 220ms ease;
+  }
+}
+
+@mixin PTL-linkTheming {
+  .enj-postTile-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 0.25rem;
+    text-decoration: underline;
+    background-color: #C7DBFF;
+    border-radius: 1rem;
+    width: fit-content;
+    transition: background-color 660ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    span { 
+      color: #313131;
+    }
+
+    &:hover {
+      color: #C7DBFF;
+      background-color: #DC0680;
+      text-decoration: none;
+
+      span { 
+        color: #C7DBFF;
+      }
+    }
   }
 }
 
@@ -22,6 +52,16 @@
   a {
     text-decoration: none;
   }
+
+  .enj-postTile-title,
+  .enj-postTile-title a,
+  .enj-FeatureText-article,
+  .enj-FeatureText-article a,
+  .enj-postTile-pictogram,
+  .enj-postTile-pictogram a {
+    transition: color 220ms ease;
+  }
+
   .enj-postTile-title {
     color: cl.$gray-90;
     a {
@@ -66,7 +106,11 @@
 
 @mixin PTL-hover {
   cursor: pointer;
-  background-color: #0100C0;
+  transition: background-color 660ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-color: #0100C0;
+  }
 }
 
 @mixin PTL-textLinkTheming-hover {
@@ -81,6 +125,11 @@
     a {
       color: white;
     }
+  }
+
+  .enj-postTile-icon {
+    fill: white;
+    transform: translateX(0);
   }
 }
 

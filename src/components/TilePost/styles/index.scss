@@ -7,21 +7,24 @@
 
   @include mixins.PTL-iconPositionning;
   @include mixins.PTL-iconTheming;
-  @include mixins.PTL-textLinkTheming;
+  @include mixins.PTL-linkTheming;
   @include mixins.PTL-cardResponsivePadding;
+  @include mixins.PTL-textLinkTheming;
 
-  // @include mixins.PTL-textLinkTheming;
+  > .enj-postTile-link {
+    margin-bottom: calc(var(--enj-PTL-card-pad) / 4);
+  }
  
   .enj-FeatureText {
     @include mixins.PTL-richTextDefaults;
   }
 }
 
-.enj-postTile-has-hover-effect,
-.enj-postTile-anchor-tag {
+.enj-postTile {
   display: block;
+  @include mixins.PTL-hover;
+
   &:hover {
-    @include mixins.PTL-hover;
     @include mixins.PTL-textLinkTheming-hover;
   }
 }

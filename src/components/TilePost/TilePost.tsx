@@ -41,14 +41,14 @@ const TilePost = ({
   return (
     <div className="enj-postTile-wrapper" ref={containerRef}>
       <Tile
-        className={`${wrapperClassNames} ${className} enj-postTile-anchor-tag enj-postTile-${activeBreakpoint}`}
+        className={`${wrapperClassNames} ${className} enj-postTile-${activeBreakpoint}`}
         aria-label={`${componentTitle} tile`}
         role="article"
         onClick={onClick}
       >
         <Link
           href={`/experience/${orgSlug}`}
-          className="xxxx"
+          className="enj-postTile-link"
           aria-label={`Navigate to ${orgTitle}`}
         >
           {(() => { const Icon = CarbonIcons[orgPictogramName as keyof typeof CarbonIcons] as React.ComponentType<React.SVGProps<SVGSVGElement>>; return Icon ? <Icon width="1.5rem" height="1.5rem" aria-hidden="true" /> : null; })()}
