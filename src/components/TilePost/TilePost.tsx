@@ -52,6 +52,7 @@ const TilePost = ({
           href={`/experience/${orgSlug}`}
           className="enj-postTile-link"
           aria-label={`Navigate to ${orgTitle}`}
+          onClick={(event: React.MouseEvent<HTMLAnchorElement>) => event.stopPropagation()}
         >
           {(() => { const Icon = CarbonIcons[orgPictogramName as keyof typeof CarbonIcons] as React.ComponentType<React.SVGProps<SVGSVGElement>>; return Icon ? <Icon width="1.5rem" height="1.5rem" aria-hidden="true" /> : null; })()}
           <span>{displayedOrgTitle}</span>

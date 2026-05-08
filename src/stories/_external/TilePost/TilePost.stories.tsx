@@ -20,8 +20,22 @@ type Story = StoryObj<typeof TilePost>;
 
 export const Default: Story = {
   render: (args) => {
+    const randomUrls = [
+      'https://www.ibm.com',
+      'https://www.mozilla.org',
+      'https://www.wikipedia.org',
+      'https://www.bbc.com',
+      'https://www.nationalgeographic.com',
+    ];
+
+    const handleTileClick = () => {
+      const randomUrl = randomUrls[Math.floor(Math.random() * randomUrls.length)];
+      window.location.assign(randomUrl);
+    };
+
     const argsCards_Default = {
       ...argsPostTile.default,
+      onClick: handleTileClick,
     };
 
     return (
@@ -36,12 +50,12 @@ export const Default: Story = {
 
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>IBM® Engineering Lifecycle Optimization Engineering Insights</span>
-            <TilePost {...argsPostTile.engineeringInsights} />
+            <TilePost {...argsPostTile.engineeringInsights} onClick={handleTileClick} />
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>IBM® Knowledge Catalog Premium</span>
-            <TilePost {...argsPostTile.knowledgeCatalogPremium} />
+            <TilePost {...argsPostTile.knowledgeCatalogPremium} onClick={handleTileClick} />
           </div>
         </section>
       </div>
