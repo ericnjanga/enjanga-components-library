@@ -34,6 +34,8 @@ export const getTileContent = ({
 }: CTL_globalContentPropsType) => {
   const featuredTextLocalProps = {
     ...featuredText,
+    headingMaxLength: undefined,
+    plainTextMaxLength: undefined,
     heading: {
       ...featuredText.heading,
       className: 'enj-postTile-title',
