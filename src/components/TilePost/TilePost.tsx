@@ -23,6 +23,8 @@ const TilePost = ({
   orgPictogramName,
 }: PTL_propsType) => {
   const componentTitle = getHeadingContent(featuredText);
+  const displayedOrgTitle =
+    orgTitle.length > 30 ? `${orgTitle.slice(0, 30)}...` : orgTitle;
 
   const wrapperClassNames = getPostTileCSSClasses();
 
@@ -53,7 +55,7 @@ const TilePost = ({
           onClick={(event: React.MouseEvent<HTMLAnchorElement>) => event.stopPropagation()}
         >
           {(() => { const Icon = CarbonIcons[orgPictogramName as keyof typeof CarbonIcons] as React.ComponentType<React.SVGProps<SVGSVGElement>>; return Icon ? <Icon width="1.5rem" height="1.5rem" aria-hidden="true" /> : null; })()}
-          <span>{orgTitle}</span>
+          <span>{displayedOrgTitle}</span>
         </Link>
 
           {tileContent}
