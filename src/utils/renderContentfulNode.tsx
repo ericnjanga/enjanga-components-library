@@ -48,8 +48,34 @@ type Asset = {
   height: number;
 };
 
+type EntryLink = {
+  sys: { id: string };
+  __typename: string;
+  slug: string;
+};
+
 type RenderOptions = {
   assets?: Record<string, Asset>;
+  entries?: Record<string, EntryLink>;
+};
+
+// ✅ Helper: map Contentful __typename to app route
+const entryTypeToPath = (typename: string, slug: string): string | null => {
+  const type = typename.toLowerCase();
+  if (type === 'blogpost' || type === 'project' || type === 'casestudy') {
+    return `/case-studies/${slug}`;
+  }
+  if (type === 'organization') {
+    return `/experience/${slug}`;
+  }
+  return null;
+};
+
+// ✅ Helper: extract entry id from a Contentful resource URN
+// URN format: crn:contentful:::content:spaces/{spaceId}/entries/{entryId}
+const extractEntryIdFromUrn = (urn: string): string | null => {
+  const match = urn.match(/\/entries\/([^/]+)$/);
+  return match ? match[1] : null;
 };
 
 // ✅ Helper: check if a link is external
@@ -226,6 +252,45 @@ export const renderContentfulNode = (
           )}
         </a>
       );
+    }
+
+    case INLINES.ENTRY_HYPERLINK: {
+      const inline = node as Inline;
+      const entryId = inline.data?.target?.sys?.id as string | undefined;
+      const entry = entryId ? options.entries?.[entryId] : undefined;
+      const children = inline.content.map((child, i) =>
+        renderContentfulNode(child, `${key}-entry-link-${i}`, options)
+      );
+
+      if (entry) {
+        const href = entryTypeToPath(entry.__typename, entry.slug);
+        if (href) {
+          return <a key={key} href={href}>{children}</a>;
+        }
+      }
+
+      // Fallback: render text so it never disappears
+      return <span key={key}>{children}</span>;
+    }
+
+    case INLINES.RESOURCE_HYPERLINK: {
+      const inline = node as Inline;
+      const urn = inline.data?.target?.sys?.urn as string | undefined;
+      const entryId = urn ? extractEntryIdFromUrn(urn) : undefined;
+      const entry = entryId ? options.entries?.[entryId] : undefined;
+      const children = inline.content.map((child, i) =>
+        renderContentfulNode(child, `${key}-resource-link-${i}`, options)
+      );
+
+      if (entry) {
+        const href = entryTypeToPath(entry.__typename, entry.slug);
+        if (href) {
+          return <a key={key} href={href}>{children}</a>;
+        }
+      }
+
+      // Fallback: render text so it never disappears
+      return <span key={key}>{children}</span>;
     }
 
     case "text": {

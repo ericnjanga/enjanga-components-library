@@ -53,10 +53,21 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
     assetsMap[asset.sys.id] = asset;
   });
 
+  // 🔑 Build entry hyperlink lookup map (covers both entry-hyperlink and resource-hyperlink)
+  const entriesMap: Record<string, { sys: { id: string }; __typename: string; slug: string }> = {};
+
+  data.links?.entries?.hyperlink?.forEach((entry) => {
+    entriesMap[entry.sys.id] = entry;
+  });
+
+  data.links?.entries?.resourceHyperlink?.forEach((entry) => {
+    entriesMap[entry.sys.id] = entry;
+  });
+
   return (
     <article className={clsx("enj-CMSRichText", className)}>
       {data.json?.content?.map((node: Node, index: number) =>
-        renderContentfulNode(node, `node-${index}`, { assets: assetsMap })
+        renderContentfulNode(node, `node-${index}`, { assets: assetsMap, entries: entriesMap })
       )}
     </article>
   );

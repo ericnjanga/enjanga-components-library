@@ -2,6 +2,22 @@
 // ----------------
 import type { Node } from '@contentful/rich-text-types';
 
+/** Metadata for an entry used as an inline hyperlink target. */
+export interface CRT_EntryHyperlink {
+  sys: { id: string };
+  /** Contentful __typename (e.g. "BlogPost", "CaseStudy", "Organization"). */
+  __typename: string;
+  slug: string;
+}
+
+/** Metadata for a resource (cross-space) hyperlink entry. */
+export interface CRT_ResourceHyperlink {
+  sys: { id: string; urn: string };
+  /** Contentful __typename (e.g. "BlogPost", "CaseStudy", "Organization"). */
+  __typename: string;
+  slug: string;
+}
+
 export interface CRT_propsType {
   className?: string;
   data?: {
@@ -16,6 +32,10 @@ export interface CRT_propsType {
           width: number;
           height: number;
         }[];
+      };
+      entries?: {
+        hyperlink?: CRT_EntryHyperlink[];
+        resourceHyperlink?: CRT_ResourceHyperlink[];
       };
     };
   };
