@@ -31,6 +31,7 @@
     "./tile-banner.css": "./dist/tile-banner.css",
     "./tile-pictogram.css": "./dist/tile-pictogram.css",
     "./tile-post.css": "./dist/tile-post.css",
+    "./tile-value.css": "./dist/tile-value.css",
     "./list.css": "./dist/list.css",
     "./cms-rich-text.css": "./dist/cms-rich-text.css"
   },
@@ -51,13 +52,14 @@
     "dist/tile-banner.css",
     "dist/tile-pictogram.css",
     "dist/tile-post.css",
+    "dist/tile-value.css",
     "dist/list.css",
     "dist/cms-rich-text.css"
   ],
   "scripts": {
     "prepare": "yarn build",
     "build": "yarn build:css && tsup",
-    "build:css": "mkdir -p dist && yarn build:css-full-library && yarn build:css-base && yarn build:css-app-header && yarn build:css-banner && yarn build:css-brand-logo && yarn build:css-custom-quotes && yarn build:css-content-modal && yarn build:css-custom-tile && yarn build:css-tile-banner && yarn build:css-tile-pictogram && yarn build:css-tile-post && yarn build:css-list && yarn build:cms-rich-text",
+    "build:css": "mkdir -p dist && yarn build:css-full-library && yarn build:css-base && yarn build:css-app-header && yarn build:css-banner && yarn build:css-brand-logo && yarn build:css-custom-quotes && yarn build:css-content-modal && yarn build:css-custom-tile && yarn build:css-tile-banner && yarn build:css-tile-pictogram && yarn build:css-tile-post && yarn build:css-tile-value && yarn build:css-list && yarn build:cms-rich-text",
     "build:css-full-library": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "build:css-base": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/base.scss dist/styles-base.css",
     "build:css-app-header": "sass --load-path=node_modules --no-source-map --style=compressed src/components/AppHeader/_AppHeader.scss dist/app-header.css",
@@ -69,6 +71,7 @@
     "build:css-tile-banner": "sass --load-path=node_modules --no-source-map --style=compressed src/components/TileBanner/styles/index.scss dist/tile-banner.css",
     "build:css-tile-pictogram": "sass --load-path=node_modules --no-source-map --style=compressed src/components/TilePictogram/styles/index.scss dist/tile-pictogram.css",
     "build:css-tile-post": "sass --load-path=node_modules --no-source-map --style=compressed src/components/TilePost/styles/index.scss dist/tile-post.css",
+    "build:css-tile-value": "sass --load-path=node_modules --no-source-map --style=compressed src/components/TileValue/styles/index.scss dist/tile-value.css",
     "build:css-list": "sass --load-path=node_modules --no-source-map --style=compressed src/components/List/_List.scss dist/list.css",
     "build:cms-rich-text": "sass --load-path=node_modules --no-source-map --style=compressed src/components/CMSRichText/styles/index.scss dist/cms-rich-text.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
