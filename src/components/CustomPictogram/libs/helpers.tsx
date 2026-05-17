@@ -21,6 +21,9 @@ import {
   AssetManagement,
   Presenter,
 } from '@carbon/pictograms-react';
+import Containers_02 from '@carbon/pictograms-react/lib/containers--02';
+import DataStore from '@carbon/pictograms-react/lib/data--store';
+import DataPrivacyKey from '@carbon/pictograms-react/lib/data--privacy--key';
 import type { ComponentType, SVGProps } from 'react';
 import {
   CP_nameOpt,
@@ -65,6 +68,9 @@ export const CP_pictogramMap: Record<
   PoughkeepsieBridge,
   AssetManagement,
   Presenter,
+  Containers_02,
+  DataStore,
+  DataPrivacyKey,
 };
 
 // ...

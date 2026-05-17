@@ -23,7 +23,7 @@ export interface CRT_propsType {
   data?: {
     json: { content: Node[] };
     links?: {
-      assets: {
+      assets?: {
         block: {
           sys: { id: string };
           url: string;
@@ -34,6 +34,7 @@ export interface CRT_propsType {
         }[];
       };
       entries?: {
+        inline?: CRT_EntryHyperlink[];
         hyperlink?: CRT_EntryHyperlink[];
         resourceHyperlink?: CRT_ResourceHyperlink[];
       };

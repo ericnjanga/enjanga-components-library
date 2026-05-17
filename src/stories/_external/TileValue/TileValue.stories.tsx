@@ -2,6 +2,67 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TileValue from '../../../components/TileValue';
 import { mockRichTextLarge, mockRichTextSmall } from '@/mockData/mockRichText';
 
+const mockInlineEntryDescription = {
+  json: {
+    nodeType: 'document',
+    data: {},
+    content: [
+      {
+        nodeType: 'paragraph',
+        data: {},
+        content: [
+          {
+            nodeType: 'text',
+            value: 'See the full ',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'entry-hyperlink',
+            data: {
+              target: {
+                sys: {
+                  id: 'case-study-123',
+                  type: 'Link',
+                  linkType: 'Entry',
+                },
+              },
+            },
+            content: [
+              {
+                nodeType: 'text',
+                value: 'case study',
+                marks: [],
+                data: {},
+              },
+            ],
+          },
+          {
+            nodeType: 'text',
+            value: ' for implementation details.',
+            marks: [],
+            data: {},
+          },
+        ],
+      },
+    ],
+  },
+  links: {
+    assets: {
+      block: [],
+    },
+    entries: {
+      inline: [
+        {
+          sys: { id: 'case-study-123' },
+          __typename: 'CaseStudy',
+          slug: 'inline-entry-link-check',
+        },
+      ],
+    },
+  },
+};
+
 const meta: Meta<typeof TileValue> = {
   title: 'External Components/TileValue',
   component: TileValue,
@@ -36,4 +97,13 @@ export const LongDescription: Story = {
       <TileValue {...args} />
     </div>
   ),
+};
+
+export const WithInlineEntryHyperlink: Story = {
+  args: {
+    title: 'Inline entry hyperlink',
+    slug: 'open-modal-to-verify-link',
+    pictogramName: 'Leadership',
+    description: mockInlineEntryDescription,
+  },
 };

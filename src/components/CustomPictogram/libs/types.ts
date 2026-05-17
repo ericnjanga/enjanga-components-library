@@ -23,6 +23,9 @@ export const CP_nameOpt = [
   'PoughkeepsieBridge',
   'AssetManagement',
   'Presenter',
+  'Containers_02',
+  'DataStore',
+  'DataPrivacyKey',
 ] as const;
 export const CP_sizeOpt = ['sm', 'md', 'lg', 'xl'] as const;
 export type CP_nameType = (typeof CP_nameOpt)[number]; // Creating union type 'aaa' | 'bbb' | '...

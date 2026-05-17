@@ -49,12 +49,16 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
     }
   > = {};
 
-  data.links?.assets.block.forEach((asset) => {
+  data.links?.assets?.block?.forEach((asset) => {
     assetsMap[asset.sys.id] = asset;
   });
 
-  // 🔑 Build entry hyperlink lookup map (covers both entry-hyperlink and resource-hyperlink)
+  // Build entry lookup map for all inline entry link variants.
   const entriesMap: Record<string, { sys: { id: string }; __typename: string; slug: string }> = {};
+
+  data.links?.entries?.inline?.forEach((entry) => {
+    entriesMap[entry.sys.id] = entry;
+  });
 
   data.links?.entries?.hyperlink?.forEach((entry) => {
     entriesMap[entry.sys.id] = entry;
