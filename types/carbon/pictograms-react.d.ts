@@ -22,4 +22,7 @@ declare module '@carbon/pictograms-react' {
   export const PoughkeepsieBridge: React.FC<React.SVGProps<SVGSVGElement>>;
   export const AssetManagement: React.FC<React.SVGProps<SVGSVGElement>>;
   export const Presenter: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const Containers_02: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const DataStore: React.FC<React.SVGProps<SVGSVGElement>>;
+  export const DataPrivacyKey: React.FC<React.SVGProps<SVGSVGElement>>;
 }

@@ -21,9 +21,7 @@ import {
   AssetManagement,
   Presenter,
 } from '@carbon/pictograms-react';
-import Containers_02 from '@carbon/pictograms-react/lib/containers--02';
-import DataStore from '@carbon/pictograms-react/lib/data--store';
-import DataPrivacyKey from '@carbon/pictograms-react/lib/data--privacy--key';
+import * as CarbonPictograms from '@carbon/pictograms-react';
 import type { ComponentType, SVGProps } from 'react';
 import {
   CP_nameOpt,
@@ -31,6 +29,14 @@ import {
   CP_sizeType,
   CP_sizeDimensions,
 } from './types';
+
+const CP_dynamicPictograms = CarbonPictograms as Record<
+  string,
+  ComponentType<SVGProps<SVGSVGElement>>
+>;
+const Containers_02 = CP_dynamicPictograms.Containers_02 ?? Question;
+const DataStore = CP_dynamicPictograms.DataStore ?? Question;
+const DataPrivacyKey = CP_dynamicPictograms.DataPrivacyKey ?? Question;
 
 // Fixed type guard function
 export const CI_isValidPictogram = (name: unknown): name is CP_nameType => {
