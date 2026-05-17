@@ -39,7 +39,10 @@
 
 @mixin PGL-hover {
   cursor: pointer;
-  background-color: #0100C0;
+
+  &::before {
+    opacity: 1;
+  }
 
   .enj-PictogramTile-pictogram {
     color: #A8C2F2;

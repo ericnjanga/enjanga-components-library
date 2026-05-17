@@ -27,6 +27,21 @@
 
   .cds--modal-content {
     padding-inline: var(--enj-contModal-content-paddInline);
+
+    a {
+      color: #0100c0;
+      text-decoration: underline;
+
+      &:hover {
+        color: #0062fe;
+        text-decoration: none;
+      }
+    }
+
+    ul li,
+    ol li {
+      margin-bottom: 0.5rem;
+    }
   }
 
   h1 {

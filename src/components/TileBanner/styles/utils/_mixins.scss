@@ -62,7 +62,10 @@
 
 @mixin TB-hover {
   cursor: pointer;
-  background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token // TODO: Convert to enjanga-core-setup color token
+
+  &::before {
+    opacity: 1;
+  }
 
   .enj-TileBanner-pictogram {
     color: #A8C2F2; // TODO: Convert to enjanga-core-setup color token

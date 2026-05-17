@@ -114,10 +114,12 @@
 
 @mixin PTL-hover {
   cursor: pointer;
-  transition: background-color 660ms cubic-bezier(0.22, 1, 0.36, 1);
 
-  &:hover {
-    background-color: #0100C0;
+  &:hover,
+  &:focus-visible {
+    &::before {
+      opacity: 1;
+    }
   }
 }
 

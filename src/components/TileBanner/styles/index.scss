@@ -40,6 +40,24 @@
 
 .enj-TileBanner {
   background-color: #e3ebf9;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    background: linear-gradient(90deg, #5354fa 0%, #9630f9 100%);
+    content: '';
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   @include mixins.TB-iconLayout;
   @include mixins.TB-iconTheming;
@@ -50,14 +68,17 @@
   }
 }
 
-.enj-TileBanner-has-hover-effect,
-.enj-TileBanner-anchor-tag,
-.enj-TileBanner--has-modal {
-  display: block;
-  &:hover {
+.enj-TileBanner {
+  &:hover,
+  &:focus-visible,
+  &:focus-within {
     @include mixins.TB-hover;
     @include mixins.TB-textLinkTheming-hover;
   }
+}
+
+.enj-TileBanner-anchor-tag {
+  display: block;
 }
 
 

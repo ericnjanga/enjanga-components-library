@@ -13,7 +13,7 @@ const mockInlineEntryDescription = {
         content: [
           {
             nodeType: 'text',
-            value: 'See the full ',
+            value: 'Verify entry hyperlink styles in ',
             marks: [],
             data: {},
           },
@@ -22,7 +22,7 @@ const mockInlineEntryDescription = {
             data: {
               target: {
                 sys: {
-                  id: 'case-study-123',
+                  id: 'blog-post-123',
                   type: 'Link',
                   linkType: 'Entry',
                 },
@@ -31,7 +31,7 @@ const mockInlineEntryDescription = {
             content: [
               {
                 nodeType: 'text',
-                value: 'case study',
+                value: 'this case study',
                 marks: [],
                 data: {},
               },
@@ -39,9 +39,149 @@ const mockInlineEntryDescription = {
           },
           {
             nodeType: 'text',
-            value: ' for implementation details.',
+            value: ' and compare it to ',
             marks: [],
             data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            data: {
+              uri: 'https://example.com',
+            },
+            content: [
+              {
+                nodeType: 'text',
+                value: 'a regular external link',
+                marks: [],
+                data: {},
+              },
+            ],
+          },
+          {
+            nodeType: 'text',
+            value: '.',
+            marks: [],
+            data: {},
+          },
+        ],
+      },
+      {
+        nodeType: 'unordered-list',
+        data: {},
+        content: [
+          {
+            nodeType: 'list-item',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'entry-hyperlink',
+                    data: {
+                      target: {
+                        sys: {
+                          id: 'blog-post-456',
+                          type: 'Link',
+                          linkType: 'Entry',
+                        },
+                      },
+                    },
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value: 'Unordered list entry hyperlink',
+                        marks: [],
+                        data: {},
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            nodeType: 'list-item',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'hyperlink',
+                    data: {
+                      uri: 'https://example.org',
+                    },
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value: 'Unordered list standard hyperlink',
+                        marks: [],
+                        data: {},
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        nodeType: 'ordered-list',
+        data: {},
+        content: [
+          {
+            nodeType: 'list-item',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'entry-hyperlink',
+                    data: {
+                      target: {
+                        sys: {
+                          id: 'blog-post-789',
+                          type: 'Link',
+                          linkType: 'Entry',
+                        },
+                      },
+                    },
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value: 'Ordered list entry hyperlink',
+                        marks: [],
+                        data: {},
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            nodeType: 'list-item',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: 'Plain list item text for spacing verification',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
@@ -52,13 +192,24 @@ const mockInlineEntryDescription = {
       block: [],
     },
     entries: {
-      inline: [
+      hyperlink: [
         {
-          sys: { id: 'case-study-123' },
-          __typename: 'CaseStudy',
+          sys: { id: 'blog-post-123' },
+          __typename: 'BlogPost',
           slug: 'inline-entry-link-check',
         },
+        {
+          sys: { id: 'blog-post-456' },
+          __typename: 'BlogPost',
+          slug: 'unordered-entry-link-check',
+        },
+        {
+          sys: { id: 'blog-post-789' },
+          __typename: 'BlogPost',
+          slug: 'ordered-entry-link-check',
+        },
       ],
+      inline: [],
     },
   },
 };
