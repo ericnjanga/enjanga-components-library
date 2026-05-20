@@ -11,6 +11,8 @@
 @mixin BNN-responsive-padding {
   // Variables ...
   --enj-Banner-padd: var(--enj-Banner-gap) 0 var(--enj-Banner-gap) 0;
+  --enj-Banner-txt-align: center;
+  --enj-Banner-txt-wrap-margin: 0 auto;
 
   // Declarations ...
   padding: var(--enj-Banner-padd);
@@ -34,6 +36,15 @@
     // border: 4px solid rgb(255, 47, 227);
     --enj-Banner-gap: #{sp.$spacing-12};
   }
+  
+  .enj-container { 
+    text-align: var(--enj-Banner-txt-align);
+    // border: 20px dashed red;
+    .enj-container-txt-wrapper {
+      margin: var(--enj-Banner-txt-wrap-margin);
+      // border: 20px dashed orange;
+    }
+  }
 }
 
 @mixin BNN-large-paragraph {
@@ -45,8 +56,7 @@
 @mixin BNN-isHuge-responsive-padding {
   // Variables ...
   --enj-Banner-padd-top: 1.5rem;
-  --enj-Banner-padd-bot: 8.5rem;
-  --enj-Banner-jumbotron-padd: var(--enj-Banner-padd-top) 0 var(--enj-Banner-padd-bot) 0;
+  --enj-Banner-jumbotron-padd: var(--enj-Banner-padd-top) 0;
 
   // Declarations ...
   padding: var(--enj-Banner-jumbotron-padd);
@@ -61,14 +71,12 @@
     // border: 4px dashed blue;
     @include BNN-large-paragraph;
     --enj-Banner-padd-top: 4rem;
-    --enj-Banner-padd-bot: 12rem
   }
   &.enj-Banner-xlg,
   &.enj-Banner-max {
     // border: 4px dashed green; 
     @include BNN-large-paragraph;
     --enj-Banner-padd-top: 8rem;
-    --enj-Banner-padd-bot: 14.75rem
   }
 }
 
@@ -95,10 +103,19 @@
   --enj-Banner-bg-width: 30rem;
   --enj-Banner-bg-size: 30rem;
   --enj-Banner-bg-right: -15rem;
+  --enj-Banner-txt-align: center;
+  --enj-Banner-txt-wrap-margin: 0 auto;
 
   // Declarations ...
   position: relative; // Container's position
   overflow: hidden;
+  
+  .enj-container {  
+    text-align: var(--enj-Banner-txt-align);
+    .enj-container-txt-wrapper {
+      margin: var(--enj-Banner-txt-wrap-margin);
+    }
+  }
 
   .enj-Banner-bgimg {
     position: absolute;
@@ -115,15 +132,17 @@
   }
 
   @include bp.breakpoint('md') {
-    --enj-Banner-bg-display: block;
     --enj-Banner-bg-right: max(-280px, calc((100vw - 1584px) / 2)); 
   }
 
   @include bp.breakpoint('lg') {
+    --enj-Banner-bg-display: block;
     --enj-Banner-bg-width: min(45rem, 100%);
     --enj-Banner-bg-right: max(-140px, calc((100vw - 1584px) / 2));
     --enj-Banner-bg-width: 35rem;
     --enj-Banner-bg-size: 35rem; 
+    --enj-Banner-txt-align: left;
+    --enj-Banner-txt-wrap-margin: unset;
   }
 
   @include bp.breakpoint('xlg') {

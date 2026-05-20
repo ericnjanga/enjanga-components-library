@@ -82,7 +82,7 @@ const Banner = ({
       role={role}
     >
       <div className="enj-container">
-        <div style={textStyle}>
+        <div className="enj-container-txt-wrapper" style={textStyle}>
           <FeatureText {...featuredText} />
         </div>
         {imgBgUrl && <div className="enj-Banner-bgimg" role="img" aria-hidden="true" />}
