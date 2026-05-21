@@ -34,9 +34,31 @@ const CP_dynamicPictograms = CarbonPictograms as Record<
   string,
   ComponentType<SVGProps<SVGSVGElement>>
 >;
-const Containers_02 = CP_dynamicPictograms.Containers_02 ?? Question;
-const DataStore = CP_dynamicPictograms.DataStore ?? Question;
-const DataPrivacyKey = CP_dynamicPictograms.DataPrivacyKey ?? Question;
+
+const CP_resolveDynamicPictogram = (
+  exportName: string,
+): ComponentType<SVGProps<SVGSVGElement>> => {
+  const pictogram = CP_dynamicPictograms[exportName];
+
+  if (pictogram) {
+    return pictogram;
+  }
+
+  const nodeEnv = (globalThis as { process?: { env?: { NODE_ENV?: string } } })
+    .process?.env?.NODE_ENV;
+
+  if (nodeEnv !== 'production') {
+    console.warn(
+      `[CustomPictogram] Missing Carbon pictogram export "${exportName}". Falling back to "Question". Ensure @carbon/pictograms-react version supports this pictogram.`,
+    );
+  }
+
+  return Question;
+};
+
+const Containers_02 = CP_resolveDynamicPictogram('Containers_02');
+const DataStore = CP_resolveDynamicPictogram('DataStore');
+const DataPrivacyKey = CP_resolveDynamicPictogram('DataPrivacyKey');
 
 // Fixed type guard function
 export const CI_isValidPictogram = (name: unknown): name is CP_nameType => {

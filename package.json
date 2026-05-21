@@ -86,7 +86,7 @@
     "chromatic": "yarn build-storybook && chromatic --exit-zero-on-changes --project-token=chpt_7ebec659e451720"
   },
   "peerDependencies": {
-    "@carbon/pictograms-react": "^11.0.0",
+    "@carbon/pictograms-react": "^11.102.0",
     "@carbon/react": "^1",
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
     "react": "^19.0.0",
