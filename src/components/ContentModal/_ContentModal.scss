@@ -63,10 +63,18 @@
   @include bp.breakpoint('lg') {
     --enj-contModal-header-paddInline: 3rem;
     --enj-contModal-content-paddInline: 3rem;
+
+    .cds--modal-container {
+      max-width: 50rem;
+    }
   }
 
   @include bp.breakpoint('xlg') {
     --enj-contModal-header-paddInline: 4rem;
     --enj-contModal-content-paddInline: 4rem;
+
+    .cds--modal-container {
+      max-width: 50rem;
+    }
   }
 }
