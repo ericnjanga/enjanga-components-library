@@ -20,6 +20,27 @@
       color: #0100C0;
     }
   }
+
+  &.enj-TileBanner-sm {
+    .enj-TileBanner-title > svg {
+      display: none;
+    }
+  }
+
+  &.enj-TileBanner-md {
+    .enj-TileBanner-title > svg {
+      display: block;
+      width: 4rem;
+    }
+  }
+
+  &.enj-TileBanner-lg {
+    .enj-TileBanner-title > svg {
+      display: block;
+      width: 4rem;
+    }
+  }
+
   article {
     flex: var(--enj-TB-bann-article-flex);
   }
