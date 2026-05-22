@@ -4,11 +4,21 @@
 
 
 .enj-TileBanner--banner {
+  padding: 0; // Reset default padding for anchor tag
+
+  
   // Basic style cleanup ..............
   .enj-TileBanner-title {
     // For title ...
     margin-bottom: var(--enj-TB-bann-title-mb);
     flex: var(--enj-TB-bann-title-flex);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    > svg {
+      color: #0100C0;
+    }
   }
   article {
     flex: var(--enj-TB-bann-article-flex);

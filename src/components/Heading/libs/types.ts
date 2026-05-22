@@ -7,5 +7,6 @@ export type HDG_levelPropsType = (typeof HDG_levelOpt)[number]; // Creating unio
 export type HDG_propsType = {
   className?: string;
   level?: HDG_levelPropsType;
+  pictogramName?: string;
   children?: React.ReactNode;
 };

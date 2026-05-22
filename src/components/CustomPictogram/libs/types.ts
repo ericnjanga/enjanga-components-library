@@ -32,7 +32,7 @@ export type CP_nameType = (typeof CP_nameOpt)[number]; // Creating union type 'a
 export type CP_sizeType = (typeof CP_sizeOpt)[number]; // Creating union type 'sm' | 'md' | '...
 
 export interface CP_propsType {
-  name: CP_nameType;
+  name: string;
   size?: CP_sizeType;
   className?: string;
 }

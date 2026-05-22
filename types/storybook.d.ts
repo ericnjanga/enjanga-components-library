@@ -2,6 +2,9 @@
 declare module '@storybook/react' {
   import type { FC } from 'react';
 
+  export type Meta<T = unknown> = any;
+  export type StoryObj<T = unknown> = any;
+
   export interface StorybookConfig {
     stories?: string[];
     addons?: string[];

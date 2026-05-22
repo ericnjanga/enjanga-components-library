@@ -22,6 +22,7 @@ import {
   Presenter,
 } from '@carbon/pictograms-react';
 import * as CarbonPictograms from '@carbon/pictograms-react';
+import * as CarbonIcons from '@carbon/icons-react';
 import type { ComponentType, SVGProps } from 'react';
 import {
   CP_nameOpt,
@@ -31,6 +32,11 @@ import {
 } from './types';
 
 const CP_dynamicPictograms = CarbonPictograms as Record<
+  string,
+  ComponentType<SVGProps<SVGSVGElement>>
+>;
+
+const CP_dynamicIcons = CarbonIcons as Record<
   string,
   ComponentType<SVGProps<SVGSVGElement>>
 >;
@@ -111,15 +117,23 @@ export const CP_getPictogram = ({
   //   height: string
   // }
 }): ComponentType<SVGProps<SVGSVGElement>> => {
-  const PictogramComponent = isValidPictogramName(name)
-    ? CP_pictogramMap[name]
-    : CP_pictogramMap.Question;
+  if (isValidPictogramName(name)) {
+    return CP_pictogramMap[name];
+  }
 
-  // if (size) {
-  //   return <PictogramComponent style={{ width: size.width, height: size.height }} />;
-  // }
+  const dynamicPictogram = CP_dynamicPictograms[name];
 
-  return PictogramComponent;
+  if (dynamicPictogram) {
+    return dynamicPictogram;
+  }
+
+  const dynamicIcon = CP_dynamicIcons[name];
+
+  if (dynamicIcon) {
+    return dynamicIcon;
+  }
+
+  return CP_pictogramMap.Question;
 };
 
 // Calculates the icon width and height based on the size type provided

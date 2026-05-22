@@ -12,7 +12,7 @@ $tile-bg: #e3ebf9;
   --enj-TB-bann-align-items: flex-start;
   --enj-TB-flex-gap: 1rem;
   --enj-TB-bann-title-mb: 0;
-  --enj-TB-banner-pad: #{sp.$spacing-10};
+  --enj-TB-banner-pad: 1rem; //#{sp.$spacing-10};
   --enj-TB-bann-title-flex: unset;
   --enj-TB-bann-article-flex: unset;
 

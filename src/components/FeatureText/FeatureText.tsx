@@ -7,6 +7,7 @@ import { Heading } from '../Heading';
 const FeatureText = ({
   className,
   heading = { children: undefined, level: 3, className: '' },
+  pictogramName,
   smartText,
   headingMaxLength,
   plainTextMaxLength,
@@ -61,7 +62,11 @@ const FeatureText = ({
   return (
     <div className={clsx(`enj-FeatureText`, className)}>
       {isHidden !== 'heading' && (
-        <Heading className={clsx('enj-FeatureText-title')} {...heading}>
+        <Heading
+          className={clsx('enj-FeatureText-title')}
+          pictogramName={pictogramName}
+          {...heading}
+        >
           {headingContent}
         </Heading>
       )}

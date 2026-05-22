@@ -6,6 +6,7 @@ import { SMT_propsType } from '@/components/SmartText/libs/types';
 export interface FTX_propsType {
   className?: string;
   heading: HDG_propsType;
+  pictogramName?: string;
   smartText: SMT_propsType;
   headingMaxLength?: number;
   plainTextMaxLength?: number;

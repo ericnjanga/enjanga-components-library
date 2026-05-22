@@ -11,7 +11,7 @@ import {
   TBN_propsType,
   TBN_LinkTargetType,
 } from './lib/types';
-import { useContainerSize } from '@/libs/useContainerSize';
+import { useTBNContainerSize } from './lib/useTBNContainerSize';
 import { getHeadingContent } from './lib/getHeadingContent';
 import { getIconContent } from './lib/getIconContent';
 import { get_TBN_role } from './lib/accessibility';
@@ -19,6 +19,7 @@ import { get_TBN_role } from './lib/accessibility';
 const TileBanner = ({
   className,
   featuredText,
+  pictogramName,
   linksTo,
   linkTarget = '_self' as TBN_LinkTargetType,
 }: TBN_propsType) => {
@@ -36,8 +37,6 @@ const TileBanner = ({
 
   const wrapperClassNames = getCustomTileCSSClasses({
     linksTo,
-    linkIsExternal:
-      linksTo && linkTarget && linkTarget === '_blank' ? true : false,
     iconIsOnDisplay: !!linksTo,
   });
 
@@ -53,6 +52,7 @@ const TileBanner = ({
   const tileContent = getTileContent({
     featuredText,
     iconContent,
+    pictogramName,
   });
 
   const tbn_role = get_TBN_role();
@@ -60,7 +60,7 @@ const TileBanner = ({
   const {
     containerRef,
     activeBreakpoint,
-  } = useContainerSize<HTMLDivElement>();
+  } = useTBNContainerSize<HTMLDivElement>();
 
   return (
     <div className="enj-TileBanner-wrapper" ref={containerRef}>

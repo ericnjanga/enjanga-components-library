@@ -97,14 +97,9 @@
 // Create initial padding, then adjust based on component size
 @mixin TB-padding {
   // Initial padding ...
-  &:not(.enj-TileBanner--has-link) {
+ 
+  > a {
     padding: var(--enj-TB-banner-pad);
-   }
-  &.enj-TileBanner--has-link {
-    padding: 0;
-    a {
-      padding: var(--enj-TB-banner-pad);
-    }
   }
   // Initial padding ...
 
@@ -114,11 +109,12 @@
   }
   &.enj-TileBanner-md {
     // Adapts padding ...
-    --enj-TB-banner-pad: #{sp.$spacing-10};
+    --enj-TB-banner-pad: 2.5em; //#{sp.$spacing-08};
   }
+  &.enj-TileBanner-lg,
   &.enj-TileBanner-max {
     // Adapts padding ...
-    --enj-TB-banner-pad: #{sp.$spacing-12};
+    --enj-TB-banner-pad: 4rem; //#{sp.$spacing-10};
   }
 }
 
