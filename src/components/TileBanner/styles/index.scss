@@ -30,14 +30,16 @@
   &.enj-TileBanner-md {
     .enj-TileBanner-title > svg {
       display: block;
-      width: 4rem;
+      inline-size: 4rem;
+      block-size: 4rem;
     }
   }
 
   &.enj-TileBanner-lg {
     .enj-TileBanner-title > svg {
       display: block;
-      width: 4rem;
+      inline-size: 6rem;
+      block-size: 6rem;
     }
   }
 
