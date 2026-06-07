@@ -31,5 +31,6 @@ export { HeadlinedList } from './HeadlinedList';
 export { List } from './List';
 export { SmartText } from './SmartText';
 export { FeatureText } from './FeatureText';
+export { HeroVideo } from './HeroVideo';
 export { CMSRichText } from './CMSRichText';
 export { useContainerSize } from './../libs/useContainerSize';
