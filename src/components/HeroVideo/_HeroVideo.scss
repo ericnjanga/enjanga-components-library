@@ -20,6 +20,10 @@
   .enj-HeroVideo-copy {
     display: grid;
     gap: 1rem;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .enj-HeroVideo-card {
@@ -165,22 +169,6 @@
     background: rgba(0, 0, 0, 0.72);
   }
 
-  .enj-HeroVideo-modalBody {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .enj-HeroVideo-modalVideo {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    background: #000;
-  }
-
-  .enj-HeroVideo-modalTitle {
-    margin: 0;
-  }
-
   &.enj-HeroVideo-lg,
   &.enj-HeroVideo-xlg,
   &.enj-HeroVideo-max {
@@ -216,3 +204,23 @@
     }
   }
 }
+
+
+  .enj-HeroVideo-modal {
+
+    .enj-HeroVideo-modalBody {
+      display: grid;
+      gap: 1rem;
+
+      .enj-HeroVideo-modalVideo {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        background: #000;
+      }
+    }
+
+    .enj-HeroVideo-modalTitle {
+      margin: 0;
+    }
+  }
