@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
-import { PlayFilledAlt } from '@carbon/icons-react';
+import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
 import { CMSRichText } from '@/components/CMSRichText';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { HVD_assetType, HVD_propsType, HVD_tagListType } from './libs/types';
@@ -72,7 +72,7 @@ const formatDuration = (durationInSeconds?: number): string => {
     ).padStart(2, '0')}`;
   }
 
-  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  return `${String(minutes).padStart(2, '0')} min ${String(seconds).padStart(2, '0')} sec`;
 };
 
 const HeroVideo = ({
@@ -155,6 +155,10 @@ const HeroVideo = ({
               onClick={handleCardClick}
               aria-label={`Open featured case study for ${featuredObject.title}`}
             >
+              <h3 className="enj-HeroVideo-featuredObject-title">
+                <StarFilled aria-hidden="true" />
+                FEATURED CASE STUDY
+              </h3>
               <div className="enj-HeroVideo-media">
                 {hasPosterImage ? (
                   <img
@@ -200,7 +204,7 @@ const HeroVideo = ({
                 <div className="enj-HeroVideo-meta">
                   {businessDomains.length > 0 && (
                     <div className="enj-HeroVideo-metaGroup">
-                      <span className="enj-HeroVideo-metaLabel">Business domain</span>
+                      {/* <span className="enj-HeroVideo-metaLabel">Business domain</span> */}
                       <ul className="enj-HeroVideo-metaList" aria-label="Business domains">
                         {businessDomains.map((domain) => (
                           <li key={domain} className="enj-HeroVideo-metaChip">
@@ -213,7 +217,7 @@ const HeroVideo = ({
 
                   {stackValues.length > 0 && (
                     <div className="enj-HeroVideo-metaGroup">
-                      <span className="enj-HeroVideo-metaLabel">Tech stack</span>
+                      {/* <span className="enj-HeroVideo-metaLabel">Tech stack</span> */}
                       <ul className="enj-HeroVideo-metaList" aria-label="Tech stack">
                         {stackValues.map((stackValue) => (
                           <li key={stackValue} className="enj-HeroVideo-metaChip">
