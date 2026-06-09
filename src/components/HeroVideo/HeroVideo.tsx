@@ -138,7 +138,7 @@ const HeroVideo = ({
         <div className="enj-container">
           <div className="enj-container-txt-wrapper">
             <div className="enj-HeroVideo-copy">
-              <h2 className="enj-HeroVideo-informationTitle">{informationBlock.title}</h2>
+              <h1 className="enj-HeroVideo-informationTitle">{informationBlock.title}</h1>
 
               {informationBlock.description && (
                 <CMSRichText
@@ -197,8 +197,6 @@ const HeroVideo = ({
               </div>
 
               <h3 className="enj-HeroVideo-featuredTitle">{featuredObject.title}</h3>
-            </button>
-
 
               {(businessDomains.length > 0 || stackValues.length > 0) && (
                 <div className="enj-HeroVideo-meta">
@@ -229,6 +227,7 @@ const HeroVideo = ({
                   )}
                 </div>
               )}
+            </button>
           </section>
         </div>
       </Tag>
