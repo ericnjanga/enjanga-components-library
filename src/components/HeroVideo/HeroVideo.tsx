@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
 import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
@@ -90,6 +90,7 @@ const HeroVideo = ({
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoDuration, setVideoDuration] = useState<string>('00:00');
+  const modalVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const videoAsset = resolveAsset(featuredObject.video);
   const posterAsset = resolveAsset(featuredObject.videoImage);
@@ -118,6 +119,15 @@ const HeroVideo = ({
 
   const handleCardClick = () => {
     setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.currentTime = 0;
+    }
+
+    setIsModalOpen(false);
   };
 
   const handleReadFullCaseStudy = () => {
@@ -234,16 +244,17 @@ const HeroVideo = ({
 
       <ComposedModal
         open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={handleModalClose}
         size="md"
         className="enj-HeroVideo-modal"
       >
-        <ModalHeader title="Featured Case Study" closeModal={() => setIsModalOpen(false)} />
+        <ModalHeader title="Featured Case Study" closeModal={handleModalClose} />
 
         <ModalBody>
           <div className="enj-HeroVideo-modalBody">
             {hasVideo && (
               <video
+                ref={modalVideoRef}
                 className="enj-HeroVideo-modalVideo"
                 controls={controls}
                 autoPlay={autoPlay}
@@ -265,7 +276,7 @@ const HeroVideo = ({
         </ModalBody>
 
         <ModalFooter>
-          <Button kind="secondary" onClick={() => setIsModalOpen(false)}>
+          <Button kind="secondary" onClick={handleModalClose}>
             Done
           </Button>
           <Button onClick={handleReadFullCaseStudy}>Read full case study</Button>
