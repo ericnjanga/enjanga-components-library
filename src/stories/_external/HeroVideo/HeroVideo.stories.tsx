@@ -105,7 +105,7 @@ const featuredObjectPayload2 = {
         "TypeScript"
       ],
       "introVideo": {
-        "url": "https://videos.ctfassets.net/z41mabrhnu57/4rZE2vr7k6KbAdNiFDYmgT/30847662fd3bb5930aff946d489ae24c/Bank_Deposit_Flow_Integration.mp4",
+        "url": "https://videos.ctfassets.net/z41mabrhnu57/4rZE2vr7k6KbAdNiFDYmgT/ff6358303c95a1c2a06740d40cae71f0/Bank-Deposit-Flow-Integration2.safari.compressed.mp4",
         "contentType": "video/mp4",
         "fileName": "Bank Deposit Flow Integration.mp4",
         "size": 10690021,

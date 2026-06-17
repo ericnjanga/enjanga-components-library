@@ -75,6 +75,11 @@ const formatDuration = (durationInSeconds?: number): string => {
   return `${String(minutes).padStart(2, '0')} min ${String(seconds).padStart(2, '0')} sec`;
 };
 
+const isSafariBrowser = () => {
+  if (typeof navigator === 'undefined') return false;
+  return /^((?!chrome|chromium|android).)*safari/i.test(navigator.userAgent);
+};
+
 const HeroVideo = ({
   id,
   style,
@@ -122,6 +127,19 @@ const HeroVideo = ({
     setIsModalOpen(true);
   };
 
+  const attemptPlay = (videoElement: HTMLVideoElement, retryMuted = true) => {
+    const playPromise = videoElement.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {
+        // Safari can reject autoplay if not considered a direct user gesture.
+        if (retryMuted && !videoElement.muted) {
+          videoElement.muted = true;
+          attemptPlay(videoElement, false);
+        }
+      });
+    }
+  };
+
   const handleModalClose = () => {
     if (modalOpenTimerRef.current) {
       clearTimeout(modalOpenTimerRef.current);
@@ -147,18 +165,32 @@ const HeroVideo = ({
       return;
     }
 
+    const videoElement = modalVideoRef.current;
+    if (!videoElement) {
+      return;
+    }
+
+    // Force the media element to re-read source metadata; Safari can require this on some MP4s.
+    videoElement.load();
+
+    const openDelay = isSafariBrowser() ? 0 : 500;
+
     modalOpenTimerRef.current = setTimeout(() => {
-      const videoElement = modalVideoRef.current;
-      if (!videoElement) {
+      const latestVideoElement = modalVideoRef.current;
+      if (!latestVideoElement) {
         return;
       }
 
-      const playPromise = videoElement.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => {
-          // Ignore autoplay rejection if browser blocks play without user gesture.
-        });
+      if (latestVideoElement.readyState >= 2) {
+        attemptPlay(latestVideoElement);
+        return;
       }
+
+      const handleCanPlay = () => {
+        attemptPlay(latestVideoElement);
+      };
+
+      latestVideoElement.addEventListener('canplay', handleCanPlay, { once: true });
     }, 500);
 
     return () => {
@@ -287,6 +319,7 @@ const HeroVideo = ({
           <div className="enj-HeroVideo-modalBody">
             {hasVideo && (
               <video
+                key={videoAsset.url}
                 ref={modalVideoRef}
                 className="enj-HeroVideo-modalVideo"
                 controls={controls}
