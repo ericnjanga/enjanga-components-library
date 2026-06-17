@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
 import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
@@ -91,6 +91,7 @@ const HeroVideo = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoDuration, setVideoDuration] = useState<string>('00:00');
   const modalVideoRef = useRef<HTMLVideoElement | null>(null);
+  const modalOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const videoAsset = resolveAsset(featuredObject.video);
   const posterAsset = resolveAsset(featuredObject.videoImage);
@@ -122,6 +123,11 @@ const HeroVideo = ({
   };
 
   const handleModalClose = () => {
+    if (modalOpenTimerRef.current) {
+      clearTimeout(modalOpenTimerRef.current);
+      modalOpenTimerRef.current = null;
+    }
+
     if (modalVideoRef.current) {
       modalVideoRef.current.pause();
       modalVideoRef.current.currentTime = 0;
@@ -135,6 +141,33 @@ const HeroVideo = ({
       window.location.assign(caseStudyHref);
     }
   };
+
+  useEffect(() => {
+    if (!isModalOpen || !hasVideo) {
+      return;
+    }
+
+    modalOpenTimerRef.current = setTimeout(() => {
+      const videoElement = modalVideoRef.current;
+      if (!videoElement) {
+        return;
+      }
+
+      const playPromise = videoElement.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {
+          // Ignore autoplay rejection if browser blocks play without user gesture.
+        });
+      }
+    }, 500);
+
+    return () => {
+      if (modalOpenTimerRef.current) {
+        clearTimeout(modalOpenTimerRef.current);
+        modalOpenTimerRef.current = null;
+      }
+    };
+  }, [hasVideo, isModalOpen]);
 
   return (
     <>
