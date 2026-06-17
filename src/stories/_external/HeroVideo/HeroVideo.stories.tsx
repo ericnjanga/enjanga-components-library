@@ -46,7 +46,7 @@ const informationBlockPayload = {
   },
 };
 
-const featuredObjectPayload = {
+const featuredObjectPayload1 = {
   data: {
     blogPost: {
       sys: {
@@ -54,6 +54,7 @@ const featuredObjectPayload = {
       },
       title:
         'Architecting a Resilient Bank Deposit Flow for High-Volume Service Operations',
+        slug: 'resilient-bank-deposit-flow',
       businessDomain: [
         'Financial Services',
         'Enterprise Applications',
@@ -82,6 +83,53 @@ const featuredObjectPayload = {
       },
     },
   },
+};
+
+const featuredObjectPayload2 = {
+  "data": {
+    "blogPost": {
+      "sys": {
+        "id": "6CYpnNFqeIPAZoMFmzLFmB"
+      },
+      "title": "Operationalizing a Resilient Bank Deposit Workflow: From Mocked Data to Production APIs",
+      "slug": "bank-deposit-api-integration",
+      "businessDomain": [
+        "Government Services",
+        "Enterprise Applications",
+        "Financial Systems"
+      ],
+      "techstack": [
+        "Next.js",
+        "APIs",
+        "React",
+        "TypeScript"
+      ],
+      "introVideo": {
+        "url": "https://videos.ctfassets.net/z41mabrhnu57/4rZE2vr7k6KbAdNiFDYmgT/30847662fd3bb5930aff946d489ae24c/Bank_Deposit_Flow_Integration.mp4",
+        "contentType": "video/mp4",
+        "fileName": "Bank Deposit Flow Integration.mp4",
+        "size": 10690021,
+        "width": null,
+        "height": null,
+        "title": "Bank Deposit Flow Integration",
+        "description": ""
+      },
+      "introVideoImage": {
+        "url": "https://images.ctfassets.net/z41mabrhnu57/i7dUjMx7ZlvJCKBAyYiz1/8dcaca2fa2d329a74ada538338d72710/Bank_Deposit_Flow_Integration.png",
+        "contentType": "image/png",
+        "fileName": "Bank Deposit Flow Integration.png",
+        "size": 804856,
+        "width": 2874,
+        "height": 1610,
+        "title": "Bank Deposit Flow Integration",
+        "description": ""
+      }
+    }
+  }
+};
+
+const featuredObjectPayload = {
+  ...featuredObjectPayload2
 };
 
 const mappedArgs = {
