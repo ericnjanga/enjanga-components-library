@@ -13,9 +13,12 @@ export type VT_propsType = {
   hasVideo: boolean;
   posterAsset: VT_assetType;
   videoAsset: VT_assetType;
-  videoDuration?: string;
   businessDomains: string[];
   stackValues: string[];
-  onClick: () => void;
+  controls?: boolean;
+  autoPlay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  caseStudyHref?: string;
   ariaLabel?: string;
 };

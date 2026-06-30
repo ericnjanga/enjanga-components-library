@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 import clsx from 'clsx';
-import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
 import { CMSRichText } from '@/components/CMSRichText';
 import { VideoThumbnail } from '@/components/VideoThumbnail';
 import { useContainerSize } from '@/libs/useContainerSize';
@@ -56,30 +55,6 @@ const normalizeTagList = (value?: HVD_tagListType): string[] => {
     .filter(Boolean);
 };
 
-const formatDuration = (durationInSeconds?: number): string => {
-  if (!durationInSeconds || Number.isNaN(durationInSeconds) || durationInSeconds <= 0) {
-    return '00:00';
-  }
-
-  const roundedSeconds = Math.floor(durationInSeconds);
-  const hours = Math.floor(roundedSeconds / 3600);
-  const minutes = Math.floor((roundedSeconds % 3600) / 60);
-  const seconds = roundedSeconds % 60;
-
-  if (hours > 0) {
-    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(
-      seconds
-    ).padStart(2, '0')}`;
-  }
-
-  return `${String(minutes).padStart(2, '0')} min ${String(seconds).padStart(2, '0')} sec`;
-};
-
-const isSafariBrowser = () => {
-  if (typeof navigator === 'undefined') return false;
-  return /^((?!chrome|chromium|android).)*safari/i.test(navigator.userAgent);
-};
-
 const HeroVideo = ({
   id,
   style,
@@ -93,10 +68,6 @@ const HeroVideo = ({
   role = 'banner',
 }: HVD_propsType) => {
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [videoDuration, setVideoDuration] = useState<string>('00:00');
-  const modalVideoRef = useRef<HTMLVideoElement | null>(null);
-  const modalOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const videoAsset = resolveAsset(featuredObject.video);
   const posterAsset = resolveAsset(featuredObject.videoImage);
@@ -118,168 +89,44 @@ const HeroVideo = ({
     [className, hasPosterImage, hasVideo]
   );
 
-  const handleLoadedMetadata: React.ReactEventHandler<HTMLVideoElement> = (event) => {
-    const duration = event.currentTarget.duration;
-    setVideoDuration(formatDuration(duration));
-  };
-
-  const handleCardClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const attemptPlay = (videoElement: HTMLVideoElement, retryMuted = true) => {
-    const playPromise = videoElement.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(() => {
-        // Safari can reject autoplay if not considered a direct user gesture.
-        if (retryMuted && !videoElement.muted) {
-          videoElement.muted = true;
-          attemptPlay(videoElement, false);
-        }
-      });
-    }
-  };
-
-  const handleModalClose = () => {
-    if (modalOpenTimerRef.current) {
-      clearTimeout(modalOpenTimerRef.current);
-      modalOpenTimerRef.current = null;
-    }
-
-    if (modalVideoRef.current) {
-      modalVideoRef.current.pause();
-      modalVideoRef.current.currentTime = 0;
-    }
-
-    setIsModalOpen(false);
-  };
-
-  const handleReadFullCaseStudy = () => {
-    if (typeof window !== 'undefined') {
-      window.location.assign(caseStudyHref);
-    }
-  };
-
-  useEffect(() => {
-    if (!isModalOpen || !hasVideo) {
-      return;
-    }
-
-    const videoElement = modalVideoRef.current;
-    if (!videoElement) {
-      return;
-    }
-
-    // Force the media element to re-read source metadata; Safari can require this on some MP4s.
-    videoElement.load();
-
-    const openDelay = isSafariBrowser() ? 0 : 500;
-
-    modalOpenTimerRef.current = setTimeout(() => {
-      const latestVideoElement = modalVideoRef.current;
-      if (!latestVideoElement) {
-        return;
-      }
-
-      if (latestVideoElement.readyState >= 2) {
-        attemptPlay(latestVideoElement);
-        return;
-      }
-
-      const handleCanPlay = () => {
-        attemptPlay(latestVideoElement);
-      };
-
-      latestVideoElement.addEventListener('canplay', handleCanPlay, { once: true });
-    }, 500);
-
-    return () => {
-      if (modalOpenTimerRef.current) {
-        clearTimeout(modalOpenTimerRef.current);
-        modalOpenTimerRef.current = null;
-      }
-    };
-  }, [hasVideo, isModalOpen]);
-
   return (
-    <>
-      <Tag
-        id={id}
-        className={`${cssClasses} enj-HeroVideo-${activeBreakpoint}`}
-        style={style}
-        ref={containerRef}
-        role={role}
-      >
-        <div className="enj-container">
-          <div className="enj-container-txt-wrapper">
-            <div className="enj-HeroVideo-copy">
-              <h1 className="enj-HeroVideo-informationTitle">{informationBlock.title}</h1>
+    <Tag
+      id={id}
+      className={`${cssClasses} enj-HeroVideo-${activeBreakpoint}`}
+      style={style}
+      ref={containerRef}
+      role={role}
+    >
+      <div className="enj-container">
+        <div className="enj-container-txt-wrapper">
+          <div className="enj-HeroVideo-copy">
+            <h1 className="enj-HeroVideo-informationTitle">{informationBlock.title}</h1>
 
-              {informationBlock.description && (
-                <CMSRichText
-                  className="enj-HeroVideo-informationDescription"
-                  data={informationBlock.description}
-                />
-              )}
-            </div>
-          </div>
-          <VideoThumbnail
-            title={featuredObject.title}
-            hasPosterImage={hasPosterImage}
-            hasVideo={hasVideo}
-            posterAsset={posterAsset}
-            videoAsset={videoAsset}
-            videoDuration={videoDuration}
-            businessDomains={businessDomains}
-            stackValues={stackValues}
-            onClick={handleCardClick}
-            ariaLabel={`Open featured case study for ${featuredObject.title}`}
-          />
-        </div>
-      </Tag>
-
-      <ComposedModal
-        open={isModalOpen}
-        onClose={handleModalClose}
-        size="md"
-        className="enj-HeroVideo-modal"
-      >
-        <ModalHeader title="Featured Case Study" closeModal={handleModalClose} />
-
-        <ModalBody>
-          <div className="enj-HeroVideo-modalBody">
-            {hasVideo && (
-              <video
-                key={videoAsset.url}
-                ref={modalVideoRef}
-                className="enj-HeroVideo-modalVideo"
-                controls={controls}
-                autoPlay={autoPlay}
-                loop={loop}
-                muted={muted}
-                playsInline
-                preload="metadata"
-                poster={posterAsset.url}
-                aria-label={featuredObject.title || 'Featured video'}
-                onLoadedMetadata={handleLoadedMetadata}
-              >
-                <source src={videoAsset.url} type={videoAsset.contentType ?? 'video/mp4'} />
-                Your browser does not support the video tag.
-              </video>
+            {informationBlock.description && (
+              <CMSRichText
+                className="enj-HeroVideo-informationDescription"
+                data={informationBlock.description}
+              />
             )}
-
-            <h2 className="enj-HeroVideo-modalTitle">{featuredObject.title}</h2>
           </div>
-        </ModalBody>
-
-        <ModalFooter>
-          <Button kind="secondary" onClick={handleModalClose}>
-            Done
-          </Button>
-          <Button onClick={handleReadFullCaseStudy}>Read full case study</Button>
-        </ModalFooter>
-      </ComposedModal>
-    </>
+        </div>
+        <VideoThumbnail
+          title={featuredObject.title}
+          hasPosterImage={hasPosterImage}
+          hasVideo={hasVideo}
+          posterAsset={posterAsset}
+          videoAsset={videoAsset}
+          businessDomains={businessDomains}
+          stackValues={stackValues}
+          controls={controls}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={muted}
+          caseStudyHref={caseStudyHref}
+          ariaLabel={`Open featured case study for ${featuredObject.title}`}
+        />
+      </div>
+    </Tag>
   );
 };
 

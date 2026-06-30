@@ -37,10 +37,9 @@ const meta: Meta<typeof VideoThumbnail> = {
     hasVideo: Boolean(videoAsset.url),
     posterAsset,
     videoAsset,
-    videoDuration: '03 min 12 sec',
     businessDomains: heroVideoMappedArgs.featuredObject.businessDomain ?? [],
     stackValues: heroVideoMappedArgs.featuredObject.teckStack ?? [],
-    onClick: () => {},
+    caseStudyHref: `/case-studies/${heroVideoMappedArgs.featuredObject.slug}`,
   },
 };
 

@@ -193,3 +193,34 @@
     }
   }
 }
+
+.enj-VideoThumbnail-modal {
+  .cds--modal-container {
+    max-width: 38rem;
+  }
+
+  .cds--modal-header {
+    margin-block-end: 0;
+
+    .cds--modal-header__heading {
+      font-size: 1rem;
+      color: #0100c0;
+    }
+  }
+
+  .enj-VideoThumbnail-modalBody {
+    display: grid;
+    gap: 1rem;
+
+    .enj-VideoThumbnail-modalVideo {
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
+  }
+
+  .enj-VideoThumbnail-modalTitle {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+}
