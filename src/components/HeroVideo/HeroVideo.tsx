@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
-import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
 import { CMSRichText } from '@/components/CMSRichText';
+import { VideoThumbnail } from '@/components/VideoThumbnail';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { HVD_assetType, HVD_propsType, HVD_tagListType } from './libs/types';
 
@@ -223,87 +223,18 @@ const HeroVideo = ({
               )}
             </div>
           </div>
-          <section className="enj-HeroVideo-featuredObject">
-            <button
-              type="button"
-              className="enj-HeroVideo-card"
-              onClick={handleCardClick}
-              aria-label={`Open featured case study for ${featuredObject.title}`}
-            >
-              <h3 className="enj-HeroVideo-featuredObject-title">
-                <StarFilled aria-hidden="true" />
-                FEATURED CASE STUDY
-              </h3>
-              <div className="enj-HeroVideo-media">
-                {hasPosterImage ? (
-                  <img
-                    className="enj-HeroVideo-image"
-                    src={posterAsset.url}
-                    alt={posterAsset.description || posterAsset.title || featuredObject.title}
-                    width={posterAsset.width}
-                    height={posterAsset.height}
-                    loading="lazy"
-                  />
-                ) : hasVideo ? (
-                  <video
-                    className="enj-HeroVideo-video"
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label={featuredObject.title || 'Featured video preview'}
-                    poster={posterAsset.url}
-                  >
-                    <source src={videoAsset.url} type={videoAsset.contentType ?? 'video/mp4'} />
-                  </video>
-                ) : null}
-
-                <span className="enj-HeroVideo-playIcon" aria-hidden="true">
-                  <PlayFilledAlt />
-                </span>
-
-                {videoDuration !== '00:00' && (
-                  <span
-                    className="enj-HeroVideo-duration"
-                    aria-label={`Video duration ${videoDuration}`}
-                  >
-                    {videoDuration}
-                  </span>
-                )}
-              </div>
-
-              <h3 className="enj-HeroVideo-featuredTitle">{featuredObject.title}</h3>
-
-              {(businessDomains.length > 0 || stackValues.length > 0) && (
-                <div className="enj-HeroVideo-meta">
-                  {businessDomains.length > 0 && (
-                    <div className="enj-HeroVideo-metaGroup">
-                      {/* <span className="enj-HeroVideo-metaLabel">Business domain</span> */}
-                      <ul className="enj-HeroVideo-metaList" aria-label="Business domains">
-                        {businessDomains.map((domain) => (
-                          <li key={domain} className="enj-HeroVideo-metaChip">
-                            {domain}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {stackValues.length > 0 && (
-                    <div className="enj-HeroVideo-metaGroup">
-                      {/* <span className="enj-HeroVideo-metaLabel">Tech stack</span> */}
-                      <ul className="enj-HeroVideo-metaList" aria-label="Tech stack">
-                        {stackValues.map((stackValue) => (
-                          <li key={stackValue} className="enj-HeroVideo-metaChip">
-                            {stackValue}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              )}
-            </button>
-          </section>
+          <VideoThumbnail
+            title={featuredObject.title}
+            hasPosterImage={hasPosterImage}
+            hasVideo={hasVideo}
+            posterAsset={posterAsset}
+            videoAsset={videoAsset}
+            videoDuration={videoDuration}
+            businessDomains={businessDomains}
+            stackValues={stackValues}
+            onClick={handleCardClick}
+            ariaLabel={`Open featured case study for ${featuredObject.title}`}
+          />
         </div>
       </Tag>
 

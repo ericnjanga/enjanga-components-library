@@ -132,7 +132,7 @@ const featuredObjectPayload = {
   ...featuredObjectPayload2
 };
 
-const mappedArgs = {
+export const heroVideoMappedArgs = {
   informationBlock: {
     title: informationBlockPayload.data.infoBlock.title,
     description: informationBlockPayload.data.infoBlock.description,
@@ -152,7 +152,7 @@ const meta: Meta<typeof HeroVideo> = {
   component: HeroVideo,
   tags: [],
   args: {
-    ...mappedArgs,
+    ...heroVideoMappedArgs,
   },
 };
 
@@ -173,7 +173,7 @@ export const AutoPlayMuted: Story = {
 export const ImageFallback: Story = {
   args: {
     featuredObject: {
-      ...mappedArgs.featuredObject,
+      ...heroVideoMappedArgs.featuredObject,
       video: undefined,
     },
   },

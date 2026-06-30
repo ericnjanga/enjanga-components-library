@@ -34,6 +34,7 @@
     "./tile-post.css": "./dist/tile-post.css",
     "./tile-value.css": "./dist/tile-value.css",
     "./list.css": "./dist/list.css",
+    "./video-thumbnail.css": "./dist/video-thumbnail.css",
     "./cms-rich-text.css": "./dist/cms-rich-text.css"
   },
   "sideEffects": [
@@ -56,17 +57,19 @@
     "dist/tile-post.css",
     "dist/tile-value.css",
     "dist/list.css",
+    "dist/video-thumbnail.css",
     "dist/cms-rich-text.css"
   ],
   "scripts": {
     "prepare": "yarn build",
     "build": "yarn build:css && tsup",
-    "build:css": "mkdir -p dist && yarn build:css-full-library && yarn build:css-base && yarn build:css-app-header && yarn build:css-banner && yarn build:css-hero-video && yarn build:css-brand-logo && yarn build:css-custom-quotes && yarn build:css-content-modal && yarn build:css-custom-tile && yarn build:css-tile-banner && yarn build:css-tile-pictogram && yarn build:css-tile-post && yarn build:css-tile-value && yarn build:css-list && yarn build:cms-rich-text",
+    "build:css": "mkdir -p dist && yarn build:css-full-library && yarn build:css-base && yarn build:css-app-header && yarn build:css-banner && yarn build:css-hero-video && yarn build:css-video-thumbnail && yarn build:css-brand-logo && yarn build:css-custom-quotes && yarn build:css-content-modal && yarn build:css-custom-tile && yarn build:css-tile-banner && yarn build:css-tile-pictogram && yarn build:css-tile-post && yarn build:css-tile-value && yarn build:css-list && yarn build:cms-rich-text",
     "build:css-full-library": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "build:css-base": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/base.scss dist/styles-base.css",
     "build:css-app-header": "sass --load-path=node_modules --no-source-map --style=compressed src/components/AppHeader/_AppHeader.scss dist/app-header.css",
     "build:css-banner": "sass --load-path=node_modules --no-source-map --style=compressed src/components/Banner/_Banner.scss dist/banner.css",
     "build:css-hero-video": "sass --load-path=node_modules --no-source-map --style=compressed src/components/HeroVideo/_HeroVideo.scss dist/hero-video.css",
+    "build:css-video-thumbnail": "sass --load-path=node_modules --no-source-map --style=compressed src/components/VideoThumbnail/_VideoThumbnail.scss dist/video-thumbnail.css",
     "build:css-brand-logo": "sass --load-path=node_modules --no-source-map --style=compressed src/components/BrandLogo/_BrandLogo.scss dist/brand-logo.css",
     "build:css-custom-quotes": "sass --load-path=node_modules --no-source-map --style=compressed src/components/CustomQuotes/_CustomQuotes.scss dist/custom-quotes.css",
     "build:css-content-modal": "sass --load-path=node_modules --no-source-map --style=compressed src/components/ContentModal/_ContentModal.scss dist/content-modal.css",
