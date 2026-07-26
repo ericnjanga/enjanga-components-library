@@ -15,5 +15,5 @@ export interface AH_propsType {
   brand: React.ReactNode;
   isHomeRoute: boolean;
   navigation: React.ReactNode;
-  globalBarItems: React.ReactNode;
+  globalBarItems?: React.ReactNode;
 }

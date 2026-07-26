@@ -23,7 +23,7 @@
  *   - Additional custom CSS classes to apply to the banner container.
  */
 
-import React, { useMemo } from "react";
+import React from "react";
 import clsx from "clsx";
 import { BNN_propsType } from "./libs/types";
 import { FeatureText } from "../FeatureText";
@@ -48,26 +48,16 @@ const Banner = ({
 }: BNN_propsType) => {
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
-  const hasBgImage = useMemo(() => isValidImageUrl(imgBgUrl), [imgBgUrl]);
-
-  const cssClasses = useMemo(
-    () =>
-      clsx("enj-Banner", className, {
-        "enj-Banner--isHuge": isHuge,
-        "enj-Banner--hasBgImage": hasBgImage,
-      }),
-    [className, isHuge, hasBgImage]
-  );
-
-  const Tag = useMemo(() => (role === "banner" ? "header" : "div"), [role]);
-
-  const wrapperStyle = useMemo(
-    () => ({
-      ...style,
-      ["--banner-bg-image" as any]: imgBgUrl ? `url(${imgBgUrl})` : undefined,
-    }),
-    [style, imgBgUrl]
-  );
+  const hasBgImage = isValidImageUrl(imgBgUrl);
+  const cssClasses = clsx("enj-Banner", className, {
+    "enj-Banner--isHuge": isHuge,
+    "enj-Banner--hasBgImage": hasBgImage,
+  });
+  const Tag = role === "banner" ? "header" : "div";
+  const wrapperStyle = {
+    ...style,
+    ["--banner-bg-image" as any]: imgBgUrl ? `url(${imgBgUrl})` : undefined,
+  };
 
   const textStyle = TEXT_WRAPPER_STYLE[activeBreakpoint] ?? undefined;
 
