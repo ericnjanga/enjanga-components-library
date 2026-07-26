@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
 import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
 import clsx from 'clsx';
+import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
 import { useContainerSize } from '@/libs/useContainerSize';
 import { VT_propsType } from './libs/types';
 
@@ -158,6 +159,16 @@ const VideoThumbnail = ({
             </h3>
           )}
 
+          {styleVariant === 'tilePost' && (
+            <h3 className="enj-VideoThumbnail-featuredTitle enj-postTile-title">{title}</h3>
+          )}
+
+          {styleVariant === 'tilePost' && (
+            <div className="enj-postTile-icon-wrapper">
+              <ArrowIcon className="enj-postTile-icon" title={title} name="Right" />
+            </div>
+          )}
+
           <div className="enj-VideoThumbnail-media">
             {hasPosterImage ? (
               <img
@@ -196,13 +207,9 @@ const VideoThumbnail = ({
             )}
           </div>
 
-          <h3
-            className={clsx('enj-VideoThumbnail-featuredTitle', {
-              'enj-postTile-title': styleVariant === 'tilePost',
-            })}
-          >
-            {title}
-          </h3>
+          {styleVariant === 'heroVideo' && (
+            <h3 className="enj-VideoThumbnail-featuredTitle">{title}</h3>
+          )}
 
           {(businessDomains.length > 0 || stackValues.length > 0) && (
             <div className="enj-VideoThumbnail-meta">
@@ -231,6 +238,7 @@ const VideoThumbnail = ({
               )}
             </div>
           )}
+
         </button>
       </section>
 

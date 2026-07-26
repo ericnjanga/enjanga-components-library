@@ -184,7 +184,7 @@
       }
 
       .enj-VideoThumbnail-image {
-        transform: none;
+        transform: scale(1.025);
       }
 
       .enj-VideoThumbnail-playIcon {
@@ -195,7 +195,7 @@
     }
   }
 
-  .enj-VideoThumbnail-media {
+  .enj-VideoThumbnail-featuredTitle {
     margin-bottom: var(--enj-h3-mb, 0.75rem);
   }
 
@@ -204,9 +204,34 @@
     text-align: left;
   }
 
+  &.enj-VideoThumbnail-featuredObject {
+    .enj-postTile-icon {
+      margin-top: 0;
+    }
+
+    .enj-postTile-icon-wrapper {
+      margin-bottom: var(--enj-h3-mb, 0.75rem);
+    }
+  }
+
   .enj-VideoThumbnail-metaGroup,
   .enj-VideoThumbnail-metaList {
     justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enj-VideoThumbnail--tilePost {
+    .enj-VideoThumbnail-image {
+      transition: none;
+    }
+
+    .enj-VideoThumbnail-card:hover,
+    .enj-VideoThumbnail-card:focus-visible {
+      .enj-VideoThumbnail-image {
+        transform: none;
+      }
+    }
   }
 }
 

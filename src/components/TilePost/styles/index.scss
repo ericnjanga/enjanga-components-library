@@ -36,6 +36,11 @@
   .enj-FeatureText {
     @include mixins.PTL-richTextDefaults;
   }
+
+  .enj-postTile-title {
+    font-size: 1.25rem;
+    line-height: 1.35;
+  }
 }
 
 .enj-postTile {
