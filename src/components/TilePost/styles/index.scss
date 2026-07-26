@@ -43,7 +43,8 @@
   }
 }
 
-.enj-postTile[role="button"] {
+.enj-postTile[role="button"],
+a.enj-postTile {
   display: block;
   @include mixins.PTL-hover;
 

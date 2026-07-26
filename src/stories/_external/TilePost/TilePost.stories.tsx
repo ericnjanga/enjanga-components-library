@@ -29,13 +29,9 @@ export const Default: Story = {
     ];
 
     const handleTileClick = () => {
-      const randomUrl = randomUrls[Math.floor(Math.random() * randomUrls.length)];
+      const randomUrl =
+        randomUrls[Math.floor(Math.random() * randomUrls.length)];
       window.location.assign(randomUrl);
-    };
-
-    const argsCards_Default = {
-      ...argsPostTile.default,
-      onClick: handleTileClick,
     };
 
     return (
@@ -45,17 +41,31 @@ export const Default: Story = {
 
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>Default</span>
-            <TilePost {...argsCards_Default} />
+            <TilePost
+              {...argsPostTile.default}
+              linksTo="https://www.ibm.com"
+              linkTarget="_blank"
+            />
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>IBM® Engineering Lifecycle Optimization Engineering Insights</span>
-            <TilePost {...argsPostTile.engineeringInsights} onClick={handleTileClick} />
+            <span style={{ ...styleHeadingLabel }}>
+              IBM® Engineering Lifecycle Optimization Engineering Insights
+            </span>
+            <TilePost
+              {...argsPostTile.engineeringInsights}
+              onClick={handleTileClick}
+            />
           </div>
 
           <div style={{ marginBottom: '2.5rem' }}>
-            <span style={{ ...styleHeadingLabel }}>IBM® Knowledge Catalog Premium</span>
-            <TilePost {...argsPostTile.knowledgeCatalogPremium} onClick={handleTileClick} />
+            <span style={{ ...styleHeadingLabel }}>
+              IBM® Knowledge Catalog Premium
+            </span>
+            <TilePost
+              {...argsPostTile.knowledgeCatalogPremium}
+              onClick={handleTileClick}
+            />
           </div>
         </section>
       </div>
