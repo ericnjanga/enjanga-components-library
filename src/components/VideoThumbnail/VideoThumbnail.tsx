@@ -199,7 +199,11 @@ const VideoThumbnail = ({
                 alt={posterAsset.description || posterAsset.title || title}
                 width={posterAsset.width}
                 height={posterAsset.height}
-                loading="lazy"
+                loading={styleVariant === "heroVideo" ? "eager" : "lazy"}
+                fetchPriority={
+                  styleVariant === "heroVideo" ? "high" : undefined
+                }
+                decoding="async"
               />
             ) : hasVideo ? (
               <video
