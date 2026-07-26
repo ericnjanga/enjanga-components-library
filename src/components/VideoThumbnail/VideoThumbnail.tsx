@@ -55,7 +55,7 @@ const VideoThumbnail = ({
   showHeading = false,
   styleVariant = "tilePost",
   controls = true,
-  autoPlay = false,
+  autoPlay = true,
   loop = false,
   muted = false,
   caseStudyHref,
@@ -67,7 +67,7 @@ const VideoThumbnail = ({
   const modalVideoRef = useRef<HTMLVideoElement | null>(null);
   const modalOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const resolvedAriaLabel =
-    ariaLabel || `Open featured case study for ${title}`;
+    ariaLabel || `Play case study preview for ${title}`;
 
   const handleLoadedMetadata: React.ReactEventHandler<HTMLVideoElement> = (
     event
@@ -116,39 +116,47 @@ const VideoThumbnail = ({
       return;
     }
 
-    const videoElement = modalVideoRef.current;
-    if (!videoElement) {
-      return;
-    }
+    const openDelay = isSafariBrowser() ? 150 : 350;
+    let videoElement: HTMLVideoElement | null = null;
+    let handleCanPlay: (() => void) | undefined;
 
-    videoElement.load();
-
-    const openDelay = isSafariBrowser() ? 0 : 500;
-
-    modalOpenTimerRef.current = setTimeout(() => {
-      const latestVideoElement = modalVideoRef.current;
-      if (!latestVideoElement) {
+    const startPlayback = (mountAttempt = 0) => {
+      videoElement = modalVideoRef.current;
+      if (!videoElement) {
+        if (mountAttempt < 10) {
+          modalOpenTimerRef.current = setTimeout(
+            () => startPlayback(mountAttempt + 1),
+            50
+          );
+        }
         return;
       }
 
-      if (latestVideoElement.readyState >= 2) {
-        attemptPlay(latestVideoElement);
+      videoElement.load();
+
+      if (videoElement.readyState >= 2) {
+        attemptPlay(videoElement);
         return;
       }
 
-      const handleCanPlay = () => {
-        attemptPlay(latestVideoElement);
+      handleCanPlay = () => {
+        if (videoElement) attemptPlay(videoElement);
       };
 
-      latestVideoElement.addEventListener("canplay", handleCanPlay, {
+      videoElement.addEventListener("canplay", handleCanPlay, {
         once: true,
       });
-    }, openDelay);
+    };
+
+    modalOpenTimerRef.current = setTimeout(startPlayback, openDelay);
 
     return () => {
       if (modalOpenTimerRef.current) {
         clearTimeout(modalOpenTimerRef.current);
         modalOpenTimerRef.current = null;
+      }
+      if (videoElement && handleCanPlay) {
+        videoElement.removeEventListener("canplay", handleCanPlay);
       }
     };
   }, [autoPlay, hasVideo, isModalOpen]);
@@ -167,6 +175,7 @@ const VideoThumbnail = ({
             "enj-postTile--has-icon": styleVariant === "tilePost",
             [`enj-postTile-${activeBreakpoint}`]: styleVariant === "tilePost",
           })}
+          onClick={handleCardClick}
         >
           {showHeading && (
             <h3 className="enj-VideoThumbnail-featuredObject-title">
@@ -280,7 +289,6 @@ const VideoThumbnail = ({
           <button
             type="button"
             className="enj-VideoThumbnail-action"
-            onClick={handleCardClick}
             aria-label={resolvedAriaLabel}
             aria-haspopup="dialog"
             aria-expanded={isModalOpen}
@@ -307,7 +315,6 @@ const VideoThumbnail = ({
                 ref={modalVideoRef}
                 className="enj-VideoThumbnail-modalVideo"
                 controls={controls}
-                autoPlay={autoPlay}
                 loop={loop}
                 muted={muted}
                 playsInline

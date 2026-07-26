@@ -62,7 +62,7 @@ const HeroVideo = ({
   informationBlock,
   featuredObject,
   controls = true,
-  autoPlay = false,
+  autoPlay = true,
   loop = false,
   muted = false,
   role = 'banner',
@@ -125,7 +125,7 @@ const HeroVideo = ({
           loop={loop}
           muted={muted}
           caseStudyHref={caseStudyHref}
-          ariaLabel={`Open featured case study for ${featuredObject.title}`}
+          ariaLabel={`Play case study preview for ${featuredObject.title}`}
         />
       </div>
     </Tag>
