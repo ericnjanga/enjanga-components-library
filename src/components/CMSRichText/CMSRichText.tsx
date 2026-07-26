@@ -7,7 +7,7 @@
  *
  * @param {string} [className] - Optional custom CSS class to style the wrapper `<article>`
  * @param {data.json} [className] - ...
- * @returns {JSX.Element} A rendered block of Contentful rich text or a skeleton placeholder.
+ * @returns {JSX.Element | null} A rendered block of Contentful rich text.
  *
  * @example
  * <CMSRichText
@@ -23,7 +23,6 @@
  */
 
 import { renderContentfulNode } from "@/utils/renderContentfulNode";
-import CMSRichTextSkeleton from "./parts/CMSRichTextSkeleton";
 import clsx from "clsx";
 import type { Node } from "@contentful/rich-text-types";
 import { CRT_propsType } from "./libs/types";
@@ -33,16 +32,16 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
   const activeLang = "en"; // (soon)
 
   if (!data) {
-    return <CMSRichTextSkeleton />;
+    return null;
   }
 
   // 🔑 Build asset lookup map
   const assetsMap: Record<
     string,
-    { 
-      sys: { id: string }; 
-      url: string; 
-      title: string; 
+    {
+      sys: { id: string };
+      url: string;
+      title: string;
       description?: string;
       width: number;
       height: number;
@@ -54,7 +53,10 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
   });
 
   // Build entry lookup map for all inline entry link variants.
-  const entriesMap: Record<string, { sys: { id: string }; __typename: string; slug: string }> = {};
+  const entriesMap: Record<
+    string,
+    { sys: { id: string }; __typename: string; slug: string }
+  > = {};
 
   data.links?.entries?.inline?.forEach((entry) => {
     entriesMap[entry.sys.id] = entry;
@@ -71,7 +73,10 @@ const CMSRichText = ({ data, className }: CRT_propsType) => {
   return (
     <article className={clsx("enj-CMSRichText", className)}>
       {data.json?.content?.map((node: Node, index: number) =>
-        renderContentfulNode(node, `node-${index}`, { assets: assetsMap, entries: entriesMap })
+        renderContentfulNode(node, `node-${index}`, {
+          assets: assetsMap,
+          entries: entriesMap,
+        })
       )}
     </article>
   );

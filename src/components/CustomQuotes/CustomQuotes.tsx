@@ -6,7 +6,6 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { Quotes } from "@carbon/icons-react";
-import { SkeletonAnimation } from "../SkeletonAnimation";
 import { CQ_propsType, CQ_quote_propsType } from "./libs/types";
 import { getRandomQuote } from "./libs/functionUtils";
 import { CMSRichText } from "../CMSRichText";
@@ -71,22 +70,15 @@ const CustomQuotes = ({
     return () => clearInterval(intervalId);
   }, [isPaused, prefersReducedMotion, quotes, rotationTimer]);
 
-  /**
-   * Show skeleton if there are no quotes yet.
-   */
   if (!quotes || quotes.length === 0) {
-    return <SkeletonAnimation part="body" />;
+    return null;
   }
 
   return (
     <div className={clsx(className, "custom-quotes")}>
       <Quotes className="custom-quotes__icon" aria-hidden="true" />
       <blockquote className="custom-quotes__text">
-        {currentQuote ? (
-          <CMSRichText data={currentQuote.description} />
-        ) : (
-          <SkeletonAnimation part="body" />
-        )}
+        {currentQuote ? <CMSRichText data={currentQuote.description} /> : null}
       </blockquote>
       {quotes.length > 1 && !prefersReducedMotion && (
         <button

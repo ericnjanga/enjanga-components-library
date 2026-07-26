@@ -4,25 +4,22 @@
  * Can be ordered or unordered
  * Each item of the list is rendered by an external component
  *
- * ### Performance Optimization
- * - Use `MemoizedList` if the component re-renders frequently with the same props.
- * - Use `List` (default) if props change often or memoization isn't needed.
+ * Loading presentation is intentionally owned by the consuming application.
  */
-import clsx from 'clsx';
-import { ListItem } from '../ListItem';
-import { LST_propsType } from './libs/types';
-import { LIT_propsType } from '@/components/ListItem/libs/types';
-import { SkeletonAnimation } from '../SkeletonAnimation';
+import clsx from "clsx";
+import { ListItem } from "../ListItem";
+import { LST_propsType } from "./libs/types";
+import { LIT_propsType } from "@/components/ListItem/libs/types";
 
-const List = ({ type = 'unordered', className, content }: LST_propsType) => {
-  const ListWrapper = type === 'unordered' ? 'ul' : 'ol'; // Dynamically creating the list tag
+const List = ({ type = "unordered", className, content }: LST_propsType) => {
+  const ListWrapper = type === "unordered" ? "ul" : "ol"; // Dynamically creating the list tag
 
   if (!content || content.length < 1) {
-    return <SkeletonAnimation part="list" />;
+    return null;
   }
 
   return (
-    <ListWrapper className={clsx('enj-list', className)}>
+    <ListWrapper className={clsx("enj-list", className)}>
       {content.map((item: LIT_propsType) => {
         return (
           <ListItem

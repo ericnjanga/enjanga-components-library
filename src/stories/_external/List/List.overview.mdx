@@ -1,26 +1,69 @@
-import { Meta, Title, Subtitle, Description, Primary, Controls, ArgsTable, Stories, Canvas } from '@storybook/blocks';
-import * as ListStories from './List.stories'; // Relative import
-import List from '../../../components/List/List';
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  ArgsTable,
+  Stories,
+  Canvas,
+} from "@storybook/blocks";
+import * as ListStories from "./List.stories"; // Relative import
+import List from "../../../components/List/List";
 
 <Meta of={ListStories} />
 
 <Title />
 
-
-
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
   ## Table of Contents
-  <ul style={{ position: 'relative', zIndex: '10' }}>
-    <li><a href="#purpose-what-is-it" target="_self">Purpose / What it is?</a></li>
-    <li><a href="#when-to-use" target="_self">When to use</a></li>
-    <li><a href="#when-not-to-use" target="_self">When not to use</a></li>
-    <li><a href="#features" target="_self">Features</a></li>
-    <li><a href="#design-reference" target="_self">Design reference</a></li>
-    <li><a href="#accessibility" target="_self">Accessibility (A11y)</a></li>
-    <li><a href="#api-reference" target="_self">API Reference</a></li>
-  </ul> 
+  <ul style={{ position: "relative", zIndex: "10" }}>
+    <li>
+      <a href="#purpose-what-is-it" target="_self">
+        Purpose / What it is?
+      </a>
+    </li>
+    <li>
+      <a href="#when-to-use" target="_self">
+        When to use
+      </a>
+    </li>
+    <li>
+      <a href="#when-not-to-use" target="_self">
+        When not to use
+      </a>
+    </li>
+    <li>
+      <a href="#features" target="_self">
+        Features
+      </a>
+    </li>
+    <li>
+      <a href="#design-reference" target="_self">
+        Design reference
+      </a>
+    </li>
+    <li>
+      <a href="#accessibility" target="_self">
+        Accessibility (A11y)
+      </a>
+    </li>
+    <li>
+      <a href="#api-reference" target="_self">
+        API Reference
+      </a>
+    </li>
+  </ul>
 </div>
-
 
 <div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
   <h2 id="purpose-what-is-it" style={{ position: 'relative' }}>📌 Purpose / What it is?</h2>  
@@ -28,73 +71,253 @@ import List from '../../../components/List/List';
 
   <Primary /> 
 </div>
-  
 
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="when-to-use" style={{ position: 'relative' }}>✅ When to Use</h2> 
+
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
+  <h2 id="when-to-use" style={{ position: "relative" }}>
+    ✅ When to Use
+  </h2>
   <ul data-start="501" data-end="750">
-  <li data-start="501" data-end="595">
-  <p data-start="503" data-end="595">When you need to display a <strong data-start="530" data-end="554">set of related items</strong> in either ordered or unordered format.</p>
-  </li>
-  <li data-start="596" data-end="668">
-  <p data-start="598" data-end="668">For navigation, bullet lists, numbered steps, or grouped text items.</p>
-  </li>
-  <li data-start="669" data-end="750">
-  <p data-start="671" data-end="750">When you want to enforce <strong data-start="696" data-end="718">consistent styling</strong> across lists in your project.</p>
-  </li>
+    <li data-start="501" data-end="595">
+      <p data-start="503" data-end="595">
+        When you need to display a{" "}
+        <strong data-start="530" data-end="554">
+          set of related items
+        </strong>{" "}
+        in either ordered or unordered format.
+      </p>
+    </li>
+    <li data-start="596" data-end="668">
+      <p data-start="598" data-end="668">
+        For navigation, bullet lists, numbered steps, or grouped text items.
+      </p>
+    </li>
+    <li data-start="669" data-end="750">
+      <p data-start="671" data-end="750">
+        When you want to enforce{" "}
+        <strong data-start="696" data-end="718">
+          consistent styling
+        </strong>{" "}
+        across lists in your project.
+      </p>
+    </li>
   </ul>
 </div>
 
-
-
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="when-not-to-use" style={{ position: 'relative' }}>❌ When not to use</h2>
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
+  <h2 id="when-not-to-use" style={{ position: "relative" }}>
+    ❌ When not to use
+  </h2>
   <ul data-start="784" data-end="1093">
-  <li data-start="784" data-end="875">
-  <p data-start="786" data-end="875">Do not use for <strong data-start="801" data-end="836">complex interactive collections</strong> (e.g., dropdown menus, data tables).</p>
-  </li>
-  <li data-start="876" data-end="968">
-  <p data-start="878" data-end="968">Avoid using for <strong data-start="894" data-end="918">grid or card layouts</strong>; use <code data-start="924" data-end="930">Grid</code> or <code data-start="934" data-end="946">CustomTile</code> components instead.</p>
-  </li>
-  <li data-start="969" data-end="1093">
-  <p data-start="971" data-end="1093">Do not replace semantic lists with this component if the content isn’t inherently a list (e.g., paragraphs or headings).</p>
-  </li>
+    <li data-start="784" data-end="875">
+      <p data-start="786" data-end="875">
+        Do not use for{" "}
+        <strong data-start="801" data-end="836">
+          complex interactive collections
+        </strong>{" "}
+        (e.g., dropdown menus, data tables).
+      </p>
+    </li>
+    <li data-start="876" data-end="968">
+      <p data-start="878" data-end="968">
+        Avoid using for{" "}
+        <strong data-start="894" data-end="918">
+          grid or card layouts
+        </strong>
+        ; use{" "}
+        <code data-start="924" data-end="930">
+          Grid
+        </code>{" "}
+        or{" "}
+        <code data-start="934" data-end="946">
+          CustomTile
+        </code>{" "}
+        components instead.
+      </p>
+    </li>
+    <li data-start="969" data-end="1093">
+      <p data-start="971" data-end="1093">
+        Do not replace semantic lists with this component if the content isn’t
+        inherently a list (e.g., paragraphs or headings).
+      </p>
+    </li>
   </ul>
 </div>
 
-
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="features" style={{ position: 'relative' }}>✨ Features</h2>
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
+  <h2 id="features" style={{ position: "relative" }}>
+    ✨ Features
+  </h2>
   <ul data-start="1120" data-end="1495">
-  <li data-start="1120" data-end="1203">
-  <p data-start="1122" data-end="1203">Supports <strong data-start="1131" data-end="1144">unordered</strong> (<code data-start="1146" data-end="1150">ul</code>) and <strong data-start="1156" data-end="1167">ordered</strong> (<code data-start="1169" data-end="1173">ol</code>) lists via the <code data-start="1189" data-end="1195">type</code> prop.</p>
-  </li>
-  <li data-start="1204" data-end="1288">
-  <p data-start="1206" data-end="1288">Accepts an array of <code data-start="1226" data-end="1235">content</code> items, each rendered via the <code data-start="1265" data-end="1275">ListItem</code> component.</p>
-  </li>
-  <li data-start="1289" data-end="1346">
-  <p data-start="1291" data-end="1346">Built-in <strong data-start="1300" data-end="1317">loading state</strong> using <code data-start="1324" data-end="1343">SkeletonAnimation</code>.</p>
-  </li>
-  <li data-start="1347" data-end="1425">
-  <p data-start="1349" data-end="1425">Fully supports <strong data-start="1364" data-end="1373">links</strong>, custom classes, and child elements in each item.</p>
-  </li>
-  <li data-start="1426" data-end="1495">
-  <p data-start="1428" data-end="1495">Accessible markup (semantic <code data-start="1456" data-end="1462">&lt;ul&gt;</code>, <code data-start="1464" data-end="1470">&lt;ol&gt;</code>, and <code data-start="1476" data-end="1482">&lt;li&gt;</code> elements).</p>
-  </li>
+    <li data-start="1120" data-end="1203">
+      <p data-start="1122" data-end="1203">
+        Supports{" "}
+        <strong data-start="1131" data-end="1144">
+          unordered
+        </strong>{" "}
+        (
+        <code data-start="1146" data-end="1150">
+          ul
+        </code>
+        ) and{" "}
+        <strong data-start="1156" data-end="1167">
+          ordered
+        </strong>{" "}
+        (
+        <code data-start="1169" data-end="1173">
+          ol
+        </code>
+        ) lists via the{" "}
+        <code data-start="1189" data-end="1195">
+          type
+        </code>{" "}
+        prop.
+      </p>
+    </li>
+    <li data-start="1204" data-end="1288">
+      <p data-start="1206" data-end="1288">
+        Accepts an array of{" "}
+        <code data-start="1226" data-end="1235">
+          content
+        </code>{" "}
+        items, each rendered via the{" "}
+        <code data-start="1265" data-end="1275">
+          ListItem
+        </code>{" "}
+        component.
+      </p>
+    </li>
+    <li data-start="1289" data-end="1346">
+      <p data-start="1291" data-end="1346">
+        Returns no markup for an empty collection so the consuming application
+        can provide the appropriate loading or empty state.
+      </p>
+    </li>
+    <li data-start="1347" data-end="1425">
+      <p data-start="1349" data-end="1425">
+        Fully supports{" "}
+        <strong data-start="1364" data-end="1373">
+          links
+        </strong>
+        , custom classes, and child elements in each item.
+      </p>
+    </li>
+    <li data-start="1426" data-end="1495">
+      <p data-start="1428" data-end="1495">
+        Accessible markup (semantic{" "}
+        <code data-start="1456" data-end="1462">
+          &lt;ul&gt;
+        </code>
+        ,{" "}
+        <code data-start="1464" data-end="1470">
+          &lt;ol&gt;
+        </code>
+        , and{" "}
+        <code data-start="1476" data-end="1482">
+          &lt;li&gt;
+        </code>{" "}
+        elements).
+      </p>
+    </li>
   </ul>
 </div>
 
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="design-reference" style={{ position: 'relative' }}>Design reference</h2>
-  <div><a href="https://www.figma.com/design/FcQnKvrSyOVvEo893vQOLL/2025-Portfolio---Solution-Engineer?node-id=13-85&t=cCGyGC2gZg13ZtBr-1" target="_blank">Design files (Figma)</a></div>
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
+  <h2 id="design-reference" style={{ position: "relative" }}>
+    Design reference
+  </h2>
+  <div>
+    <a
+      href="https://www.figma.com/design/FcQnKvrSyOVvEo893vQOLL/2025-Portfolio---Solution-Engineer?node-id=13-85&t=cCGyGC2gZg13ZtBr-1"
+      target="_blank"
+    >
+      Design files (Figma)
+    </a>
+  </div>
 </div>
 
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="accessibility" style={{ position: 'relative' }}>Accessibility (A11y)</h2>
-  <p>Accessibility depends on semantic usage of internal components, which is determined by the consumer’s implementation (e.g., heading levels, text alternatives). This component itself does not enforce accessibility patterns. Testing should be performed within the consuming application using tools such as <a href="https://developer.chrome.com/docs/lighthouse/overview" target="_blank">Lighthouse</a>, <a href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1" target="_blank">AXE</a>, or <a href="https://wave.webaim.org/" target="_blank">WAVE</a> to ensure compliance with WCAG guidelines.</p>
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
+  <h2 id="accessibility" style={{ position: "relative" }}>
+    Accessibility (A11y)
+  </h2>
+  <p>
+    Accessibility depends on semantic usage of internal components, which is
+    determined by the consumer’s implementation (e.g., heading levels, text
+    alternatives). This component itself does not enforce accessibility
+    patterns. Testing should be performed within the consuming application using
+    tools such as{" "}
+    <a
+      href="https://developer.chrome.com/docs/lighthouse/overview"
+      target="_blank"
+    >
+      Lighthouse
+    </a>
+    ,{" "}
+    <a
+      href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1"
+      target="_blank"
+    >
+      AXE
+    </a>
+    , or{" "}
+    <a href="https://wave.webaim.org/" target="_blank">
+      WAVE
+    </a>{" "}
+    to ensure compliance with WCAG guidelines.
+  </p>
 </div>
 
-<div style={{ position: 'relative', paddingTop: '50px', marginTop: '-50px', zIndex: '1', marginBottom: '60px' }}>
-  <h2 id="api-reference" style={{ position: 'relative' }}>API Reference</h2> 
+<div
+  style={{
+    position: "relative",
+    paddingTop: "50px",
+    marginTop: "-50px",
+    zIndex: "1",
+    marginBottom: "60px",
+  }}
+>
+  <h2 id="api-reference" style={{ position: "relative" }}>
+    API Reference
+  </h2>
   <Controls />
 </div>

@@ -1,15 +1,14 @@
-import { HDG_propsType } from './libs/types';
-import { SkeletonAnimation } from '../SkeletonAnimation';
-import { CustomPictogram } from '../CustomPictogram';
+import { HDG_propsType } from "./libs/types";
+import { CustomPictogram } from "../CustomPictogram";
 
 const Heading = ({
   level = 1,
   children,
-  className = '',
+  className = "",
   pictogramName,
 }: HDG_propsType) => {
   if (children === undefined) {
-    return <SkeletonAnimation part="heading" />;
+    return null;
   }
 
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;

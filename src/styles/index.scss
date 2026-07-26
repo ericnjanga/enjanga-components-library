@@ -16,18 +16,12 @@
 // NOTE: This file is intended as the single place where new global or
 // component styles should be registered.
 
-
-
-
-
-
 /**
  * Global styles affect go beyond compnents' boundaries as they affect 
  * every DOM elements and have influence over patterns found everywhere.
 */
-@use '../styles/utilities/grid-system.scss';
-@use '../styles/global/typography';
-@use '../styles/global/skeleton-loading-animation';
+@use "../styles/utilities/grid-system.scss";
+@use "../styles/global/typography";
 
 /**
  * Component-level styles deal mostly with structure and layout. It is
@@ -35,17 +29,17 @@
  * classes to the component using "className" prop
  * 
 */
-@use '../components/AppHeader/AppHeader';
-@use '../components/Banner/Banner';
-@use '../components/HeroVideo/HeroVideo';
-@use '../components/VideoThumbnail/VideoThumbnail';
-@use '../components/BrandLogo/BrandLogo';
-@use '../components/CustomQuotes/CustomQuotes';
-@use '../components/ContentModal/ContentModal';
-@use '../components/TileVariants/styles/index' as tileVariants;
-@use '../components/TileBanner/styles/index' as tileBanner;
-@use '../components/TilePost/styles/index' as tilePost;
-@use '../components/TilePictogram/styles/index' as tilePictogram;
-@use '../components/TileValue/styles/index' as tileValue;
-@use '../components/List/List';
-@use '../components/CMSRichText/styles/index' as CMSRichText;
+@use "../components/AppHeader/AppHeader";
+@use "../components/Banner/Banner";
+@use "../components/HeroVideo/HeroVideo";
+@use "../components/VideoThumbnail/VideoThumbnail";
+@use "../components/BrandLogo/BrandLogo";
+@use "../components/CustomQuotes/CustomQuotes";
+@use "../components/ContentModal/ContentModal";
+@use "../components/TileVariants/styles/index" as tileVariants;
+@use "../components/TileBanner/styles/index" as tileBanner;
+@use "../components/TilePost/styles/index" as tilePost;
+@use "../components/TilePictogram/styles/index" as tilePictogram;
+@use "../components/TileValue/styles/index" as tileValue;
+@use "../components/List/List";
+@use "../components/CMSRichText/styles/index" as CMSRichText;
