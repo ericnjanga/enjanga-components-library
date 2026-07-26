@@ -4,15 +4,9 @@
  * The ContactModal is a modal dialog that provides users with a quick way to submit their name, email, and a message. It combines the Carbon Design System’s Modal, Form, TextInput, and TextArea components into a prebuilt contact form.
  */
 
-import {
-  Modal,
-  TextInput,
-  TextArea,
-  Form,
-  FormGroup,
-  Stack,
-} from '@carbon/react';
-import { ContactM_propsType } from './libs/types';
+import { Modal, TextInput, TextArea, Form, Stack } from "@carbon/react";
+import { ContactM_propsType } from "./libs/types";
+import { useId, useRef } from "react";
 
 const ContactModal = ({
   isOpen,
@@ -23,6 +17,9 @@ const ContactModal = ({
   modalPrimaryButtonText,
   modalSecondaryButtonText,
 }: ContactM_propsType) => {
+  const formId = useId();
+  const formRef = useRef<HTMLFormElement>(null);
+
   return (
     <Modal
       open={isOpen}
@@ -32,39 +29,39 @@ const ContactModal = ({
       secondaryButtonText={modalSecondaryButtonText}
       onRequestClose={() => setIsOpen(false)}
       onRequestSubmit={() => {
-        console.log('Form submitted');
+        if (!formRef.current?.reportValidity()) return;
         setIsOpen(false);
       }}
     >
-      <p style={{ marginBottom: '1rem' }}>{modalSubHeading}</p>
-      <Form>
+      <p style={{ marginBottom: "1rem" }}>{modalSubHeading}</p>
+      <Form ref={formRef}>
         <Stack gap={5}>
-          <FormGroup legendText="">
-            <TextInput
-              id="name"
-              labelText="Name"
-              placeholder="Enter your name"
-              required
-            />
-          </FormGroup>
-          <FormGroup legendText="">
-            <TextInput
-              id="email"
-              labelText="Email"
-              placeholder="Enter your email"
-              required
-              type="email"
-            />
-          </FormGroup>
-          <FormGroup legendText="">
-            <TextArea
-              id="message"
-              labelText="Message"
-              placeholder="Enter your message"
-              required
-              rows={4}
-            />
-          </FormGroup>
+          <TextInput
+            id={`${formId}-name`}
+            name="name"
+            autoComplete="name"
+            labelText="Name"
+            placeholder="Enter your name"
+            required
+          />
+          <TextInput
+            id={`${formId}-email`}
+            name="email"
+            autoComplete="email"
+            labelText="Email"
+            placeholder="Enter your email"
+            required
+            type="email"
+          />
+          <TextArea
+            id={`${formId}-message`}
+            name="message"
+            autoComplete="off"
+            labelText="Message"
+            placeholder="Enter your message"
+            required
+            rows={4}
+          />
         </Stack>
       </Form>
     </Modal>

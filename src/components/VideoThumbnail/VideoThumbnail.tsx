@@ -1,14 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
-import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
-import clsx from 'clsx';
-import { ArrowIcon } from '@/components/ArrowIcon/ArrowIcon';
-import { useContainerSize } from '@/libs/useContainerSize';
-import { VT_propsType } from './libs/types';
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Button,
+  ComposedModal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from "@carbon/react";
+import { PlayFilledAlt, StarFilled } from "@carbon/icons-react";
+import clsx from "clsx";
+import { ArrowIcon } from "@/components/ArrowIcon/ArrowIcon";
+import { useContainerSize } from "@/libs/useContainerSize";
+import { VT_propsType } from "./libs/types";
 
 const formatDuration = (durationInSeconds?: number): string => {
-  if (!durationInSeconds || Number.isNaN(durationInSeconds) || durationInSeconds <= 0) {
-    return '00:00';
+  if (
+    !durationInSeconds ||
+    Number.isNaN(durationInSeconds) ||
+    durationInSeconds <= 0
+  ) {
+    return "00:00";
   }
 
   const roundedSeconds = Math.floor(durationInSeconds);
@@ -17,16 +27,20 @@ const formatDuration = (durationInSeconds?: number): string => {
   const seconds = roundedSeconds % 60;
 
   if (hours > 0) {
-    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(
-      seconds
-    ).padStart(2, '0')}`;
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(seconds).padStart(2, "0")}`;
   }
 
-  return `${String(minutes).padStart(2, '0')} min ${String(seconds).padStart(2, '0')} sec`;
+  return `${String(minutes).padStart(2, "0")} min ${String(seconds).padStart(
+    2,
+    "0"
+  )} sec`;
 };
 
 const isSafariBrowser = () => {
-  if (typeof navigator === 'undefined') return false;
+  if (typeof navigator === "undefined") return false;
   return /^((?!chrome|chromium|android).)*safari/i.test(navigator.userAgent);
 };
 
@@ -39,7 +53,7 @@ const VideoThumbnail = ({
   businessDomains = [],
   stackValues = [],
   showHeading = false,
-  styleVariant = 'tilePost',
+  styleVariant = "tilePost",
   controls = true,
   autoPlay = false,
   loop = false,
@@ -49,12 +63,15 @@ const VideoThumbnail = ({
 }: VT_propsType) => {
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLElement>();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [videoDuration, setVideoDuration] = useState<string>('00:00');
+  const [videoDuration, setVideoDuration] = useState<string>("00:00");
   const modalVideoRef = useRef<HTMLVideoElement | null>(null);
   const modalOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const resolvedAriaLabel = ariaLabel || `Open featured case study for ${title}`;
+  const resolvedAriaLabel =
+    ariaLabel || `Open featured case study for ${title}`;
 
-  const handleLoadedMetadata: React.ReactEventHandler<HTMLVideoElement> = (event) => {
+  const handleLoadedMetadata: React.ReactEventHandler<HTMLVideoElement> = (
+    event
+  ) => {
     const duration = event.currentTarget.duration;
     setVideoDuration(formatDuration(duration));
   };
@@ -65,7 +82,7 @@ const VideoThumbnail = ({
 
   const attemptPlay = (videoElement: HTMLVideoElement, retryMuted = true) => {
     const playPromise = videoElement.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
+    if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {
         if (retryMuted && !videoElement.muted) {
           videoElement.muted = true;
@@ -90,12 +107,12 @@ const VideoThumbnail = ({
   };
 
   const handleReadFullCaseStudy = () => {
-    if (!caseStudyHref || typeof window === 'undefined') return;
+    if (!caseStudyHref || typeof window === "undefined") return;
     window.location.assign(caseStudyHref);
   };
 
   useEffect(() => {
-    if (!isModalOpen || !hasVideo) {
+    if (!isModalOpen || !hasVideo || !autoPlay) {
       return;
     }
 
@@ -123,7 +140,9 @@ const VideoThumbnail = ({
         attemptPlay(latestVideoElement);
       };
 
-      latestVideoElement.addEventListener('canplay', handleCanPlay, { once: true });
+      latestVideoElement.addEventListener("canplay", handleCanPlay, {
+        once: true,
+      });
     }, openDelay);
 
     return () => {
@@ -132,25 +151,22 @@ const VideoThumbnail = ({
         modalOpenTimerRef.current = null;
       }
     };
-  }, [hasVideo, isModalOpen]);
+  }, [autoPlay, hasVideo, isModalOpen]);
 
   return (
     <>
-      <section
+      <article
         ref={containerRef}
         className={`enj-VideoThumbnail-featuredObject enj-VideoThumbnail--${styleVariant}`}
       >
-        <button
-          type="button"
-          className={clsx('enj-VideoThumbnail-card', {
-            'enj-postTile': styleVariant === 'tilePost',
-            'enj-postTile--card': styleVariant === 'tilePost',
-            'enj-postTile--has-link': styleVariant === 'tilePost',
-            'enj-postTile--has-icon': styleVariant === 'tilePost',
-            [`enj-postTile-${activeBreakpoint}`]: styleVariant === 'tilePost',
+        <div
+          className={clsx("enj-VideoThumbnail-card", {
+            "enj-postTile": styleVariant === "tilePost",
+            "enj-postTile--card": styleVariant === "tilePost",
+            "enj-postTile--has-link": styleVariant === "tilePost",
+            "enj-postTile--has-icon": styleVariant === "tilePost",
+            [`enj-postTile-${activeBreakpoint}`]: styleVariant === "tilePost",
           })}
-          onClick={handleCardClick}
-          aria-label={resolvedAriaLabel}
         >
           {showHeading && (
             <h3 className="enj-VideoThumbnail-featuredObject-title">
@@ -159,13 +175,19 @@ const VideoThumbnail = ({
             </h3>
           )}
 
-          {styleVariant === 'tilePost' && (
-            <h3 className="enj-VideoThumbnail-featuredTitle enj-postTile-title">{title}</h3>
+          {styleVariant === "tilePost" && (
+            <h3 className="enj-VideoThumbnail-featuredTitle enj-postTile-title">
+              {title}
+            </h3>
           )}
 
-          {styleVariant === 'tilePost' && (
+          {styleVariant === "tilePost" && (
             <div className="enj-postTile-icon-wrapper">
-              <ArrowIcon className="enj-postTile-icon" title={title} name="Right" />
+              <ArrowIcon
+                className="enj-postTile-icon"
+                title={title}
+                name="Right"
+              />
             </div>
           )}
 
@@ -185,11 +207,14 @@ const VideoThumbnail = ({
                 muted
                 playsInline
                 preload="metadata"
-                aria-label={title || 'Featured video preview'}
+                aria-label={title || "Featured video preview"}
                 poster={posterAsset.url}
                 onLoadedMetadata={handleLoadedMetadata}
               >
-                <source src={videoAsset.url} type={videoAsset.contentType ?? 'video/mp4'} />
+                <source
+                  src={videoAsset.url}
+                  type={videoAsset.contentType ?? "video/mp4"}
+                />
               </video>
             ) : null}
 
@@ -197,7 +222,7 @@ const VideoThumbnail = ({
               <PlayFilledAlt />
             </span>
 
-            {videoDuration !== '00:00' && (
+            {videoDuration !== "00:00" && (
               <span
                 className="enj-VideoThumbnail-duration"
                 aria-label={`Video duration ${videoDuration}`}
@@ -207,7 +232,7 @@ const VideoThumbnail = ({
             )}
           </div>
 
-          {styleVariant === 'heroVideo' && (
+          {styleVariant === "heroVideo" && (
             <h3 className="enj-VideoThumbnail-featuredTitle">{title}</h3>
           )}
 
@@ -215,7 +240,10 @@ const VideoThumbnail = ({
             <div className="enj-VideoThumbnail-meta">
               {businessDomains.length > 0 && (
                 <div className="enj-VideoThumbnail-metaGroup">
-                  <ul className="enj-VideoThumbnail-metaList" aria-label="Business domains">
+                  <ul
+                    className="enj-VideoThumbnail-metaList"
+                    aria-label="Business domains"
+                  >
                     {businessDomains.map((domain) => (
                       <li key={domain} className="enj-VideoThumbnail-metaChip">
                         {domain}
@@ -227,9 +255,15 @@ const VideoThumbnail = ({
 
               {stackValues.length > 0 && (
                 <div className="enj-VideoThumbnail-metaGroup">
-                  <ul className="enj-VideoThumbnail-metaList" aria-label="Tech stack">
+                  <ul
+                    className="enj-VideoThumbnail-metaList"
+                    aria-label="Tech stack"
+                  >
                     {stackValues.map((stackValue) => (
-                      <li key={stackValue} className="enj-VideoThumbnail-metaChip">
+                      <li
+                        key={stackValue}
+                        className="enj-VideoThumbnail-metaChip"
+                      >
                         {stackValue}
                       </li>
                     ))}
@@ -239,8 +273,16 @@ const VideoThumbnail = ({
             </div>
           )}
 
-        </button>
-      </section>
+          <button
+            type="button"
+            className="enj-VideoThumbnail-action"
+            onClick={handleCardClick}
+            aria-label={resolvedAriaLabel}
+            aria-haspopup="dialog"
+            aria-expanded={isModalOpen}
+          />
+        </div>
+      </article>
 
       <ComposedModal
         open={isModalOpen}
@@ -248,7 +290,10 @@ const VideoThumbnail = ({
         size="md"
         className="enj-VideoThumbnail-modal"
       >
-        <ModalHeader title="Featured Case Study" closeModal={handleModalClose} />
+        <ModalHeader
+          title="Featured Case Study"
+          closeModal={handleModalClose}
+        />
 
         <ModalBody>
           <div className="enj-VideoThumbnail-modalBody">
@@ -264,10 +309,13 @@ const VideoThumbnail = ({
                 playsInline
                 preload="metadata"
                 poster={posterAsset.url}
-                aria-label={title || 'Featured video'}
+                aria-label={title || "Featured video"}
                 onLoadedMetadata={handleLoadedMetadata}
               >
-                <source src={videoAsset.url} type={videoAsset.contentType ?? 'video/mp4'} />
+                <source
+                  src={videoAsset.url}
+                  type={videoAsset.contentType ?? "video/mp4"}
+                />
                 Your browser does not support the video tag.
               </video>
             )}
@@ -280,7 +328,11 @@ const VideoThumbnail = ({
           <Button kind="secondary" onClick={handleModalClose}>
             Done
           </Button>
-          {caseStudyHref && <Button onClick={handleReadFullCaseStudy}>Read full case study</Button>}
+          {caseStudyHref && (
+            <Button onClick={handleReadFullCaseStudy}>
+              Read full case study
+            </Button>
+          )}
         </ModalFooter>
       </ComposedModal>
     </>

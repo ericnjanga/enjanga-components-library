@@ -1,1 +1,1 @@
-export const get_TBN_role = () => 'banner';
+export const get_TBN_role = () => "article";

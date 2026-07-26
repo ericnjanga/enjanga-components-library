@@ -97,6 +97,7 @@ const TileVariants = ({
   });
 
   const ctl_role = get_CTL_role({ layoutStyle });
+  const opensModal = Boolean(modalIsAvailable);
 
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
@@ -104,9 +105,22 @@ const TileVariants = ({
     <div className="enj-CustomTile-wrapper" ref={containerRef}>
       <Tile
         className={`${wrapperClassNames} ${className} enj-CustomTile-${activeBreakpoint}`}
-        aria-label={`${componentTitle} tile`}
-        role={ctl_role}
-        onClick={() => {
+        aria-label={
+          opensModal ? `Show details for ${componentTitle}` : undefined
+        }
+        role={opensModal ? "button" : ctl_role}
+        tabIndex={opensModal ? 0 : undefined}
+        aria-haspopup={opensModal ? "dialog" : undefined}
+        aria-expanded={opensModal ? Boolean(modalIsOpen) : undefined}
+        onClick={
+          opensModal
+            ? () => handleCustomTileClick({ modalIsAvailable, setModalIsOpen })
+            : undefined
+        }
+        onKeyDown={(event) => {
+          if (!opensModal || (event.key !== "Enter" && event.key !== " "))
+            return;
+          event.preventDefault();
           handleCustomTileClick({ modalIsAvailable, setModalIsOpen });
         }}
       >

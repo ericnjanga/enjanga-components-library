@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import { Sk_propsType } from './libs/types';
+import clsx from "clsx";
+import { Sk_propsType } from "./libs/types";
 
 const SkeletonListItem = () => (
   <div
@@ -13,18 +13,18 @@ const SkeletonListItem = () => (
 
 const SkeletonAnimation = ({ className, part }: Sk_propsType) => {
   return (
-    <>
-      {part === 'heading' && (
+    <div aria-hidden="true">
+      {part === "heading" && (
         <h1
           className={clsx(
             className,
-            'skeleton skeleton-title skeleton-bot-spacing-1'
+            "skeleton skeleton-title skeleton-bot-spacing-1"
           )}
           role="presentation"
         ></h1>
       )}
-      {part === 'body' && (
-        <div className={clsx(className, 'skeleton-text-wrapper')}>
+      {part === "body" && (
+        <div className={clsx(className, "skeleton-text-wrapper")}>
           {[1, 2, 3, 4].map((index) => (
             <p
               key={index}
@@ -34,19 +34,19 @@ const SkeletonAnimation = ({ className, part }: Sk_propsType) => {
           ))}
         </div>
       )}
-      {part === 'list' && (
-        <div className={clsx(className, 'skeleton-text-wrapper')}>
+      {part === "list" && (
+        <div className={clsx(className, "skeleton-text-wrapper")}>
           {[1, 2, 3].map((index) => (
             <SkeletonListItem key={index} />
           ))}
         </div>
       )}
-      {part === 'list-item' && (
-        <div className={clsx(className, 'skeleton-text-wrapper')}>
+      {part === "list-item" && (
+        <div className={clsx(className, "skeleton-text-wrapper")}>
           <SkeletonListItem />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

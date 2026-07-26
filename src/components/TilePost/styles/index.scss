@@ -1,5 +1,5 @@
-@use './utils/vars';
-@use './utils/mixins'; 
+@use "./utils/vars";
+@use "./utils/mixins";
 
 .enj-postTile {
   padding: 0;
@@ -9,7 +9,7 @@
 
   &::before {
     background: linear-gradient(90deg, #5354fa 0%, #9630f9 100%);
-    content: '';
+    content: "";
     inset: 0;
     opacity: 0;
     pointer-events: none;
@@ -32,7 +32,7 @@
   > .enj-postTile-link {
     margin-bottom: calc(var(--enj-PTL-card-pad) / 3);
   }
- 
+
   .enj-FeatureText {
     @include mixins.PTL-richTextDefaults;
   }
@@ -43,11 +43,24 @@
   }
 }
 
-.enj-postTile {
+.enj-postTile[role="button"] {
   display: block;
   @include mixins.PTL-hover;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     @include mixins.PTL-textLinkTheming-hover;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #0f62fe;
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enj-postTile,
+  .enj-postTile * {
+    transition: none !important;
   }
 }

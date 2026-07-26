@@ -1,6 +1,5 @@
-@use './utils/vars';
-@use './utils/mixins';
- 
+@use "./utils/vars";
+@use "./utils/mixins";
 
 .enj-PictogramTile {
   background-color: #e3ebf9; // TODO: Convert to enjanga-core-setup color token
@@ -9,7 +8,7 @@
 
   &::before {
     background: linear-gradient(90deg, #5354fa 0%, #9630f9 100%);
-    content: '';
+    content: "";
     inset: 0;
     opacity: 0;
     pointer-events: none;
@@ -27,7 +26,7 @@
   @include mixins.PGL-iconPositionning;
   @include mixins.PGL-iconTheming;
   @include mixins.PGL-padding; // Always a card by default
-  @include mixins.PGL-layout;  // Always has pictogram by default
+  @include mixins.PGL-layout; // Always has pictogram by default
 
   // Text & Link styling
   @include mixins.PGL-textLinkTheming;
@@ -40,16 +39,26 @@
   }
 }
 
-
-
 // Hover effect for non-link variants
 .enj-PictogramTile--has-modal,
 .enj-PictogramTile-has-hover-effect,
 .enj-PictogramTile-anchor-tag {
   display: block;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     @include mixins.PGL-hover;
     @include mixins.PGL-textLinkTheming-hover;
   }
 }
 
+.enj-PictogramTile[role="button"]:focus-visible {
+  outline: 3px solid #0f62fe;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enj-PictogramTile,
+  .enj-PictogramTile * {
+    transition: none !important;
+  }
+}

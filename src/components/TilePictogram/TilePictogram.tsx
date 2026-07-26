@@ -5,33 +5,32 @@
  * featured text. Optionally opens a modal when clicked if the
  * `modal` prop is provided.
  */
-import React, { useState } from 'react';
-import { Tile } from '@carbon/react';
+import React, { useState } from "react";
+import { Tile } from "@carbon/react";
 // Style and content builders
-import { getPictogramTileCSSClasses } from './lib/getPictogramTileCSSClasses';
-import { getTileContent } from './lib/getTileContent';
+import { getPictogramTileCSSClasses } from "./lib/getPictogramTileCSSClasses";
+import { getTileContent } from "./lib/getTileContent";
 
 // Types and helpers
-import { PGL_propsType } from './lib/types';
-import { handlePictogramTileClick } from './parts/utils';
+import { PGL_propsType } from "./lib/types";
+import { handlePictogramTileClick } from "./parts/utils";
 
 // Modal + text components used when `modal` prop is provided
-import { ContentModal } from '../ContentModal/ContentModal';
-import SmartText from '../SmartText/SmartText';
+import { ContentModal } from "../ContentModal/ContentModal";
+import SmartText from "../SmartText/SmartText";
 
 // Hook for component-specific responsive breakpoint
-import { usePictogramBreakpoint } from './hooks/usePictogramBreakpoint';
-import { validatePGL_propsType } from './lib/propsValidation';
-import { getHeadingContent } from './lib/getHeadingContent';
-import { get_PGL_role } from './lib/accessibility';
+import { usePictogramBreakpoint } from "./hooks/usePictogramBreakpoint";
+import { validatePGL_propsType } from "./lib/propsValidation";
+import { getHeadingContent } from "./lib/getHeadingContent";
+import { get_PGL_role } from "./lib/accessibility";
 
 const TilePictogram = ({
   className,
-  featuredText, 
+  featuredText,
   pictogram,
   modal,
-}: PGL_propsType) => { 
-
+}: PGL_propsType) => {
   // Validate props (placeholder for future param checks)
   validatePGL_propsType({ modal });
 
@@ -67,16 +66,26 @@ const TilePictogram = ({
   // wrapper and apply `activeClass` to change layout at small widths.
   const { containerRef, activeClass } = usePictogramBreakpoint();
 
-  const wrapperClassNames = `enj-PictogramTile-wrapper${className ? ` ${className}` : ''}`;
+  const wrapperClassNames = `enj-PictogramTile-wrapper${
+    className ? ` ${className}` : ""
+  }`;
 
   return (
     <div className={wrapperClassNames} ref={containerRef}>
       <Tile
         className={`${tileClassNames} ${activeClass}`}
-        aria-label={`${componentTitle} tile`}
-        role={pgl_role}
+        aria-label={modal ? `Show details for ${componentTitle}` : undefined}
+        role={modal ? "button" : pgl_role}
+        tabIndex={modal ? 0 : undefined}
+        aria-haspopup={modal ? "dialog" : undefined}
+        aria-expanded={modal ? Boolean(modalIsOpen) : undefined}
         // Clicking the tile triggers modal open when configured.
         onClick={() => {
+          handlePictogramTileClick({ modal, setModalIsOpen });
+        }}
+        onKeyDown={(event) => {
+          if (!modal || (event.key !== "Enter" && event.key !== " ")) return;
+          event.preventDefault();
           handlePictogramTileClick({ modal, setModalIsOpen });
         }}
       >

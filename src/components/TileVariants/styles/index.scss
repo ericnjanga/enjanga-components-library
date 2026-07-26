@@ -1,16 +1,16 @@
-@use './utils/vars';
-@use './utils/mixins';
+@use "./utils/vars";
+@use "./utils/mixins";
 
-@use './layouts/card';
-@use './layouts/banner';
+@use "./layouts/card";
+@use "./layouts/banner";
 
-@use './components/icon';
-@use './components/pictogram';
-@use './components/modal';
+@use "./components/icon";
+@use "./components/pictogram";
+@use "./components/modal";
 
-@use './variants/customTile-link';
-@use './variants/customTile-has-img';
-@use './variants/customTile-has-pictogram';
+@use "./variants/customTile-link";
+@use "./variants/customTile-has-img";
+@use "./variants/customTile-has-pictogram";
 
 .enj-CustomTile {
   background-color: #e3ebf9;
@@ -29,8 +29,21 @@
 .enj-CustomTile-anchor-tag,
 .enj-CustomTile--has-modal {
   display: block;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     @include mixins.CT-hover;
     @include mixins.CT-textLinkTheming-hover;
+  }
+}
+
+.enj-CustomTile[role="button"]:focus-visible {
+  outline: 3px solid #0f62fe;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enj-CustomTile,
+  .enj-CustomTile * {
+    transition: none !important;
   }
 }

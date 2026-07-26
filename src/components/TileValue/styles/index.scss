@@ -13,7 +13,7 @@
 
   &::before {
     background: linear-gradient(90deg, #5354fa 0%, #9630f9 100%);
-    content: '';
+    content: "";
     inset: 0;
     opacity: 0;
     pointer-events: none;
@@ -46,8 +46,8 @@
   width: 50px;
   height: 50px;
   transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enj-TileValue-icon-wrapper {
@@ -59,8 +59,8 @@
 .enj-TileValue-icon {
   color: #161616;
   transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enj-TileValue-title {
@@ -69,8 +69,8 @@
   line-height: 1.35;
   margin: 0;
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enj-TileValue-slug {
@@ -84,8 +84,8 @@
   top: 0;
   transform: translateY(-10px);
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-              color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enj-TileValue:hover,
@@ -93,6 +93,11 @@
   &::before {
     opacity: 1;
   }
+}
+
+.enj-TileValue:focus-visible {
+  outline: 3px solid #0f62fe;
+  outline-offset: 3px;
 }
 
 .enj-TileValue:hover .enj-TileValue-title,
@@ -114,4 +119,11 @@
 .enj-TileValue:hover .enj-TileValue-icon,
 .enj-TileValue:focus-visible .enj-TileValue-icon {
   color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enj-TileValue,
+  .enj-TileValue * {
+    transition: none !important;
+  }
 }

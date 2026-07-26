@@ -28,14 +28,21 @@ const TilePost = ({ className, featuredText, onClick }: PTL_propsType) => {
   });
 
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
+  const isInteractive = Boolean(onClick);
 
   return (
     <div className="enj-postTile-wrapper" ref={containerRef}>
       <Tile
         className={`${wrapperClassNames} ${className} enj-postTile-${activeBreakpoint}`}
-        aria-label={`${componentTitle} tile`}
-        role="article"
+        aria-label={isInteractive ? `Open ${componentTitle}` : undefined}
+        role={isInteractive ? "button" : "article"}
+        tabIndex={isInteractive ? 0 : undefined}
         onClick={onClick}
+        onKeyDown={(event) => {
+          if (!onClick || (event.key !== "Enter" && event.key !== " ")) return;
+          event.preventDefault();
+          event.currentTarget.click();
+        }}
       >
         {tileContent}
       </Tile>

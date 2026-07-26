@@ -1,2 +1,1 @@
-export const get_CTL_role = ({ layoutStyle }: { layoutStyle?: string }) =>
-  layoutStyle === 'banner' ? 'banner' : 'article';
+export const get_CTL_role = (_options: { layoutStyle?: string }) => "article";

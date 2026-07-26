@@ -23,20 +23,18 @@
  *   - Additional custom CSS classes to apply to the banner container.
  */
 
-import React, { useMemo } from 'react';
-import clsx from 'clsx';
-import { BNN_propsType } from './libs/types';
-import { FeatureText } from '../FeatureText';
-import { useContainerSize } from '@/libs/useContainerSize';
-
-
+import React, { useMemo } from "react";
+import clsx from "clsx";
+import { BNN_propsType } from "./libs/types";
+import { FeatureText } from "../FeatureText";
+import { useContainerSize } from "@/libs/useContainerSize";
 
 const TEXT_WRAPPER_STYLE: Record<string, React.CSSProperties> = {
-  sm: { maxWidth: '300px' },
-  md: { maxWidth: '500px' },
-  lg: { maxWidth: '550px' },
-  xlg: { maxWidth: '630px' },
-  max: { maxWidth: '730px' },
+  sm: { maxWidth: "300px" },
+  md: { maxWidth: "500px" },
+  lg: { maxWidth: "550px" },
+  xlg: { maxWidth: "630px" },
+  max: { maxWidth: "730px" },
 };
 
 const Banner = ({
@@ -46,7 +44,7 @@ const Banner = ({
   featuredText,
   imgBgUrl,
   isHuge = false,
-  role = 'banner',
+  role = "banner",
 }: BNN_propsType) => {
   const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
@@ -54,19 +52,19 @@ const Banner = ({
 
   const cssClasses = useMemo(
     () =>
-      clsx('enj-Banner', className, {
-        'enj-Banner--isHuge': isHuge,
-        'enj-Banner--hasBgImage': hasBgImage,
+      clsx("enj-Banner", className, {
+        "enj-Banner--isHuge": isHuge,
+        "enj-Banner--hasBgImage": hasBgImage,
       }),
     [className, isHuge, hasBgImage]
   );
 
-  const Tag = useMemo(() => (role === 'banner' ? 'header' : 'div'), [role]);
+  const Tag = useMemo(() => (role === "banner" ? "header" : "div"), [role]);
 
   const wrapperStyle = useMemo(
     () => ({
       ...style,
-      ['--banner-bg-image' as any]: imgBgUrl ? `url(${imgBgUrl})` : undefined,
+      ["--banner-bg-image" as any]: imgBgUrl ? `url(${imgBgUrl})` : undefined,
     }),
     [style, imgBgUrl]
   );
@@ -85,7 +83,7 @@ const Banner = ({
         <div className="enj-container-txt-wrapper" style={textStyle}>
           <FeatureText {...featuredText} />
         </div>
-        {imgBgUrl && <div className="enj-Banner-bgimg" role="img" aria-hidden="true" />}
+        {imgBgUrl && <div className="enj-Banner-bgimg" aria-hidden="true" />}
       </div>
     </Tag>
   );
@@ -93,13 +91,13 @@ const Banner = ({
 
 export default Banner;
 
-
-
 const isValidImageUrl = (url: string | null | undefined) => {
   if (!url) return false;
   const trimmed = url.trim();
-  return trimmed.length > 0 && 
-         (trimmed.startsWith('http') || 
-          trimmed.startsWith('/') || 
-          trimmed.startsWith('data:'));
+  return (
+    trimmed.length > 0 &&
+    (trimmed.startsWith("http") ||
+      trimmed.startsWith("/") ||
+      trimmed.startsWith("data:"))
+  );
 };

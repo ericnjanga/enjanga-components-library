@@ -1,4 +1,4 @@
-@use 'enjanga-core-setup/styles-breakpoint' as bp;
+@use "enjanga-core-setup/styles-breakpoint" as bp;
 
 .custom-quotes {
   // Variables ...
@@ -16,7 +16,7 @@
   &__icon {
     width: 65px;
     height: 65px;
-    color: #0100C0; // TODO: Convert to enjanga-core-setup color token
+    color: #0100c0; // TODO: Convert to enjanga-core-setup color token
   }
 
   &__text {
@@ -28,7 +28,8 @@
     font-weight: bold;
 
     // Responsive adjustments using Carbon breakpoints
-    @include bp.breakpoint-down(md) {}
+    @include bp.breakpoint-down(md) {
+    }
 
     @include bp.breakpoint-down(sm) {
       --enj-CusQuotes--fs: 20px;
@@ -43,9 +44,10 @@
     }
 
     .enj-CMSRichText {
-      p, ul {
+      p,
+      ul {
         margin-top: 0;
-        
+
         &:last-of-type {
           margin-bottom: 0;
         }
@@ -58,7 +60,27 @@
     width: 120px;
     height: 4px;
     margin: 15px 0 0 0;
-    background-color: #0100C0; // TODO: Convert to enjanga-core-setup color token
+    background-color: #0100c0; // TODO: Convert to enjanga-core-setup color token
+  }
+
+  &__rotation-control {
+    background: transparent;
+    border: 2px solid #0100c0;
+    color: #0100c0;
+    cursor: pointer;
+    font: inherit;
+    min-height: 2.75rem;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background: #0100c0;
+      color: #ffffff;
+    }
+
+    &:focus-visible {
+      outline: 3px solid #0f62fe;
+      outline-offset: 3px;
+    }
   }
 
   // Responsive adjustments using Carbon breakpoints

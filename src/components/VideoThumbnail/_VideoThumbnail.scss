@@ -10,9 +10,8 @@
 }
 
 .enj-VideoThumbnail-card {
+  position: relative;
   text-align: center;
-  appearance: none;
-  border: 0;
   background: transparent;
   color: inherit;
   display: grid;
@@ -21,18 +20,16 @@
   text-align: left;
   width: 100%;
   cursor: pointer;
-  transition:
-    transform 180ms ease,
-    color 180ms ease,
-    filter 180ms ease;
+  transition: transform 180ms ease, color 180ms ease, filter 180ms ease;
 
   &:hover,
-  &:focus-visible {
+  &:has(.enj-VideoThumbnail-action:focus-visible) {
     color: #d4c4ff;
     transform: translateY(-2px);
 
     .enj-VideoThumbnail-media {
-      box-shadow: 0 0 0 1px rgba(248, 28, 154, 0.4), 0 0 28px rgba(248, 28, 154, 0.55);
+      box-shadow: 0 0 0 1px rgba(248, 28, 154, 0.4),
+        0 0 28px rgba(248, 28, 154, 0.55);
     }
 
     .enj-VideoThumbnail-image {
@@ -42,12 +39,29 @@
     .enj-VideoThumbnail-playIcon {
       transform: translate(-50%, -50%) scale(1.08);
       background: rgba(117, 74, 255, 0.88);
-      box-shadow: 0 0 0 1px rgba(194, 172, 255, 0.3), 0 0 24px rgba(128, 92, 255, 0.65);
+      box-shadow: 0 0 0 1px rgba(194, 172, 255, 0.3),
+        0 0 24px rgba(128, 92, 255, 0.65);
     }
 
     .enj-VideoThumbnail-featuredTitle {
       color: #d4c4ff;
     }
+  }
+}
+
+.enj-VideoThumbnail-action {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  inset: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 2;
+
+  &:focus-visible {
+    outline: 3px solid #0f62fe;
+    outline-offset: 3px;
   }
 }
 
@@ -110,9 +124,7 @@
   overflow: hidden;
   background: rgba(255, 255, 255, 0.08);
   min-height: 12rem;
-  transition:
-    box-shadow 180ms ease,
-    transform 180ms ease;
+  transition: box-shadow 180ms ease, transform 180ms ease;
   border-radius: 5px;
 }
 
@@ -144,10 +156,7 @@
   background: rgba(20, 12, 48, 0.8);
   color: #ffffff;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
-  transition:
-    transform 200ms ease,
-    background 200ms ease,
-    box-shadow 200ms ease;
+  transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
 
   svg {
     width: 1.35rem;
@@ -174,7 +183,7 @@
     text-align: left;
 
     &:hover,
-    &:focus-visible {
+    &:has(.enj-VideoThumbnail-action:focus-visible) {
       color: inherit;
       filter: none;
       transform: none;
@@ -223,13 +232,26 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .enj-VideoThumbnail-card,
+  .enj-VideoThumbnail-media,
+  .enj-VideoThumbnail-image,
+  .enj-VideoThumbnail-video,
+  .enj-VideoThumbnail-playIcon {
+    transition: none;
+  }
+
+  .enj-VideoThumbnail-card:hover,
+  .enj-VideoThumbnail-card:has(.enj-VideoThumbnail-action:focus-visible) {
+    transform: none;
+  }
+
   .enj-VideoThumbnail--tilePost {
     .enj-VideoThumbnail-image {
       transition: none;
     }
 
     .enj-VideoThumbnail-card:hover,
-    .enj-VideoThumbnail-card:focus-visible {
+    .enj-VideoThumbnail-card:has(.enj-VideoThumbnail-action:focus-visible) {
       .enj-VideoThumbnail-image {
         transform: none;
       }

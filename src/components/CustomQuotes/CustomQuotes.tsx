@@ -20,6 +20,21 @@ const CustomQuotes = ({
   const [currentQuote, setCurrentQuote] = useState<
     CQ_quote_propsType | undefined
   >(quotes && quotes.length > 0 ? quotes[0] : undefined);
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotionPreference = () =>
+      setPrefersReducedMotion(mediaQuery.matches);
+
+    updateMotionPreference();
+    mediaQuery.addEventListener("change", updateMotionPreference);
+    return () =>
+      mediaQuery.removeEventListener("change", updateMotionPreference);
+  }, []);
 
   /**
    * Initialize with a random quote once quotes are available.
@@ -41,7 +56,8 @@ const CustomQuotes = ({
    * Only runs if there are 2 or more quotes.
    */
   useEffect(() => {
-    if (!quotes || quotes.length <= 1) return;
+    if (!quotes || quotes.length <= 1 || isPaused || prefersReducedMotion)
+      return;
 
     // ✅ Convert seconds → milliseconds
     const intervalMs = rotationTimer * 1000;
@@ -53,7 +69,7 @@ const CustomQuotes = ({
     }, intervalMs);
 
     return () => clearInterval(intervalId);
-  }, [quotes, rotationTimer]);
+  }, [isPaused, prefersReducedMotion, quotes, rotationTimer]);
 
   /**
    * Show skeleton if there are no quotes yet.
@@ -64,7 +80,7 @@ const CustomQuotes = ({
 
   return (
     <div className={clsx(className, "custom-quotes")}>
-      <Quotes className="custom-quotes__icon" />
+      <Quotes className="custom-quotes__icon" aria-hidden="true" />
       <blockquote className="custom-quotes__text">
         {currentQuote ? (
           <CMSRichText data={currentQuote.description} />
@@ -72,6 +88,16 @@ const CustomQuotes = ({
           <SkeletonAnimation part="body" />
         )}
       </blockquote>
+      {quotes.length > 1 && !prefersReducedMotion && (
+        <button
+          type="button"
+          className="custom-quotes__rotation-control"
+          aria-pressed={isPaused}
+          onClick={() => setIsPaused((paused) => !paused)}
+        >
+          {isPaused ? "Resume quote rotation" : "Pause quote rotation"}
+        </button>
+      )}
       <hr className="custom-quotes__hr" />
     </div>
   );
