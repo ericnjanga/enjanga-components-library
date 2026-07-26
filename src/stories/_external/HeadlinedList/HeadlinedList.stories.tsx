@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import HeadlinedList from '../../../components/HeadlinedList';
-import { mockHeadlinedListArgs, mockListMixed } from '@/mockData/mockLists';
-import { mockHeading } from '@/mockData/mixed';
+import { mockHeadlinedListArgs, mockListMixed } from '@/libs/mockData/mockLists';
+import { mockHeading } from '@/libs/mockData/mixed';
 import { Grid, Column } from '@carbon/react';
-import { argsList } from '@/mockData/stories/args/argsList';
-import { styleHeadingLabel } from '@/mockData/mixed';
+import { argsList } from '@/libs/mockData/stories/args/argsList';
+import { styleHeadingLabel } from '@/libs/mockData/mixed';
 import { HDG_levelPropsType } from '@/components/Heading/libs/types';
-import { argTypesHeadingStories } from '@/mockData/stories/argTypes';
-import { argTypesListStories } from '@/mockData/stories/argTypes';
+import { argTypesHeadingStories } from '@/libs/mockData/stories/argTypes';
+import { argTypesListStories } from '@/libs/mockData/stories/argTypes';
 
 const meta: Meta<typeof HeadlinedList> = {
   title: 'External Components/HeadlinedList',

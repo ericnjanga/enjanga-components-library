@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { quoteSamples } from '@/mockData/mixed';
+import { quoteSamples } from '@/libs/mockData/mixed';
 import { CustomQuotes } from '../../../components/CustomQuotes';
 
 const meta: Meta<typeof CustomQuotes> = {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TileValue from '../../../components/TileValue';
-import { mockRichTextLarge, mockRichTextSmall } from '@/mockData/mockRichText';
+import { mockRichTextLarge, mockRichTextSmall } from '@/libs/mockData/mockRichText';
 
 const mockInlineEntryDescription = {
   json: {

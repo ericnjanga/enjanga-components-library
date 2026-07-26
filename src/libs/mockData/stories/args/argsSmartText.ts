@@ -1,7 +1,7 @@
 import { SMT_propsType } from '@/components/SmartText/libs/types';
-import { mockPlainText } from '@/mockData/mixed';
-import { mockRichTextLarge, mockRichTextSmall } from '@/mockData/mockRichText';
-import { mockHeading } from '@/mockData/mixed';
+import { mockPlainText } from '@/libs/mockData/mixed';
+import { mockRichTextLarge, mockRichTextSmall } from '@/libs/mockData/mockRichText';
+import { mockHeading } from '@/libs/mockData/mixed';
 
 export const argsSmartTextwPlainT = {
   className: '',

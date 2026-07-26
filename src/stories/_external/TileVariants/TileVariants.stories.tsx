@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TileVariants from '../../../components/TileVariants/TileVariants';
 import { Grid, Column } from '@carbon/react';
-import { argTypesCustomTileStories } from '@/mockData/stories/argTypes';
-import { argsCustomTile } from '@/mockData/stories/args/argsCustomTile';
-import { styleHeadingLabel } from '@/mockData/mixed';
+import { argTypesCustomTileStories } from '@/libs/mockData/stories/argTypes';
+import { argsCustomTile } from '@/libs/mockData/stories/args/argsCustomTile';
+import { styleHeadingLabel } from '@/libs/mockData/mixed';
 
 const meta: Meta<typeof TileVariants> = {
   title: 'External Components/TileVariants',

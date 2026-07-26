@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test'; // Correct import for Storybook 7+
 import ContentModal from '../../../components/ContentModal/ContentModal';
 import SmartText from '../../../components/SmartText/SmartText';
-import { mockCareerObjectiveText } from '@/mockData/mockRichText';
+import { mockCareerObjectiveText } from '@/libs/mockData/mockRichText';
 
 
 

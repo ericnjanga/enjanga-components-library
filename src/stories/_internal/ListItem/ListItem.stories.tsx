@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ListItem } from '../../../components/ListItem';
-import { mockListItemArgs, mockListMixed } from '@/mockData/mockLists';
-import { classNameStoryArgType } from '@/mockData/stories/argTypes';
+import { mockListItemArgs, mockListMixed } from '@/libs/mockData/mockLists';
+import { classNameStoryArgType } from '@/libs/mockData/stories/argTypes';
 
 const meta: Meta<typeof ListItem> = {
   title: 'Internal Components/ListItem',

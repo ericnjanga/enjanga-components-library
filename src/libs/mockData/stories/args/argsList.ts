@@ -3,7 +3,7 @@ import {
   LST_typePropsType,
   LST_propsType,
 } from '@/components/List/libs/types';
-import { mockListUnlinked } from '@/mockData/mockLists';
+import { mockListUnlinked } from '@/libs/mockData/mockLists';
 
 // List.stories.tsx ...
 export const argsList = {

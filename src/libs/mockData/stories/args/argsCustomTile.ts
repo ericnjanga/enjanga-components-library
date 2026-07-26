@@ -9,8 +9,8 @@ import {
   argsFeatureTextWithRichText,
 } from './argsFeatureText';
 import { CP_nameType } from '@/components/CustomPictogram/libs/types';
-import { mockHeading } from '@/mockData/mixed';
-import { mockRichTextLarge, mockRichTextSmall } from '@/mockData/mockRichText';
+import { mockHeading } from '@/libs/mockData/mixed';
+import { mockRichTextLarge, mockRichTextSmall } from '@/libs/mockData/mockRichText';
 
 const mediaImg = {
   url: '/img/cust-tile-1.png',

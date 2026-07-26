@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TilePictogram from '../../../components/TilePictogram';
-import { argTypesPictogramTileStories } from '@/mockData/stories/argTypes';
-import { argsPictogramTile } from '@/mockData/stories/args/argsPictogramTile';
-import { styleHeadingLabel } from '@/mockData/mixed';
-import { mockRichTextSmall } from '@/mockData/mockRichText';
+import { argTypesPictogramTileStories } from '@/libs/mockData/stories/argTypes';
+import { argsPictogramTile } from '@/libs/mockData/stories/args/argsPictogramTile';
+import { styleHeadingLabel } from '@/libs/mockData/mixed';
+import { mockRichTextSmall } from '@/libs/mockData/mockRichText';
 
 const meta: Meta<typeof TilePictogram> = {
   title: 'External Components/TilePictogram',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CMSRichText from '../../../components/CMSRichText/CMSRichText';
-import { project1, project2 } from '@/mockData/project';
+import { project1, project2 } from '@/libs/mockData/project';
 
 const activeLang = 'en';
 const meta: Meta<typeof CMSRichText> = {

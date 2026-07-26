@@ -4,7 +4,7 @@ import {
   Sk_partType,
   Sk_partOpt,
 } from '../../../components/SkeletonAnimation/libs/types';
-import { classNameStoryArgType } from '@/mockData/stories/argTypes';
+import { classNameStoryArgType } from '@/libs/mockData/stories/argTypes';
 
 const meta: Meta<typeof SkeletonAnimation> = {
   title: 'External Components/SkeletonAnimation',

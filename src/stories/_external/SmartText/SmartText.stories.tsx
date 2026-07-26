@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import SmartText from '../../../components/SmartText/SmartText';
-import { mockRichTextSmall } from '@/mockData/mockRichText';
-import { argTypesSmartTextStories } from '@/mockData/stories/argTypes';
+import { mockRichTextSmall } from '@/libs/mockData/mockRichText';
+import { argTypesSmartTextStories } from '@/libs/mockData/stories/argTypes';
 import {
   argsSmartTextPlain,
   argsSmartTextRich,
-} from '@/mockData/stories/args/argsSmartText';
+} from '@/libs/mockData/stories/args/argsSmartText';
 
 const meta: Meta<typeof SmartText> = {
   title: 'External Components/SmartText',

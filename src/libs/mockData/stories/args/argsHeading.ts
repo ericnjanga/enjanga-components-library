@@ -1,4 +1,4 @@
-import { mockHeading } from '@/mockData/mixed';
+import { mockHeading } from '@/libs/mockData/mixed';
 import { HDG_propsType } from '@/components/Heading/libs/types';
 
 // Heading.stories.tsx ...

@@ -1,0 +1,64 @@
+// Variables
+{
+  "locale": "en-CA",
+  "order": "sys_publishedAt_DESC",
+  "limit": 5,
+  "skip": 0
+}
+
+// Query
+query blogPostCollectionQuery(
+      $locale: String!,
+      $order: [BlogPostOrder],
+  		$limit: Int,
+  		$skip: Int
+    ) {
+      en: blogPostCollection(locale: $locale, order: $order, limit: $limit, skip: $skip) {
+        items {
+          sys {
+            id
+          }
+          slug
+          title
+          blurb
+          description {
+            json
+            links {
+              assets {
+                block {
+                  sys { id }
+                  url
+                  title
+                  description
+                  width
+                  height
+                }
+              }
+            }
+          }
+          
+    businessDomain
+    techstack
+    introVideo {
+      url
+      contentType
+      fileName
+      size
+      width
+      height
+      title
+      description
+    }
+    introVideoImage {
+      url
+      contentType
+      fileName
+      size
+      width
+      height
+      title
+      description
+    }
+        }
+      }
+    }

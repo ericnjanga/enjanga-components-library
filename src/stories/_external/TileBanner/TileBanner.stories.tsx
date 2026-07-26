@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import TileBanner from '../../../components/TileBanner/TileBanner';
-import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
+import { argsFeatureTextWithPlainText } from '@/libs/mockData/stories/args/argsFeatureText';
 
 const meta: Meta<typeof TileBanner> = {
   title: 'External Components/TileBanner',

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TilePost from '../../../components/TilePost/TilePost';
-import { argsTypesPostTileStories } from '@/mockData/stories/argTypes';
-import { argsPostTile } from '@/mockData/stories/args/argsPostTile';
-import { styleHeadingLabel } from '@/mockData/mixed';
+import { argsTypesPostTileStories } from '@/libs/mockData/stories/argTypes';
+import { argsPostTile } from '@/libs/mockData/stories/args/argsPostTile';
+import { styleHeadingLabel } from '@/libs/mockData/mixed';
 
 const meta: Meta<typeof TilePost> = {
   title: 'External Components/TilePost',

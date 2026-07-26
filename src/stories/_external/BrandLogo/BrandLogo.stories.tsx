@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BrandLogo } from '../../../components/BrandLogo';
 import { SampleSVGLogo, ClickableComponent } from '../utils';
-import { classNameStoryArgType } from '@/mockData/stories/argTypes';
+import { classNameStoryArgType } from '@/libs/mockData/stories/argTypes';
 
 const meta: Meta<typeof BrandLogo> = {
   title: 'External Components/BrandLogo',

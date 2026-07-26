@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import List from '../../../components/List';
-import { argTypesListStories } from '@/mockData/stories/argTypes';
+import { argTypesListStories } from '@/libs/mockData/stories/argTypes';
 import {
   mockListUnlinked,
   mockListLinked,
   mockListMixed,
-} from '@/mockData/mockLists';
-import { argsList } from '@/mockData/stories/args/argsList';
+} from '@/libs/mockData/mockLists';
+import { argsList } from '@/libs/mockData/stories/args/argsList';
 
 const meta: Meta<typeof List> = {
   title: 'External Components/List',

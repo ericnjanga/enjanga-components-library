@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArrowIcon } from '../../../components/ArrowIcon/ArrowIcon';
-import { argsArrowIcon } from '@/mockData/stories/args/argsArrowIcon';
-import { argTypesArrowIconStories } from '@/mockData/stories/argTypes';
+import { argsArrowIcon } from '@/libs/mockData/stories/args/argsArrowIcon';
+import { argTypesArrowIconStories } from '@/libs/mockData/stories/argTypes';
 
 const meta: Meta<typeof ArrowIcon> = {
   title: 'External Components/ArrowIcon',

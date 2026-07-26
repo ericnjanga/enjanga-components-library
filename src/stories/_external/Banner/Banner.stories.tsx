@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Banner from '../../../components/Banner/Banner';
-import { argsBanner } from '@/mockData/stories/args/argsBanner';
-import { argTypesBannerStories } from '@/mockData/stories/argTypes';
+import { argsBanner } from '@/libs/mockData/stories/args/argsBanner';
+import { argTypesBannerStories } from '@/libs/mockData/stories/argTypes';
 import {
   argsHeadingPlain,
   argsHeadingJSX,
-} from '@/mockData/stories/args/argsHeading';
-import { argsFeatureTextWithPlainText } from '@/mockData/stories/args/argsFeatureText';
-import { mockHeading, imageUrls } from '@/mockData/mixed';
-import { styleHeadingLabel } from '@/mockData/mixed';
-import { mockRichTextSmall } from '@/mockData/mockRichText';
+} from '@/libs/mockData/stories/args/argsHeading';
+import { argsFeatureTextWithPlainText } from '@/libs/mockData/stories/args/argsFeatureText';
+import { mockHeading, imageUrls } from '@/libs/mockData/mixed';
+import { styleHeadingLabel } from '@/libs/mockData/mixed';
+import { mockRichTextSmall } from '@/libs/mockData/mockRichText';
 import { Grid, Column } from '@carbon/react';
 import { BNN_roleOptPropsType } from '@/components/Banner/libs/types';
 

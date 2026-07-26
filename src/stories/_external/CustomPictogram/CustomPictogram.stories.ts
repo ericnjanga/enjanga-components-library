@@ -6,8 +6,8 @@ import {
   CP_sizeOpt,
   CP_sizeType,
 } from '@/components/CustomPictogram/libs/types';
-import { mockCustomPictogram } from '@/mockData/mixed';
-import { classNameStoryArgType } from '@/mockData/stories/argTypes';
+import { mockCustomPictogram } from '@/libs/mockData/mixed';
+import { classNameStoryArgType } from '@/libs/mockData/stories/argTypes';
 
 const meta: Meta<typeof CustomPictogram> = {
   title: 'External Components/CustomPictogram',
