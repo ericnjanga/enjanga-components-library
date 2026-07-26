@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, ComposedModal, ModalBody, ModalFooter, ModalHeader } from '@carbon/react';
 import { PlayFilledAlt, StarFilled } from '@carbon/icons-react';
+import clsx from 'clsx';
+import { useContainerSize } from '@/libs/useContainerSize';
 import { VT_propsType } from './libs/types';
 
 const formatDuration = (durationInSeconds?: number): string => {
@@ -33,8 +35,10 @@ const VideoThumbnail = ({
   hasVideo,
   posterAsset,
   videoAsset,
-  businessDomains,
-  stackValues,
+  businessDomains = [],
+  stackValues = [],
+  showHeading = false,
+  styleVariant = 'tilePost',
   controls = true,
   autoPlay = false,
   loop = false,
@@ -42,6 +46,7 @@ const VideoThumbnail = ({
   caseStudyHref,
   ariaLabel,
 }: VT_propsType) => {
+  const { containerRef, activeBreakpoint } = useContainerSize<HTMLElement>();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoDuration, setVideoDuration] = useState<string>('00:00');
   const modalVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -130,17 +135,28 @@ const VideoThumbnail = ({
 
   return (
     <>
-      <section className="enj-VideoThumbnail-featuredObject">
+      <section
+        ref={containerRef}
+        className={`enj-VideoThumbnail-featuredObject enj-VideoThumbnail--${styleVariant}`}
+      >
         <button
           type="button"
-          className="enj-VideoThumbnail-card"
+          className={clsx('enj-VideoThumbnail-card', {
+            'enj-postTile': styleVariant === 'tilePost',
+            'enj-postTile--card': styleVariant === 'tilePost',
+            'enj-postTile--has-link': styleVariant === 'tilePost',
+            'enj-postTile--has-icon': styleVariant === 'tilePost',
+            [`enj-postTile-${activeBreakpoint}`]: styleVariant === 'tilePost',
+          })}
           onClick={handleCardClick}
           aria-label={resolvedAriaLabel}
         >
-          <h3 className="enj-VideoThumbnail-featuredObject-title">
-            <StarFilled aria-hidden="true" />
-            FEATURED CASE STUDY
-          </h3>
+          {showHeading && (
+            <h3 className="enj-VideoThumbnail-featuredObject-title">
+              <StarFilled aria-hidden="true" />
+              FEATURED CASE STUDY
+            </h3>
+          )}
 
           <div className="enj-VideoThumbnail-media">
             {hasPosterImage ? (
@@ -180,7 +196,13 @@ const VideoThumbnail = ({
             )}
           </div>
 
-          <h3 className="enj-VideoThumbnail-featuredTitle">{title}</h3>
+          <h3
+            className={clsx('enj-VideoThumbnail-featuredTitle', {
+              'enj-postTile-title': styleVariant === 'tilePost',
+            })}
+          >
+            {title}
+          </h3>
 
           {(businessDomains.length > 0 || stackValues.length > 0) && (
             <div className="enj-VideoThumbnail-meta">

@@ -68,8 +68,8 @@ export const MixedCaseStudiesGrid: Story = {
                 hasVideo={hasVideo}
                 posterAsset={toAsset(item.introVideoImage)}
                 videoAsset={toAsset(item.introVideo)}
-                businessDomains={item.businessDomain ?? []}
-                stackValues={item.techstack ?? []}
+                businessDomains={[]}
+                stackValues={[]}
                 caseStudyHref={`/case-studies/${item.slug}`}
                 ariaLabel={`Open featured case study for ${item.title}`}
               />

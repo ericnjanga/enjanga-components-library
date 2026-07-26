@@ -32,6 +32,11 @@ export { List } from './List';
 export { SmartText } from './SmartText';
 export { FeatureText } from './FeatureText';
 export { HeroVideo } from './HeroVideo';
-export { VideoThumbnail, type VT_assetType, type VT_propsType } from './VideoThumbnail';
+export {
+  VideoThumbnail,
+  type VT_assetType,
+  type VT_propsType,
+  type VT_styleVariantType,
+} from './VideoThumbnail';
 export { CMSRichText } from './CMSRichText';
 export { useContainerSize } from './../libs/useContainerSize';

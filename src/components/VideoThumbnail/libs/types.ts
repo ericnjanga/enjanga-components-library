@@ -7,14 +7,18 @@ export type VT_assetType = {
   contentType?: string;
 };
 
+export type VT_styleVariantType = 'tilePost' | 'heroVideo';
+
 export type VT_propsType = {
   title: string;
   hasPosterImage: boolean;
   hasVideo: boolean;
   posterAsset: VT_assetType;
   videoAsset: VT_assetType;
-  businessDomains: string[];
-  stackValues: string[];
+  businessDomains?: string[];
+  stackValues?: string[];
+  showHeading?: boolean;
+  styleVariant?: VT_styleVariantType;
   controls?: boolean;
   autoPlay?: boolean;
   loop?: boolean;

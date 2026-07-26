@@ -118,6 +118,8 @@ const HeroVideo = ({
           videoAsset={videoAsset}
           businessDomains={businessDomains}
           stackValues={stackValues}
+          showHeading
+          styleVariant="heroVideo"
           controls={controls}
           autoPlay={autoPlay}
           loop={loop}

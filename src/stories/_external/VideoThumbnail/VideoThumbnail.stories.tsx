@@ -49,8 +49,24 @@ type Story = StoryObj<typeof VideoThumbnail>;
 
 export const Default: Story = {};
 
+export const HeroVideoStyle: Story = {
+  args: {
+    showHeading: true,
+    styleVariant: 'heroVideo',
+  },
+};
+
 export const VideoFallback: Story = {
   args: {
     hasPosterImage: false,
+  },
+};
+
+export const WithoutBusinessDomainsAndStackValues: Story = {
+  render: ({ businessDomains, stackValues, ...args }) => {
+    void businessDomains;
+    void stackValues;
+
+    return <VideoThumbnail {...args} />;
   },
 };
