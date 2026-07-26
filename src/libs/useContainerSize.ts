@@ -3,11 +3,11 @@
  * -----------------------------
  */
 
-import { useEffect, useState, useRef } from 'react';
-import { breakpoints } from '@carbon/layout';
-import { calcRemToPx } from './helpers';
+import { useEffect, useState, useRef } from "react";
+import { breakpoints } from "@carbon/layout";
+import { calcRemToPx } from "./helpers";
 
-type SizeClass = 'sm' | 'md' | 'lg' | 'xlg' | 'max';
+type SizeClass = "sm" | "md" | "lg" | "xlg" | "max";
 
 interface UseContainerSizeOptions {
   /**
@@ -24,9 +24,11 @@ interface UseContainerSizeOptions {
   defaultSize?: SizeClass;
 }
 
-export const useContainerSize = <T extends HTMLElement>(options?: UseContainerSizeOptions) => {
+export const useContainerSize = <T extends HTMLElement>(
+  options?: UseContainerSizeOptions
+) => {
   const ref = useRef<T>(null); // Container reference
-  const [size, setSize] = useState<SizeClass>(options?.defaultSize || 'max');
+  const [size, setSize] = useState<SizeClass>(options?.defaultSize || "max");
 
   // Set the appropriate breakpoint:
   // - Either based on the provided option
@@ -52,19 +54,24 @@ export const useContainerSize = <T extends HTMLElement>(options?: UseContainerSi
     // Teach the observer what to do ...
     const observer = new ResizeObserver((entries) => {
       const width = entries[0].contentRect.width; // Target entry's width
+      let nextSize: SizeClass;
 
       // Find out what's the closest possible breakpoint to container's width
       if (width < effectiveBreakpoints.sm) {
-        setSize('sm');
+        nextSize = "sm";
       } else if (width < effectiveBreakpoints.md) {
-        setSize('md');
+        nextSize = "md";
       } else if (width < effectiveBreakpoints.lg) {
-        setSize('lg');
+        nextSize = "lg";
       } else if (width < effectiveBreakpoints.xlg) {
-        setSize('xlg');
+        nextSize = "xlg";
       } else {
-        setSize('max');
+        nextSize = "max";
       }
+
+      setSize((currentSize) =>
+        currentSize === nextSize ? currentSize : nextSize
+      );
     });
 
     observer.observe(ref.current); // Attach observer to the reference

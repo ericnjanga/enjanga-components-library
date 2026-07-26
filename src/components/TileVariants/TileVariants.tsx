@@ -2,33 +2,33 @@
  * TileVariants:
  * Replacement for CustomTile component (renamed)
  */
-import { useState } from 'react';
-import React from 'react';
-import { Tile } from '@carbon/react';
-import { getCustomTileCSSClasses } from './lib/getCustomTileCSSClasses';
-import { getLinkWrapper } from './lib/getLinkwrapper';
-import { getTileContent } from './lib/getTileContent';
+import { useState } from "react";
+import React from "react";
+import { Tile } from "@carbon/react";
+import { getCustomTileCSSClasses } from "./lib/getCustomTileCSSClasses";
+import { getLinkWrapper } from "./lib/getLinkwrapper";
+import { getTileContent } from "./lib/getTileContent";
 import {
   CTL_propsType,
   CTL_LinkTargetType,
   CTL_LayoutStyleType,
-} from './lib/types';
-import { ContentModal } from '../ContentModal/ContentModal';
-import SmartText from '../SmartText/SmartText';
-import { handleCustomTileClick } from './parts/utils';
-import { validateCTL_propsType } from './lib/propsValidation';
-import { useContainerSize } from '@/libs/useContainerSize';
-import { getHeadingContent } from './lib/getHeadingContent';
-import { isValidLinkTo } from './lib/mix';
-import { CI_isValidPictogram } from '@/components/CustomPictogram/libs/helpers';
-import { getIconContent } from './lib/getIconContent';
-import { get_CTL_role } from './lib/accessibility';
+} from "./lib/types";
+import { ContentModal } from "../ContentModal/ContentModal";
+import SmartText from "../SmartText/SmartText";
+import { handleCustomTileClick } from "./parts/utils";
+import { validateCTL_propsType } from "./lib/propsValidation";
+import { useContainerSize } from "@/libs/useContainerSize";
+import { getHeadingContent } from "./lib/getHeadingContent";
+import { isValidLinkTo } from "./lib/mix";
+import { CI_isValidPictogram } from "@/components/CustomPictogram/libs/helpers";
+import { getIconContent } from "./lib/getIconContent";
+import { get_CTL_role } from "./lib/accessibility";
 
 const TileVariants = ({
   className,
   featuredText,
 
-  layoutStyle = 'card' as CTL_LayoutStyleType, // card by default
+  layoutStyle = "card" as CTL_LayoutStyleType, // card by default
 
   media,
   mediaPictogram,
@@ -39,7 +39,7 @@ const TileVariants = ({
   modalRichDescription,
 
   linksTo,
-  linkTarget = '_self' as CTL_LinkTargetType,
+  linkTarget = "_self" as CTL_LinkTargetType,
 }: CTL_propsType) => {
   const [modalIsOpen, setModalIsOpen] = useState(
     modalIsAvailable !== undefined ? false : undefined
@@ -48,16 +48,16 @@ const TileVariants = ({
   validateCTL_propsType({ linksTo, linkTarget, modalIsAvailable });
 
   const pictogramIsOnDisplay =
-    layoutStyle !== 'banner' &&
-    media === 'pictogram' &&
+    layoutStyle !== "banner" &&
+    media === "pictogram" &&
     CI_isValidPictogram(mediaPictogram);
 
   const componentTitle = getHeadingContent(featuredText);
 
   const linkIsExternal =
-    linksTo && linkTarget && linkTarget === '_blank' ? true : false;
+    linksTo && linkTarget && linkTarget === "_blank" ? true : false;
 
-  const imageIsOnDisplay = media === 'image' && layoutStyle !== 'banner';
+  const imageIsOnDisplay = media === "image" && layoutStyle !== "banner";
 
   const LinkWrapper = getLinkWrapper({
     heading: componentTitle,
@@ -70,7 +70,7 @@ const TileVariants = ({
     layoutStyle,
     linksTo,
     linkIsExternal:
-      linksTo && linkTarget && linkTarget === '_blank' ? true : false,
+      linksTo && linkTarget && linkTarget === "_blank" ? true : false,
     modalIsAvailable,
     iconIsOnDisplay: isValidLinkTo(linksTo) || modalIsAvailable,
     imageIsOnDisplay,
@@ -78,13 +78,13 @@ const TileVariants = ({
   });
 
   const iconContent = getIconContent({
-    title: getHeadingContent(featuredText),
+    title: componentTitle,
     modalIsAvailable,
     iconName: !modalIsAvailable
       ? linksTo
         ? linkIsExternal
-          ? 'UpRight'
-          : 'Right'
+          ? "UpRight"
+          : "Right"
         : undefined
       : undefined,
   });
@@ -98,10 +98,7 @@ const TileVariants = ({
 
   const ctl_role = get_CTL_role({ layoutStyle });
 
-  const {
-    containerRef,
-    activeBreakpoint,
-  } = useContainerSize<HTMLDivElement>();
+  const { containerRef, activeBreakpoint } = useContainerSize<HTMLDivElement>();
 
   return (
     <div className="enj-CustomTile-wrapper" ref={containerRef}>

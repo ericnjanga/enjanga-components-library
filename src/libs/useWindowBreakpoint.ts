@@ -1,9 +1,9 @@
 // useWindowBreakpoint.ts
-import { useEffect, useState } from 'react';
-import { breakpoints } from '@carbon/layout';
-import { calcRemToPx } from './helpers';
+import { useEffect, useState } from "react";
+import { breakpoints } from "@carbon/layout";
+import { calcRemToPx } from "./helpers";
 
-type SizeClass = 'sm' | 'md' | 'lg' | 'xlg' | 'max';
+type SizeClass = "sm" | "md" | "lg" | "xlg" | "max";
 
 interface UseWindowBreakpointOptions {
   customBreakpoints?: Partial<Record<SizeClass, number>>;
@@ -11,7 +11,7 @@ interface UseWindowBreakpointOptions {
 }
 
 export const useWindowBreakpoint = (options?: UseWindowBreakpointOptions) => {
-  const [size, setSize] = useState<SizeClass>(options?.defaultSize || 'max');
+  const [size, setSize] = useState<SizeClass>(options?.defaultSize || "max");
 
   const effectiveBreakpoints = {
     sm:
@@ -30,31 +30,36 @@ export const useWindowBreakpoint = (options?: UseWindowBreakpointOptions) => {
 
   useEffect(() => {
     // Guard for SSR / Next.js
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     const updateSize = () => {
       const width = window.innerWidth;
+      let nextSize: SizeClass;
 
       if (width < effectiveBreakpoints.sm) {
-        setSize('sm');
+        nextSize = "sm";
       } else if (width < effectiveBreakpoints.md) {
-        setSize('md');
+        nextSize = "md";
       } else if (width < effectiveBreakpoints.lg) {
-        setSize('lg');
+        nextSize = "lg";
       } else if (width < effectiveBreakpoints.xlg) {
-        setSize('xlg');
+        nextSize = "xlg";
       } else {
-        setSize('max');
+        nextSize = "max";
       }
+
+      setSize((currentSize) =>
+        currentSize === nextSize ? currentSize : nextSize
+      );
     };
 
     // Set initial size
     updateSize();
 
-    window.addEventListener('resize', updateSize);
+    window.addEventListener("resize", updateSize);
 
     return () => {
-      window.removeEventListener('resize', updateSize);
+      window.removeEventListener("resize", updateSize);
     };
   }, [
     effectiveBreakpoints.sm,

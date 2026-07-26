@@ -12,17 +12,13 @@ import { PTL_propsType } from "./lib/types";
 import { useContainerSize } from "@/libs/useContainerSize";
 import { getHeadingContent } from "./lib/getHeadingContent";
 
-const TilePost = ({
-  className,
-  featuredText,
-  onClick,
-}: PTL_propsType) => {
+const TilePost = ({ className, featuredText, onClick }: PTL_propsType) => {
   const componentTitle = getHeadingContent(featuredText);
 
   const wrapperClassNames = getPostTileCSSClasses();
 
   const iconContent = getIconContent({
-    title: getHeadingContent(featuredText),
+    title: componentTitle,
     iconName: "Right",
   });
 

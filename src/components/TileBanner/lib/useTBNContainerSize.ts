@@ -8,9 +8,9 @@
  *  lg  — container >= 500px
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-type TBN_SizeClass = 'sm' | 'md' | 'lg';
+type TBN_SizeClass = "sm" | "md" | "lg";
 
 const TBN_BREAKPOINTS = {
   sm: 320,
@@ -19,7 +19,7 @@ const TBN_BREAKPOINTS = {
 
 export const useTBNContainerSize = <T extends HTMLElement>() => {
   const containerRef = useRef<T>(null);
-  const [activeBreakpoint, setActiveBreakpoint] = useState<TBN_SizeClass>('lg');
+  const [activeBreakpoint, setActiveBreakpoint] = useState<TBN_SizeClass>("lg");
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -27,14 +27,12 @@ export const useTBNContainerSize = <T extends HTMLElement>() => {
     const observer = new ResizeObserver((entries) => {
       const width = entries[0].contentRect.width;
 
-      console.log('Container width:', width);
-
       if (width < TBN_BREAKPOINTS.sm) {
-        setActiveBreakpoint('sm');
+        setActiveBreakpoint((current) => (current === "sm" ? current : "sm"));
       } else if (width < TBN_BREAKPOINTS.md) {
-        setActiveBreakpoint('md');
+        setActiveBreakpoint((current) => (current === "md" ? current : "md"));
       } else {
-        setActiveBreakpoint('lg');
+        setActiveBreakpoint((current) => (current === "lg" ? current : "lg"));
       }
     });
 

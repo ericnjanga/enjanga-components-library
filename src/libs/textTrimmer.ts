@@ -1,9 +1,6 @@
-import { useMemo } from 'react';
-
 /**
- * Optimized blurb trimmer hook
+ * Trim text without introducing hook state.
  * - Only trims when necessary
- * - Memoizes result to prevent unnecessary recalculations
  * - Preserves original blurb if under length limit
  */
 export const textTrimmer = ({
@@ -13,14 +10,7 @@ export const textTrimmer = ({
   text?: string | undefined;
   length?: number;
 }): string | undefined => {
-  return useMemo(() => {
-    let trimmed;
-
-    if (text) {
-      if (!length || text.length <= length) return text;
-      trimmed = `${text.slice(0, length)}...`;
-    }
-
-    return trimmed;
-  }, [text, length]);
+  if (!text) return undefined;
+  if (!length || text.length <= length) return text;
+  return `${text.slice(0, length)}...`;
 };
