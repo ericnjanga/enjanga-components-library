@@ -41,3 +41,15 @@ export {
 } from './VideoThumbnail';
 export { CMSRichText } from './CMSRichText';
 export { useContainerSize } from './../libs/useContainerSize';
+export {
+  ExpertiseIntro,
+  ExpertiseItem,
+  ExpertiseProfileCard,
+  ExpertiseSection,
+  type ExpertiseIntroProps,
+  type ExpertiseItemData,
+  type ExpertiseItemProps,
+  type ExpertiseModalContent,
+  type ExpertiseProfileCardProps,
+  type ExpertiseSectionProps,
+} from './ExpertiseSection';

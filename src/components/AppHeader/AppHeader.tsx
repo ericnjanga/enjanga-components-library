@@ -24,7 +24,8 @@ import {
   HeaderSideNavItems,
 } from "@carbon/react";
 
-import { Link, usePathname } from "enjanga-core-setup/next";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AHC_propsType, AH_propsType } from "./libs/types";
 import { useWindowBreakpoint } from '@/libs/useWindowBreakpoint';
 import { useEffect, useState } from "react";

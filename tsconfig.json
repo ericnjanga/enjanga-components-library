@@ -41,8 +41,7 @@
     "types",
     ".storybook",
     "next-env.d.ts",
-    "vitest.shims.d.ts",
-    "types/svg.d.ts"   // ✅ no trailing comma
+    "types/svg.d.ts"
   ],
   "exclude": [
     "dist",

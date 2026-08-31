@@ -37,7 +37,7 @@ import {
   Inline,
 } from "@contentful/rich-text-types";
 import React from "react"; 
-import { Image } from 'enjanga-core-setup/next';
+import Image from 'next/image';
 
 type Asset = {
   sys: { id: string };

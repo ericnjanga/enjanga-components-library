@@ -14,7 +14,7 @@ import {
   PGL_propsType, 
   PGL_LinkTargetOpt,
 } from '@/components/TilePictogram/lib/types';
-import { PTL_propsType } from '@/components/PostTile/lib/types';
+import { PTL_propsType } from '@/components/TilePost/lib/types';
 import { CP_nameOpt } from '@/components/CustomPictogram/libs/types';
 
 // generic
@@ -88,7 +88,7 @@ export const argTypesArrowIconStories: Partial<ArgTypes<AIC_propsType>> = {
   },
 };
 
-export const argsTypesPostTileStories: Partial<ArgTypes<PTL_propsType>> = {
+export const argTypesTilePostStories: Partial<ArgTypes<PTL_propsType>> = {
   ...classNameStoryArgType,
   featuredText: {
     ...argTypesFeatureTextStories,

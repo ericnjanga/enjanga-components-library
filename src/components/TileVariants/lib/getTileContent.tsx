@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { CTL_globalContentPropsType } from './types';
 import { CustomPictogram } from '@/components/CustomPictogram';
 import { FeatureText } from '@/components/FeatureText';
-import { Image } from 'enjanga-core-setup/next';
+import Image from 'next/image';
 
 export const getTileContent = ({
   featuredText,

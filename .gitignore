@@ -2,6 +2,9 @@ node_modules
 
 # No need to have the distribution folder here
 dist
+.next
+coverage
+*.tgz
 build-storybook.log
 .DS_Store
 
@@ -10,6 +13,3 @@ storybook-static/
 
 # Logs
 *.log
-
-# Yarn
-yarn.lock

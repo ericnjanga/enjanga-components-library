@@ -21,7 +21,7 @@ export const stripNonAlphanumeric = (
       return String(node);
     }
 
-    if (React.isValidElement(node)) {
+    if (React.isValidElement<{ children?: React.ReactNode }>(node)) {
       if (node.props.children) {
         if (Array.isArray(node.props.children)) {
           return node.props.children.map(extractTextFromNode).join('');

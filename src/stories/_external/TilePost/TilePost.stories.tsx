@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TilePost from '../../../components/TilePost/TilePost';
-import { argsTypesPostTileStories } from '@/libs/mockData/stories/argTypes';
-import { argsPostTile } from '@/libs/mockData/stories/args/argsPostTile';
+import { argTypesTilePostStories } from '@/libs/mockData/stories/argTypes';
+import { argsTilePost } from '@/libs/mockData/stories/args/argsTilePost';
 import { styleHeadingLabel } from '@/libs/mockData/mixed';
 
 const meta: Meta<typeof TilePost> = {
   title: 'External Components/TilePost',
   component: TilePost,
   args: {
-    ...argsPostTile.default,
+    ...argsTilePost.default,
   },
   argTypes: {
-    ...argsTypesPostTileStories,
+    ...argTypesTilePostStories,
   },
 };
 
@@ -42,7 +42,7 @@ export const Default: Story = {
           <div style={{ marginBottom: '2.5rem' }}>
             <span style={{ ...styleHeadingLabel }}>Default</span>
             <TilePost
-              {...argsPostTile.default}
+              {...argsTilePost.default}
               linksTo="https://www.ibm.com"
               linkTarget="_blank"
             />
@@ -53,7 +53,7 @@ export const Default: Story = {
               IBM® Engineering Lifecycle Optimization Engineering Insights
             </span>
             <TilePost
-              {...argsPostTile.engineeringInsights}
+              {...argsTilePost.engineeringInsights}
               onClick={handleTileClick}
             />
           </div>
@@ -63,7 +63,7 @@ export const Default: Story = {
               IBM® Knowledge Catalog Premium
             </span>
             <TilePost
-              {...argsPostTile.knowledgeCatalogPremium}
+              {...argsTilePost.knowledgeCatalogPremium}
               onClick={handleTileClick}
             />
           </div>

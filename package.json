@@ -15,9 +15,9 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
-      "types": "./dist/index.d.ts",
       "default": "./dist/index.mjs"
     },
     "./styles.css": "./dist/styles.css",
@@ -35,7 +35,8 @@
     "./tile-value.css": "./dist/tile-value.css",
     "./list.css": "./dist/list.css",
     "./video-thumbnail.css": "./dist/video-thumbnail.css",
-    "./cms-rich-text.css": "./dist/cms-rich-text.css"
+    "./cms-rich-text.css": "./dist/cms-rich-text.css",
+    "./expertise-section.css": "./dist/expertise-section.css"
   },
   "sideEffects": [
     "**/*.css",
@@ -58,12 +59,12 @@
     "dist/tile-value.css",
     "dist/list.css",
     "dist/video-thumbnail.css",
-    "dist/cms-rich-text.css"
+    "dist/cms-rich-text.css",
+    "dist/expertise-section.css"
   ],
   "scripts": {
-    "prepare": "yarn build",
-    "build": "yarn build:css && tsup",
-    "build:css": "mkdir -p dist && yarn build:css-full-library && yarn build:css-base && yarn build:css-app-header && yarn build:css-banner && yarn build:css-hero-video && yarn build:css-video-thumbnail && yarn build:css-brand-logo && yarn build:css-custom-quotes && yarn build:css-content-modal && yarn build:css-custom-tile && yarn build:css-tile-banner && yarn build:css-tile-pictogram && yarn build:css-tile-post && yarn build:css-tile-value && yarn build:css-list && yarn build:cms-rich-text",
+    "build": "npm run build:css && tsup",
+    "build:css": "mkdir -p dist && npm run build:css-full-library && npm run build:css-base && npm run build:css-app-header && npm run build:css-banner && npm run build:css-hero-video && npm run build:css-video-thumbnail && npm run build:css-brand-logo && npm run build:css-custom-quotes && npm run build:css-content-modal && npm run build:css-custom-tile && npm run build:css-tile-banner && npm run build:css-tile-pictogram && npm run build:css-tile-post && npm run build:css-tile-value && npm run build:css-list && npm run build:cms-rich-text && npm run build:css-expertise-section",
     "build:css-full-library": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/index.scss dist/styles.css",
     "build:css-base": "sass --load-path=node_modules --no-source-map --style=compressed src/styles/base.scss dist/styles-base.css",
     "build:css-app-header": "sass --load-path=node_modules --no-source-map --style=compressed src/components/AppHeader/_AppHeader.scss dist/app-header.css",
@@ -80,22 +81,25 @@
     "build:css-tile-value": "sass --load-path=node_modules --no-source-map --style=compressed src/components/TileValue/styles/index.scss dist/tile-value.css",
     "build:css-list": "sass --load-path=node_modules --no-source-map --style=compressed src/components/List/_List.scss dist/list.css",
     "build:cms-rich-text": "sass --load-path=node_modules --no-source-map --style=compressed src/components/CMSRichText/styles/index.scss dist/cms-rich-text.css",
+    "build:css-expertise-section": "sass --load-path=node_modules --no-source-map --style=compressed src/components/ExpertiseSection/_ExpertiseSection.scss dist/expertise-section.css",
     "watch": "concurrently \"yarn watch:ts\" \"yarn watch:css\"",
     "watch:ts": "tsup --watch",
     "watch:css": "sass -I node_modules --no-source-map --watch src/styles/index.scss dist/styles.css",
+    "type-check": "tsc --noEmit -p tsconfig.build.json",
+    "test": "vitest run --config vitest.config.mts",
+    "test:watch": "vitest --config vitest.config.mts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn clean:hard && yarn build && npm version patch && npm publish",
-    "clean": "rm -rf node_modules dist && yarn cache clean && yarn install",
-    "clean:hard": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn install",
-    "prepublishOnly": "yarn build",
-    "chromatic": "yarn build-storybook && chromatic --exit-zero-on-changes --project-token=chpt_7ebec659e451720"
+    "release": "npm version patch && npm publish",
+    "clean": "rm -rf dist storybook-static coverage",
+    "prepack": "npm run build",
+    "chromatic": "npm run build-storybook && chromatic --exit-zero-on-changes"
   },
   "peerDependencies": {
     "@carbon/icons-react": "^11.66.0",
     "@carbon/pictograms-react": "^11.102.0",
     "@carbon/react": "^1",
-    "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
+    "next": "^15.0.0 || ^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-is": "^19.0.0"
@@ -127,6 +131,7 @@
     "css-loader": "^7.1.2",
     "enjanga-core-setup": "^1.0.41",
     "esbuild-sass-plugin": "^3.3.1",
+    "next": "^15.5.7",
     "react": "^19.0.0",
     "react-docgen-typescript": "^2.4.0",
     "react-dom": "^19.0.0",
@@ -137,9 +142,13 @@
     "style-loader": "^4.0.0",
     "tsup": "^8.5.0",
     "typescript": "^5.0.0",
-    "vitest": "^4.1.5"
+    "vitest": "^3.2.4"
   },
   "dependencies": {},
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "npm@9.7.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/ericnjanga/enjanga-components-library.git"

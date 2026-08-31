@@ -1,5 +1,6 @@
 import { HDG_propsType } from "./libs/types";
 import { CustomPictogram } from "../CustomPictogram";
+import type { ElementType } from 'react';
 
 const Heading = ({
   level = 1,
@@ -11,7 +12,7 @@ const Heading = ({
     return null;
   }
 
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const Tag = `h${level}` as ElementType;
   return (
     <Tag className={className}>
       {pictogramName && (

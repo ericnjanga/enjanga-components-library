@@ -6,8 +6,8 @@
 import { describe, it, expect, vi } from 'vitest';
 
 // Mock the Next.js Image component (peer dep not available in test env)
-vi.mock('enjanga-core-setup/next', () => ({
-  Image: (props: Record<string, unknown>) => {
+vi.mock('next/image', () => ({
+  default: (props: Record<string, unknown>) => {
     const { src, alt, ...rest } = props;
     return <img src={src as string} alt={alt as string} {...rest} />;
   },
