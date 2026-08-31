@@ -1,53 +1,20 @@
 {
   "compilerOptions": {
-    /* --- Module + Resolution --- */
     "target": "ES2020",
     "module": "Node16",
     "moduleResolution": "Node16",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-
-    /* --- React / JSX --- */
     "jsx": "react-jsx",
-
-    /* --- Declarations + Output --- */
     "declaration": true,
     "declarationDir": "dist",
-    "emitDeclarationOnly": false,
     "outDir": "dist",
-
-    /* --- Interop --- */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-
-    /* --- Safety --- */
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-
-    /* --- Paths --- */
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@img/*": ["public/img/*"]
-    },
-
-    /* --- Types --- */
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "isolatedModules": true
   },
-  "include": [
-    "src",
-    "types",
-    ".storybook",
-    "next-env.d.ts",
-    "types/svg.d.ts"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    ".next",
-    "**/*.test.ts",
-    "**/*.test.tsx"
-  ]
+  "include": ["src", ".storybook"],
+  "exclude": ["dist", "node_modules", "storybook-static"]
 }

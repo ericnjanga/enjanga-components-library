@@ -1,13 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/index.ts", "src/components", "src/libs", "src/utils", "types"],
-  "exclude": [
-    "dist",
-    "node_modules",
-    ".next",
-    "src/stories",
-    "src/libs/mockData",
-    "**/*.test.ts",
-    "**/*.test.tsx"
-  ]
+  "include": ["src/index.ts", "src/components/Navbar"],
+  "exclude": ["dist", "node_modules", "**/*.test.ts", "**/*.test.tsx"]
 }
