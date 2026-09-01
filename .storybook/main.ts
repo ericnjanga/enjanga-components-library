@@ -7,7 +7,7 @@ const config: StorybookConfig = {
       builder: { useSWC: true },
     },
   },
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',

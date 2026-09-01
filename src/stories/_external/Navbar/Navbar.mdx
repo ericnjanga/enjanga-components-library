@@ -1,0 +1,44 @@
+import {
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from '@storybook/blocks';
+import * as NavbarStories from './Navbar.stories';
+
+<Meta of={NavbarStories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Controls />
+
+## Unit tests
+
+### Updates its uncontrolled active item and reports navigation
+
+This test renders Navbar without a controlled `activeHref`, clicks the About
+link, and verifies that Navbar updates its own active state by applying
+`aria-current="page"`. It also confirms that `onNavigate` receives the selected
+navigation item, allowing a client consumer to respond to the click.
+
+### Prevents disabled items from changing active state
+
+This test clicks a disabled navigation item and verifies that the click is
+prevented, the disabled link exposes `aria-disabled="true"`, and the existing
+active item remains selected. It protects both the component's interaction
+contract and its accessible disabled state.
+
+### Closes the mobile drawer with Escape and restores opener focus
+
+This test opens the mobile navigation drawer, confirms that background page
+scrolling is locked, and then presses Escape. It verifies that the dialog
+closes, body scrolling is restored, and keyboard focus returns to the button
+that opened the menu.
+
+<Stories includePrimary={false} />

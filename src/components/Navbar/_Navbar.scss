@@ -11,6 +11,12 @@
   color: var(--enj-navbar-foreground);
   background: var(--enj-navbar-background);
   border-bottom: 1px solid var(--enj-navbar-border);
+  font-family: var(
+    --enj-font-family-sans,
+    Arial,
+    Helvetica,
+    sans-serif
+  );
 
   &__inner {
     display: flex;

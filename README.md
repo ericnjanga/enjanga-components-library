@@ -36,3 +36,7 @@ npm test
 npm run type-check
 npm run storybook
 ```
+
+Every newly created component must include a Storybook Docs page with a
+`Unit tests` section. Add one heading per test and a paragraph explaining the
+behavior and contract that test protects.
