@@ -6,3 +6,5 @@ export {
 } from './Navbar';
 
 export { Button, type ButtonProps } from './Button';
+
+export { CaseStudyCard, type CaseStudyCardProps } from './CaseStudyCard';

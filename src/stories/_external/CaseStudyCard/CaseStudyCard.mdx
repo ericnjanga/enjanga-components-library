@@ -1,0 +1,57 @@
+import { Meta, Title, Primary, Controls, Stories } from '@storybook/blocks';
+import * as CardStories from './CaseStudyCard.stories';
+
+<Meta of={CardStories} />
+<Title />
+<Primary />
+<Controls />
+
+The title is always an h2. Load core typography and design tokens before the
+card stylesheet, which includes Button styles. Callbacks leave video playback
+and routing to the consumer.
+
+The existing design-derived layout stacks media above content below the core
+desktop breakpoint (1056px). At desktop it uses two columns. Media minimum height
+is 349px on mobile and 469px from tablet (672px); desktop media grows with content.
+Heading sizes, line heights, margins, and breakpoints are owned by core setup.
+ResponsiveBoundaries checks layout, overflow, and the h2 preset in a real browser.
+
+## Unit tests
+
+### Renders an h2
+
+The public export produces an article named by its h2 and uses the shared core heading preset.
+
+### Renders descriptions
+
+Single strings and arrays become paragraphs in their supplied order.
+
+### Preserves poster accessibility
+
+The source, alternative text, and lazy loading are passed to the image.
+
+### Supports decorative posters
+
+An empty alternative text excludes the poster from the accessible image list.
+
+### Dispatches independent actions
+
+The reading action uses Button and each action calls only its own handler.
+
+### Supports keyboard and forms
+
+Enter and Space activate the two actions without submitting a surrounding form.
+
+### Disables actions independently
+
+Disabling either action prevents its callback while leaving the other usable.
+
+### Supports labels and multiple cards
+
+Custom labels remain contextual and separate cards receive unique heading IDs.
+
+### Forwards article props
+
+DOM refs, custom classes, and IDs reach the article.
+
+<Stories />

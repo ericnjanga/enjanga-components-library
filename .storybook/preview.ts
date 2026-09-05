@@ -29,3 +29,5 @@ const preview: Preview = {
 export default preview;
 
 import '../src/components/Button/_Button.scss';
+
+import '../src/components/CaseStudyCard/_CaseStudyCard.scss';

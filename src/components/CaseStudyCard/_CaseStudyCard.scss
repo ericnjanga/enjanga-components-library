@@ -1,0 +1,101 @@
+@use 'enjanga-core-setup/styles-responsive' as responsive;
+@use '../Button/Button';
+
+.enj-case-study-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--enj-case-study-gap);
+  width: 100%;
+  max-width: var(--enj-case-study-max-width);
+  color: var(--enj-case-study-foreground);
+  font-family: var(--enj-font-family-sans);
+  font-size: var(--enj-body-font-size);
+  font-weight: var(--enj-body-font-weight);
+  line-height: var(--enj-body-line-height);
+  letter-spacing: var(--enj-body-letter-spacing);
+
+  &, & * { box-sizing: border-box; }
+
+  &__media {
+    position: relative;
+    min-width: 0;
+    min-height: var(--enj-case-study-media-height);
+    overflow: hidden;
+    border: var(--enj-case-study-border-width) solid var(--enj-case-study-border-color);
+    border-radius: var(--enj-case-study-radius);
+    background: var(--enj-case-study-border-color);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--enj-case-study-overlay);
+      pointer-events: none;
+    }
+  }
+  &__poster {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  &__intro {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: var(--enj-case-study-intro-size);
+    height: var(--enj-case-study-intro-size);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--enj-case-study-intro-foreground);
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: var(--enj-case-study-intro-text-shadow);
+    cursor: pointer;
+    &:hover:not(:disabled) { filter: brightness(var(--enj-button-hover-brightness)); }
+    &:focus-visible {
+      outline: var(--enj-button-focus-width) solid var(--enj-case-study-intro-foreground);
+      outline-offset: var(--enj-button-focus-offset);
+    }
+    &:disabled { opacity: var(--enj-button-disabled-opacity); cursor: not-allowed; }
+  }
+  &__intro-circle {
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+  }
+  &__intro-label { position: relative; }
+  &__content {
+    min-width: 0;
+    align-self: center;
+    padding-block: var(--enj-case-study-content-padding);
+    overflow-wrap: anywhere;
+  }
+  &__description {
+    margin-block-end: var(--enj-h2-margin-bottom);
+    p { margin: 0; font: inherit; letter-spacing: inherit; }
+    p + p { margin-block-start: var(--enj-body-paragraph-spacing); }
+  }
+  &__action {
+    margin-block-start: var(--enj-case-study-action-offset);
+    max-width: 100%;
+    text-align: start;
+    .enj-button__label { white-space: normal; overflow-wrap: anywhere; }
+  }
+
+  @include responsive.desktop {
+    grid-template-columns: var(--enj-case-study-columns);
+  }
+}

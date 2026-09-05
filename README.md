@@ -57,3 +57,26 @@ color, typography, sizing, and interaction tokens; load its updated token build.
 Variants: `primary` (default), `secondary`, `tertiary`. Optional trailing icons:
 `chevron-right`, `close`. Native button props and refs are supported, including
 `disabled` and `type="submit"`; the default type is `button`.
+
+## CaseStudyCard
+
+```tsx
+import { CaseStudyCard } from 'enjanga-components-library';
+import 'enjanga-core-setup/typography.css';
+import 'enjanga-core-setup/design-tokens.css';
+import 'enjanga-components-library/case-study-card.css';
+
+<CaseStudyCard
+  title="Accessible experiences"
+  description={["The challenge.", "The outcome."]}
+  posterSrc="/case-study.jpg"
+  posterAlt="Project preview"
+  onWatchIntro={openVideo}
+  onReadCaseStudy={openCaseStudy}
+/>
+```
+
+The title is always an h2 using the core heading preset. The reading action uses
+Button; the card stylesheet includes its styles. The layout stacks below 1056px
+and uses two columns from 1056px. Both responsive boundaries and all visual tokens
+are defined in core setup. Action labels and disabled states can be customized.
