@@ -27,6 +27,13 @@ link, and verifies that Navbar updates its own active state by applying
 `aria-current="page"`. It also confirms that `onNavigate` receives the selected
 navigation item, allowing a client consumer to respond to the click.
 
+### Keeps controlled active state under consumer ownership
+
+This test supplies `activeHref` from the consumer, clicks a different item,
+and verifies that Navbar does not replace the controlled value with internal
+state. The click callback still runs so the consumer can decide when and how
+to update the active destination.
+
 ### Prevents disabled items from changing active state
 
 This test clicks a disabled navigation item and verifies that the click is
@@ -34,11 +41,52 @@ prevented, the disabled link exposes `aria-disabled="true"`, and the existing
 active item remains selected. It protects both the component's interaction
 contract and its accessible disabled state.
 
+### Protects links that open in a new tab
+
+This test verifies that external navigation items receive `target="_blank"`
+and `rel="noopener noreferrer"`. It protects the expected new-tab behavior and
+prevents the opened page from gaining access to the originating window.
+
 ### Closes the mobile drawer with Escape and restores opener focus
 
 This test opens the mobile navigation drawer, confirms that background page
 scrolling is locked, and then presses Escape. It verifies that the dialog
 closes, body scrolling is restored, and keyboard focus returns to the button
 that opened the menu.
+
+### Keeps Tab focus inside the open mobile drawer
+
+This test places focus on the last interactive item and verifies that Tab wraps
+to the first item. It then verifies the reverse path with Shift+Tab. This
+protects the drawer's modal keyboard behavior and prevents focus from escaping
+behind the overlay.
+
+### Closes the mobile drawer after navigation
+
+This test selects a link inside the open drawer and verifies that the drawer is
+removed afterward. It ensures mobile users return to page content immediately
+after choosing a destination.
+
+## Visual regression coverage
+
+Chromatic captures the intentional Navbar states below instead of treating
+every prop combination as a separate baseline:
+
+- Desktop default at 1440px and immediately around the responsive breakpoint
+  at 901px and 900px.
+- Active desktop navigation at 1440px.
+- Dark theme with an active item at 1440px.
+- Closed and open mobile navigation at 390px.
+- Disabled-item styling at 1440px.
+
+The default browser story waits for Mona Sans and verifies both
+`document.fonts` and the Navbar's computed `font-family`. The active light and
+dark stories verify the critical computed foreground and background colors.
+The Storybook accessibility addon runs against every story and treats detected
+violations as test errors.
+
+Approve these screenshots against the corresponding Figma frames when the
+baseline is created. After approval, Chromatic reports visual changes to fonts,
+colors, spacing, active states, and breakpoint behavior.
 
 <Stories includePrimary={false} />

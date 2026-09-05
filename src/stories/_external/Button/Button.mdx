@@ -1,0 +1,50 @@
+import { Controls, Description, Meta, Primary, Stories, Title } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+<Title />
+<Description />
+<Primary />
+<Controls />
+
+Matches Figma node 3329:4078. Import `enjanga-core-setup/typography.css`,
+`enjanga-core-setup/design-tokens.css`, and `enjanga-components-library/button.css`.
+Core setup owns all button tokens. Hover, pressed, focus, and disabled states extend
+the supplied static design. Icons inherit the label color and are decorative.
+Use visible action text; use native `type="submit"` for form submission.
+
+## Unit tests
+
+### Exports a primary native button with a safe default type
+
+Verifies the public package export, default variant, and non-submitting native button type.
+
+### Renders each variant
+
+Checks that primary, secondary, and tertiary select their respective styles.
+
+### Keeps each icon decorative
+
+Checks both icons remain hidden from assistive technology and enable icon spacing without changing the accessible name.
+
+### Omits unused icons
+
+Checks that text-only buttons contain no icon element or icon spacing class.
+
+### Supports pointer and keyboard activation
+
+Verifies tab focus and one click callback for each pointer, Enter, and Space activation.
+
+### Prevents disabled activation
+
+Verifies a disabled button cannot invoke its handler and is skipped during keyboard navigation.
+
+### Submits only when configured
+
+Verifies the default does not submit a surrounding form while an explicit submit button does.
+
+### Forwards native props and refs
+
+Verifies consumers can access the DOM button and supply classes, accessible labels, pressed state, and form attributes.
+
+<Stories />

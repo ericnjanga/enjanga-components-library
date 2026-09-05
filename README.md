@@ -1,6 +1,6 @@
 # enjanga-components-library
 
-A focused React component package currently exporting one component: `Navbar`.
+A focused React component package exporting `Navbar` and `Button`.
 
 ## Install
 
@@ -40,3 +40,20 @@ npm run storybook
 Every newly created component must include a Storybook Docs page with a
 `Unit tests` section. Add one heading per test and a paragraph explaining the
 behavior and contract that test protects.
+
+## Button
+
+```tsx
+import { Button } from 'enjanga-components-library';
+import 'enjanga-core-setup/typography.css';
+import 'enjanga-core-setup/design-tokens.css';
+import 'enjanga-components-library/button.css';
+
+<Button variant="primary" icon="chevron-right" onClick={handleContinue}>Continue</Button>
+```
+
+Install `enjanga-core-setup` alongside the library. It is the sole source of button
+color, typography, sizing, and interaction tokens; load its updated token build.
+Variants: `primary` (default), `secondary`, `tertiary`. Optional trailing icons:
+`chevron-right`, `close`. Native button props and refs are supported, including
+`disabled` and `type="submit"`; the default type is `button`.

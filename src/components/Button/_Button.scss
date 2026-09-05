@@ -1,0 +1,54 @@
+.enj-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  gap: var(--enj-button-gap);
+  padding: var(--enj-button-padding-block) var(--enj-button-padding-inline);
+  border: 0;
+  border-radius: var(--enj-button-radius);
+  font-family: var(--enj-font-family-sans);
+  font-size: var(--enj-button-font-size);
+  font-weight: var(--enj-button-font-weight);
+  line-height: var(--enj-button-line-height);
+  letter-spacing: var(--enj-button-letter-spacing);
+  cursor: pointer;
+  appearance: none;
+
+  &--primary {
+    color: var(--enj-button-primary-foreground);
+    background: var(--enj-button-primary-background);
+  }
+  &--secondary {
+    color: var(--enj-button-secondary-foreground);
+    background: var(--enj-button-secondary-background);
+  }
+  &--tertiary {
+    color: var(--enj-button-tertiary-foreground);
+    background: var(--enj-button-tertiary-background);
+    // An inset stroke preserves the same 42px height as the filled variants.
+    box-shadow: inset 0 0 0 var(--enj-button-border-width) var(--enj-button-tertiary-border);
+  }
+  &--with-icon { padding-inline-end: var(--enj-button-icon-padding-inline); }
+  &__label { white-space: nowrap; }
+  &__icon {
+    background: currentColor;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    display: block;
+    flex-shrink: 0;
+    width: var(--enj-button-icon-size);
+    height: var(--enj-button-icon-size);
+  }
+  &:hover:not(:disabled) { filter: brightness(var(--enj-button-hover-brightness)); }
+  &:active:not(:disabled) { filter: brightness(var(--enj-button-active-brightness)); }
+  &:focus-visible {
+    outline: var(--enj-button-focus-width) solid var(--enj-button-focus-color);
+    outline-offset: var(--enj-button-focus-offset);
+  }
+  &:disabled {
+    opacity: var(--enj-button-disabled-opacity);
+    cursor: not-allowed;
+  }
+}
