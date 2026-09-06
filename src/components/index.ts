@@ -14,3 +14,5 @@ export { CaseStudiesPage, type CaseStudiesPageProps, type CaseStudyListItem } fr
 export { CaseStudyMedia, type CaseStudyMediaProps } from './CaseStudyMedia';
 
 export { CaseStudyVideoDialog, type CaseStudyVideoDialogProps } from './CaseStudyVideoDialog';
+
+export { PageHero, type PageHeroProps } from './PageHero';
