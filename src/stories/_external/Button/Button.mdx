@@ -48,3 +48,16 @@ Verifies the default does not submit a surrounding form while an explicit submit
 Verifies consumers can access the DOM button and supply classes, accessible labels, pressed state, and form attributes.
 
 <Stories />
+
+## Shared hover animation
+
+All three variants reuse the portfolio CTA: a pink fill sweeps from the left,
+the button rises 3px, its shadow changes, and the trailing icon moves 0.2rem.
+Disabled buttons do not animate. Reduced-motion preferences replace the movement
+with an immediate color change. Native links rendered by `Button` use the same effect.
+
+Each variant retains its resting background and foreground; tertiary also retains its resting inset border.
+
+Core's shared `--enj-button-primary-*` tokens control the hover colors, shadows, lift,
+icon shift, wipe starting position, durations, and easing. Override these custom
+properties on a button or application theme to tune the interaction.

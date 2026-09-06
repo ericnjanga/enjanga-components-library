@@ -20,6 +20,7 @@
   &--primary {
     color: var(--enj-button-primary-foreground);
     background: var(--enj-button-primary-background);
+    box-shadow: var(--enj-button-primary-shadow);
   }
   &--secondary {
     color: var(--enj-button-secondary-foreground);
@@ -51,5 +52,49 @@
   &:disabled {
     opacity: var(--enj-button-disabled-opacity);
     cursor: not-allowed;
+  }
+}
+
+// All variants share the primary motion tokens; resting styles remain variant-specific.
+.enj-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform var(--enj-button-primary-lift-duration) var(--enj-button-primary-motion-easing),
+    box-shadow var(--enj-button-primary-lift-duration) ease,
+    color var(--enj-button-primary-color-duration) ease,
+    background-color var(--enj-button-primary-color-duration) ease;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: '';
+    background: var(--enj-button-primary-hover-background);
+    transform: translate3d(var(--enj-button-primary-wipe-start), 0, 0);
+    transition: transform var(--enj-button-primary-wipe-duration) var(--enj-button-primary-wipe-easing);
+  }
+  .enj-button__label, .enj-button__icon { position: relative; z-index: 1; }
+  .enj-button__icon {
+    transition: transform var(--enj-button-primary-icon-duration) var(--enj-button-primary-motion-easing);
+  }
+  &:hover:not(:disabled) {
+    filter: none;
+    color: var(--enj-button-primary-hover-foreground);
+    box-shadow: var(--enj-button-primary-hover-shadow);
+    transform: translateY(var(--enj-button-primary-hover-lift));
+    &::before { transform: translate3d(0, 0, 0); }
+    .enj-button__icon { transform: translateX(var(--enj-button-primary-hover-icon-shift)); }
+  }
+  &:active:not(:disabled) { filter: brightness(var(--enj-button-active-brightness)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enj-button {
+    &, &::before, .enj-button__icon { transition: none; }
+    &:hover:not(:disabled) {
+      transform: none;
+      .enj-button__icon { transform: none; }
+    }
   }
 }
