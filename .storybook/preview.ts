@@ -31,3 +31,5 @@ export default preview;
 import '../src/components/Button/_Button.scss';
 
 import '../src/components/CaseStudyCard/_CaseStudyCard.scss';
+
+import '../src/components/CaseStudiesPage/_CaseStudiesPage.scss';

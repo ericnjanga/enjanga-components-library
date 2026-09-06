@@ -10,7 +10,7 @@ The title is always an h2. Load core typography and design tokens before the
 card stylesheet, which includes Button styles. Callbacks leave video playback
 and routing to the consumer.
 
-The existing design-derived layout stacks media above content below the core
+The verified Figma layout stacks media above content below the core
 desktop breakpoint (1056px). At desktop it uses two columns. Media minimum height
 is 349px on mobile and 469px from tablet (672px); desktop media grows with content.
 Heading sizes, line heights, margins, and breakpoints are owned by core setup.
@@ -55,3 +55,28 @@ Custom labels remain contextual and separate cards receive unique heading IDs.
 DOM refs, custom classes, and IDs reach the article.
 
 <Stories />
+
+
+## Figma verification — September 6, 2026
+
+Verified against nodes 3329:4094 and 3329:4078 with live Figma access. The h2
+preset matches 33/38px, 36/44px, and 40/48px, with 17/21/25px bottom margins.
+The card retains core's 672px/1056px breakpoints: Figma supplies mobile, tablet,
+and desktop examples but does not specify transition widths in the returned context.
+The poster asset matches the Figma export byte for byte. Poster crop and intro
+control placement follow the reference. The Multiple Paragraphs story covers media
+growing with content. Browser checks at 320, 448, 671, 672, 1055, 1056, and 1328px
+confirmed heading presets, layout transitions, media minimum heights, and no card overflow.
+
+## Content-driven cards
+
+`posterSrc` and the callbacks are now optional. Supply `videoSrc` to enable the
+built-in native video dialog, with controls, keyboard dismissal, and focus
+restoration. `onWatchIntro` still supports application-owned behavior; calling
+`event.preventDefault()` prevents the built-in player from opening.
+
+Supply `caseStudyHref` for a native link styled with the shared `Button`.
+Existing `onReadCaseStudy` callbacks and disabled actions continue to work.
+A card without a video or intro callback has no play control; without media it
+renders as a text-only article. See **Pages / Case Studies** for the real
+Contentful fixture and the composed page.

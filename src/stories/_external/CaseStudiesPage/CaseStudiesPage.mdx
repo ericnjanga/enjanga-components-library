@@ -1,0 +1,29 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './CaseStudiesPage.stories';
+
+<Meta of={Stories} />
+
+# Case studies page
+
+This page composes the exported `CaseStudiesPage`, `CaseStudyCard`, `Button`, and `Navbar` components using the core typography and design tokens. It includes all four published Contentful case studies in publication order. The refund study has no media and renders as text; the other three have working intro videos.
+
+<Canvas of={Stories.AllPublished} />
+
+## Content fixture
+
+`contentful.json` is a public Contentful Delivery API snapshot captured on September 6, 2026. `fixtures.ts` maps that CMS structure into component props. No API token or live CMS request is needed to render Storybook; media is loaded from Contentful's public CDN. Read links target the corresponding local portfolio routes on port 3000.
+
+Use the theme toolbar or the Dark story to preview dark mode. Mobile and Video Interaction provide responsive and keyboard interaction previews. Empty demonstrates an empty published collection.
+
+## Portfolio integration
+
+Fetch content in the portfolio, map it to `CaseStudyListItem[]`, and pass it into a client wrapper rendering `CaseStudiesPage`. The component library remains independent of Contentful and Next.js. Import these styles once:
+
+```tsx
+import 'enjanga-core-setup/typography.css';
+import 'enjanga-core-setup/design-tokens.css';
+import 'enjanga-components-library/case-studies-page.css';
+import { CaseStudiesPage } from 'enjanga-components-library';
+```
+
+The page stylesheet includes its card and button styles. It does not include navigation; applications own their surrounding shell. No registry release is required for this Storybook preview.

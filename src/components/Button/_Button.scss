@@ -15,6 +15,7 @@
   letter-spacing: var(--enj-button-letter-spacing);
   cursor: pointer;
   appearance: none;
+  text-decoration: none;
 
   &--primary {
     color: var(--enj-button-primary-foreground);

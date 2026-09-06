@@ -67,3 +67,11 @@ describe('Button', () => {
     expect(button.getAttribute('value')).toBe('save');
   });
 });
+
+it('renders navigation as a native link with the same button appearance', () => {
+  render(<Button href="/case-studies" variant="secondary" icon="chevron-right">Read study</Button>);
+  const link = screen.getByRole('link', { name: 'Read study' });
+  expect(link.getAttribute('href')).toBe('/case-studies');
+  expect(link.classList.contains('enj-button--secondary')).toBe(true);
+  expect(link.hasAttribute('type')).toBe(false);
+});

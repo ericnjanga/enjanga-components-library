@@ -1,0 +1,70 @@
+{
+  "blogPostCollection": {
+    "items": [
+      {
+        "sys": {
+          "id": "7AJQa5t1elUPZU1nUZnjlK"
+        },
+        "title": "Modernizing the Way Financial Records Are Retrieved",
+        "slug": "modernizing-financial-records-retrieval",
+        "blurb": "Designed and implemented a scalable search results workflow for financial correction notices, enabling front- and back-office operators to quickly locate, review, and manage transaction amendments while supporting future API integration.",
+        "introVideo": {
+          "url": "https://videos.ctfassets.net/z41mabrhnu57/3Z63KqJ5al8FHNudpnH2ty/e0895b9bfa6fc5de87d2b7cfdc0eb3b8/Case_Study_-3_-_Modernizing_the_Way_Financial_Records_Are_Retrieved.mp4",
+          "contentType": "video/mp4"
+        },
+        "introVideoImage": {
+          "url": "https://images.ctfassets.net/z41mabrhnu57/2N7se9MBEqMpwlwid1uvMG/fc6d760767b9d873f027cebd752be490/Case_Study_-3_-_featured_img.jpg",
+          "width": 1673,
+          "height": 939,
+          "description": ""
+        }
+      },
+      {
+        "sys": {
+          "id": "6CYpnNFqeIPAZoMFmzLFmB"
+        },
+        "title": "Connecting a Bank Deposit Flow to Production APIs",
+        "slug": "bank-deposit-api-integration",
+        "blurb": "Replaced mocked data with production APIs, refactored business logic, and resolved cross-functional misalignments to operationalize a mission-critical financial reconciliation workflow.",
+        "introVideo": {
+          "url": "https://videos.ctfassets.net/z41mabrhnu57/1tfuRVhofEWiPI8llhrfH4/b996fb175468621ed241442ed916d4c7/Case_Study_-2_-_Connecting_a_Bank_Deposit_Flow_to_Production_APIs.mp4",
+          "contentType": "video/mp4"
+        },
+        "introVideoImage": {
+          "url": "https://images.ctfassets.net/z41mabrhnu57/1BstJK0AHIiBFCt8tjXPat/42896f51d0e532eff41c0734b01e059c/Case_Study_-2-_featured_img.png",
+          "width": 2872,
+          "height": 1614,
+          "description": ""
+        }
+      },
+      {
+        "sys": {
+          "id": "6QWJHmQBt6PLefMqkt0Hkb"
+        },
+        "introVideo": null,
+        "introVideoImage": null,
+        "title": "Delivering a Scalable Refund & Cancellation System Before the Backend Existed",
+        "slug": "refund-cancellation-flow",
+        "blurb": "Designing a state-driven cancellation architecture that enabled early delivery, reduced operational friction, and prepared the platform for future API integration."
+      },
+      {
+        "sys": {
+          "id": "33GP5W7X2M6W8rZQlQnRCN"
+        },
+        "title": "Modernizing a High-Volume Bank Deposit Flow",
+        "slug": "bank-deposit-flow",
+        "blurb": "Designed and implemented a multi-step bank deposit workflow within a large-scale government platform, enabling accurate end-of-day financial reconciliation for thousands of service agents—while navigating API gaps and cross-team dependencies.",
+        "introVideo": {
+          "url": "https://videos.ctfassets.net/z41mabrhnu57/6tdeLQCuaWX1LXa2Q6zteU/841009aeb748c3a518fe9a7031db6fdd/Case_Study_-1_-_Modernizing_a_High-Volume_Bank_Deposit_Flow.mp4",
+          "contentType": "video/mp4"
+        },
+        "introVideoImage": {
+          "url": "https://images.ctfassets.net/z41mabrhnu57/UmhkYpi6PATbBicSJLceT/8ff20aab5bc17ae6b98ae6947794490f/Case_Study_1_-_featured_img.png",
+          "width": 1461,
+          "height": 806,
+          "description": ""
+        }
+      }
+    ]
+  }
+}

@@ -22,7 +22,7 @@ export const WithChevron: Story = { args: { icon: 'chevron-right' } };
 export const WithClose: Story = { args: { variant: 'tertiary', children: 'Tertiary', icon: 'close' } };
 export const Disabled: Story = { args: { disabled: true, icon: 'chevron-right' } };
 export const DesignVariants: Story = {
-  render: () => <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, max-content)', gap: '2rem', alignItems: 'center' }}>
+  render: () => <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, max-content)', gap: '2rem', alignItems: 'center', justifyItems: 'start' }}>
     {(['primary', 'secondary', 'tertiary'] as const).map(variant => <div key={variant} style={{ display: 'contents' }}>
       <Button variant={variant}>{variant[0].toUpperCase() + variant.slice(1)}</Button>
       <Button variant={variant} icon={variant === 'tertiary' ? 'close' : 'chevron-right'}>{variant[0].toUpperCase() + variant.slice(1)}</Button>
@@ -37,4 +37,8 @@ export const KeyboardFocus: Story = {
     await userEvent.keyboard('{Enter}');
     await expect(args.onClick).toHaveBeenCalledOnce();
   },
+};
+
+export const NavigationLink: Story = {
+  args: { href: 'http://localhost:3000/case-studies', children: 'Explore case studies', variant: 'secondary', icon: 'chevron-right' },
 };

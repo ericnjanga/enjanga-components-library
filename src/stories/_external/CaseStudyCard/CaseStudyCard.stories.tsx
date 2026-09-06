@@ -8,8 +8,8 @@ const meta = {
   parameters: { layout: 'fullscreen' },
   decorators: [Story => <div style={{ padding: '24px', background: 'var(--enj-case-study-background)' }}><Story /></div>],
   args: {
-    title: 'Building accessible digital experiences',
-    description: ['A case study in creating a clear, accessible experience with React and Next.js.', 'Reusable components and shared foundations keep the experience consistent across screen sizes.'],
+    title: 'Modernizing the Way Financial Records Are Retrieved',
+    description: 'Designed and implemented a scalable search results workflow for financial correction notices, enabling front- and back-office operators to quickly locate, review, and manage transaction amendments while supporting future API integration.',
     posterSrc: poster,
     posterAlt: 'Case study video preview', onWatchIntro: fn(), onReadCaseStudy: fn(),
   },
@@ -29,6 +29,8 @@ export const Mobile: Story = {
 export const ResponsiveBoundaries: Story = {
   parameters: { chromatic: { viewports: [671, 672, 1055, 1056] } },
   play: async ({ canvasElement }) => {
+    await document.fonts.load('500 18px "Mona Sans"');
+    await document.fonts.ready;
     const card = within(canvasElement).getByRole('article');
     const media = card.querySelector<HTMLElement>('.enj-case-study-card__media')!;
     const content = card.querySelector<HTMLElement>('.enj-case-study-card__content')!;
@@ -38,6 +40,15 @@ export const ResponsiveBoundaries: Story = {
     await expect(card.scrollWidth).toBeLessThanOrEqual(card.clientWidth);
     const heading = within(card).getByRole('heading', { level: 2 });
     await expect(getComputedStyle(heading).fontSize).toBe(getComputedStyle(document.documentElement).getPropertyValue('--enj-h2-font-size').trim());
+    // Verified Figma reference values, independent of the implementation tokens.
+    const tablet = window.matchMedia('(min-width: 42rem)').matches;
+    const [size, line, margin, gap] = desktop ? ['40px', '48px', '25px', '79px']
+      : tablet ? ['36px', '44px', '21px', '40px'] : ['33px', '38px', '17px', '25px'];
+    await expect(getComputedStyle(heading).fontSize).toBe(size);
+    await expect(getComputedStyle(heading).lineHeight).toBe(line);
+    await expect(getComputedStyle(heading).marginBottom).toBe(margin);
+    await expect(getComputedStyle(card).gap).toBe(gap);
+    await expect(media.getBoundingClientRect().height).toBeGreaterThanOrEqual(tablet ? 469 : 349);
   },
 };
 export const DisabledActions: Story = { args: { introDisabled: true, readDisabled: true } };
@@ -54,4 +65,9 @@ export const KeyboardActions: Story = {
     await userEvent.tab(); await expect(buttons[1]).toHaveFocus();
     await userEvent.keyboard(' '); await expect(args.onReadCaseStudy).toHaveBeenCalledOnce();
   },
+};
+
+export const MultipleParagraphs: Story = {
+  args: { description: Array(3).fill(meta.args.description) },
+  parameters: { chromatic: { viewports: [1440, 898, 448] } },
 };

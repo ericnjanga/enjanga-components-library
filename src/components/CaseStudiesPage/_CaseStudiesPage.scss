@@ -1,0 +1,11 @@
+@use '../CaseStudyCard/CaseStudyCard';
+
+.enj-case-studies-page {
+  color: var(--enj-case-study-foreground);
+  background: var(--enj-case-study-background);
+  font-family: var(--enj-font-family-sans);
+  &__container { width: calc(100% - 2 * var(--enj-case-studies-gutter)); max-width: var(--enj-case-study-max-width); margin-inline: auto; }
+  &__hero { min-height: var(--enj-case-studies-hero-height); padding-block: var(--enj-case-studies-hero-padding); box-sizing: border-box; }
+  &__hero h1 { max-width: var(--enj-case-studies-title-width); margin: 0; }
+  &__list { display: grid; gap: var(--enj-case-studies-list-gap); padding-bottom: var(--enj-case-studies-bottom-space); }
+}

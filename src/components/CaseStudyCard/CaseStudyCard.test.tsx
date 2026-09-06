@@ -79,3 +79,16 @@ describe('CaseStudyCard', () => {
     expect(ref.current).toBe(article); expect(article.id).toBe('study'); expect(article.classList.contains('custom')).toBe(true);
   });
 });
+
+it('uses a native read link and omits unavailable intro controls', () => {
+  render(<CaseStudyCard title="Published study" description="Summary" caseStudyHref="/case-studies/published" />);
+  expect(screen.getByRole('link', { name: 'Read the full case study: Published study' }).getAttribute('href')).toBe('/case-studies/published');
+  expect(screen.queryByRole('button')).toBeNull();
+  expect(document.querySelector('.enj-case-study-card__media')).toBeNull();
+});
+
+it('renders a static poster without a misleading play button', () => {
+  render(<CaseStudyCard title="Static" description="Summary" posterSrc="/poster.png" posterAlt="Preview" />);
+  expect(screen.getByRole('img', { name: 'Preview' })).toBeTruthy();
+  expect(screen.queryByRole('button')).toBeNull();
+});
