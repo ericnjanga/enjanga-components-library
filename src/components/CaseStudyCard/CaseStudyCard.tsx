@@ -62,7 +62,8 @@ export const CaseStudyCard = forwardRef<HTMLElement, CaseStudyCardProps>(functio
         ) : null}
       </div>
       {videoSrc && <CaseStudyVideoDialog title={title} videoSrc={videoSrc} videoType={videoType}
-        posterSrc={posterSrc} open={videoOpen} onClose={() => setVideoOpen(false)} />}
+        posterSrc={posterSrc} caseStudyHref={caseStudyHref} onReadCaseStudy={onReadCaseStudy}
+        readLabel={readLabel} readDisabled={readDisabled} open={videoOpen} onClose={() => setVideoOpen(false)} />}
     </article>
   );
 });

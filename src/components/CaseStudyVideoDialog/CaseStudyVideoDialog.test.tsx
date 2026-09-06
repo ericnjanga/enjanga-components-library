@@ -94,3 +94,23 @@ it('follows controlled open state and stops on unmount', () => {
   unmount();
   expect(HTMLMediaElement.prototype.pause).toHaveBeenCalledOnce();
 });
+
+it('shows the title and the footer navigation action from the design', () => {
+  render(<CaseStudyVideoDialog {...props} open onClose={vi.fn()} caseStudyHref="/case-studies/records" />);
+  expect(screen.getByRole('heading', { name: props.title })).toBeTruthy();
+  expect(screen.getByRole('link', { name: 'Read the full case study' }).getAttribute('href')).toBe('/case-studies/records');
+});
+it('closes using the footer action', async () => {
+  const onClose = vi.fn();
+  render(<CaseStudyVideoDialog {...props} open onClose={onClose} />);
+  await userEvent.click(screen.getByRole('button', { name: 'Close modal' }));
+  expect(onClose).toHaveBeenCalledOnce();
+  expect(screen.queryByRole('dialog')).toBeNull();
+});
+it('uses the card read callback from the dialog footer', async () => {
+  const onReadCaseStudy = vi.fn();
+  render(<MediaInCard {...props} onReadCaseStudy={onReadCaseStudy} />);
+  await userEvent.click(screen.getByRole('button', { name: /Watch intro:/ }));
+  await userEvent.click(screen.getByRole('button', { name: 'Read the full case study' }));
+  expect(onReadCaseStudy).toHaveBeenCalledOnce();
+});

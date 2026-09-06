@@ -6,13 +6,72 @@
   max-height: calc(100dvh - 2rem);
   margin: auto;
   padding: 0;
-  border: 0;
+  overflow: auto;
+  border: var(--enj-case-study-border-width) solid var(--enj-case-study-border-color);
   border-radius: var(--enj-case-study-radius);
   color: var(--enj-case-study-foreground);
   background: var(--enj-case-study-background);
+  box-shadow: var(--enj-case-study-dialog-shadow);
+  font-family: var(--enj-font-family-sans);
   &::backdrop { background: var(--enj-case-study-dialog-backdrop); }
-  &-content { padding: var(--enj-case-study-dialog-padding); }
-  video { display: block; width: 100%; max-height: 75dvh; }
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: var(--enj-case-study-dialog-header-height);
+    padding: var(--enj-case-study-dialog-header-padding);
+    box-sizing: border-box;
+  }
+  &-title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding-top: 0;
+    font-size: var(--enj-case-study-dialog-title-size);
+    font-weight: 700;
+    line-height: var(--enj-case-study-dialog-title-line-height);
+    letter-spacing: 0.16px;
+    overflow-wrap: anywhere;
+  }
+  & &-title { margin-top: 0; margin-block-end: 0; padding-top: 0; }
+  &-dismiss {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: var(--enj-case-study-dialog-close-size);
+    height: var(--enj-case-study-dialog-close-size);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    span { width: 100%; height: 100%; background: currentColor; mask-size: 100% 100%; mask-repeat: no-repeat; }
+    &:hover { color: var(--enj-button-primary-hover-background); }
+    &:focus-visible { outline: var(--enj-button-focus-width) solid var(--enj-button-focus-color); outline-offset: 2px; }
+  }
+  &-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--enj-case-study-dialog-video-ratio);
+    max-height: 65dvh;
+    background: #000;
+    object-fit: cover;
+  }
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--enj-case-study-dialog-footer-gap);
+    padding: var(--enj-case-study-dialog-footer-padding);
+    .enj-button { max-width: 100%; }
+    .enj-button__label { white-space: normal; overflow-wrap: anywhere; }
+  }
 }
-.enj-case-study-card__close { display: flex; margin: 0 0 var(--enj-case-study-dialog-padding) auto; }
-
+@media (max-width: 540px) {
+  .enj-case-study-card__dialog {
+    &-header { padding: 12px 8px 16px 16px; }
+    &-title { font-size: 20px; line-height: 28px; }
+    &-footer { padding: 20px 16px; gap: 12px; }
+  }
+}
