@@ -71,7 +71,7 @@ confirmed heading presets, layout transitions, media minimum heights, and no car
 ## Content-driven cards
 
 `posterSrc` and the callbacks are now optional. Supply `videoSrc` to enable the
-built-in native video dialog, with controls, keyboard dismissal, and focus
+card-owned `CaseStudyVideoDialog`, with controls, keyboard dismissal, and focus
 restoration. `onWatchIntro` still supports application-owned behavior; calling
 `event.preventDefault()` prevents the built-in player from opening.
 
@@ -80,3 +80,5 @@ Existing `onReadCaseStudy` callbacks and disabled actions continue to work.
 A card without a video or intro callback has no play control; without media it
 renders as a text-only article. See **Pages / Case Studies** for the real
 Contentful fixture and the composed page.
+
+The card owns dialog visibility. Standalone `CaseStudyMedia` only emits its click callback and never opens a dialog. The dialog is separately exported with controlled `open` and `onClose` props.

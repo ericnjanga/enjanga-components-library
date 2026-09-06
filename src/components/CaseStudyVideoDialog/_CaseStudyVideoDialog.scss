@@ -1,0 +1,18 @@
+@use '../Button/Button';
+
+.enj-case-study-card__dialog {
+  box-sizing: border-box;
+  width: min(var(--enj-case-study-dialog-width), calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--enj-case-study-radius);
+  color: var(--enj-case-study-foreground);
+  background: var(--enj-case-study-background);
+  &::backdrop { background: var(--enj-case-study-dialog-backdrop); }
+  &-content { padding: var(--enj-case-study-dialog-padding); }
+  video { display: block; width: 100%; max-height: 75dvh; }
+}
+.enj-case-study-card__close { display: flex; margin: 0 0 var(--enj-case-study-dialog-padding) auto; }
+

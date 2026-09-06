@@ -1,6 +1,7 @@
-import { forwardRef, useId, type ComponentPropsWithoutRef, type MouseEventHandler } from 'react';
+import { forwardRef, useId, useState, type ComponentPropsWithoutRef, type MouseEventHandler } from 'react';
 import clsx from 'clsx';
 import { Button } from '../Button';
+import { CaseStudyVideoDialog } from '../CaseStudyVideoDialog';
 import { CaseStudyMedia } from '../CaseStudyMedia';
 
 export interface CaseStudyCardProps extends Omit<ComponentPropsWithoutRef<'article'>, 'title' | 'children'> {
@@ -34,13 +35,18 @@ export const CaseStudyCard = forwardRef<HTMLElement, CaseStudyCardProps>(functio
   ref,
 ) {
   const titleId = useId();
+  const [videoOpen, setVideoOpen] = useState(false);
+  const watchIntro: MouseEventHandler<HTMLButtonElement> = event => {
+    onWatchIntro?.(event);
+    if (!event.defaultPrevented && videoSrc) setVideoOpen(true);
+  };
   const hasMedia = Boolean(posterSrc || videoSrc || onWatchIntro);
   const paragraphs = typeof description === 'string' ? [description] : description;
 
   return (
     <article {...props} ref={ref} aria-labelledby={titleId} className={clsx('enj-case-study-card', !hasMedia && 'enj-case-study-card--text-only', className)}>
       <CaseStudyMedia title={title} posterSrc={posterSrc} posterAlt={posterAlt}
-        videoSrc={videoSrc} videoType={videoType} onWatchIntro={onWatchIntro}
+        videoSrc={videoSrc} videoType={videoType} onWatchIntro={videoSrc || onWatchIntro ? watchIntro : undefined}
         introLabel={introLabel} introDisabled={introDisabled} />
       <div className="enj-case-study-card__content">
         <h2 id={titleId} className="enj-h2">{title}</h2>
@@ -55,6 +61,8 @@ export const CaseStudyCard = forwardRef<HTMLElement, CaseStudyCardProps>(functio
             aria-label={`${readLabel}: ${title}`} onClick={onReadCaseStudy} disabled={readDisabled}>{readLabel}</Button>
         ) : null}
       </div>
+      {videoSrc && <CaseStudyVideoDialog title={title} videoSrc={videoSrc} videoType={videoType}
+        posterSrc={posterSrc} open={videoOpen} onClose={() => setVideoOpen(false)} />}
     </article>
   );
 });

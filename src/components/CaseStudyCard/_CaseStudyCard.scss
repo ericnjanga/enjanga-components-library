@@ -1,5 +1,6 @@
 @use 'enjanga-core-setup/styles-responsive' as responsive;
 @use '../CaseStudyMedia/CaseStudyMedia';
+@use '../CaseStudyVideoDialog/CaseStudyVideoDialog';
 
 .enj-case-study-card {
   display: grid;
