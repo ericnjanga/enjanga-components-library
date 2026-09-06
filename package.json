@@ -15,7 +15,8 @@
     "./navbar.css": "./dist/navbar.css",
     "./button.css": "./dist/button.css",
     "./case-study-card.css": "./dist/case-study-card.css",
-    "./case-studies-page.css": "./dist/case-studies-page.css"
+    "./case-studies-page.css": "./dist/case-studies-page.css",
+    "./case-study-media.css": "./dist/case-study-media.css"
   },
   "sideEffects": [
     "**/*.css",
@@ -26,10 +27,10 @@
   ],
   "scripts": {
     "build": "npm run build:css && tsup",
-    "build:css": "mkdir -p dist && sass --no-source-map --style=compressed src/components/Navbar/_Navbar.scss dist/navbar.css && sass --no-source-map --style=compressed src/components/Button/_Button.scss dist/button.css && sass --load-path=node_modules --no-source-map --style=compressed src/components/CaseStudyCard/_CaseStudyCard.scss dist/case-study-card.css && sass --load-path=node_modules --no-source-map --style=compressed src/components/CaseStudiesPage/_CaseStudiesPage.scss dist/case-studies-page.css",
+    "build:css": "mkdir -p dist && sass --no-source-map --style=compressed src/components/Navbar/_Navbar.scss dist/navbar.css && sass --no-source-map --style=compressed src/components/Button/_Button.scss dist/button.css && sass --load-path=node_modules --no-source-map --style=compressed src/components/CaseStudyCard/_CaseStudyCard.scss dist/case-study-card.css && sass --load-path=node_modules --no-source-map --style=compressed src/components/CaseStudiesPage/_CaseStudiesPage.scss dist/case-studies-page.css && sass --load-path=node_modules --no-source-map --style=compressed src/components/CaseStudyMedia/_CaseStudyMedia.scss dist/case-study-media.css",
     "watch": "concurrently \"npm run watch:ts\" \"npm run watch:css\"",
     "watch:ts": "tsup --watch",
-    "watch:css": "sass --load-path=node_modules --no-source-map --watch src/components/Navbar/_Navbar.scss:dist/navbar.css src/components/Button/_Button.scss:dist/button.css src/components/CaseStudyCard/_CaseStudyCard.scss:dist/case-study-card.css src/components/CaseStudiesPage/_CaseStudiesPage.scss:dist/case-studies-page.css",
+    "watch:css": "sass --load-path=node_modules --no-source-map --watch src/components/Navbar/_Navbar.scss:dist/navbar.css src/components/Button/_Button.scss:dist/button.css src/components/CaseStudyCard/_CaseStudyCard.scss:dist/case-study-card.css src/components/CaseStudiesPage/_CaseStudiesPage.scss:dist/case-studies-page.css src/components/CaseStudyMedia/_CaseStudyMedia.scss:dist/case-study-media.css",
     "type-check": "tsc --noEmit -p tsconfig.build.json",
     "test": "vitest run --config vitest.config.mts",
     "test:watch": "vitest --config vitest.config.mts",
