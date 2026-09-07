@@ -1,9 +1,10 @@
+@use 'enjanga-core-setup/styles-responsive' as responsive;
 @use '../Button/Button';
 
 .enj-case-study-card__dialog {
   box-sizing: border-box;
-  width: min(var(--enj-case-study-dialog-width), calc(100% - 2rem));
-  max-height: calc(100dvh - 2rem);
+  width: min(var(--enj-case-study-dialog-width), calc(100% - var(--enj-case-study-dialog-viewport-clearance)));
+  max-height: calc(100dvh - var(--enj-case-study-dialog-viewport-clearance));
   margin: auto;
   padding: 0;
   overflow: auto;
@@ -17,7 +18,7 @@
   &-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--enj-case-study-dialog-header-gap);
     min-height: var(--enj-case-study-dialog-header-height);
     padding: var(--enj-case-study-dialog-header-padding);
     box-sizing: border-box;
@@ -28,9 +29,9 @@
     margin: 0;
     padding-top: 0;
     font-size: var(--enj-case-study-dialog-title-size);
-    font-weight: 700;
+    font-weight: var(--enj-heading-font-weight);
     line-height: var(--enj-case-study-dialog-title-line-height);
-    letter-spacing: 0.16px;
+    letter-spacing: var(--enj-heading-letter-spacing);
     overflow-wrap: anywhere;
   }
   & &-title { margin-top: 0; margin-block-end: 0; padding-top: 0; }
@@ -47,14 +48,14 @@
     cursor: pointer;
     span { width: 100%; height: 100%; background: currentColor; mask-size: 100% 100%; mask-repeat: no-repeat; }
     &:hover { color: var(--enj-button-primary-hover-background); }
-    &:focus-visible { outline: var(--enj-button-focus-width) solid var(--enj-button-focus-color); outline-offset: 2px; }
+    &:focus-visible { outline: var(--enj-button-focus-width) solid var(--enj-button-focus-color); outline-offset: var(--enj-focus-offset-tight); }
   }
   &-video {
     display: block;
     width: 100%;
     aspect-ratio: var(--enj-case-study-dialog-video-ratio);
     max-height: 65dvh;
-    background: #000;
+    background: var(--enj-video-background);
     object-fit: cover;
   }
   &-footer {
@@ -68,11 +69,11 @@
     .enj-button__label { white-space: normal; overflow-wrap: anywhere; }
   }
 }
-@media (max-width: 540px) {
+@include responsive.compact {
   .enj-case-study-card__dialog {
-    &-header { padding: 12px 8px 16px 16px; }
-    &-title { font-size: 20px; line-height: 28px; }
-    &-footer { padding: 20px 16px; gap: 12px; }
+    &-header { padding: var(--enj-case-study-dialog-compact-header-padding); }
+    &-title { font-size: var(--enj-case-study-dialog-compact-title-size); line-height: var(--enj-case-study-dialog-compact-title-line-height); }
+    &-footer { padding: var(--enj-case-study-dialog-compact-footer-padding); gap: var(--enj-case-study-dialog-compact-footer-gap); }
   }
 }
 

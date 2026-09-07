@@ -15,7 +15,7 @@
       inset: 0;
       background: var(--enj-case-study-overlay);
       pointer-events: none;
-      transition: background var(--enj-case-study-hover-duration, 180ms) ease;
+      transition: background var(--enj-case-study-hover-duration) var(--enj-motion-easing-standard);
     }
   }
   &__poster-frame {
@@ -97,11 +97,11 @@
   &:disabled .enj-case-study-card__intro { opacity: var(--enj-button-disabled-opacity); }
 }
 .enj-case-study-card__media:has(.enj-case-study-card__media-trigger:hover:not(:disabled))::after {
-  background: var(--enj-case-study-hover-overlay, rgb(0 0 0 / 35%));
+  background: var(--enj-case-study-hover-overlay);
 }
 .enj-case-study-card__media:has(.enj-case-study-card__media-trigger:focus-visible) {
   outline: var(--enj-button-focus-width) solid var(--enj-button-focus-color);
-  outline-offset: 5px;
+  outline-offset: var(--enj-focus-offset-media);
 }
 .enj-case-study-card__media-trigger:focus-visible { outline: none; }
 @media (prefers-reduced-motion: reduce) {

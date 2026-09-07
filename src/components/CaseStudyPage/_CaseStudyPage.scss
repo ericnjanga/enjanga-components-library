@@ -31,12 +31,12 @@
       color: inherit;
       text-decoration: underline;
       text-decoration-color: var(--enj-case-study-page-accent);
-      text-underline-offset: .15em;
-      &:focus-visible { outline: 3px solid var(--enj-case-study-page-accent); outline-offset: 3px; }
+      text-underline-offset: var(--enj-link-underline-offset);
+      &:focus-visible { outline: var(--enj-focus-width) solid var(--enj-case-study-page-accent); outline-offset: var(--enj-focus-offset); }
     }
     hr {
       border: 0;
-      border-top: 1px solid var(--enj-case-study-page-divider-color);
+      border-top: var(--enj-border-width-thin) solid var(--enj-case-study-page-divider-color);
       margin: var(--enj-case-study-page-divider-space) 0;
       + * { margin-top: 0; }
     }

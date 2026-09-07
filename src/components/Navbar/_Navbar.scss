@@ -1,20 +1,17 @@
+@use 'enjanga-core-setup/styles-responsive' as responsive;
+
 .enj-navbar {
   position: relative;
   z-index: 30;
-  color: var(--enj-navbar-foreground, #111827);
-  background: var(--enj-navbar-background, #f4f7fb);
-  border-bottom: 1px solid var(--enj-navbar-border, #d9e1eb);
-  font-family: var(
-    --enj-font-family-sans,
-    Arial,
-    Helvetica,
-    sans-serif
-  );
+  color: var(--enj-navbar-foreground);
+  background: var(--enj-navbar-background);
+  border-bottom: var(--enj-border-width-thin) solid var(--enj-navbar-border);
+  font-family: var(--enj-font-family-sans);
 
   &__inner {
     display: flex;
-    width: min(100% - 4rem, 80rem);
-    min-height: 6.25rem;
+    width: min(100% - 2 * var(--enj-navbar-gutter), var(--enj-navbar-max-width));
+    min-height: var(--enj-navbar-height);
     align-items: center;
     justify-content: space-between;
     margin-inline: auto;
@@ -22,15 +19,15 @@
 
   &__brand {
     color: inherit;
-    font-size: 1.875rem;
-    font-weight: 800;
+    font-size: var(--enj-navbar-brand-size);
+    font-weight: var(--enj-navbar-brand-weight);
     line-height: 1;
     text-decoration: none;
   }
 
   &__brand:hover,
   &__brand:focus-visible {
-    color: var(--enj-navbar-accent, #f81c9a);
+    color: var(--enj-navbar-accent);
   }
 
   &__desktop,
@@ -43,66 +40,66 @@
 
   &__desktop,
   &__links {
-    gap: .625rem;
+    gap: var(--enj-navbar-menu-gap);
   }
 
   &__actions {
-    gap: .5rem;
-    margin-left: .75rem;
-    padding-left: .75rem;
-    border-left: 1px solid currentColor;
+    gap: var(--enj-navbar-action-gap);
+    margin-left: var(--enj-navbar-action-spacing);
+    padding-left: var(--enj-navbar-action-spacing);
+    border-left: var(--enj-border-width-thin) solid currentColor;
   }
 
   &__link {
-    border-radius: 999px;
-    padding: .4375rem 1rem;
+    border-radius: var(--enj-navbar-radius);
+    padding: var(--enj-navbar-link-padding);
     color: inherit;
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.22;
+    font-size: var(--enj-navbar-link-size);
+    font-weight: var(--enj-navbar-link-weight);
+    line-height: var(--enj-navbar-link-line-height);
     text-decoration: none;
-    transition: color 160ms ease, background-color 160ms ease;
+    transition: color var(--enj-navbar-transition-duration) var(--enj-motion-easing-standard), background-color var(--enj-navbar-transition-duration) var(--enj-motion-easing-standard);
 
     &:hover,
     &:focus-visible {
-      color: #fff;
-      background: var(--enj-navbar-accent, #f81c9a);
+      color: var(--enj-navbar-hover-foreground);
+      background: var(--enj-navbar-accent);
     }
 
     &--active {
-      color: var(--enj-navbar-active-foreground, #fff);
-      background: var(--enj-navbar-active-background, #111827);
+      color: var(--enj-navbar-active-foreground);
+      background: var(--enj-navbar-active-background);
     }
 
     &--disabled {
       cursor: not-allowed;
-      opacity: .45;
+      opacity: var(--enj-navbar-disabled-opacity);
     }
   }
 
   &__mobileActions {
     display: none;
-    gap: .5rem;
+    gap: var(--enj-navbar-action-gap);
   }
 
   &__iconButton {
     display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: var(--enj-navbar-control-size);
+    height: var(--enj-navbar-control-size);
     place-items: center;
-    border: 1px solid var(--enj-navbar-border, #d9e1eb);
-    border-radius: 999px;
+    border: var(--enj-border-width-thin) solid var(--enj-navbar-border);
+    border-radius: var(--enj-navbar-radius);
     color: inherit;
     background: transparent;
     cursor: pointer;
 
     svg {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: var(--enj-navbar-icon-size);
+      height: var(--enj-navbar-icon-size);
       fill: none;
       stroke: currentColor;
       stroke-linecap: round;
-      stroke-width: 1.75;
+      stroke-width: var(--enj-navbar-icon-stroke-width);
     }
   }
 
@@ -111,18 +108,18 @@
     z-index: 40;
     inset: 0;
     border: 0;
-    background: var(--enj-navbar-overlay, rgb(15 23 42 / 45%));
+    background: var(--enj-navbar-overlay);
   }
 
   &__drawer {
     position: fixed;
     z-index: 50;
     inset: 0 0 0 auto;
-    width: min(86vw, 23rem);
-    padding: 1.5rem;
-    color: var(--enj-navbar-foreground, #111827);
-    background: var(--enj-navbar-background, #f4f7fb);
-    box-shadow: -1rem 0 2rem var(--enj-navbar-shadow, rgb(15 23 42 / 20%));
+    width: min(var(--enj-navbar-drawer-width), var(--enj-navbar-drawer-max-width));
+    padding: var(--enj-navbar-drawer-padding);
+    color: var(--enj-navbar-foreground);
+    background: var(--enj-navbar-background);
+    box-shadow: var(--enj-navbar-drawer-shadow);
   }
 
   &__drawerHeader {
@@ -133,22 +130,22 @@
 
   &__drawerLinks {
     display: grid;
-    gap: .5rem;
-    margin-top: 2.5rem;
+    gap: var(--enj-navbar-action-gap);
+    margin-top: var(--enj-navbar-drawer-links-offset);
 
     .enj-navbar__link {
       display: block;
-      padding: .75rem 1rem;
+      padding: var(--enj-navbar-drawer-link-padding);
     }
   }
 
   :is(a, button):focus-visible {
-    outline: 2px solid var(--enj-navbar-accent, #f81c9a);
-    outline-offset: 3px;
+    outline: var(--enj-focus-width-thin) solid var(--enj-navbar-accent);
+    outline-offset: var(--enj-focus-offset);
   }
 }
 
-@media (max-width: 56.25rem) {
+@include responsive.navigation-collapsed {
   .enj-navbar__desktop {
     display: none;
   }
@@ -158,13 +155,13 @@
   }
 }
 
-@media (max-width: 33.75rem) {
+@include responsive.compact {
   .enj-navbar__inner {
-    width: min(100% - 2rem, 80rem);
-    min-height: 5rem;
+    width: min(100% - 2 * var(--enj-navbar-compact-gutter), var(--enj-navbar-max-width));
+    min-height: var(--enj-navbar-compact-height);
   }
 
   .enj-navbar__brand {
-    font-size: 1.5rem;
+    font-size: var(--enj-navbar-compact-brand-size);
   }
 }

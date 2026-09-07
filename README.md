@@ -105,3 +105,8 @@ shared video dialog (query strings are supported). Link text becomes the dialog
 title. Download links and modified clicks retain native browser behavior. The
 `walkthrough` dialog variant reuses the player and close controls without a
 case-study navigation action.
+
+Component design values are provided by `enjanga-core-setup/design-tokens.css`.
+Navbar dimensions, focus indicators, dialog compact styles, colors and motion
+have no local fallback values. Load the core stylesheet before component CSS.
+Shared responsive mixins are exported by `enjanga-core-setup/styles-responsive`.
