@@ -1,0 +1,58 @@
+@use '../CaseStudyVideoDialog/CaseStudyVideoDialog';
+@use '../PageHero/PageHero';
+
+.enj-case-study-page {
+  color: var(--enj-case-study-foreground);
+  background: var(--enj-case-study-background);
+  font-family: var(--enj-font-family-sans);
+  padding-bottom: var(--enj-case-study-page-bottom-space);
+
+  &__container {
+    width: calc(100% - 2 * var(--enj-case-studies-gutter));
+    max-width: var(--enj-case-study-max-width);
+    margin-inline: auto;
+  }
+  &__hero { padding-block: var(--enj-case-study-page-hero-padding); }
+  &__article {
+    max-width: var(--enj-case-study-page-article-width);
+    margin-inline: auto;
+    font-size: var(--enj-body-font-size);
+    font-weight: var(--enj-body-font-weight);
+    line-height: var(--enj-body-line-height);
+    letter-spacing: var(--enj-body-letter-spacing);
+    overflow-wrap: anywhere;
+
+    :where(h2, h3, h4, p, blockquote, ul, ol, figure) { margin: 0; }
+    > * + * { margin-top: var(--enj-case-study-page-block-gap); }
+    h2 { font-size: var(--enj-h2-font-size); line-height: var(--enj-h2-line-height); }
+    h3 { font-size: var(--enj-case-study-page-subheading-size); line-height: var(--enj-case-study-page-subheading-line-height); }
+    h2, h3, h4 { font-weight: var(--enj-heading-font-weight); }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--enj-case-study-page-accent);
+      text-underline-offset: .15em;
+      &:focus-visible { outline: 3px solid var(--enj-case-study-page-accent); outline-offset: 3px; }
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid var(--enj-case-study-page-divider-color);
+      margin: var(--enj-case-study-page-divider-space) 0;
+      + * { margin-top: 0; }
+    }
+    blockquote {
+      box-sizing: border-box;
+      border-left: var(--enj-case-study-page-quote-border-width) solid var(--enj-case-study-page-accent);
+      padding: var(--enj-case-study-page-quote-padding);
+      background: var(--enj-case-study-page-quote-background);
+      font-size: var(--enj-case-study-page-quote-size);
+      line-height: var(--enj-case-study-page-quote-line-height);
+      font-style: italic;
+      > * + * { margin-top: var(--enj-case-study-page-block-gap); }
+    }
+    ul, ol { padding-left: 1.5em; }
+    li + li { margin-top: var(--enj-case-study-page-block-gap); }
+    img, video { display: block; max-width: 100%; height: auto; }
+    figcaption { margin-top: var(--enj-case-study-page-block-gap); }
+  }
+}

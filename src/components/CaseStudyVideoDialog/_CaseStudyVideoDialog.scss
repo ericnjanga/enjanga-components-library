@@ -75,3 +75,10 @@
     &-footer { padding: 20px 16px; gap: 12px; }
   }
 }
+
+.enj-case-study-card__dialog--walkthrough {
+  --enj-case-study-dialog-header-height: var(--enj-walkthrough-dialog-header-height);
+  --enj-case-study-dialog-backdrop: var(--enj-walkthrough-dialog-backdrop);
+  --enj-case-study-dialog-video-ratio: var(--enj-walkthrough-dialog-video-ratio);
+  .enj-case-study-card__dialog-video { object-fit: contain; }
+}

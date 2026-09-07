@@ -16,3 +16,5 @@ export { CaseStudyMedia, type CaseStudyMediaProps } from './CaseStudyMedia';
 export { CaseStudyVideoDialog, type CaseStudyVideoDialogProps } from './CaseStudyVideoDialog';
 
 export { PageHero, type PageHeroProps } from './PageHero';
+
+export { CaseStudyPage, type CaseStudyPageProps } from './CaseStudyPage';

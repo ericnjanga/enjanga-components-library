@@ -80,3 +80,28 @@ The title is always an h2 using the core heading preset. The reading action uses
 Button; the card stylesheet includes its styles. The layout stacks below 1056px
 and uses two columns from 1056px. Both responsive boundaries and all visual tokens
 are defined in core setup. Action labels and disabled states can be customized.
+
+### Case study detail page
+
+Import `CaseStudyPage` from `enjanga-components-library` and its styles from
+`enjanga-components-library/case-study-page.css`, alongside the core typography
+and design token styles. Pass `title`, optional `description`, and article markup
+as children. Contentful fetching and rich-text conversion belong to the consuming
+application; headings, paragraphs, links, dividers, quotes, lists and media receive
+scoped article styling. Navigation and footer remain part of the application shell.
+
+```tsx
+<CaseStudyPage title={entry.title}>
+  {renderRichText(entry.description)}
+</CaseStudyPage>
+```
+
+Storybook → Pages / Case Study includes the financial records article, mobile,
+dark and introductory-text examples. Its screenshot placeholder matches the
+current Figma design; the component supports real images supplied by the app.
+
+CaseStudyPage opens article links ending in `.mp4`, `.webm`, or `.ogv` in the
+shared video dialog (query strings are supported). Link text becomes the dialog
+title. Download links and modified clicks retain native browser behavior. The
+`walkthrough` dialog variant reuses the player and close controls without a
+case-study navigation action.

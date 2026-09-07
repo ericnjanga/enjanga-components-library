@@ -4,6 +4,7 @@ import { close as closeIcon } from '../Button/icons';
 
 export interface CaseStudyVideoDialogProps {
   title: string;
+  variant?: 'introduction' | 'walkthrough';
   videoSrc: string;
   videoType?: string;
   posterSrc?: string;
@@ -16,7 +17,7 @@ export interface CaseStudyVideoDialogProps {
 }
 
 /** Controlled video player. The parent decides which interaction opens it. */
-export function CaseStudyVideoDialog({ title, videoSrc, videoType = 'video/mp4', posterSrc, caseStudyHref, onReadCaseStudy, readLabel = 'Read the full case study', readDisabled = false, open, onClose }: CaseStudyVideoDialogProps) {
+export function CaseStudyVideoDialog({ title, variant = 'introduction', videoSrc, videoType = 'video/mp4', posterSrc, caseStudyHref, onReadCaseStudy, readLabel = 'Read the full case study', readDisabled = false, open, onClose }: CaseStudyVideoDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -36,8 +37,8 @@ export function CaseStudyVideoDialog({ title, videoSrc, videoType = 'video/mp4',
     };
   }, [open, videoSrc]);
 
-  return <dialog ref={dialogRef} className="enj-case-study-card__dialog"
-    aria-label={`Video introduction: ${title}`}
+  return <dialog ref={dialogRef} className={`enj-case-study-card__dialog enj-case-study-card__dialog--${variant}`}
+    aria-label={`${variant === 'walkthrough' ? 'Video walkthrough' : 'Video introduction'}: ${title}`}
     onClose={() => {
       videoRef.current?.pause();
       if (videoRef.current) videoRef.current.currentTime = 0;
