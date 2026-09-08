@@ -110,3 +110,16 @@ Component design values are provided by `enjanga-core-setup/design-tokens.css`.
 Navbar dimensions, focus indicators, dialog compact styles, colors and motion
 have no local fallback values. Load the core stylesheet before component CSS.
 Shared responsive mixins are exported by `enjanga-core-setup/styles-responsive`.
+
+### Router integration for Button
+
+`Button` renders a native button when no `href` is supplied, and a native
+anchor by default when `href` is supplied. Wrap consumers in
+`ButtonLinkProvider` to supply a framework-specific link adapter. This also
+applies to Buttons nested inside `CaseStudyCard` and `CaseStudiesPage`.
+The adapter receives `ButtonLinkProps`, including the anchor ref, children,
+styles, accessibility attributes, and event handlers. Define the adapter
+inside a client component when using Next.js App Router. The portfolio's
+adapter uses `next/link` for relative internal destinations and native anchors
+for absolute URLs, special schemes, downloads, and new-tab destinations.
+Action buttons never pass through the adapter.

@@ -5,7 +5,7 @@ export {
   type NavbarProps,
 } from './Navbar';
 
-export { Button, type ButtonProps } from './Button';
+export { Button, ButtonLinkProvider, type ButtonLinkProps, type ButtonProps } from './Button';
 
 export { CaseStudyCard, type CaseStudyCardProps } from './CaseStudyCard';
 
