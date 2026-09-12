@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import {
+  useContext,
   useEffect,
   useId,
   useRef,
@@ -9,6 +10,7 @@ import {
   type MouseEvent,
 } from 'react';
 import type { NavbarItem, NavbarProps } from './libs/types';
+import { LinkContext } from '../../provider/LinkProvider';
 
 const MenuIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -46,6 +48,7 @@ export const Navbar = ({
   const currentHref = activeHref ?? internalActiveHref;
 
   const closeMenu = () => setIsOpen(false);
+  const LinkComponent = useContext(LinkContext) ?? 'a';
 
   useEffect(() => {
     if (!isOpen) return;
@@ -109,7 +112,7 @@ export const Navbar = ({
       : {};
 
     return (
-      <a
+      <LinkComponent
         key={item.id}
         href={item.href}
         aria-current={isActive ? 'page' : undefined}
@@ -123,16 +126,16 @@ export const Navbar = ({
         {...externalProps}
       >
         {item.label}
-      </a>
+      </LinkComponent>
     );
   };
 
   return (
     <header className={clsx('enj-navbar', className)}>
       <nav className="enj-navbar__inner" aria-label={ariaLabel}>
-        <a href={brandHref} aria-label={brandLabel} className="enj-navbar__brand">
+        <LinkComponent href={brandHref} aria-label={brandLabel} className="enj-navbar__brand">
           {brand}
-        </a>
+        </LinkComponent>
 
         <div className="enj-navbar__desktop">
           <div className="enj-navbar__links">{items.map(renderLink)}</div>
@@ -171,9 +174,9 @@ export const Navbar = ({
               className="enj-navbar__drawer"
             >
               <div className="enj-navbar__drawerHeader">
-                <a href={brandHref} aria-label={brandLabel} className="enj-navbar__brand" onClick={closeMenu}>
+                <LinkComponent href={brandHref} aria-label={brandLabel} className="enj-navbar__brand" onClick={closeMenu}>
                   {brand}
-                </a>
+                </LinkComponent>
                 <button
                   ref={closeRef}
                   type="button"

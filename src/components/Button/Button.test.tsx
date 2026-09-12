@@ -3,7 +3,7 @@ import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { Button, ButtonLinkProvider, CaseStudyCard } from '../../index';
+import { Button, LinkProvider, CaseStudyCard } from '../../index';
 
 describe('Button', () => {
   it('exports a primary native button with a safe default type', () => {
@@ -79,10 +79,10 @@ it('renders navigation as a native link with the same button appearance', () => 
 it('uses the router adapter inside cards while preserving native actions', async () => {
   const adapter = vi.fn(({ children, ...props }) => <a {...props} data-router="yes">{children}</a>);
   const action = vi.fn();
-  render(<ButtonLinkProvider component={adapter}>
+  render(<LinkProvider component={adapter}>
     <CaseStudyCard title="Example" description="Summary" caseStudyHref="/case-studies/example" />
     <Button onClick={action}>Open dialog</Button>
-  </ButtonLinkProvider>);
+  </LinkProvider>);
   expect(screen.getByRole('link').getAttribute('data-router')).toBe('yes');
   expect(screen.getByRole('link').getAttribute('href')).toBe('/case-studies/example');
   await userEvent.setup().click(screen.getByRole('button', { name: 'Open dialog' }));

@@ -111,15 +111,28 @@ Navbar dimensions, focus indicators, dialog compact styles, colors and motion
 have no local fallback values. Load the core stylesheet before component CSS.
 Shared responsive mixins are exported by `enjanga-core-setup/styles-responsive`.
 
-### Router integration for Button
+### Shared router integration
 
-`Button` renders a native button when no `href` is supplied, and a native
-anchor by default when `href` is supplied. Wrap consumers in
-`ButtonLinkProvider` to supply a framework-specific link adapter. This also
-applies to Buttons nested inside `CaseStudyCard` and `CaseStudiesPage`.
-The adapter receives `ButtonLinkProps`, including the anchor ref, children,
-styles, accessibility attributes, and event handlers. Define the adapter
-inside a client component when using Next.js App Router. The portfolio's
-adapter uses `next/link` for relative internal destinations and native anchors
-for absolute URLs, special schemes, downloads, and new-tab destinations.
-Action buttons never pass through the adapter.
+Import `LinkProvider` and `LinkProps` from `enjanga-components-library`.
+One provider supplies a router adapter for Button links (including those in
+cards) and every Navbar menu and brand link, on desktop and mobile.
+Without a provider, links remain native anchors. Buttons without href remain
+native buttons.
+
+```tsx
+<LinkProvider component={AppLink}>
+  <App />
+</LinkProvider>
+```
+
+Define AppLink at module level in a client component. Forward anchor props and
+refs, call the supplied onClick before routing, and respect defaultPrevented.
+Preserve modified clicks, new tabs, downloads, and external destinations.
+Framework-specific routing belongs in the application; the library does not
+import Next.js.
+
+ButtonLinkProvider and AnchorLinkProvider (and their context/prop type names)
+remain package-root compatibility aliases. They now share one context: the
+nearest provider applies to both Button and Navbar. They no longer configure
+independent routing. Replace nested legacy providers with a single LinkProvider.
+The provider barrel is the sole public export source for these APIs.
