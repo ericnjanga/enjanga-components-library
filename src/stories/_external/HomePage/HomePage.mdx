@@ -9,6 +9,8 @@ A presentational page with introduction, expertise, and about sections. Import `
 
 Supply plain text through `title`, `description`, `expertise.items`, and `about.paragraphs`. The `action` and `image` slots accept application-owned links and interactive media. Use `SectionWrapper` to add scroll effects without coupling the library to a CMS or router.
 
+The About section keeps biography paragraphs in one readable column at every size. On wider screens, a portrait capped at 440px sits beside copy capped at 640px, with vertical alignment centered. At 1000px and below, the portrait stacks above the copy. The LinkedIn action follows the paragraphs.
+
 <Canvas of={Stories.Default} />
 <Canvas of={Stories.Mobile} />
 <Canvas of={Stories.Dark} />

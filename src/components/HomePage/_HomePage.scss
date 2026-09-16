@@ -99,15 +99,17 @@
 
 .enj-home-page__about {
   display: grid;
-  min-height: 46.1rem;
-  grid-template-columns: 30.75rem minmax(0, 44.5rem);
-  align-items: start;
-  gap: 4.75rem;
+  grid-template-columns: minmax(0, 27.5rem) minmax(0, 40rem);
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(3rem, 5vw, 4.5rem);
+  padding-block: 4rem 8rem;
 }
 
 .enj-home-page__portrait {
-  width: 30.75rem;
-  height: 37.3125rem;
+  width: 100%;
+  max-width: 27.5rem;
+  aspect-ratio: 492 / 597;
 }
 
 .enj-home-page__portrait img {
@@ -115,14 +117,15 @@
 }
 
 .enj-home-page__aboutCopy {
-  padding-top: 0;
+  min-width: 0;
+  max-width: 40rem;
 }
 
 .enj-home-page__bodyCopy {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 20.625rem));
-  gap: 2.875rem;
-  margin: 2rem 0 2.75rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-block: 2rem;
   color: var(--enj-home-foreground, var(--enj-case-study-foreground));
 }
 
@@ -159,21 +162,16 @@
   }
 
   .enj-home-page__about {
-    min-height: auto;
-    grid-template-columns: minmax(18rem, 38%) minmax(0, 1fr);
-    gap: clamp(3rem, 6vw, 4.75rem);
-    padding: 7rem 0 8rem;
+    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
   }
+}
 
-  .enj-home-page__portrait {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 0.824;
-  }
-
-  .enj-home-page__bodyCopy {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+@media (max-width: 1000px) {
+  .enj-home-page__about {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 40rem;
+    gap: 3.5rem;
+    margin-inline: auto;
   }
 }
 
@@ -209,18 +207,7 @@
   }
 
   .enj-home-page__about {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
     padding-top: 0;
-  }
-
-  .enj-home-page__portrait {
-    width: min(100%, 30.75rem);
-  }
-
-  .enj-home-page__bodyCopy {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
   }
 }
 
@@ -241,8 +228,7 @@
     font-size: 2rem;
   }
 
-  .enj-home-page__expertiseList,
-  .enj-home-page__bodyCopy {
+  .enj-home-page__expertiseList {
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-block: 1.75rem 2.25rem;
@@ -256,11 +242,6 @@
   .enj-home-page__about {
     gap: 2.75rem;
     padding-bottom: 6rem;
-  }
-
-  .enj-home-page__portrait {
-    width: 100%;
-    max-height: 34rem;
   }
 }
 
