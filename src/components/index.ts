@@ -27,3 +27,5 @@ export { HomePage, type HomePageProps } from './HomePage';
 
 export { InteractiveImage, type InteractiveImageProps } from './InteractiveImage';
 export { ScrollReveal, type ScrollRevealProps } from './ScrollReveal';
+
+export { Footer, type FooterProps, type FooterLink } from './Footer';

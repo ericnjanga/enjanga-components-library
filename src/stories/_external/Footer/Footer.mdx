@@ -1,0 +1,16 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as Stories from './Footer.stories';
+
+<Meta of={Stories} />
+
+# Footer
+
+A shared footer with a home link, optional navigation, and copyright text. It owns its markup, responsive layout, accessibility, and theme styles. Import `enjanga-components-library/footer.css` after core typography and design tokens.
+
+Supply plain `siteName`, `homeHref`, `links`, and `copyright` props. Fetch and map CMS data on the application's server; no Contentful types or requests belong here. `brandLabel` and `navigationLabel` customize accessible names. Empty navigation and copyright content are omitted.
+
+The component uses a client boundary to consume `LinkProvider`. Without a provider it renders native anchors. New-tab links include `noopener noreferrer`. Override `--enj-footer-background` and `--enj-footer-foreground` to customize its colors.
+
+<Canvas of={Stories.Default} />
+<Controls />
+<Canvas of={Stories.Mobile} />

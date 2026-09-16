@@ -14,6 +14,8 @@ import { HomePage, type HomePageProps } from '../../../components/HomePage';
 import { CaseStudiesPage } from '../../../components/CaseStudiesPage';
 import { CaseStudyPage } from '../../../components/CaseStudyPage';
 import { Button } from '../../../components/Button';
+import { Footer } from '../../../components/Footer';
+import '../../../components/Footer/_Footer.scss';
 import { caseStudiesPageFixture } from '../CaseStudiesPage/fixtures';
 import '../../../components/CaseStudyPage/_CaseStudyPage.scss';
 
@@ -200,6 +202,11 @@ export function PortfolioPreview({
             <Button href="/">Return home</Button>
           </CaseStudyPage>
         )}
+        <Footer siteName="Eric Njanga" copyright="Copyright @ Toronto, Canada." links={[
+          { label: 'Case Studies', href: '/case-studies' },
+          { label: 'About', href: '/#about' },
+          { label: 'LinkedIn Profile', href: 'https://www.linkedin.com/in/ericnjanga/', openInNewTab: true },
+        ]} />
       </LinkProvider>
     </Navigation.Provider>
   );

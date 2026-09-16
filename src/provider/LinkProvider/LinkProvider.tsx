@@ -7,7 +7,7 @@ export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
 
 export const LinkContext = createContext<ComponentType<LinkProps> | undefined>(undefined);
 
-/** Supply a router adapter to Button links, InteractiveImage links, and Navbar menu and brand links. Defaults to native anchors without this provider. */
+/** Supply a router adapter to Footer links, Button links, InteractiveImage links, and Navbar menu and brand links. Defaults to native anchors without this provider. */
 export function LinkProvider({ component, children }: {
   component: ComponentType<LinkProps>;
   children: ReactNode;
