@@ -22,20 +22,15 @@
   .enj-interactive-image__picture {
     display: block;
     position: absolute;
-    top: var(--enj-case-study-poster-inset);
-    bottom: var(--enj-case-study-poster-inset);
-    left: 50%;
-    transform: translateX(-50%);
-    aspect-ratio: var(--enj-case-study-poster-ratio);
+    inset: 0;
     overflow: hidden;
   }
   img {
     position: absolute;
-    top: var(--enj-case-study-poster-top);
-    left: var(--enj-case-study-poster-left);
-    max-width: none;
-    width: var(--enj-case-study-poster-width);
-    height: var(--enj-case-study-poster-height);
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
   }
 }

@@ -9,5 +9,19 @@
   font-family: var(--enj-font-family-sans);
   &__container { @include layout.page-container; }
   &__hero { min-height: var(--enj-case-studies-hero-height); padding-block: var(--enj-case-studies-hero-padding); box-sizing: border-box; }
-  &__list { display: grid; gap: var(--enj-case-studies-list-gap); padding-bottom: var(--enj-case-studies-bottom-space); }
+  &__list {
+    display: grid;
+    gap: var(--enj-case-studies-list-gap);
+    padding-bottom: var(--enj-case-studies-bottom-space);
+
+    > * { position: relative; }
+    > * + *::before {
+      content: '';
+      position: absolute;
+      inset-inline: 0;
+      top: calc(var(--enj-case-studies-list-gap) / -2);
+      border-top: var(--enj-border-width-thin) solid var(--enj-case-studies-divider-color);
+      pointer-events: none;
+    }
+  }
 }

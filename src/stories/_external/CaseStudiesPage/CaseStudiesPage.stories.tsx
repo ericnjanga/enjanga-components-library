@@ -23,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const AllPublished: Story = {
-  parameters: { chromatic: { viewports: [1440, 768, 390] } },
+  parameters: { chromatic: { viewports: [1440, 1024, 768, 390] } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getAllByRole('article')).toHaveLength(caseStudiesPageFixture.caseStudies.length);

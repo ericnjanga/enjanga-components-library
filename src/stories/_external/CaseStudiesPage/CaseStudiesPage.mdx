@@ -7,6 +7,8 @@ import * as Stories from './CaseStudiesPage.stories';
 
 This page composes the exported `CaseStudiesPage`, `CaseStudyCard`, `Button`, and `Navbar` components using the core typography and design tokens. It includes all four published Contentful case studies in publication order. The refund study has no media and renders as text; the other three have working intro videos.
 
+Cards are separated by a subtle, theme-aware rule centered in a responsive gap (280px at the 1440px reference width, reducing to 96px on small screens). Posters fill their entire media frame using centered `object-fit: cover`, without fixed zoom or positional offsets. A cover crop may trim the source image edges to avoid empty space.
+
 <Canvas of={Stories.AllPublished} />
 
 ## Content fixture

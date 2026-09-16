@@ -9,6 +9,8 @@ A presentational page with introduction, expertise, and about sections. Import `
 
 Supply plain text through `title`, `description`, `expertise.items`, and `about.paragraphs`. The `action` and `image` slots accept application-owned links and interactive media. Use `SectionWrapper` to add scroll effects without coupling the library to a CMS or router.
 
+The home introduction sits lower within its hero, followed by generous section spacing that scales down with the viewport. Expertise uses stacked items separated by a short, theme-aware rule, with heading spacing from `--enj-h3-margin-bottom`, alongside vertically centered product media on desktop; compact screens keep the media in normal document flow. Section spacing is controlled by the core `--enj-home-*` tokens.
+
 The About section keeps biography paragraphs in one readable column at every size. On wider screens, a portrait capped at 440px sits beside copy capped at 640px, with vertical alignment centered. At 1000px and below, the portrait stacks above the copy. The LinkedIn action follows the paragraphs.
 
 <Canvas of={Stories.Default} />
