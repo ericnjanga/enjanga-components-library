@@ -1,6 +1,6 @@
 import { type MouseEventHandler } from 'react';
 import clsx from 'clsx';
-import { introCircle } from './introCircle';
+import { InteractiveImage } from '../InteractiveImage';
 
 export interface CaseStudyMediaProps {
   title: string;
@@ -12,31 +12,53 @@ export interface CaseStudyMediaProps {
   onWatchIntro?: MouseEventHandler<HTMLButtonElement>;
   introLabel?: string;
   introDisabled?: boolean;
+  caseStudyHref?: string;
+  readLabel?: string;
+  readDisabled?: boolean;
 }
 
-/** Standalone media with the portfolio’s full-thumbnail hit target and hover interaction. */
-export function CaseStudyMedia({ title, posterSrc, posterAlt = '', videoSrc,
-  onWatchIntro, introLabel = 'Watch intro', introDisabled = false,
+/** Shared image interaction with a native button for video introductions. */
+export function CaseStudyMedia({
+  title,
+  posterSrc,
+  posterAlt = '',
+  videoSrc,
+  onWatchIntro,
+  introLabel = 'Watch intro',
+  introDisabled = false,
+  caseStudyHref,
+  readLabel = 'Read the full case study',
+  readDisabled = false,
 }: CaseStudyMediaProps) {
   const hasIntro = Boolean(videoSrc || onWatchIntro);
   const hasMedia = Boolean(posterSrc || hasIntro);
-  return <>
-      {hasMedia && <div className={clsx("enj-case-study-card__media", !hasIntro && "enj-case-study-card__media--static")}>
-        {posterSrc && <div className="enj-case-study-card__poster-frame">
-          <img className="enj-case-study-card__poster" src={posterSrc} alt={posterAlt} loading="lazy" decoding="async" />
-        </div>}
-        {hasIntro && <button
-          type="button"
-          className="enj-case-study-card__media-trigger"
-          aria-label={`${introLabel}: ${title}`}
-          onClick={onWatchIntro}
-          disabled={introDisabled}
+  return (
+    <>
+      {hasMedia && (
+        <div
+          className={clsx(
+            'enj-case-study-card__media',
+            !hasIntro && 'enj-case-study-card__media--static'
+          )}
         >
-          <span className="enj-case-study-card__intro" aria-hidden="true">
-          <span className="enj-case-study-card__intro-circle" style={{ maskImage: `url("${introCircle}")` }} aria-hidden="true" />
-          <span className="enj-case-study-card__intro-label">{introLabel}</span>
-          </span>
-        </button>}
-      </div>}
-  </>;
+          <InteractiveImage
+            className="enj-case-study-card__image"
+            variant="case-study"
+            src={posterSrc}
+            alt={posterAlt}
+            loading="lazy"
+            decoding="async"
+            action={
+              hasIntro
+                ? { onClick: onWatchIntro, disabled: introDisabled }
+                : undefined
+            }
+            href={!hasIntro && !readDisabled ? caseStudyHref : undefined}
+            interactionLabel={hasIntro ? introLabel : readLabel}
+            aria-label={`${hasIntro ? introLabel : readLabel}: ${title}`}
+          />
+        </div>
+      )}
+    </>
+  );
 }

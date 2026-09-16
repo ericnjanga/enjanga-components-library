@@ -69,3 +69,16 @@ it('renders a noninteractive image without a link', () => {
   expect(screen.queryByRole('link')).toBeNull();
   expect(screen.getByRole('img').getAttribute('alt')).toBe('Portrait');
 });
+
+it('supports immediate button actions without submitting a form and honors disabled', () => {
+  const action = vi.fn();
+  const { rerender } = render(<InteractiveImage src="/poster.jpg" alt="Poster" interactionLabel="Watch intro" action={{ onClick: action }} />);
+  const button = screen.getByRole('button', { name: 'Watch intro' });
+  expect(button.getAttribute('type')).toBe('button');
+  fireEvent.click(button);
+  expect(action).toHaveBeenCalledOnce();
+  rerender(<InteractiveImage src="/poster.jpg" alt="Poster" interactionLabel="Watch intro" action={{ onClick: action, disabled: true }} />);
+  fireEvent.click(button);
+  expect(action).toHaveBeenCalledOnce();
+  expect(screen.queryByRole('link')).toBeNull();
+});

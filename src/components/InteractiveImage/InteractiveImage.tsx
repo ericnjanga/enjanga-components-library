@@ -6,27 +6,41 @@ import {
   useState,
   type ComponentPropsWithoutRef,
   type MouseEvent,
+  type MouseEventHandler,
 } from 'react';
 import clsx from 'clsx';
 import { LinkContext } from '../../provider/LinkProvider';
 
 export interface InteractiveImageProps
   extends Omit<ComponentPropsWithoutRef<'a'>, 'children'> {
-  src: string;
+  src?: string;
+  /** Use a real button for actions such as opening a video dialog. */
+  action?: {
+    onClick?: MouseEventHandler<HTMLButtonElement>;
+    disabled?: boolean;
+  };
+  loading?: 'eager' | 'lazy';
+  decoding?: 'async' | 'sync' | 'auto';
   alt: string;
   width?: number;
   height?: number;
   interactionLabel?: string;
+  /** Figma image treatment: case studies reveal on hover; Home images dim. */
+  variant?: 'product' | 'portrait' | 'case-study';
 }
 
 /** Image interaction using the application's LinkProvider, or a native anchor. */
 export function InteractiveImage({
   src,
+  action,
+  loading,
+  decoding,
   alt,
   width,
   height,
   href,
   interactionLabel = 'Explore',
+  variant = 'product',
   className,
   target,
   rel,
@@ -34,7 +48,7 @@ export function InteractiveImage({
   ...props
 }: InteractiveImageProps) {
   const Link = useContext(LinkContext) ?? 'a';
-  const ref = useRef<HTMLAnchorElement>(null);
+  const ref = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null);
   const [rippling, setRippling] = useState(false);
   function updatePointer(clientX: number, clientY: number) {
     const node = ref.current;
@@ -44,8 +58,7 @@ export function InteractiveImage({
     node.style.setProperty('--pointer-y', `${clientY - bounds.top}px`);
   }
 
-  function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    onClick?.(event);
+  function ripple(event: MouseEvent<HTMLElement>) {
     if (
       event.defaultPrevented ||
       event.button !== 0 ||
@@ -66,37 +79,81 @@ export function InteractiveImage({
 
   const content = (
     <>
-      <img src={src} alt={alt} width={width} height={height} />
-      {href && (
-        <span className="enj-interactive-image__label" aria-hidden="true">
-          {interactionLabel}
-          <span>↗</span>
+      {src && (
+        <span className="enj-interactive-image__picture">
+          <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            loading={loading}
+            decoding={decoding}
+          />
         </span>
       )}
-      {href && (
+      {(href || action) && (
+        <span className="enj-interactive-image__label" aria-hidden="true">
+          {interactionLabel}
+        </span>
+      )}
+      {(href || action) && (
         <span className="enj-interactive-image__ripple" aria-hidden="true" />
       )}
     </>
   );
   const classes = clsx('enj-interactive-image', className);
+  if (action)
+    return (
+      <button
+        ref={(node) => {
+          ref.current = node;
+        }}
+        type="button"
+        className={classes}
+        disabled={action.disabled}
+        aria-label={props['aria-label'] ?? interactionLabel}
+        data-variant={variant}
+        data-interactive={action.disabled ? 'false' : 'true'}
+        data-rippling={rippling ? 'true' : 'false'}
+        onClick={(event) => {
+          action.onClick?.(event);
+          ripple(event);
+        }}
+        onPointerEnter={(event) => updatePointer(event.clientX, event.clientY)}
+        onPointerMove={(event) => updatePointer(event.clientX, event.clientY)}
+        onAnimationEnd={() => setRippling(false)}
+      >
+        {content}
+      </button>
+    );
   if (!href)
     return (
-      <div className={classes} data-interactive="false">
+      <div className={classes} data-variant={variant} data-interactive="false">
         {content}
       </div>
     );
   return (
     <Link
       {...props}
-      ref={ref}
+      ref={(node) => {
+        ref.current = node;
+      }}
       href={href}
       target={target}
       rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
       aria-label={props['aria-label'] ?? interactionLabel}
       className={classes}
+      data-variant={variant}
       data-interactive="true"
       data-rippling={rippling ? 'true' : 'false'}
-      onClick={handleClick}
+      onClick={(event) => {
+        onClick?.(event);
+        ripple(event);
+      }}
+      onPointerEnter={(event) => {
+        updatePointer(event.clientX, event.clientY);
+        props.onPointerEnter?.(event);
+      }}
       onPointerMove={(event) => {
         updatePointer(event.clientX, event.clientY);
         props.onPointerMove?.(event);

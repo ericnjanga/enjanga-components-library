@@ -22,7 +22,6 @@ describe('CaseStudyVideoDialog inside CaseStudyCard', () => {
     const user = userEvent.setup();
     render(<MediaInCard {...props} />);
     const trigger = screen.getByRole('button', { name: 'Watch intro: Financial records' });
-    expect(trigger.classList.contains('enj-case-study-card__media-trigger')).toBe(true);
     await user.click(trigger);
     expect(screen.getByRole('dialog')).toBeTruthy();
     expect(HTMLMediaElement.prototype.play).toHaveBeenCalledOnce();

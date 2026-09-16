@@ -33,7 +33,7 @@ export const homePageFixture = {
     },
     about: {
       title: 'Passionate about enterprise software',
-      image: <InteractiveImage src={portrait} alt="Eric Njanga" href="https://www.linkedin.com/in/ericnjanga/" target="_blank" interactionLabel="LinkedIn Profile" />,
+      image: <InteractiveImage src={portrait} variant="portrait" alt="Eric Njanga" href="https://www.linkedin.com/in/ericnjanga/" target="_blank" interactionLabel="LinkedIn Profile" />,
       paragraphs: [
         'My career has been shaped by large organizations, complex systems, and the challenge of bringing established software forward. Over the years, I’ve learned that successful modernization is about more than technology—it requires understanding users, business priorities, organizational constraints, and the people responsible for delivering change.',
         'That perspective shapes how I work today: combining front-end architecture, product thinking, and enterprise experience to help build software that remains useful, adaptable, and maintainable as organizations evolve.',

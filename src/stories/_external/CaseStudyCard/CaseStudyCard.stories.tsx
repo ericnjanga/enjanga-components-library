@@ -71,3 +71,7 @@ export const MultipleParagraphs: Story = {
   args: { description: Array(3).fill(meta.args.description) },
   parameters: { chromatic: { viewports: [1440, 898, 448] } },
 };
+
+export const LinkedPoster: Story = {
+  args: { onWatchIntro: undefined, onReadCaseStudy: undefined, caseStudyHref: '/case-studies/financial-records' },
+};

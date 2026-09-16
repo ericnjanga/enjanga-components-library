@@ -92,3 +92,11 @@ it('renders a static poster without a misleading play button', () => {
   expect(screen.getByRole('img', { name: 'Preview' })).toBeTruthy();
   expect(screen.queryByRole('button')).toBeNull();
 });
+
+it('links a poster without an intro to the case study and respects readDisabled', () => {
+  const { rerender } = render(<CaseStudyCard title="Linked" description="Summary" posterSrc="/poster.png" posterAlt="Preview" caseStudyHref="/case-studies/linked" />);
+  const imageLink = screen.getByRole('img', { name: 'Preview' }).closest('a');
+  expect(imageLink?.getAttribute('href')).toBe('/case-studies/linked');
+  rerender(<CaseStudyCard title="Linked" description="Summary" posterSrc="/poster.png" posterAlt="Preview" caseStudyHref="/case-studies/linked" readDisabled />);
+  expect(screen.getByRole('img', { name: 'Preview' }).closest('a')).toBeNull();
+});

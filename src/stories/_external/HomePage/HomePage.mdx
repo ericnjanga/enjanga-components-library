@@ -13,6 +13,13 @@ Supply plain text through `title`, `description`, `expertise.items`, and `about.
 <Canvas of={Stories.Mobile} />
 <Canvas of={Stories.Dark} />
 
-Home sections now use `ScrollReveal` by default. Pass a different `SectionWrapper` to override it. `InteractiveImage` accepts native link props plus `src`, `alt`, image dimensions, and `interactionLabel`; routing comes from `LinkProvider`. Modified clicks, downloads, and new-tab links retain native behavior. Regular clicks wait for the ripple, except when reduced motion is enabled.
+Home sections now use `ScrollReveal` by default. Pass a different `SectionWrapper` to override it. `InteractiveImage` accepts native link props plus `src`, `alt`, image dimensions, and `interactionLabel`; routing comes from `LinkProvider`. Modified clicks, downloads, and new-tab links retain native behavior. Regular clicks navigate immediately; the ripple never delays navigation.
 
 For standalone usage import `interactive-image.css` or `scroll-reveal.css`. Home page CSS includes both; case studies page CSS includes scroll reveal. Content remains visible without JavaScript, without IntersectionObserver, and when reduced motion is requested.
+
+
+## Figma hover variants
+
+InteractiveImage’s default `product` variant and its `portrait` variant show a clear image at rest. Hover and keyboard focus add 5px blur, a 50% black overlay, and the exported translucent circular CTA. All three variants follow the cursor while it remains inside the image; labels are centered at rest and for keyboard/touch use. Case study media uses the opposite `case-study` variant. Touch devices show the action without requiring a hover; reduced motion removes transitions and ripple animation.
+
+Review all three under **External Components / InteractiveImage / Comparison**.

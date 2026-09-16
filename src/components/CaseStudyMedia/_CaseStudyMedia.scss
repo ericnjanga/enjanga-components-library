@@ -1,75 +1,12 @@
-@use '../Button/Button';
+@use '../InteractiveImage/InteractiveImage';
 @use '../../styles/media-frame' as media;
 
-.enj-case-study-card {
-  &__media {
-    position: relative;
-    min-width: 0;
-    min-height: var(--enj-case-study-media-height);
-    @include media.media-frame;
-    background: var(--enj-case-study-border-color);
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--enj-case-study-overlay);
-      pointer-events: none;
-      transition: background var(--enj-case-study-hover-duration) var(--enj-motion-easing-standard);
-    }
-  }
-  &__poster-frame {
-    position: absolute;
-    top: var(--enj-case-study-poster-inset);
-    bottom: var(--enj-case-study-poster-inset);
-    left: 50%;
-    transform: translateX(-50%);
-    aspect-ratio: var(--enj-case-study-poster-ratio);
-    overflow: hidden;
-  }
-  &__poster {
-    position: absolute;
-    top: var(--enj-case-study-poster-top);
-    left: var(--enj-case-study-poster-left);
-    display: block;
-    max-width: none;
-    width: var(--enj-case-study-poster-width);
-    height: var(--enj-case-study-poster-height);
-    object-fit: cover;
-  }
-  &__intro {
-    position: absolute;
-    z-index: 1;
-    top: calc(50% + var(--enj-case-study-intro-offset-y));
-    left: calc(50% + var(--enj-case-study-intro-offset-x));
-    transform: translate(-50%, -50%);
-    display: grid;
-    place-items: center;
-    width: var(--enj-case-study-intro-size);
-    height: var(--enj-case-study-intro-size);
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: transparent;
-    color: var(--enj-case-study-intro-foreground);
-    font: inherit;
-    letter-spacing: inherit;
-    text-transform: uppercase;
-    text-align: center;
-    text-shadow: var(--enj-case-study-intro-text-shadow);
-
-  }
-  &__intro-circle {
-    position: absolute;
-    inset: 0;
-    background: currentColor;
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-  }
-  &__intro-label { position: relative; max-width: var(--enj-case-study-intro-label-width); }
-}
-.enj-case-study-card__media--static::after { display: none; }
-// Media typography must also work outside a card.
 .enj-case-study-card__media {
+  position: relative;
+  min-width: 0;
+  min-height: var(--enj-case-study-media-height);
+  @include media.media-frame;
+  background: var(--enj-case-study-border-color);
   box-sizing: border-box;
   font-family: var(--enj-font-family-sans);
   font-size: var(--enj-body-font-size);
@@ -78,31 +15,27 @@
   letter-spacing: var(--enj-body-letter-spacing);
 }
 
-.enj-case-study-card__media-trigger {
+.enj-case-study-card__image {
   position: absolute;
-  z-index: 1;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: inherit;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-  cursor: pointer;
-  &:disabled { cursor: not-allowed; }
-  &:disabled .enj-case-study-card__intro { opacity: var(--enj-button-disabled-opacity); }
-}
-.enj-case-study-card__media:has(.enj-case-study-card__media-trigger:hover:not(:disabled))::after {
-  background: var(--enj-case-study-hover-overlay);
-}
-.enj-case-study-card__media:has(.enj-case-study-card__media-trigger:focus-visible) {
-  outline: var(--enj-button-focus-width) solid var(--enj-button-focus-color);
-  outline-offset: var(--enj-focus-offset-media);
-}
-.enj-case-study-card__media-trigger:focus-visible { outline: none; }
-@media (prefers-reduced-motion: reduce) {
-  .enj-case-study-card__media::after { transition: none; }
+
+  .enj-interactive-image__picture {
+    display: block;
+    position: absolute;
+    top: var(--enj-case-study-poster-inset);
+    bottom: var(--enj-case-study-poster-inset);
+    left: 50%;
+    transform: translateX(-50%);
+    aspect-ratio: var(--enj-case-study-poster-ratio);
+    overflow: hidden;
+  }
+  img {
+    position: absolute;
+    top: var(--enj-case-study-poster-top);
+    left: var(--enj-case-study-poster-left);
+    max-width: none;
+    width: var(--enj-case-study-poster-width);
+    height: var(--enj-case-study-poster-height);
+    object-fit: cover;
+  }
 }

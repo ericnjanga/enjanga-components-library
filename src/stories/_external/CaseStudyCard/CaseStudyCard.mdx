@@ -63,8 +63,7 @@ Verified against nodes 3329:4094 and 3329:4078 with live Figma access. The h2
 preset matches 33/38px, 36/44px, and 40/48px, with 17/21/25px bottom margins.
 The card retains core's 672px/1056px breakpoints: Figma supplies mobile, tablet,
 and desktop examples but does not specify transition widths in the returned context.
-The poster asset matches the Figma export byte for byte. Poster crop and intro
-control placement follow the reference. The Multiple Paragraphs story covers media
+The poster asset matches the Figma export byte for byte. Poster crop follows the reference; the intro interaction now uses the shared InteractiveImage treatment. The Multiple Paragraphs story covers media
 growing with content. Browser checks at 320, 448, 671, 672, 1055, 1056, and 1328px
 confirmed heading presets, layout transitions, media minimum heights, and no card overflow.
 
@@ -82,3 +81,10 @@ renders as a text-only article. See **Pages / Case Studies** for the real
 Contentful fixture and the composed page.
 
 The card owns dialog visibility. Standalone `CaseStudyMedia` only emits its click callback and never opens a dialog. The dialog is separately exported with controlled `open` and `onClose` props.
+
+
+## Shared image interaction
+
+Card media uses InteractiveImage’s `case-study` variant. Following Figma node 3473:5, it starts blurred (3px) and darkened (50% black); hover or keyboard focus clears the image and turns its cursor-following circular CTA black. The exported Figma circle follows the cursor while it remains inside the image, and returns to the center on exit. Framing, cropping, and immediate activation remain unchanged.
+
+For video introductions, InteractiveImage renders a native button and opens the existing dialog immediately. Posters without an intro link to `caseStudyHref` when available; `readDisabled` leaves those posters noninteractive. Touch devices show a centered action label. All media styles are included in the card stylesheet.
