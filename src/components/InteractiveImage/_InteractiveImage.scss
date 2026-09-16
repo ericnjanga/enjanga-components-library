@@ -57,7 +57,7 @@
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: opacity var(--enj-case-study-hover-duration, 180ms) var(--enj-motion-easing-standard, ease);
+  transition: opacity 300ms ease;
 }
 .enj-interactive-image[data-variant='case-study'][data-interactive='true'] {
   .enj-interactive-image__picture img { filter: blur(3px); }
@@ -75,10 +75,6 @@
 @media (hover: hover) and (pointer: fine) {
   .enj-interactive-image[data-interactive='true']:hover {
     @include active-image;
-    .enj-interactive-image__label {
-      top: var(--pointer-y);
-      left: var(--pointer-x);
-    }
   }
 }
 .enj-interactive-image[data-interactive='true']:focus-visible {

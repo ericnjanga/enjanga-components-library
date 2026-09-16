@@ -20,7 +20,7 @@ export const CaseStudy: Story = { args: { variant: 'case-study', src: poster, al
 export const Comparison: Story = {
   render: () => <div className="image-hover-comparison">
     <h1>Image hover treatments</h1>
-    <p>Hover or keyboard-focus each image. Move the cursor within each image to move its circular label. Case studies become clear; portrait and product images become blurred and darkened.</p>
+    <p>Hover or keyboard-focus each image. Move the cursor within each image: the circular label eases from the center to the cursor, follows smoothly, and returns to center on exit. Case studies become clear; portrait and product images become blurred and darkened.</p>
     <div className="image-hover-comparison__grid">
       {([
         ['case-study', poster, 'Case study', 'Watch intro'],

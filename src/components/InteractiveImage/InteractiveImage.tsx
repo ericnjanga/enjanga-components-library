@@ -9,6 +9,7 @@ import {
   type MouseEventHandler,
 } from 'react';
 import clsx from 'clsx';
+import { useCursorLabel } from './useCursorLabel';
 import { LinkContext } from '../../provider/LinkProvider';
 
 export interface InteractiveImageProps
@@ -49,6 +50,8 @@ export function InteractiveImage({
 }: InteractiveImageProps) {
   const Link = useContext(LinkContext) ?? 'a';
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null);
+  const labelRef = useRef<HTMLSpanElement>(null);
+  useCursorLabel(ref, labelRef, Boolean((href || action) && !action?.disabled), Boolean(action));
   const [rippling, setRippling] = useState(false);
   function updatePointer(clientX: number, clientY: number) {
     const node = ref.current;
@@ -92,7 +95,7 @@ export function InteractiveImage({
         </span>
       )}
       {(href || action) && (
-        <span className="enj-interactive-image__label" aria-hidden="true">
+        <span ref={labelRef} className="enj-interactive-image__label" aria-hidden="true">
           {interactionLabel}
         </span>
       )}
@@ -119,8 +122,6 @@ export function InteractiveImage({
           action.onClick?.(event);
           ripple(event);
         }}
-        onPointerEnter={(event) => updatePointer(event.clientX, event.clientY)}
-        onPointerMove={(event) => updatePointer(event.clientX, event.clientY)}
         onAnimationEnd={() => setRippling(false)}
       >
         {content}
@@ -149,14 +150,6 @@ export function InteractiveImage({
       onClick={(event) => {
         onClick?.(event);
         ripple(event);
-      }}
-      onPointerEnter={(event) => {
-        updatePointer(event.clientX, event.clientY);
-        props.onPointerEnter?.(event);
-      }}
-      onPointerMove={(event) => {
-        updatePointer(event.clientX, event.clientY);
-        props.onPointerMove?.(event);
       }}
       onAnimationEnd={(event) => {
         setRippling(false);
