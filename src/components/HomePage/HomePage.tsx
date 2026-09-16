@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react';
 import clsx from 'clsx';
+import { ScrollReveal } from '../ScrollReveal';
 import { PageHero } from '../PageHero';
 
 export interface HomePageProps
@@ -25,15 +26,13 @@ export interface HomePageProps
   SectionWrapper?: ComponentType<{ children: ReactNode }>;
 }
 
-const PlainSection = ({ children }: { children: ReactNode }) => <>{children}</>;
-
 /** Presentational home page. The application supplies content, links and media. */
 export function HomePage({
   title,
   description,
   expertise,
   about,
-  SectionWrapper = PlainSection,
+  SectionWrapper = ScrollReveal,
   className,
   ...props
 }: HomePageProps) {

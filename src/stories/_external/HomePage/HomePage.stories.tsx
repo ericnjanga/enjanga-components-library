@@ -1,6 +1,7 @@
 import dashboard from './assets/enterprise-dashboard.png';
 import portrait from './assets/eric-njanga-portrait.jpeg';
 import type { Meta, StoryObj } from '@storybook/react';
+import { InteractiveImage } from '../../../components/InteractiveImage';
 import { HomePage } from '../../../components/HomePage';
 import { Navbar } from '../../../components/Navbar';
 import { Button } from '../../../components/Button';
@@ -54,12 +55,12 @@ const meta = {
         </Button>
       ),
       image: (
-        <img src={dashboard} alt="Core web application architecture example" />
+        <InteractiveImage src={dashboard} alt="Core web application architecture example" href="/case-studies" interactionLabel="Explore case studies" />
       ),
     },
     about: {
       title: 'Passionate about enterprise software',
-      image: <img src={portrait} alt="Eric Njanga" />,
+      image: <InteractiveImage src={portrait} alt="Eric Njanga" href="https://www.linkedin.com/in/ericnjanga/" target="_blank" interactionLabel="LinkedIn Profile" />,
       paragraphs: [
         'My career has been shaped by large organizations, complex systems, and the challenge of bringing established software forward. Over the years, I’ve learned that successful modernization is about more than technology—it requires understanding users, business priorities, organizational constraints, and the people responsible for delivering change.',
         'That perspective shapes how I work today: combining front-end architecture, product thinking, and enterprise experience to help build software that remains useful, adaptable, and maintainable as organizations evolve.',

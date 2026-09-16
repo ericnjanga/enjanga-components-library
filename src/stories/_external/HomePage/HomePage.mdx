@@ -12,3 +12,7 @@ Supply plain text through `title`, `description`, `expertise.items`, and `about.
 <Canvas of={Stories.Default} />
 <Canvas of={Stories.Mobile} />
 <Canvas of={Stories.Dark} />
+
+Home sections now use `ScrollReveal` by default. Pass a different `SectionWrapper` to override it. `InteractiveImage` accepts native link props plus `src`, `alt`, image dimensions, and `interactionLabel`; routing comes from `LinkProvider`. Modified clicks, downloads, and new-tab links retain native behavior. Regular clicks wait for the ripple, except when reduced motion is enabled.
+
+For standalone usage import `interactive-image.css` or `scroll-reveal.css`. Home page CSS includes both; case studies page CSS includes scroll reveal. Content remains visible without JavaScript, without IntersectionObserver, and when reduced motion is requested.

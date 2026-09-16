@@ -22,3 +22,6 @@ export { PageHero, type PageHeroProps } from './PageHero';
 export { CaseStudyPage, type CaseStudyPageProps } from './CaseStudyPage';
 
 export { HomePage, type HomePageProps } from './HomePage';
+
+export { InteractiveImage, type InteractiveImageProps } from './InteractiveImage';
+export { ScrollReveal, type ScrollRevealProps } from './ScrollReveal';

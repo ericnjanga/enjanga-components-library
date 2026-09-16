@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
+import { ScrollReveal } from '../ScrollReveal';
 import { PageHero } from '../PageHero';
 import { CaseStudyCard, type CaseStudyCardProps } from '../CaseStudyCard';
 
@@ -16,7 +17,7 @@ export function CaseStudiesPage({ title, caseStudies, emptyMessage = 'Case studi
     <div className="enj-case-studies-page__container">
       <PageHero className="enj-case-studies-page__hero" title={title} />
       <div className="enj-case-studies-page__list">
-        {caseStudies.map(study => <CaseStudyCard key={study.id} {...study} />)}
+        {caseStudies.map(study => <ScrollReveal key={study.id}><CaseStudyCard {...study} /></ScrollReveal>)}
         {!caseStudies.length && <p>{emptyMessage}</p>}
       </div>
     </div>
