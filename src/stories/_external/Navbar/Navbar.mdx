@@ -18,6 +18,16 @@ import * as NavbarStories from './Navbar.stories';
 
 <Controls />
 
+## Core navbar and page context
+
+`Navbar` defaults to `context="standalone"`: it stays in normal flow and uses navbar container tokens. It owns links, active states, action spacing, the mobile drawer, and keyboard/focus handling.
+
+Use `context="page"` on Home and case study pages. This fixes the header to the viewport, aligns it with the shared page container, uses the page color tokens, and reserves the responsive header height before the content. Do not add separate body padding for this navbar.
+
+Use `NavbarThemeToggle` in `actions` with a controlled `theme` and `onThemeChange`. The library supplies its appearance, icons, accessible label, pressed state, and click behavior. The consuming application owns theme persistence, routing, navigation data, and scroll-based active-section detection.
+
+Both components are styled by `enjanga-components-library/navbar.css` alongside core design tokens.
+
 ## Unit tests
 
 ### Updates its uncontrolled active item and reports navigation

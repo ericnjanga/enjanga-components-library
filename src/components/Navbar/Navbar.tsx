@@ -25,6 +25,7 @@ const CloseIcon = () => (
 );
 
 export const Navbar = ({
+  context = 'standalone',
   items,
   brand,
   brandHref = '/',
@@ -130,8 +131,8 @@ export const Navbar = ({
     );
   };
 
-  return (
-    <header className={clsx('enj-navbar', className)}>
+  const navbar = (
+    <header className={clsx('enj-navbar', { 'enj-navbar--page': context === 'page' }, className)}>
       <nav className="enj-navbar__inner" aria-label={ariaLabel}>
         <LinkComponent href={brandHref} aria-label={brandLabel} className="enj-navbar__brand">
           {brand}
@@ -194,4 +195,6 @@ export const Navbar = ({
       </nav>
     </header>
   );
+
+  return context === 'page' ? <div className="enj-navbar-page">{navbar}</div> : navbar;
 };

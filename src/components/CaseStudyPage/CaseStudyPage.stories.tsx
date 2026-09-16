@@ -15,7 +15,7 @@ const meta = {
     children: financialRecordsArticle,
   },
   decorators: [Story => <>
-    <Navbar brand="Eric Njanga" brandLabel="Eric Njanga home" activeHref="/case-studies" items={[
+    <Navbar context="page" brand="Eric Njanga" brandLabel="Eric Njanga home" activeHref="/case-studies" items={[
       { id: 'home', label: 'Home', href: '/' },
       { id: 'expertise', label: 'Expertise', href: '/#expertise' },
       { id: 'about', label: 'About', href: '/#about' },

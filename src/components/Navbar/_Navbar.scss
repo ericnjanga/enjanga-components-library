@@ -1,4 +1,5 @@
-@use '../../styles/page-container' as layout;
+@use './NavbarPage';
+@use './NavbarThemeToggle';
 @use 'enjanga-core-setup/styles-responsive' as responsive;
 
 .enj-navbar {
@@ -11,7 +12,8 @@
 
   &__inner {
     display: flex;
-    @include layout.page-container;
+    width: min(100% - 2 * var(--enj-navbar-gutter), var(--enj-navbar-max-width));
+    margin-inline: auto;
     min-height: var(--enj-navbar-height);
     align-items: center;
     justify-content: space-between;
@@ -23,6 +25,7 @@
     font-weight: var(--enj-navbar-brand-weight);
     line-height: 1;
     text-decoration: none;
+    transition: color var(--enj-navbar-transition-duration) var(--enj-motion-easing-standard);
   }
 
   &__brand:hover,
@@ -157,6 +160,7 @@
 
 @include responsive.compact {
   .enj-navbar__inner {
+    width: min(100% - 2 * var(--enj-navbar-compact-gutter), var(--enj-navbar-max-width));
     min-height: var(--enj-navbar-compact-height);
   }
 

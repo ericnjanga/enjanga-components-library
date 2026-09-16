@@ -1,0 +1,21 @@
+@use '../../styles/page-container' as layout;
+@use 'enjanga-core-setup/styles-responsive' as responsive;
+
+// Only page integrations reserve space and use the page surface/container.
+.enj-navbar-page {
+  height: var(--enj-navbar-height);
+  flex-shrink: 0;
+
+  .enj-navbar--page {
+    position: fixed;
+    inset: 0 0 auto;
+    --enj-navbar-background: var(--enj-case-study-background);
+    --enj-navbar-foreground: var(--enj-case-study-foreground);
+  }
+
+  .enj-navbar__inner { @include layout.page-container; }
+}
+
+@include responsive.compact {
+  .enj-navbar-page { height: var(--enj-navbar-compact-height); }
+}

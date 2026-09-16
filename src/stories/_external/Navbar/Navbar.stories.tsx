@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, within } from '@storybook/test';
-import { Navbar, type NavbarItem } from '../../../components/Navbar';
+import { Navbar, NavbarThemeToggle, type NavbarItem, type NavbarProps } from '../../../components/Navbar';
 
 const items: NavbarItem[] = [
   { id: 'home', label: 'Home', href: '#home' },
@@ -14,11 +15,13 @@ const items: NavbarItem[] = [
   },
 ];
 
-const ThemeAction = () => (
-  <button type="button" aria-label="Toggle color theme">
-    Theme
-  </button>
-);
+const NavbarWithTheme = (props: NavbarProps) => {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+  return <Navbar {...props} actions={<NavbarThemeToggle theme={theme} onThemeChange={next => {
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+  }} />} />;
+};
 
 const meta = {
   title: 'External Components/Navbar',
@@ -29,8 +32,8 @@ const meta = {
     brandLabel: 'Eric Njanga home',
     items,
     defaultActiveHref: '#home',
-    actions: <ThemeAction />,
   },
+  render: args => <NavbarWithTheme {...args} />,
   argTypes: {
     onNavigate: { action: 'navigate' },
   },
@@ -115,4 +118,10 @@ export const DisabledItem: Story = {
     ],
   },
   parameters: { chromatic: { viewports: [1440] } },
+};
+
+export const PageContext: Story = {
+  args: { context: 'page' },
+  render: args => <><NavbarWithTheme {...args} /><main style={{ minHeight: '150vh' }}><h1>Page navigation</h1><p>The fixed header reserves its own space.</p></main></>,
+  parameters: { chromatic: { viewports: [1440, 768, 390] } },
 };

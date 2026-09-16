@@ -12,7 +12,7 @@ const meta = {
   decorators: [
     (Story) => (
       <>
-        <Navbar
+        <Navbar context="page"
           brand="Eric Njanga"
           activeHref="/#home"
           items={[

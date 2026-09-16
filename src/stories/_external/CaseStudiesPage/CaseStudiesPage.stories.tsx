@@ -10,7 +10,7 @@ const meta = {
   parameters: { layout: 'fullscreen' },
   args: caseStudiesPageFixture,
   decorators: [Story => <>
-    <Navbar brand="Eric Njanga" brandLabel="Eric Njanga home" activeHref="/case-studies" items={[
+    <Navbar context="page" brand="Eric Njanga" brandLabel="Eric Njanga home" activeHref="/case-studies" items={[
       { id: 'home', label: 'Home', href: 'http://localhost:3000/' },
       { id: 'expertise', label: 'Expertise', href: 'http://localhost:3000/#expertise' },
       { id: 'about', label: 'About', href: 'http://localhost:3000/#about' },
