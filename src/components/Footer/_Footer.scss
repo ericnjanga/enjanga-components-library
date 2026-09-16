@@ -79,6 +79,17 @@
   line-height: 1.55;
 }
 
+@media (max-width: 1135px) {
+  .enj-footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .enj-footer__links li + li::before {
+    display: none;
+  }
+}
+
 @media (max-width: 900px) {
   .enj-footer__inner {
     width: min(100% - 4rem, 80rem);
