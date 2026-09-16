@@ -1,0 +1,86 @@
+import dashboard from './assets/enterprise-dashboard.png';
+import portrait from './assets/eric-njanga-portrait.jpeg';
+import type { Meta, StoryObj } from '@storybook/react';
+import { HomePage } from '../../../components/HomePage';
+import { Navbar } from '../../../components/Navbar';
+import { Button } from '../../../components/Button';
+
+const meta = {
+  title: 'Pages/Home',
+  component: HomePage,
+  parameters: { layout: 'fullscreen' },
+  decorators: [
+    (Story) => (
+      <>
+        <Navbar
+          brand="Eric Njanga"
+          activeHref="/#home"
+          items={[
+            { id: 'home', label: 'Home', href: '/#home' },
+            { id: 'expertise', label: 'Expertise', href: '/#expertise' },
+            { id: 'about', label: 'About', href: '/#about' },
+            {
+              id: 'case-studies',
+              label: 'Case Studies',
+              href: '/case-studies',
+            },
+          ]}
+        />
+        <Story />
+      </>
+    ),
+  ],
+  args: {
+    title: 'Architecting modern enterprise interfaces.',
+    description:
+      'I engineer scalable front-end systems that transform complex business requirements into intuitive, maintainable digital experiences.',
+    expertise: {
+      title: 'Engineering beyond the interface.',
+      items: [
+        {
+          title: 'Core web application architecture',
+          description:
+            'I design scalable front-end architectures that turn complex business requirements into maintainable systems—connecting UI components, data, APIs, state, accessibility, performance, and testing into a cohesive application.',
+        },
+        {
+          title: 'Product engineering',
+          description:
+            'I approach software as both an engineering system and a business product—balancing user experience, technical constraints, maintainability, and evolving business needs throughout the product lifecycle.',
+        },
+      ],
+      action: (
+        <Button href="/case-studies" icon="chevron-right">
+          Explore case studies
+        </Button>
+      ),
+      image: (
+        <img src={dashboard} alt="Core web application architecture example" />
+      ),
+    },
+    about: {
+      title: 'Passionate about enterprise software',
+      image: <img src={portrait} alt="Eric Njanga" />,
+      paragraphs: [
+        'My career has been shaped by large organizations, complex systems, and the challenge of bringing established software forward. Over the years, I’ve learned that successful modernization is about more than technology—it requires understanding users, business priorities, organizational constraints, and the people responsible for delivering change.',
+        'That perspective shapes how I work today: combining front-end architecture, product thinking, and enterprise experience to help build software that remains useful, adaptable, and maintainable as organizations evolve.',
+      ],
+      action: (
+        <Button
+          href="https://www.linkedin.com/in/ericnjanga/"
+          icon="chevron-right"
+        >
+          LinkedIn Profile
+        </Button>
+      ),
+    },
+  },
+} satisfies Meta<typeof HomePage>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {
+  parameters: { chromatic: { viewports: [1440, 768, 390] } },
+};
+export const Mobile: Story = {
+  parameters: { viewport: { defaultViewport: 'mobile1' } },
+};
+export const Dark: Story = { globals: { theme: 'dark' } };

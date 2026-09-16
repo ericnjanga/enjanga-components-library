@@ -1,0 +1,6 @@
+// Shared by navigation and every page shell; values come from core tokens.
+@mixin page-container {
+  width: calc(100% - 2 * var(--enj-case-studies-gutter));
+  max-width: var(--enj-case-study-max-width);
+  margin-inline: auto;
+}

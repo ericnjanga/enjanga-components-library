@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './HomePage.stories';
+
+<Meta of={Stories} />
+
+# Home page
+
+A presentational page with introduction, expertise, and about sections. Import `enjanga-components-library/home-page.css` alongside the core design tokens and typography. The navbar and all page shells use the same responsive container.
+
+Supply plain text through `title`, `description`, `expertise.items`, and `about.paragraphs`. The `action` and `image` slots accept application-owned links and interactive media. Use `SectionWrapper` to add scroll effects without coupling the library to a CMS or router.
+
+<Canvas of={Stories.Default} />
+<Canvas of={Stories.Mobile} />
+<Canvas of={Stories.Dark} />

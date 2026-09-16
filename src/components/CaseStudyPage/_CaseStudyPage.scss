@@ -1,3 +1,4 @@
+@use '../../styles/page-container' as layout;
 @use '../CaseStudyVideoDialog/CaseStudyVideoDialog';
 @use '../PageHero/PageHero';
 
@@ -8,9 +9,7 @@
   padding-bottom: var(--enj-case-study-page-bottom-space);
 
   &__container {
-    width: calc(100% - 2 * var(--enj-case-studies-gutter));
-    max-width: var(--enj-case-study-max-width);
-    margin-inline: auto;
+    @include layout.page-container;
   }
   &__hero { padding-block: var(--enj-case-study-page-hero-padding); }
   &__article {

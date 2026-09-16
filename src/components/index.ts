@@ -18,3 +18,5 @@ export { CaseStudyVideoDialog, type CaseStudyVideoDialogProps } from './CaseStud
 export { PageHero, type PageHeroProps } from './PageHero';
 
 export { CaseStudyPage, type CaseStudyPageProps } from './CaseStudyPage';
+
+export { HomePage, type HomePageProps } from './HomePage';

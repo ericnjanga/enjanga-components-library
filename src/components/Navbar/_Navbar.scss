@@ -1,3 +1,4 @@
+@use '../../styles/page-container' as layout;
 @use 'enjanga-core-setup/styles-responsive' as responsive;
 
 .enj-navbar {
@@ -5,16 +6,15 @@
   z-index: 30;
   color: var(--enj-navbar-foreground);
   background: var(--enj-navbar-background);
-  border-bottom: var(--enj-border-width-thin) solid var(--enj-navbar-border);
+  border-bottom: 0;
   font-family: var(--enj-font-family-sans);
 
   &__inner {
     display: flex;
-    width: min(100% - 2 * var(--enj-navbar-gutter), var(--enj-navbar-max-width));
+    @include layout.page-container;
     min-height: var(--enj-navbar-height);
     align-items: center;
     justify-content: space-between;
-    margin-inline: auto;
   }
 
   &__brand {
@@ -157,7 +157,6 @@
 
 @include responsive.compact {
   .enj-navbar__inner {
-    width: min(100% - 2 * var(--enj-navbar-compact-gutter), var(--enj-navbar-max-width));
     min-height: var(--enj-navbar-compact-height);
   }
 

@@ -1,0 +1,274 @@
+@use "../../styles/page-container" as layout;
+@use "../PageHero/PageHero";
+.enj-home-page {
+  overflow: hidden;
+  color: var(--enj-home-foreground, var(--enj-case-study-foreground));
+  background: var(--enj-home-background, var(--enj-case-study-background));
+}
+
+.enj-home-page__hero,
+.enj-home-page__expertise,
+.enj-home-page__about {
+  scroll-margin-top: 6.25rem;
+}
+
+.enj-home-page__container {
+  @include layout.page-container;
+}
+
+.enj-home-page__hero {
+  display: flex;
+  min-height: 41.75rem;
+  max-width: 45.2rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1.25rem;
+}
+
+.enj-home-page__expertise h2,
+.enj-home-page__about h2 {
+  font-weight: 700;
+  letter-spacing: 0.01rem;
+}
+
+.enj-home-page__expertise {
+  position: relative;
+  min-height: 49.45rem;
+}
+
+.enj-home-page__expertiseCopy {
+  width: min(100%, 44.5rem);
+}
+
+.enj-home-page__expertiseCopy h2,
+.enj-home-page__about h2 {
+  font-size: clamp(2.25rem, 2.78vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.enj-home-page__expertiseList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 20.625rem));
+  gap: 3.25rem;
+  margin: 2rem 0 2.75rem;
+  list-style: none;
+}
+
+.enj-home-page__expertiseList li {
+  min-width: 0;
+}
+
+.enj-home-page__expertiseList h3 {
+  color: var(--enj-home-foreground, var(--enj-case-study-foreground));
+  font-weight: 700;
+  letter-spacing: 0.01rem;
+  line-height: 1.28;
+}
+
+.enj-home-page__expertiseList p {
+  margin-top: 0.8rem;
+  color: var(--enj-home-foreground, var(--enj-case-study-foreground));
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  line-height: 1.556;
+}
+
+.enj-home-page__productImage,
+.enj-home-page__portrait {
+  overflow: hidden;
+  border-radius: 0.95rem;
+  box-shadow: 0 1.25rem 2.125rem rgb(0 0 0 / 65%);
+}
+
+.enj-home-page__productImage {
+  position: absolute;
+  top: -12.2rem;
+  left: 53.75rem;
+  width: 67.375rem;
+  height: 48.75rem;
+  border-radius: 1.3rem;
+  box-shadow: 0 1.73rem 2.95rem rgb(0 0 0 / 65%);
+}
+
+.enj-home-page__productImage img,
+.enj-home-page__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.enj-home-page__about {
+  display: grid;
+  min-height: 46.1rem;
+  grid-template-columns: 30.75rem minmax(0, 44.5rem);
+  align-items: start;
+  gap: 4.75rem;
+}
+
+.enj-home-page__portrait {
+  width: 30.75rem;
+  height: 37.3125rem;
+}
+
+.enj-home-page__portrait img {
+  object-position: center 64%;
+}
+
+.enj-home-page__aboutCopy {
+  padding-top: 0;
+}
+
+.enj-home-page__bodyCopy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 20.625rem));
+  gap: 2.875rem;
+  margin: 2rem 0 2.75rem;
+  color: var(--enj-home-foreground, var(--enj-case-study-foreground));
+}
+
+.enj-home-page__bodyCopy p {
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  line-height: 1.556;
+}
+
+@media (max-width: 1200px) {
+  .enj-home-page__hero {
+    min-height: 36rem;
+  }
+
+  .enj-home-page__expertise {
+    min-height: auto;
+    padding-bottom: 8rem;
+  }
+
+  .enj-home-page__expertiseCopy {
+    width: min(58%, 44.5rem);
+  }
+
+  .enj-home-page__expertiseList {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .enj-home-page__productImage {
+    top: 3rem;
+    left: 64%;
+    width: 52rem;
+    height: 37.5rem;
+  }
+
+  .enj-home-page__about {
+    min-height: auto;
+    grid-template-columns: minmax(18rem, 38%) minmax(0, 1fr);
+    gap: clamp(3rem, 6vw, 4.75rem);
+    padding: 7rem 0 8rem;
+  }
+
+  .enj-home-page__portrait {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.824;
+  }
+
+  .enj-home-page__bodyCopy {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .enj-home-page__hero {
+    min-height: 32rem;
+    max-width: 42rem;
+  }
+
+  .enj-home-page__expertise {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 6.5rem;
+  }
+
+  .enj-home-page__expertiseCopy {
+    width: 100%;
+  }
+
+  .enj-home-page__expertiseList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .enj-home-page__productImage {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: calc(100% + 4rem);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-left: 0;
+  }
+
+  .enj-home-page__about {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding-top: 0;
+  }
+
+  .enj-home-page__portrait {
+    width: min(100%, 30.75rem);
+  }
+
+  .enj-home-page__bodyCopy {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .enj-home-page__hero,
+  .enj-home-page__expertise,
+  .enj-home-page__about {
+    scroll-margin-top: 5rem;
+  }
+
+  .enj-home-page__hero {
+    min-height: 31rem;
+    padding-top: 2rem;
+  }
+
+  .enj-home-page__expertiseCopy h2,
+  .enj-home-page__about h2 {
+    font-size: 2rem;
+  }
+
+  .enj-home-page__expertiseList,
+  .enj-home-page__bodyCopy {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-block: 1.75rem 2.25rem;
+  }
+
+  .enj-home-page__productImage {
+    width: calc(100% + 2rem);
+    order: -1;
+  }
+
+  .enj-home-page__about {
+    gap: 2.75rem;
+    padding-bottom: 6rem;
+  }
+
+  .enj-home-page__portrait {
+    width: 100%;
+    max-height: 34rem;
+  }
+}
+
+.enj-home-page {
+  font-family: var(--enj-font-family-sans);
+}
+:where(.enj-home-page) :where(h2, h3, p, ul) {
+  margin: 0;
+  padding: 0;
+}
