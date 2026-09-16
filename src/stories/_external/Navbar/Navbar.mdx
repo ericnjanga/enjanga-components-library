@@ -100,3 +100,11 @@ baseline is created. After approval, Chromatic reports visual changes to fonts,
 colors, spacing, active states, and breakpoint behavior.
 
 <Stories includePrimary={false} />
+
+## Route and section-aware navigation
+
+Use `PageNavbar` with your router's `pathname` to track Home sections and highlight non-Home routes, including nested case studies. It uses `context="page"` internally. `homePath` and `homeSectionId` default to `/` and `home`; `syncHash` defaults to true. Routing stays in `LinkProvider`, while scroll tracking replaces the current hash without adding history entries. See **Pages / Portfolio Navigation** for Home, case studies, detail routes, and return-to-section behavior.
+
+`PageNavbar` also coordinates explicit Home anchor clicks: it keeps the destination active during scrolling, honors reduced motion, and focuses the destination heading. Wheel, touch, or scrolling keys interrupt the transition. Route changes retain the host router and its prefetching/history behavior; after a clicked route mounts, the page heading receives focus. Back/Forward navigation does not trigger a new scroll-to-top operation.
+
+Adapters that rewrite physical URLs (such as the Storybook preview router) can put the original logical href in `data-navigation-href` on their anchor. Regular application links do not need this attribute.

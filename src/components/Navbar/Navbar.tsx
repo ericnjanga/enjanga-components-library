@@ -40,6 +40,7 @@ export const Navbar = ({
   onNavigate,
 }: NavbarProps) => {
   const menuId = useId();
+  const restoreFocusRef = useRef(true);
   const openerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -88,7 +89,8 @@ export const Navbar = ({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = previousOverflow;
-      openerRef.current?.focus();
+      if (restoreFocusRef.current) openerRef.current?.focus();
+      restoreFocusRef.current = true;
     };
   }, [isOpen]);
 
@@ -101,6 +103,16 @@ export const Navbar = ({
       return;
     }
 
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.altKey ||
+      event.shiftKey ||
+      item.openInNewTab
+    )
+      return;
+    restoreFocusRef.current = false;
     if (activeHref === undefined) setInternalActiveHref(item.href);
     onNavigate?.({ item, closeMenu });
     closeMenu();
@@ -132,9 +144,19 @@ export const Navbar = ({
   };
 
   const navbar = (
-    <header className={clsx('enj-navbar', { 'enj-navbar--page': context === 'page' }, className)}>
+    <header
+      className={clsx(
+        'enj-navbar',
+        { 'enj-navbar--page': context === 'page' },
+        className
+      )}
+    >
       <nav className="enj-navbar__inner" aria-label={ariaLabel}>
-        <LinkComponent href={brandHref} aria-label={brandLabel} className="enj-navbar__brand">
+        <LinkComponent
+          href={brandHref}
+          aria-label={brandLabel}
+          className="enj-navbar__brand"
+        >
           {brand}
         </LinkComponent>
 
@@ -175,7 +197,15 @@ export const Navbar = ({
               className="enj-navbar__drawer"
             >
               <div className="enj-navbar__drawerHeader">
-                <LinkComponent href={brandHref} aria-label={brandLabel} className="enj-navbar__brand" onClick={closeMenu}>
+                <LinkComponent
+                  href={brandHref}
+                  aria-label={brandLabel}
+                  className="enj-navbar__brand"
+                  onClick={() => {
+                    restoreFocusRef.current = false;
+                    closeMenu();
+                  }}
+                >
                   {brand}
                 </LinkComponent>
                 <button
@@ -188,7 +218,9 @@ export const Navbar = ({
                   <CloseIcon />
                 </button>
               </div>
-              <div className="enj-navbar__drawerLinks">{items.map(renderLink)}</div>
+              <div className="enj-navbar__drawerLinks">
+                {items.map(renderLink)}
+              </div>
             </div>
           </div>
         )}
@@ -196,5 +228,9 @@ export const Navbar = ({
     </header>
   );
 
-  return context === 'page' ? <div className="enj-navbar-page">{navbar}</div> : navbar;
+  return context === 'page' ? (
+    <div className="enj-navbar-page">{navbar}</div>
+  ) : (
+    navbar
+  );
 };

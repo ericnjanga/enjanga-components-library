@@ -1,5 +1,7 @@
 export {
   Navbar,
+  PageNavbar,
+  type PageNavbarProps,
   NavbarThemeToggle,
   type NavbarThemeToggleProps,
   type NavbarItem,

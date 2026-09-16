@@ -2,7 +2,6 @@
 
 import {
   useContext,
-  useEffect,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -36,16 +35,7 @@ export function InteractiveImage({
 }: InteractiveImageProps) {
   const Link = useContext(LinkContext) ?? 'a';
   const ref = useRef<HTMLAnchorElement>(null);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const replaying = useRef(false);
   const [rippling, setRippling] = useState(false);
-  useEffect(
-    () => () => {
-      if (timer.current) clearTimeout(timer.current);
-    },
-    []
-  );
-
   function updatePointer(clientX: number, clientY: number) {
     const node = ref.current;
     if (!node) return;
@@ -55,7 +45,6 @@ export function InteractiveImage({
   }
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    if (replaying.current) return;
     onClick?.(event);
     if (
       event.defaultPrevented ||
@@ -73,20 +62,6 @@ export function InteractiveImage({
       ref.current?.style.setProperty('--pointer-y', '50%');
     } else updatePointer(event.clientX, event.clientY);
     setRippling(true);
-    // New tabs retain native activation and popup behavior.
-    if (target && target !== '_self') return;
-    event.preventDefault();
-    if (timer.current) return;
-    timer.current = setTimeout(() => {
-      timer.current = null;
-      setRippling(false);
-      replaying.current = true;
-      try {
-        ref.current?.click();
-      } finally {
-        replaying.current = false;
-      }
-    }, 480);
   }
 
   const content = (

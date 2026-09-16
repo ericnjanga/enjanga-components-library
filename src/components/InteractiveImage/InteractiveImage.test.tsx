@@ -1,13 +1,7 @@
 // @vitest-environment jsdom
 import { forwardRef } from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { InteractiveImage } from './InteractiveImage';
 import { LinkProvider, type LinkProps } from '../../provider/LinkProvider';
 
@@ -51,23 +45,10 @@ function setup(extra = {}) {
   );
   return { ...result, navigate };
 }
-it('delays normal routing for the ripple and navigates once through LinkProvider', () => {
-  vi.useFakeTimers();
+it('starts routing immediately without waiting for the ripple', () => {
   const { navigate } = setup();
-  const link = screen.getByRole('link');
-  fireEvent.click(link);
-  fireEvent.click(link);
-  expect(navigate).not.toHaveBeenCalled();
-  act(() => vi.advanceTimersByTime(480));
-  expect(navigate).toHaveBeenCalledExactlyOnceWith('/about');
-});
-it('cancels delayed navigation on unmount', () => {
-  vi.useFakeTimers();
-  const { navigate, unmount } = setup();
   fireEvent.click(screen.getByRole('link'));
-  unmount();
-  act(() => vi.runAllTimers());
-  expect(navigate).not.toHaveBeenCalled();
+  expect(navigate).toHaveBeenCalledExactlyOnceWith('/about');
 });
 it('routes immediately with reduced motion', () => {
   vi.stubGlobal('matchMedia', () => ({ matches: true }));

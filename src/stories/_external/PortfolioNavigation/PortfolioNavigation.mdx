@@ -1,0 +1,25 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './PortfolioNavigation.stories';
+
+<Meta of={Stories} />
+
+# Portfolio navigation
+
+This preview combines the real library Home, case studies, and case study page components with `PageNavbar` and a small Storybook-only router.
+
+- Scroll Home: Home, Expertise, and About become active as their sections pass the fixed header. Reaching the bottom selects the last section.
+- Click Case Studies, then a card's read link: the preview renders another route and keeps Case Studies active on detail pages.
+- From another route, click the brand or Home to return to the top of Home.
+- Click Expertise or About from another route to render Home and scroll to that section. The mobile menu closes after selection.
+- Browser back and forward restore the corresponding route and exact reading position.
+
+`PageNavbar` receives the current `pathname`; `LinkProvider` supplies routing. Home scroll tracking replaces the URL hash without adding history entries. The preview stores its logical pathname in the `route` query parameter so navigating never replaces Storybook itself. Case study detail content is a summary preview; it is not the full portfolio article.
+
+<Canvas of={Stories.Home} />
+<Canvas of={Stories.RoundTrip} />
+
+## Navigation polish
+
+Section links keep their selected state throughout smooth scrolling. Scrolling manually interrupts the transition and resumes section tracking. Repeating the same destination does not add a history entry.
+
+Use Tab and Enter to choose a destination: focus follows the page or section heading. Escape dismisses the mobile menu and returns focus to its opener. Enable reduced motion in your operating system to try immediate section navigation. Image links navigate immediately while their ripple provides feedback.
