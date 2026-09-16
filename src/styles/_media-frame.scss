@@ -1,0 +1,9 @@
+// Shared media treatment from Figma 3329:2 and 3329:81.
+// Keep the existing theme-aware color and radius tokens; use one frame on all media.
+@mixin media-frame {
+  box-sizing: border-box;
+  overflow: hidden;
+  border: var(--enj-media-border-width, 5px) solid var(--enj-media-border-color, var(--enj-case-study-border-color));
+  border-radius: var(--enj-media-radius, var(--enj-case-study-radius));
+  box-shadow: var(--enj-media-shadow, 0 20px 34px rgb(0 0 0 / 65%));
+}

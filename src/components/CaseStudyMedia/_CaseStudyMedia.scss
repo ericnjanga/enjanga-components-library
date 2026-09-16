@@ -1,13 +1,12 @@
 @use '../Button/Button';
+@use '../../styles/media-frame' as media;
 
 .enj-case-study-card {
   &__media {
     position: relative;
     min-width: 0;
     min-height: var(--enj-case-study-media-height);
-    overflow: hidden;
-    border: var(--enj-case-study-border-width) solid var(--enj-case-study-border-color);
-    border-radius: var(--enj-case-study-radius);
+    @include media.media-frame;
     background: var(--enj-case-study-border-color);
     &::after {
       content: '';

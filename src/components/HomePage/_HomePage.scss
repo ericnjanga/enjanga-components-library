@@ -1,3 +1,4 @@
+@use '../../styles/media-frame' as media;
 @use "../../styles/page-container" as layout;
 @use "../PageHero/PageHero";
 .enj-home-page {
@@ -75,9 +76,7 @@
 
 .enj-home-page__productImage,
 .enj-home-page__portrait {
-  overflow: hidden;
-  border-radius: 0.95rem;
-  box-shadow: 0 1.25rem 2.125rem rgb(0 0 0 / 65%);
+  @include media.media-frame;
 }
 
 .enj-home-page__productImage {
@@ -86,8 +85,6 @@
   left: 53.75rem;
   width: 67.375rem;
   height: 48.75rem;
-  border-radius: 1.3rem;
-  box-shadow: 0 1.73rem 2.95rem rgb(0 0 0 / 65%);
 }
 
 .enj-home-page__productImage img,
