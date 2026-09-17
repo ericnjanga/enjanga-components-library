@@ -1,4 +1,3 @@
-import { Button } from '../../../components/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 import { HomePage } from '../../../components/HomePage';
 import { PortfolioPreview } from '../PortfolioNavigation/PortfolioPreview';
@@ -7,7 +6,7 @@ import { homePageFixture } from './fixtures';
 const meta = {
   title: 'Pages/Home', component: HomePage,
   parameters: { layout: 'fullscreen' },
-  args: { ...homePageFixture, heroAction: <Button variant="primary" icon="chevron-down" href="/#expertise">Expertise</Button> },
+  args: homePageFixture,
   render: args => <PortfolioPreview home={args} />,
 } satisfies Meta<typeof HomePage>;
 export default meta;

@@ -1,3 +1,4 @@
+import { homeHeroFixture } from '../PageHero/fixtures';
 import dashboard from './assets/enterprise-dashboard.png';
 import portrait from './assets/eric-njanga-portrait.jpeg';
 import { InteractiveImage } from '../../../components/InteractiveImage';
@@ -5,9 +6,9 @@ import type { HomePageProps } from '../../../components/HomePage';
 import { Button } from '../../../components/Button';
 
 export const homePageFixture = {
-    title: 'Architecting modern enterprise interfaces.',
-    description:
-      'I engineer scalable front-end systems that transform complex business requirements into intuitive, maintainable digital experiences.',
+    title: homeHeroFixture.title,
+    description: homeHeroFixture.description,
+    heroAction: homeHeroFixture.action,
     expertise: {
       title: 'Engineering beyond the interface.',
       items: [

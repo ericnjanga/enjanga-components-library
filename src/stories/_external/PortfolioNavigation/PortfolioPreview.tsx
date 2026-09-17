@@ -1,3 +1,4 @@
+import { footerFixture } from '../Footer/fixtures';
 import {
   createContext,
   forwardRef,
@@ -202,11 +203,7 @@ export function PortfolioPreview({
             <Button href="/">Return home</Button>
           </CaseStudyPage>
         )}
-        <Footer siteName="Eric Njanga" copyright="Copyright @ Toronto, Canada." links={[
-          { label: 'Case Studies', href: '/case-studies' },
-          { label: 'About', href: '/#about' },
-          { label: 'LinkedIn Profile', href: 'https://www.linkedin.com/in/ericnjanga/', openInNewTab: true },
-        ]} />
+        <Footer {...footerFixture} />
       </LinkProvider>
     </Navigation.Provider>
   );
