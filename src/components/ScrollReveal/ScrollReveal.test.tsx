@@ -4,10 +4,13 @@ import { act, cleanup, render, screen } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { ScrollReveal } from './ScrollReveal';
 import { ScrollRevealProvider } from './ScrollRevealProvider';
+import { scrollRevealBootstrap } from './bootstrap';
 
 let callback: IntersectionObserverCallback;
 const observe = vi.fn(), unobserve = vi.fn(), disconnect = vi.fn();
 beforeEach(() => {
+  delete document.documentElement.dataset.enjReveal;
+  delete document.documentElement.dataset.enjRevealRoute;
   vi.useFakeTimers();
   vi.clearAllMocks();
   vi.stubGlobal('IntersectionObserver', class {
@@ -15,7 +18,9 @@ beforeEach(() => {
     observe = observe; unobserve = unobserve; disconnect = disconnect;
   });
 });
-afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.clearAllTimers(); vi.useRealTimers(); vi.unstubAllGlobals();
+  delete document.documentElement.dataset.enjReveal;
+  delete document.documentElement.dataset.enjRevealRoute; });
 const enter = (target: HTMLElement, isIntersecting = true) => act(() => callback([{ target, isIntersecting }] as IntersectionObserverEntry[], {} as IntersectionObserver));
 const advance = (ms: number) => act(() => vi.advanceTimersByTime(ms));
 const content = <ScrollReveal><section style={{ paddingTop: 400 }}><div data-testid="first">First</div><div data-testid="second">Second</div></section></ScrollReveal>;
@@ -83,4 +88,63 @@ it('immediately reveals and cancels delays when reduced motion is enabled', () =
   render(content); enter(screen.getByTestId('first'));
   act(() => { motion.matches = true; change(); });
   expect(state()).toBe('true'); expect(state('second')).toBe('true'); expect(vi.getTimerCount()).toBe(0);
+});
+
+
+const boot = () => {
+  vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }));
+  new Function(scrollRevealBootstrap)();
+};
+it('releases server-rendered content after the deadline if hydration never happens', () => {
+  const container = document.createElement('div');
+  container.innerHTML = renderToString(content);
+  document.body.append(container);
+  boot();
+  expect(document.documentElement.dataset.enjReveal).toBe('enabled');
+  advance(1499); expect(document.documentElement.dataset.enjReveal).toBe('enabled');
+  advance(1);
+  expect(document.documentElement.dataset.enjReveal).toBe('expired');
+  expect(container.querySelector('.enj-scroll-reveal')?.getAttribute('data-reveal-fallback')).toBe('true');
+  container.remove();
+});
+it('never hides content on late hydration, but allows the next route visit to animate', () => {
+  boot(); advance(1500);
+  const page = (route: string) => <ScrollRevealProvider routeKey={route}>{content}</ScrollRevealProvider>;
+  const { rerender } = render(page(window.location.pathname));
+  expect(state()).toBe('true'); expect(observe).not.toHaveBeenCalled();
+  rerender(page('/another-route'));
+  expect(state()).toBe('false');
+  enter(screen.getByTestId('first')); advance(450); expect(state()).toBe('true');
+});
+it('does not interrupt initialized offscreen reveals when the bootstrap deadline expires', () => {
+  boot(); render(content);
+  advance(1500);
+  expect(state()).toBe('false');
+  expect(screen.getByTestId('first').closest('.enj-scroll-reveal')?.hasAttribute('data-reveal-fallback')).toBe(false);
+  enter(screen.getByTestId('first')); advance(450); expect(state()).toBe('true');
+});
+it('makes a broken observer fall back to visible content', () => {
+  vi.stubGlobal('IntersectionObserver', class { constructor() { throw new Error('Unavailable'); } });
+  render(content);
+  expect(state()).toBe('true'); expect(state('second')).toBe('true');
+});
+it('does not arm pre-hydration hiding without observer support or for reduced motion', () => {
+  vi.stubGlobal('IntersectionObserver', undefined);
+  // The platform feature check uses the property existence, as real browsers do.
+  const fakeWindow = { matchMedia: () => ({ matches: false }), setTimeout: vi.fn() };
+  new Function('window', scrollRevealBootstrap)(fakeWindow);
+  expect(document.documentElement.dataset.enjReveal).toBeUndefined();
+  fakeWindow.matchMedia = () => ({ matches: true });
+  new Function('window', scrollRevealBootstrap)({ ...fakeWindow, IntersectionObserver: class {} });
+  expect(document.documentElement.dataset.enjReveal).toBeUndefined();
+});
+
+
+it('preserves browser-cache replay after an initialized page passes the hydration deadline', () => {
+  boot(); render(content);
+  enter(screen.getByTestId('first')); advance(1500);
+  expect(state()).toBe('true');
+  act(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
+  expect(state()).toBe('false');
+  enter(screen.getByTestId('first')); advance(450); expect(state()).toBe('true');
 });

@@ -13,9 +13,14 @@ export interface ScrollRevealProps extends ComponentPropsWithoutRef<'div'> {
 export function ScrollReveal({ children, className, delayMs = 450, ...props }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const routeKey = useContext(ScrollRevealRouteContext);
+  const previousRoute = useRef(routeKey);
   useLayoutEffect(() => {
     const node = ref.current;
     if (!node) return;
+    if (previousRoute.current !== routeKey) {
+      delete node.dataset.revealFallback;
+      previousRoute.current = routeKey;
+    }
     const motion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     const blocks = Array.from(node.querySelectorAll<HTMLElement>(':scope > :is(section, article) > *'));
     const targets = blocks.length ? blocks : [node];
@@ -36,15 +41,24 @@ export function ScrollReveal({ children, className, delayMs = 450, ...props }: S
     };
     const start = () => {
       cancel();
+      const root = document.documentElement;
+      const initialVisitExpired = node.dataset.revealReady !== 'true' &&
+        root.dataset.enjReveal === 'expired' &&
+        (routeKey === undefined || root.dataset.enjRevealRoute === routeKey);
+      if (node.dataset.revealFallback === 'true' || initialVisitExpired) {
+        node.dataset.revealFallback = 'true';
+        showAll();
+        return;
+      }
       if (motion?.matches || typeof IntersectionObserver === 'undefined') {
         showAll();
         return;
       }
+      try {
       const current = generation;
       const pending = new Set(targets);
       targets.forEach(target => target.setAttribute('data-reveal-visible', 'false'));
       node.dataset.visible = 'false';
-      node.dataset.revealReady = 'true';
       observer = new IntersectionObserver(entries => {
         if (current !== generation) return;
         for (const entry of entries) {
@@ -70,6 +84,12 @@ export function ScrollReveal({ children, className, delayMs = 450, ...props }: S
         }
       }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
       targets.forEach(target => observer!.observe(target));
+      node.dataset.revealReady = 'true';
+      } catch {
+        // An unavailable/broken observer must never strand hidden content.
+        node.dataset.revealFallback = 'true';
+        showAll();
+      }
     };
     const onMotion = () => { if (motion?.matches) showAll(); };
     const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) start(); };

@@ -38,3 +38,13 @@ html[data-enj-reveal='enabled'] .enj-scroll-reveal:not([data-reveal-ready]) {
     transition: none;
   }
 }
+
+// Timeout fallback is immediate and must not become a late entrance animation.
+html[data-enj-reveal='expired'] .enj-scroll-reveal:not([data-reveal-ready]),
+.enj-scroll-reveal[data-reveal-fallback='true'],
+.enj-scroll-reveal[data-reveal-fallback='true'] > :is(section, article) > * {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition: none;
+}

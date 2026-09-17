@@ -1,6 +1,8 @@
 "use client";
 
-import { createContext, type ReactNode } from 'react';
+import { createContext, useLayoutEffect, useRef, type ReactNode } from 'react';
+
+import { scrollRevealBootstrap } from './bootstrap';
 
 export const ScrollRevealRouteContext = createContext<string | undefined>(undefined);
 
@@ -10,10 +12,17 @@ export function ScrollRevealProvider({ routeKey, children, nonce }: {
   children: ReactNode;
   nonce?: string;
 }) {
+  const previousRoute = useRef(routeKey);
+  useLayoutEffect(() => {
+    if (previousRoute.current !== routeKey) {
+      // Future client navigations initialize before paint and can animate again.
+      document.documentElement.dataset.enjReveal = 'ready';
+      document.documentElement.dataset.enjRevealRoute = routeKey;
+      previousRoute.current = routeKey;
+    }
+  }, [routeKey]);
   return <ScrollRevealRouteContext.Provider value={routeKey}>
-    <script nonce={nonce} dangerouslySetInnerHTML={{ __html:
-      "if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.dataset.enjReveal = 'enabled';"
-    }} />
+    <script nonce={nonce} dangerouslySetInnerHTML={{ __html: scrollRevealBootstrap }} />
     {children}
   </ScrollRevealRouteContext.Provider>;
 }

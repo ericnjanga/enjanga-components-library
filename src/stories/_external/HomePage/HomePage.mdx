@@ -48,3 +48,13 @@ visitors retain visible content. Route changes, remounts, and browser cache rest
 reset the reveal. Hash navigation within a route does not reset it. Tests cover the
 pause, cancellation on exit/unmount, independent blocks, route returns, browser
 restoration, and reduced-motion changes.
+
+
+### Bounded hydration fallback
+
+The early hiding window lasts at most 1500ms. If a reveal has not initialized,
+its server-rendered content becomes visible without a transition. Late hydration
+keeps that content visible for the visit, avoiding a visible/hidden/visible flash.
+Initialized offscreen blocks retain their normal 450ms entrance pause. Subsequent
+client route visits may animate again. Missing JavaScript, reduced motion, and
+observer failures all leave content readable.
