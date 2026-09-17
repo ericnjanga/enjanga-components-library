@@ -10,6 +10,7 @@ export interface HomePageProps
   > {
   title: string;
   description?: string;
+  heroAction?: ReactNode;
   expertise: {
     title: string;
     items: readonly { title: string; description: string }[];
@@ -30,6 +31,7 @@ export interface HomePageProps
 export function HomePage({
   title,
   description,
+  heroAction,
   expertise,
   about,
   SectionWrapper = ScrollReveal,
@@ -44,7 +46,7 @@ export function HomePage({
           className="enj-home-page__hero"
           aria-label="Introduction"
         >
-          <PageHero title={title} description={description} />
+          <PageHero title={title} description={description} action={heroAction} />
         </section>
         <SectionWrapper>
           <section id="expertise" className="enj-home-page__expertise">

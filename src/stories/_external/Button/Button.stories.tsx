@@ -9,7 +9,7 @@ const meta = {
   args: { children: 'Primary', onClick: fn() },
   argTypes: {
     variant: { control: 'select', options: ['primary', 'secondary', 'tertiary'] },
-    icon: { control: 'select', options: [undefined, 'chevron-right', 'close'] },
+    icon: { control: 'select', options: [undefined, 'chevron-right', 'chevron-down', 'close'] },
   },
 } satisfies Meta<typeof Button>;
 export default meta;
@@ -42,3 +42,5 @@ export const KeyboardFocus: Story = {
 export const NavigationLink: Story = {
   args: { href: 'http://localhost:3000/case-studies', children: 'Explore case studies', variant: 'secondary', icon: 'chevron-right' },
 };
+
+export const ExpertiseLink: Story = { args: { variant: "tertiary", icon: "chevron-down", href: "/#expertise", children: "Expertise" } };

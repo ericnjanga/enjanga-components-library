@@ -4,7 +4,7 @@ import { LinkContext } from '../../provider/LinkProvider';
 import clsx from 'clsx';
 import { chevronRight, close } from './icons';
 
-type Appearance = { variant?: 'primary' | 'secondary' | 'tertiary'; icon?: 'chevron-right' | 'close' };
+type Appearance = { variant?: 'primary' | 'secondary' | 'tertiary'; icon?: 'chevron-right' | 'chevron-down' | 'close' };
 /** Providing href renders a link using the optional LinkProvider adapter; otherwise renders a native button. */
 export type ButtonProps = Appearance & (
   | (ButtonHTMLAttributes<HTMLButtonElement> & { href?: never })
@@ -17,7 +17,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
   const LinkComponent = useContext(LinkContext);
   const classes = clsx('enj-button', `enj-button--${variant}`, icon && 'enj-button--with-icon', className);
   const content = <><span className="enj-button__label">{children}</span>
-    {icon && <span className="enj-button__icon" style={{ maskImage: `url("${icon === 'close' ? close : chevronRight}")` }} aria-hidden="true" />}</>;
+    {icon && <span className="enj-button__icon" style={{ rotate: icon === 'chevron-down' ? '90deg' : undefined, maskImage: `url("${icon === 'close' ? close : chevronRight}")` }} aria-hidden="true" />}</>;
   if (props.href !== undefined) {
     const Link = LinkComponent ?? 'a';
     return <Link {...props} ref={ref as Ref<HTMLAnchorElement>} className={classes}

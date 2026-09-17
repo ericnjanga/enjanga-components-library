@@ -1,3 +1,4 @@
+import { Button } from '../Button';
 // @vitest-environment jsdom
 import { afterEach, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
@@ -8,6 +9,7 @@ it('renders content, section anchors, and application-owned media and actions', 
   const { container } = render(
     <HomePage
       title="Hello"
+      heroAction={<Button variant="tertiary" icon="chevron-down" href="/#expertise">Explore expertise</Button>}
       description="Introduction"
       expertise={{
         title: 'Expertise',
@@ -21,6 +23,11 @@ it('renders content, section anchors, and application-owned media and actions', 
       }}
     />
   );
+  const cta = screen.getByRole('link', { name: 'Explore expertise' });
+  expect(cta.getAttribute('href')).toBe('/#expertise');
+  expect(cta.closest('header')).not.toBeNull();
+  expect(cta.classList.contains('enj-button--tertiary')).toBe(true);
+  expect((cta.querySelector('.enj-button__icon') as HTMLElement).style.rotate).toBe('90deg');
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(
     screen.getByRole('link', { name: 'See work' }).getAttribute('href')
