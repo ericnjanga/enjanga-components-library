@@ -15,7 +15,7 @@ html[data-enj-reveal='enabled'] .enj-scroll-reveal:not(.enj-scroll-reveal--previ
 }
 
 .enj-scroll-reveal,
-.enj-scroll-reveal > :is(section, article) > * {
+.enj-scroll-reveal > :is(section, article) > :not(dialog) {
   transition: filter 900ms cubic-bezier(0.16, 1, 0.3, 1),
     opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 1150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -31,7 +31,7 @@ html[data-enj-reveal='enabled'] .enj-scroll-reveal:not(.enj-scroll-reveal--previ
 @media (prefers-reduced-motion: reduce) {
   html[data-enj-reveal='enabled'] .enj-scroll-reveal:not([data-reveal-ready]),
   .enj-scroll-reveal[data-visible],
-  .enj-scroll-reveal[data-visible] > :is(section, article) > * {
+  .enj-scroll-reveal[data-visible] > :is(section, article) > :not(dialog) {
     filter: none;
     opacity: 1;
     transform: none;
@@ -42,7 +42,7 @@ html[data-enj-reveal='enabled'] .enj-scroll-reveal:not(.enj-scroll-reveal--previ
 // Timeout fallback is immediate and must not become a late entrance animation.
 html[data-enj-reveal='expired'] .enj-scroll-reveal:not([data-reveal-ready]),
 .enj-scroll-reveal[data-reveal-fallback='true'],
-.enj-scroll-reveal[data-reveal-fallback='true'] > :is(section, article) > * {
+.enj-scroll-reveal[data-reveal-fallback='true'] > :is(section, article) > :not(dialog) {
   opacity: 1;
   filter: none;
   transform: none;
@@ -52,7 +52,7 @@ html[data-enj-reveal='expired'] .enj-scroll-reveal:not([data-reveal-ready]),
 // Focus, failed hydration and reduced motion always expose usable real content.
 .enj-scroll-reveal[data-reveal-immediate='true'],
 .enj-scroll-reveal[data-reveal-fallback='true'] {
-  &, > :is(section, article) > *, > section > * > * {
+  &, > :is(section, article) > :not(dialog), > section > * > * {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
@@ -60,4 +60,69 @@ html[data-enj-reveal='expired'] .enj-scroll-reveal:not([data-reveal-ready]),
     pointer-events: auto;
   }
   > section > *::after { content: none !important; }
+}
+
+// Shared silhouettes retain the content's layout; only opacity is animated.
+.enj-scroll-reveal.enj-scroll-reveal--preview {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition: none;
+  will-change: auto;
+}
+@mixin preview-block {
+  position: relative;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none;
+  will-change: auto !important;
+  > * { transition: opacity var(--enj-reveal-preview-duration) var(--enj-reveal-preview-easing); }
+  &::after {
+    content: none;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(var(--enj-reveal-preview-blur));
+    transition: opacity var(--enj-reveal-preview-duration) var(--enj-reveal-preview-easing);
+    background:
+      linear-gradient(var(--enj-reveal-preview-color) 0 0) 0 0 / 80% 10%,
+      repeating-linear-gradient(to bottom, var(--enj-reveal-preview-color) 0 8px, transparent 8px 24px) 0 35% / 90% 45%,
+      linear-gradient(var(--enj-reveal-preview-color) 0 0) 0 100% / 35% 8%;
+    background-repeat: no-repeat;
+  }
+}
+.enj-scroll-reveal--preview > :is(section, article) > :not(dialog),
+.enj-scroll-reveal--preview:not(:has(> :is(section, article))) {
+  @include preview-block;
+}
+.enj-scroll-reveal--preview .enj-home-page__productImage { position: absolute; }
+@media (max-width: 800px) {
+  .enj-scroll-reveal--preview .enj-home-page__productImage { position: relative; }
+}
+.enj-scroll-reveal--preview :is(.enj-home-page__productImage, .enj-home-page__portrait, .enj-case-study-card__media)::after {
+  background: var(--enj-reveal-preview-color);
+  border-radius: var(--enj-media-radius, var(--enj-case-study-radius));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .enj-scroll-reveal--preview[data-reveal-ready] > :is(section, article) > :not(dialog)::after,
+  .enj-scroll-reveal--preview[data-reveal-ready]:not(:has(> :is(section, article)))::after { content: ''; }
+  html[data-enj-reveal='enabled'] .enj-scroll-reveal--preview:not([data-reveal-ready]) > :is(section, article) > :not(dialog),
+  html[data-enj-reveal='enabled'] .enj-scroll-reveal--preview:not([data-reveal-ready]):not(:has(> :is(section, article))),
+  .enj-scroll-reveal--preview > :is(section, article) > [data-reveal-visible='false'],
+  .enj-scroll-reveal--preview[data-reveal-visible='false']:not(:has(> :is(section, article))) {
+    > * { opacity: 0; pointer-events: none; transition: none; }
+    &::after { content: ''; opacity: 1; transition: none; }
+  }
+}
+// Match every block shape for keyboard access, motion preferences and fail-open.
+@mixin reveal-content {
+  > *, > :is(section, article) > :not(dialog) > * { opacity: 1 !important; pointer-events: auto; transition: none !important; }
+  &::after, > :is(section, article) > :not(dialog)::after { content: none !important; }
+}
+.enj-scroll-reveal--preview:is([data-reveal-immediate='true'], [data-reveal-fallback='true']),
+html[data-enj-reveal='expired'] .enj-scroll-reveal--preview:not([data-reveal-ready]) { @include reveal-content; }
+@media (prefers-reduced-motion: reduce) {
+  .enj-scroll-reveal--preview { @include reveal-content; }
 }

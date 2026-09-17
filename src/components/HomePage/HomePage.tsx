@@ -11,7 +11,7 @@ export interface HomePageProps
   title: string;
   description?: string;
   heroAction?: ReactNode;
-  /** Enable the lightweight Expertise silhouette prototype. */
+  /** Enable decorative silhouettes for Expertise; other reveals use the shared default. */
   expertisePreview?: boolean;
   expertise: {
     title: string;
@@ -75,7 +75,7 @@ export function HomePage({
         <SectionWrapper>
           <section id="about" className="enj-home-page__about">
             {about.image && (
-              <div className="enj-home-page__portrait">{about.image}</div>
+              <div className="enj-home-page__portrait"><div className="enj-home-page__portraitFrame">{about.image}</div></div>
             )}
             <div className="enj-home-page__aboutCopy">
               <h2>{about.title}</h2>

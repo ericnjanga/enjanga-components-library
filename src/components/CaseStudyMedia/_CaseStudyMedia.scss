@@ -5,8 +5,7 @@
   position: relative;
   min-width: 0;
   min-height: var(--enj-case-study-media-height);
-  @include media.media-frame;
-  background: var(--enj-case-study-border-color);
+
   box-sizing: border-box;
   font-family: var(--enj-font-family-sans);
   font-size: var(--enj-body-font-size);
@@ -33,4 +32,11 @@
     object-fit: cover;
     object-position: center;
   }
+}
+
+.enj-case-study-card__mediaFrame {
+  @include media.media-frame;
+  position: absolute;
+  inset: 0;
+  background: var(--enj-case-study-border-color);
 }

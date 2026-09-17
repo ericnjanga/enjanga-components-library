@@ -41,6 +41,7 @@ export function CaseStudyMedia({
             !hasIntro && 'enj-case-study-card__media--static'
           )}
         >
+          <div className="enj-case-study-card__mediaFrame">
           <InteractiveImage
             className="enj-case-study-card__image"
             variant="case-study"
@@ -57,6 +58,7 @@ export function CaseStudyMedia({
             interactionLabel={hasIntro ? introLabel : readLabel}
             aria-label={`${hasIntro ? introLabel : readLabel}: ${title}`}
           />
+          </div>
         </div>
       )}
     </>

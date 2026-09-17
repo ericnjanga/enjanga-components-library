@@ -8,12 +8,12 @@ import { ScrollRevealRouteContext } from './ScrollRevealProvider';
 export interface ScrollRevealProps extends ComponentPropsWithoutRef<'div'> {
   /** Minimum time content stays hidden after entering view, in milliseconds. */
   delayMs?: number;
-  /** Prototype: static decorative silhouettes for home expertise blocks. */
+  /** Static decorative silhouettes while content waits to reveal. Enabled by default. */
   preview?: boolean;
 }
 
 /** Observe actual content blocks; replay on route changes and browser cache restoration. */
-export function ScrollReveal({ children, className, delayMs = 450, preview = false, ...props }: ScrollRevealProps) {
+export function ScrollReveal({ children, className, delayMs = 450, preview = true, ...props }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const routeKey = useContext(ScrollRevealRouteContext);
   const previousRoute = useRef(routeKey);
@@ -25,7 +25,7 @@ export function ScrollReveal({ children, className, delayMs = 450, preview = fal
       previousRoute.current = routeKey;
     }
     const motion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
-    const blocks = Array.from(node.querySelectorAll<HTMLElement>(':scope > :is(section, article) > *'));
+    const blocks = Array.from(node.querySelectorAll<HTMLElement>(':scope > :is(section, article) > :not(dialog)'));
     const targets = blocks.length ? blocks : [node];
     let observer: IntersectionObserver | undefined;
     let generation = 0;

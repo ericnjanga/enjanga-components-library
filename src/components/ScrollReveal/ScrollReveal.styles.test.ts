@@ -3,7 +3,7 @@ import { afterEach, expect, it } from 'vitest';
 import { compile } from 'sass';
 
 const shared = compile('src/components/ScrollReveal/_ScrollReveal.scss').css;
-const preview = compile('src/components/HomePage/_ExpertisePreview.scss').css;
+const preview = compile('src/components/HomePage/_HomePage.scss', { loadPaths: ['node_modules'] }).css;
 
 afterEach(() => {
   document.head.innerHTML = '';

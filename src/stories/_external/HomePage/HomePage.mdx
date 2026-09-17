@@ -67,20 +67,6 @@ settles (or the user interrupts it), then checks visibility again. Already revea
 content stays visible during section navigation; returning from another page resets
 reveals. Navbar activation and URL hash tracking keep their own thresholds.
 
-### Expertise silhouette prototype
+### Shared reveal silhouettes
 
-Only Expertise opts into the decorative preview. Static CSS shapes follow the real
-content bounds, without duplicate markup or additional image requests. A 700ms
-opacity crossfade replaces the preview after the usual navigation/scroll delay;
-the 6px blur is static and applied only to the shapes. Appearance tokens live in core.
-About and case studies keep their existing reveal treatment.
-
-No JavaScript, a hydration timeout, failed observer setup, and reduced motion show
-real content directly. Keyboard focus reveals content immediately, except for the
-programmatic heading focus used while section navigation is still scrolling.
-
-Use the WithoutPreview story (or `expertisePreview={false}`) to compare the original reveal.
-
-The image border and shadow belong to the inner fading frame so they appear with the image, never around an empty preview.
-
-The shared pre-hydration hiding rule excludes silhouette previews, so later page stylesheets cannot hide the entire preview container. Its opacity stays at 1 throughout initialization and reveal.
+All ScrollReveal instances now use decorative silhouettes by default, including About and case-study cards. Set `preview={false}` to opt out. Static CSS shapes retain real layout without duplicating content or images, and only opacity animates. Core tokens control light/dark contrast and crossfade timing. Reduced motion, keyboard focus, and initialization failure expose the real content immediately. Media frames fade with their images, so empty borders and shadows do not appear during the placeholder phase.

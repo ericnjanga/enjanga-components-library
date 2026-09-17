@@ -183,12 +183,13 @@ it('uses a viewport-height threshold for home-page content', () => {
   expect(constructor).toHaveBeenCalledWith({ threshold: 0, rootMargin: `0px 0px -${Math.round(window.innerHeight * 0.25)}px 0px` });
 });
 
-it('keeps the silhouette prototype opt-in and renders real content only once', () => {
+it('enables silhouettes by default, allows opt-out and renders content once', () => {
   const markup = renderToString(<ScrollReveal preview><section><button>Read expertise</button></section></ScrollReveal>);
   expect(markup).toContain('enj-scroll-reveal--preview');
   expect(markup.match(/Read expertise/g)).toHaveLength(1);
   expect(markup).not.toContain('aria-busy');
-  expect(renderToString(content)).not.toContain('enj-scroll-reveal--preview');
+  expect(renderToString(content)).toContain('enj-scroll-reveal--preview');
+  expect(renderToString(<ScrollReveal preview={false}>Content</ScrollReveal>)).not.toContain('enj-scroll-reveal--preview');
 });
 it('immediately reveals real content when a keyboard user focuses its control', () => {
   const { container } = render(<ScrollReveal preview><section><div><button>Read expertise</button></div></section></ScrollReveal>);
@@ -218,4 +219,17 @@ it('still reveals a focused control while section navigation is in progress', ()
   expect(container.firstElementChild?.getAttribute('data-visible')).toBe('true');
   expect(container.firstElementChild?.getAttribute('data-reveal-immediate')).toBe('true');
   act(() => setSectionNavigating(false));
+});
+
+it('reveals article blocks independently with the shared default preview', () => {
+  const { container } = render(<ScrollReveal><article><div data-testid="media"><img alt="Project" /></div><div data-testid="copy"><h2>Case study</h2></div></article></ScrollReveal>);
+  expect(container.firstElementChild?.classList.contains('enj-scroll-reveal--preview')).toBe(true);
+  enter(screen.getByTestId('media')); advance(450);
+  expect(state('media')).toBe('true');
+  expect(state('copy')).toBe('false');
+});
+
+it('does not observe dialog overlays as reveal blocks', () => {
+  render(<ScrollReveal><article><div data-testid="card-copy">Card</div><dialog>Video</dialog></article></ScrollReveal>);
+  expect(observe.mock.calls.map(([target]) => target)).toEqual([screen.getByTestId('card-copy')]);
 });

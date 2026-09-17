@@ -9,7 +9,7 @@ it('renders content, section anchors, and application-owned media and actions', 
   const { container } = render(
     <HomePage
       title="Hello"
-      heroAction={<Button variant="tertiary" icon="chevron-down" href="/#expertise">Explore expertise</Button>}
+      heroAction={<Button variant="primary" icon="chevron-down" href="/#expertise">Explore expertise</Button>}
       description="Introduction"
       expertise={{
         title: 'Expertise',
@@ -26,9 +26,9 @@ it('renders content, section anchors, and application-owned media and actions', 
   const cta = screen.getByRole('link', { name: 'Explore expertise' });
   expect(cta.getAttribute('href')).toBe('/#expertise');
   expect(cta.closest('header')).not.toBeNull();
-  expect(cta.classList.contains('enj-button--tertiary')).toBe(true);
+  expect(cta.classList.contains('enj-button--primary')).toBe(true);
   expect((cta.querySelector('.enj-button__icon') as HTMLElement).style.rotate).toBe('90deg');
-  expect(container.querySelectorAll('.enj-scroll-reveal--preview')).toHaveLength(1);
+  expect(container.querySelectorAll('.enj-scroll-reveal--preview')).toHaveLength(2);
   expect(container.querySelector('#expertise')?.parentElement?.classList.contains('enj-scroll-reveal--preview')).toBe(true);
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(
@@ -42,7 +42,8 @@ it('renders content, section anchors, and application-owned media and actions', 
 
 it('allows the Expertise prototype to be disabled for comparison', () => {
   const { container } = render(<HomePage title="Hello" expertisePreview={false} expertise={{title:'Expertise',items:[]}} about={{title:'About',paragraphs:[]}} />);
-  expect(container.querySelector('.enj-scroll-reveal--preview')).toBeNull();
+  expect(container.querySelector('#expertise')?.parentElement?.classList.contains('enj-scroll-reveal--preview')).toBe(false);
+  expect(container.querySelector('#about')?.parentElement?.classList.contains('enj-scroll-reveal--preview')).toBe(true);
 });
 
 it('keeps the product image frame inside the fading content layer', () => {
