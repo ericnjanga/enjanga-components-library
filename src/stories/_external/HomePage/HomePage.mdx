@@ -82,3 +82,5 @@ programmatic heading focus used while section navigation is still scrolling.
 Use the WithoutPreview story (or `expertisePreview={false}`) to compare the original reveal.
 
 The image border and shadow belong to the inner fading frame so they appear with the image, never around an empty preview.
+
+The shared pre-hydration hiding rule excludes silhouette previews, so later page stylesheets cannot hide the entire preview container. Its opacity stays at 1 throughout initialization and reveal.

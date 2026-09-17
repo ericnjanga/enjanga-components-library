@@ -1,5 +1,8 @@
 // Prototype scope: expertise only. Real content retains its layout and semantics.
-.enj-scroll-reveal--preview {
+.enj-scroll-reveal.enj-scroll-reveal--preview {
+  // This container must never fade: it holds the preview and real content layers.
+  opacity: 1;
+  transition: none;
   .enj-home-page__expertiseCopy { position: relative; }
   > section > * {
     filter: none !important;

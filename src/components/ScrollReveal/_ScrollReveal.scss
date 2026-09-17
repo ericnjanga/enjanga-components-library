@@ -1,6 +1,6 @@
 // The provider's early script prevents a visible server-rendered flash.
 // Without JavaScript or observer support this selector never applies.
-html[data-enj-reveal='enabled'] .enj-scroll-reveal:not([data-reveal-ready]) {
+html[data-enj-reveal='enabled'] .enj-scroll-reveal:not(.enj-scroll-reveal--preview):not([data-reveal-ready]) {
   opacity: 0;
   transition: none;
 }
