@@ -44,3 +44,10 @@ it('allows the Expertise prototype to be disabled for comparison', () => {
   const { container } = render(<HomePage title="Hello" expertisePreview={false} expertise={{title:'Expertise',items:[]}} about={{title:'About',paragraphs:[]}} />);
   expect(container.querySelector('.enj-scroll-reveal--preview')).toBeNull();
 });
+
+it('keeps the product image frame inside the fading content layer', () => {
+  const { container } = render(<HomePage title="Hello" expertise={{title:'Expertise',items:[],image:<img src="/product.jpg" alt="Product" />}} about={{title:'About',paragraphs:[]}} />);
+  const image = screen.getByRole('img', {name:'Product'});
+  expect(image.parentElement?.className).toBe('enj-home-page__productImageFrame');
+  expect(image.parentElement?.parentElement).toBe(container.querySelector('.enj-home-page__productImage'));
+});

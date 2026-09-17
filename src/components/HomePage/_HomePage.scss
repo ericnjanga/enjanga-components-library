@@ -92,9 +92,14 @@
   line-height: 1.556;
 }
 
-.enj-home-page__productImage,
+.enj-home-page__productImageFrame,
 .enj-home-page__portrait {
   @include media.media-frame;
+}
+
+.enj-home-page__productImageFrame {
+  width: 100%;
+  height: 100%;
 }
 
 .enj-home-page__productImage {

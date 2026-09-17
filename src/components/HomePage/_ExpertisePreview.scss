@@ -7,13 +7,13 @@
     opacity: 1 !important;
     will-change: auto !important;
     transition: none;
-    > * { transition: opacity var(--enj-reveal-preview-duration) ease; }
+    > * { transition: opacity var(--enj-reveal-preview-duration) var(--enj-reveal-preview-easing); }
     &::after {
       position: absolute;
       inset: 0;
       pointer-events: none;
       opacity: 0;
-      transition: opacity var(--enj-reveal-preview-duration) ease;
+      transition: opacity var(--enj-reveal-preview-duration) var(--enj-reveal-preview-easing);
       // A static small blur on flat shapes, never on text, photos or a duplicate DOM.
       filter: blur(var(--enj-reveal-preview-blur));
       background:
@@ -26,6 +26,7 @@
   }
   .enj-home-page__productImage::after {
     background: var(--enj-reveal-preview-color);
+    border-radius: var(--enj-media-radius, var(--enj-case-study-radius));
   }
 }
 

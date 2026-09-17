@@ -67,7 +67,7 @@ export function HomePage({
             </div>
             {expertise.image && (
               <div className="enj-home-page__productImage">
-                {expertise.image}
+                <div className="enj-home-page__productImageFrame">{expertise.image}</div>
               </div>
             )}
           </section>
