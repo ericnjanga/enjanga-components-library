@@ -236,5 +236,5 @@
 }
 
 .enj-home-page__hero .enj-page-hero__action {
-  margin-top: calc(var(--enj-home-hero-action-gap) - var(--enj-page-hero-gap));
+  margin-top: var(--enj-home-hero-action-margin-top);
 }
