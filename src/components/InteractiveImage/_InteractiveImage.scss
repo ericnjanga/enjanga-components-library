@@ -40,9 +40,9 @@
   display: grid;
   place-items: center;
   width: var(--enj-case-study-intro-size, 110px);
-  height: var(--enj-case-study-intro-size, 110px);
+  min-height: var(--enj-case-study-intro-size, 110px);
   box-sizing: border-box;
-  padding: 2.5px;
+  padding: var(--enj-interactive-image-label-padding);
   background: assets.$cta-default center / 100% 100% no-repeat;
   color: var(--enj-case-study-intro-foreground, #fff);
   font-family: var(--enj-font-family-sans);
