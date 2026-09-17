@@ -1,58 +1,88 @@
-'use client';
+"use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type ComponentPropsWithoutRef,
-} from 'react';
+import { useContext, useLayoutEffect, useRef, type ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
+import { ScrollRevealRouteContext } from './ScrollRevealProvider';
 
-export type ScrollRevealProps = ComponentPropsWithoutRef<'div'>;
+export interface ScrollRevealProps extends ComponentPropsWithoutRef<'div'> {
+  /** Minimum time content stays hidden after entering view, in milliseconds. */
+  delayMs?: number;
+}
 
-/** Reveals direct section/article content once; content remains visible without JS or observer support. */
-export function ScrollReveal({
-  children,
-  className,
-  ...props
-}: ScrollRevealProps) {
+/** Observe actual content blocks; replay on route changes and browser cache restoration. */
+export function ScrollReveal({ children, className, delayMs = 450, ...props }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(true);
-  useEffect(() => {
+  const routeKey = useContext(ScrollRevealRouteContext);
+  useLayoutEffect(() => {
     const node = ref.current;
+    if (!node) return;
     const motion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
-    if (!node || motion?.matches || typeof IntersectionObserver === 'undefined')
-      return;
-    setVisible(false);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        setVisible(true);
-        observer.disconnect();
-      },
-      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
-    );
-    const handleMotion = () => {
-      if (motion?.matches) {
-        setVisible(true);
-        observer.disconnect();
+    const blocks = Array.from(node.querySelectorAll<HTMLElement>(':scope > :is(section, article) > *'));
+    const targets = blocks.length ? blocks : [node];
+    let observer: IntersectionObserver | undefined;
+    let generation = 0;
+    const timers = new Map<HTMLElement, ReturnType<typeof setTimeout>>();
+    const cancel = () => {
+      generation++;
+      observer?.disconnect();
+      timers.forEach(clearTimeout);
+      timers.clear();
+    };
+    const showAll = () => {
+      cancel();
+      targets.forEach(target => target.setAttribute('data-reveal-visible', 'true'));
+      node.dataset.visible = 'true';
+      node.dataset.revealReady = 'true';
+    };
+    const start = () => {
+      cancel();
+      if (motion?.matches || typeof IntersectionObserver === 'undefined') {
+        showAll();
+        return;
       }
+      const current = generation;
+      const pending = new Set(targets);
+      targets.forEach(target => target.setAttribute('data-reveal-visible', 'false'));
+      node.dataset.visible = 'false';
+      node.dataset.revealReady = 'true';
+      observer = new IntersectionObserver(entries => {
+        if (current !== generation) return;
+        for (const entry of entries) {
+          const target = entry.target as HTMLElement;
+          if (!pending.has(target)) continue;
+          if (!entry.isIntersecting) {
+            clearTimeout(timers.get(target));
+            timers.delete(target);
+            continue;
+          }
+          if (timers.has(target)) continue;
+          timers.set(target, setTimeout(() => {
+            if (current !== generation) return;
+            target.setAttribute('data-reveal-visible', 'true');
+            pending.delete(target);
+            timers.delete(target);
+            observer?.unobserve(target);
+            if (!pending.size) {
+              node.dataset.visible = 'true';
+              observer?.disconnect();
+            }
+          }, Math.max(0, delayMs)));
+        }
+      }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      targets.forEach(target => observer!.observe(target));
     };
-    observer.observe(node);
-    motion?.addEventListener('change', handleMotion);
+    const onMotion = () => { if (motion?.matches) showAll(); };
+    const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) start(); };
+    start();
+    motion?.addEventListener?.('change', onMotion);
+    window.addEventListener('pageshow', onPageShow);
     return () => {
-      observer.disconnect();
-      motion?.removeEventListener('change', handleMotion);
+      cancel();
+      targets.forEach(target => target.removeAttribute('data-reveal-visible'));
+      delete node.dataset.revealReady;
+      motion?.removeEventListener?.('change', onMotion);
+      window.removeEventListener('pageshow', onPageShow);
     };
-  }, []);
-  return (
-    <div
-      {...props}
-      ref={ref}
-      className={clsx('enj-scroll-reveal', className)}
-      data-visible={visible ? 'true' : 'false'}
-    >
-      {children}
-    </div>
-  );
+  }, [routeKey, delayMs]);
+  return <div {...props} ref={ref} className={clsx('enj-scroll-reveal', className)} data-visible="true">{children}</div>;
 }

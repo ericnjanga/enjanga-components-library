@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import { Fragment, type ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
 import { ScrollReveal } from '../ScrollReveal';
 import { PageHero } from '../PageHero';
@@ -17,7 +17,12 @@ export function CaseStudiesPage({ title, caseStudies, emptyMessage = 'Case studi
     <div className="enj-case-studies-page__container">
       <PageHero className="enj-case-studies-page__hero" title={title} />
       <div className="enj-case-studies-page__list">
-        {caseStudies.map(study => <ScrollReveal key={study.id}><CaseStudyCard {...study} /></ScrollReveal>)}
+        {caseStudies.map((study, index) => (
+          <Fragment key={study.id}>
+            {index > 0 && <hr className="enj-case-studies-page__separator" />}
+            <ScrollReveal><CaseStudyCard {...study} /></ScrollReveal>
+          </Fragment>
+        ))}
         {!caseStudies.length && <p>{emptyMessage}</p>}
       </div>
     </div>

@@ -17,7 +17,7 @@ The About section keeps biography paragraphs in one readable column at every siz
 <Canvas of={Stories.Mobile} />
 <Canvas of={Stories.Dark} />
 
-Home sections now use `ScrollReveal` by default. Pass a different `SectionWrapper` to override it. `InteractiveImage` accepts native link props plus `src`, `alt`, image dimensions, and `interactionLabel`; routing comes from `LinkProvider`. Modified clicks, downloads, and new-tab links retain native behavior. Regular clicks navigate immediately; the ripple never delays navigation.
+Home sections use `ScrollReveal` by default. Each direct content block is observed independently, so section padding does not trigger an early reveal and stacked mobile images and copy reveal as they enter the viewport. Pass a different `SectionWrapper` to override it. `InteractiveImage` accepts native link props plus `src`, `alt`, image dimensions, and `interactionLabel`; routing comes from `LinkProvider`. Modified clicks, downloads, and new-tab links retain native behavior. Regular clicks navigate immediately; the ripple never delays navigation.
 
 For standalone usage import `interactive-image.css` or `scroll-reveal.css`. Home page CSS includes both; case studies page CSS includes scroll reveal. Content remains visible without JavaScript, without IntersectionObserver, and when reduced motion is requested.
 
@@ -27,3 +27,24 @@ For standalone usage import `interactive-image.css` or `scroll-reveal.css`. Home
 InteractiveImage’s default `product` variant and its `portrait` variant show a clear image at rest. Hover and keyboard focus add 5px blur, a 50% black overlay, and the exported translucent circular CTA. All three variants follow the cursor while it remains inside the image; labels are centered at rest and for keyboard/touch use. Case study media uses the opposite `case-study` variant. Touch devices show the action without requiring a hover; reduced motion removes transitions and ripple animation.
 
 Review all three under **External Components / InteractiveImage / Comparison**.
+
+
+### Scroll reveal regression coverage
+
+ScrollReveal tests verify that padded sections observe their content blocks,
+that one block entering view does not reveal its offscreen sibling, and that
+enabling reduced motion reveals pending content and disconnects the observer.
+Existing tests cover server rendering, unsupported browsers, one-time reveal,
+and observer cleanup.
+
+
+### Initial pause and route replay
+
+ScrollReveal holds each intersecting block hidden for 450ms, then runs its reveal.
+Hidden states apply immediately; entering animation retains the existing easing and stagger.
+Wrap the application in `ScrollRevealProvider` with the router pathname as `routeKey`.
+Its early script prevents pre-hydration flashes; no-JavaScript and reduced-motion
+visitors retain visible content. Route changes, remounts, and browser cache restoration
+reset the reveal. Hash navigation within a route does not reset it. Tests cover the
+pause, cancellation on exit/unmount, independent blocks, route returns, browser
+restoration, and reduced-motion changes.

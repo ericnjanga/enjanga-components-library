@@ -27,6 +27,7 @@ export const AllPublished: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getAllByRole('article')).toHaveLength(caseStudiesPageFixture.caseStudies.length);
+    await expect(canvas.getAllByRole('separator')).toHaveLength(caseStudiesPageFixture.caseStudies.length - 1);
     await expect(canvas.getAllByRole('button', { name: /^Watch intro:/ })).toHaveLength(3);
     await expect(canvas.getAllByRole('link', { name: /^Read the full case study:/ })).toHaveLength(4);
   },

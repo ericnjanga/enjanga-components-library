@@ -1,10 +1,20 @@
-.enj-scroll-reveal[data-visible='false'] > :is(section, article) > * {
+// The provider's early script prevents a visible server-rendered flash.
+// Without JavaScript or observer support this selector never applies.
+html[data-enj-reveal='enabled'] .enj-scroll-reveal:not([data-reveal-ready]) {
+  opacity: 0;
+  transition: none;
+}
+
+.enj-scroll-reveal[data-reveal-visible='false'],
+.enj-scroll-reveal > :is(section, article) > [data-reveal-visible='false'] {
   filter: blur(3px);
   opacity: 0;
   transform: translateY(4rem) scale(0.985);
   will-change: filter, opacity, transform;
+  transition: none;
 }
 
+.enj-scroll-reveal,
 .enj-scroll-reveal > :is(section, article) > * {
   transition: filter 900ms cubic-bezier(0.16, 1, 0.3, 1),
     opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -19,6 +29,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html[data-enj-reveal='enabled'] .enj-scroll-reveal:not([data-reveal-ready]),
+  .enj-scroll-reveal[data-visible],
   .enj-scroll-reveal[data-visible] > :is(section, article) > * {
     filter: none;
     opacity: 1;
