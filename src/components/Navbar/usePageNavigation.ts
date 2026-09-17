@@ -1,3 +1,4 @@
+import { setSectionNavigating } from '../ScrollReveal/navigation';
 import { useLayoutEffect, useRef, useState } from 'react';
 
 /** Coordinates explicit link navigation; passive scrolling never moves focus. */
@@ -45,6 +46,7 @@ export function usePageNavigation(
           : document.querySelector<HTMLElement>('main h1');
       if (!target || target.closest('[hidden]')) return false;
       setPendingHref(href);
+      setSectionNavigating(true);
       const top = hash
         ? Math.max(
             0,
@@ -67,12 +69,16 @@ export function usePageNavigation(
       let stable = 0;
       let previous = window.scrollY;
       const started = performance.now();
+      let finished = false;
       const finish = () => {
+        if (finished) return;
+        finished = true;
         cancelAnimationFrame(frame);
         window.removeEventListener('wheel', interrupt);
         window.removeEventListener('touchstart', interrupt);
         window.removeEventListener('keydown', onKey);
         setPendingHref(null);
+        setSectionNavigating(false);
       };
       const interrupt = () => {
         window.scrollTo({ top: window.scrollY, behavior: 'instant' });

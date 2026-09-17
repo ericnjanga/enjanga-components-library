@@ -58,3 +58,11 @@ keeps that content visible for the visit, avoiding a visible/hidden/visible flas
 Initialized offscreen blocks retain their normal 450ms entrance pause. Subsequent
 client route visits may animate again. Missing JavaScript, reduced motion, and
 observer failures all leave content readable.
+
+### Navigation-aware reveals
+
+Home-page content begins its reveal after entering the upper 75% of the viewport,
+with a 450ms pause. Explicit section navigation pauses pending reveals until scrolling
+settles (or the user interrupts it), then checks visibility again. Already revealed
+content stays visible during section navigation; returning from another page resets
+reveals. Navbar activation and URL hash tracking keep their own thresholds.

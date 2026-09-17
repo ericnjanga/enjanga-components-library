@@ -1,3 +1,4 @@
+import { setSectionNavigating } from './navigation';
 // @vitest-environment jsdom
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { act, cleanup, render, screen } from '@testing-library/react';
@@ -11,6 +12,7 @@ const observe = vi.fn(), unobserve = vi.fn(), disconnect = vi.fn();
 beforeEach(() => {
   delete document.documentElement.dataset.enjReveal;
   delete document.documentElement.dataset.enjRevealRoute;
+  setSectionNavigating(false);
   vi.useFakeTimers();
   vi.clearAllMocks();
   vi.stubGlobal('IntersectionObserver', class {
@@ -147,4 +149,36 @@ it('preserves browser-cache replay after an initialized page passes the hydratio
   act(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
   expect(state()).toBe('false');
   enter(screen.getByTestId('first')); advance(450); expect(state()).toBe('true');
+});
+
+it('waits for section navigation to settle before starting a fresh reveal delay', () => {
+  render(content);
+  const target = screen.getByTestId('first');
+  enter(target); advance(200);
+  act(() => setSectionNavigating(true));
+  enter(target); advance(1000);
+  expect(state()).toBe('false');
+  act(() => setSectionNavigating(false));
+  expect(observe).toHaveBeenLastCalledWith(screen.getByTestId('second'));
+  enter(target); advance(449); expect(state()).toBe('false');
+  advance(1); expect(state()).toBe('true');
+});
+it('does not re-hide revealed content when navigating between sections', () => {
+  render(content);
+  enter(screen.getByTestId('first')); advance(450);
+  act(() => setSectionNavigating(true));
+  expect(state()).toBe('true');
+  act(() => setSectionNavigating(false));
+  expect(state()).toBe('true');
+});
+it('uses a viewport-height threshold for home-page content', () => {
+  const constructor = vi.fn();
+  vi.stubGlobal('IntersectionObserver', class {
+    constructor(cb: IntersectionObserverCallback, options: IntersectionObserverInit) {
+      callback = cb; constructor(options);
+    }
+    observe = observe; unobserve = unobserve; disconnect = disconnect;
+  });
+  render(<main className="enj-home-page">{content}</main>);
+  expect(constructor).toHaveBeenCalledWith({ threshold: 0, rootMargin: `0px 0px -${Math.round(window.innerHeight * 0.25)}px 0px` });
 });

@@ -1,3 +1,4 @@
+import { isSectionNavigating } from '../ScrollReveal/navigation';
 // @vitest-environment jsdom
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import {
@@ -154,6 +155,7 @@ it('keeps the clicked section active during smooth scrolling and focuses its hea
   flush();
   flush();
   fireEvent.click(screen.getByRole('link', { name: 'About', exact: true }));
+  expect(isSectionNavigating()).toBe(true);
   tops.expertise = -1;
   tops.home = -901;
   fireEvent.scroll(window);
@@ -166,6 +168,7 @@ it('keeps the clicked section active during smooth scrolling and focuses its hea
   expect(window.location.hash).toBe('#about');
   expect(document.activeElement?.textContent).toBe('About heading');
   fireEvent.wheel(window);
+  expect(isSectionNavigating()).toBe(false);
   flush();
   flush();
   expect(
@@ -218,4 +221,20 @@ it('closes the mobile menu and keeps focus on the destination heading', () => {
   fireEvent.click(link);
   expect(screen.queryByRole('dialog')).toBeNull();
   expect(document.activeElement?.textContent).toBe('About heading');
+});
+
+it('releases reveal coordination when section scrolling settles', () => {
+  vi.stubGlobal('scrollTo', vi.fn());
+  const now = vi.spyOn(performance, 'now').mockReturnValue(0);
+  const { unmount } = render(<PageNavbar pathname="/" brand="Site" brandLabel="Site home" items={items} />);
+  fireEvent.click(screen.getByRole('link', { name: 'About', exact: true }));
+  expect(isSectionNavigating()).toBe(true);
+  now.mockReturnValue(200);
+  for (let i = 0; i < 5; i++) flush();
+  expect(isSectionNavigating()).toBe(false);
+  fireEvent.click(screen.getByRole('link', { name: 'Expertise', exact: true }));
+  expect(isSectionNavigating()).toBe(true);
+  unmount();
+  expect(isSectionNavigating()).toBe(false);
+  now.mockRestore();
 });
