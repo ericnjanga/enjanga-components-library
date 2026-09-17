@@ -48,3 +48,16 @@ html[data-enj-reveal='expired'] .enj-scroll-reveal:not([data-reveal-ready]),
   transform: none;
   transition: none;
 }
+
+// Focus, failed hydration and reduced motion always expose usable real content.
+.enj-scroll-reveal[data-reveal-immediate='true'],
+.enj-scroll-reveal[data-reveal-fallback='true'] {
+  &, > :is(section, article) > *, > section > * > * {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto;
+  }
+  > section > *::after { content: none !important; }
+}

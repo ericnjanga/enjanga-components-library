@@ -3,6 +3,7 @@
 @use '../../styles/media-frame' as media;
 @use "../../styles/page-container" as layout;
 @use "../PageHero/PageHero";
+@use "ExpertisePreview";
 .enj-home-page {
   overflow: hidden;
   color: var(--enj-home-foreground, var(--enj-case-study-foreground));

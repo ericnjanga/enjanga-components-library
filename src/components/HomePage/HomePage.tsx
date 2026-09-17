@@ -11,6 +11,8 @@ export interface HomePageProps
   title: string;
   description?: string;
   heroAction?: ReactNode;
+  /** Enable the lightweight Expertise silhouette prototype. */
+  expertisePreview?: boolean;
   expertise: {
     title: string;
     items: readonly { title: string; description: string }[];
@@ -24,7 +26,7 @@ export interface HomePageProps
     image?: ReactNode;
   };
   /** Optional application-owned animation wrapper for each lower section. */
-  SectionWrapper?: ComponentType<{ children: ReactNode }>;
+  SectionWrapper?: ComponentType<{ children: ReactNode; preview?: boolean }>;
 }
 
 /** Presentational home page. The application supplies content, links and media. */
@@ -32,6 +34,7 @@ export function HomePage({
   title,
   description,
   heroAction,
+  expertisePreview = true,
   expertise,
   about,
   SectionWrapper = ScrollReveal,
@@ -48,7 +51,7 @@ export function HomePage({
         >
           <PageHero title={title} description={description} action={heroAction} />
         </section>
-        <SectionWrapper>
+        <SectionWrapper preview={expertisePreview}>
           <section id="expertise" className="enj-home-page__expertise">
             <div className="enj-home-page__expertiseCopy">
               <h2>{expertise.title}</h2>

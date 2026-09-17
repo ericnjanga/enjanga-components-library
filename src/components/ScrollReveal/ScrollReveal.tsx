@@ -8,10 +8,12 @@ import { ScrollRevealRouteContext } from './ScrollRevealProvider';
 export interface ScrollRevealProps extends ComponentPropsWithoutRef<'div'> {
   /** Minimum time content stays hidden after entering view, in milliseconds. */
   delayMs?: number;
+  /** Prototype: static decorative silhouettes for home expertise blocks. */
+  preview?: boolean;
 }
 
 /** Observe actual content blocks; replay on route changes and browser cache restoration. */
-export function ScrollReveal({ children, className, delayMs = 450, ...props }: ScrollRevealProps) {
+export function ScrollReveal({ children, className, delayMs = 450, preview = false, ...props }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const routeKey = useContext(ScrollRevealRouteContext);
   const previousRoute = useRef(routeKey);
@@ -105,14 +107,24 @@ export function ScrollReveal({ children, className, delayMs = 450, ...props }: S
         });
       }
     };
+    const onFocus = (event: FocusEvent) => {
+      // Navigation focuses the destination heading before its scroll settles.
+      if (isSectionNavigating() && event.target instanceof HTMLElement &&
+        event.target.matches('h1[tabindex="-1"], h2[tabindex="-1"], h3[tabindex="-1"]')) return;
+      node.dataset.revealImmediate = 'true';
+      showAll();
+    };
     const onMotion = () => { if (motion?.matches) showAll(); };
     const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) start(); };
     start();
+    node.addEventListener('focusin', onFocus);
     window.addEventListener(sectionNavigationEvent, onNavigation);
     motion?.addEventListener?.('change', onMotion);
     window.addEventListener('pageshow', onPageShow);
     return () => {
       cancel();
+      node.removeEventListener('focusin', onFocus);
+      delete node.dataset.revealImmediate;
       window.removeEventListener(sectionNavigationEvent, onNavigation);
       targets.forEach(target => target.removeAttribute('data-reveal-visible'));
       delete node.dataset.revealReady;
@@ -120,5 +132,5 @@ export function ScrollReveal({ children, className, delayMs = 450, ...props }: S
       window.removeEventListener('pageshow', onPageShow);
     };
   }, [routeKey, delayMs]);
-  return <div {...props} ref={ref} className={clsx('enj-scroll-reveal', className)} data-visible="true">{children}</div>;
+  return <div {...props} ref={ref} className={clsx('enj-scroll-reveal', preview && 'enj-scroll-reveal--preview', className)} data-visible="true">{children}</div>;
 }

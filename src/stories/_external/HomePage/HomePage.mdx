@@ -66,3 +66,17 @@ with a 450ms pause. Explicit section navigation pauses pending reveals until scr
 settles (or the user interrupts it), then checks visibility again. Already revealed
 content stays visible during section navigation; returning from another page resets
 reveals. Navbar activation and URL hash tracking keep their own thresholds.
+
+### Expertise silhouette prototype
+
+Only Expertise opts into the decorative preview. Static CSS shapes follow the real
+content bounds, without duplicate markup or additional image requests. A 300ms
+opacity crossfade replaces the preview after the usual navigation/scroll delay;
+the 6px blur is static and applied only to the shapes. Appearance tokens live in core.
+About and case studies keep their existing reveal treatment.
+
+No JavaScript, a hydration timeout, failed observer setup, and reduced motion show
+real content directly. Keyboard focus reveals content immediately, except for the
+programmatic heading focus used while section navigation is still scrolling.
+
+Use the WithoutPreview story (or `expertisePreview={false}`) to compare the original reveal.

@@ -28,6 +28,8 @@ it('renders content, section anchors, and application-owned media and actions', 
   expect(cta.closest('header')).not.toBeNull();
   expect(cta.classList.contains('enj-button--tertiary')).toBe(true);
   expect((cta.querySelector('.enj-button__icon') as HTMLElement).style.rotate).toBe('90deg');
+  expect(container.querySelectorAll('.enj-scroll-reveal--preview')).toHaveLength(1);
+  expect(container.querySelector('#expertise')?.parentElement?.classList.contains('enj-scroll-reveal--preview')).toBe(true);
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(
     screen.getByRole('link', { name: 'See work' }).getAttribute('href')
@@ -36,4 +38,9 @@ it('renders content, section anchors, and application-owned media and actions', 
   expect(screen.getByText('My background')).toBeTruthy();
   for (const id of ['home', 'expertise', 'about'])
     expect(container.querySelector(`section#${id}`)).not.toBeNull();
+});
+
+it('allows the Expertise prototype to be disabled for comparison', () => {
+  const { container } = render(<HomePage title="Hello" expertisePreview={false} expertise={{title:'Expertise',items:[]}} about={{title:'About',paragraphs:[]}} />);
+  expect(container.querySelector('.enj-scroll-reveal--preview')).toBeNull();
 });
