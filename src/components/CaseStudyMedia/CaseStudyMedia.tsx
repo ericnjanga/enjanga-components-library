@@ -47,6 +47,7 @@ export function CaseStudyMedia({
             variant="case-study"
             src={posterSrc}
             alt={posterAlt}
+            sizes="(max-width: 1055px) 100vw, 50vw"
             loading="lazy"
             decoding="async"
             action={

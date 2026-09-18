@@ -9,6 +9,7 @@ import {
   type MouseEventHandler,
 } from 'react';
 import clsx from 'clsx';
+import { LibraryImage } from '../../provider/ImageProvider';
 import { useCursorLabel } from './useCursorLabel';
 import { LinkContext } from '../../provider/LinkProvider';
 
@@ -20,6 +21,7 @@ export interface InteractiveImageProps
     onClick?: MouseEventHandler<HTMLButtonElement>;
     disabled?: boolean;
   };
+  sizes?: string;
   loading?: 'eager' | 'lazy';
   decoding?: 'async' | 'sync' | 'auto';
   alt: string;
@@ -35,6 +37,7 @@ export function InteractiveImage({
   src,
   action,
   loading,
+  sizes,
   decoding,
   alt,
   width,
@@ -84,11 +87,12 @@ export function InteractiveImage({
     <>
       {src && (
         <span className="enj-interactive-image__picture">
-          <img
+          <LibraryImage
             src={src}
             alt={alt}
             width={width}
             height={height}
+            sizes={sizes ?? '100vw'}
             loading={loading}
             decoding={decoding}
           />

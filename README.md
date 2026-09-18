@@ -136,3 +136,29 @@ remain package-root compatibility aliases. They now share one context: the
 nearest provider applies to both Button and Navbar. They no longer configure
 independent routing. Replace nested legacy providers with a single LinkProvider.
 The provider barrel is the sole public export source for these APIs.
+
+### Application image rendering
+
+`ImageProvider` lets an application supply its image component without adding a
+framework dependency to this library. `InteractiveImage` (including case-study
+media) uses the provider; without one it renders a native `img`.
+
+```tsx
+<ImageProvider component={ApplicationImage}>
+  <InteractiveImage src="/portrait.jpg" alt="Portrait" width={600} height={800} />
+</ImageProvider>
+```
+
+The adapter receives `ImageProps`: source, alt text, numeric dimensions, responsive
+`sizes`, loading/decoding, and native image attributes. Preserve those attributes
+and the library's CSS styling. Media frames are positioned and sized by the library;
+when dimensions are absent an adapter may fill that frame. Generic interactive
+images default to `100vw`; callers can supply more precise layout sizes.
+
+Create providers inside a client boundary when integrating with a server-component
+framework. Fetching and CMS credentials belong in the consuming application.
+
+`CaseStudyCard.videoPosterSrc` optionally supplies a separately prepared URL for
+the native video's `poster` attribute. It falls back to `posterSrc` for existing
+consumers. Keep the original `posterSrc` for responsive image rendering, avoiding
+double optimization. Video sources and deferred loading remain independent.

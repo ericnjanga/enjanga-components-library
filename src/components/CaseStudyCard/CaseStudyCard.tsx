@@ -17,6 +17,8 @@ export interface CaseStudyCardProps
   /** A paragraph, or an ordered collection of paragraphs. */
   description: string | readonly string[];
   posterSrc?: string;
+  /** Optional separately prepared URL for the native video poster. */
+  videoPosterSrc?: string;
   /** Use an empty string when the poster is purely decorative. */
   posterAlt?: string;
   /** Hosted video URL. Omit when no introduction is available. */
@@ -38,6 +40,7 @@ export const CaseStudyCard = forwardRef<HTMLElement, CaseStudyCardProps>(
       title,
       description,
       posterSrc,
+      videoPosterSrc,
       posterAlt = '',
       onWatchIntro,
       onReadCaseStudy,
@@ -124,7 +127,7 @@ export const CaseStudyCard = forwardRef<HTMLElement, CaseStudyCardProps>(
             title={title}
             videoSrc={videoSrc}
             videoType={videoType}
-            posterSrc={posterSrc}
+            posterSrc={videoPosterSrc ?? posterSrc}
             caseStudyHref={caseStudyHref}
             onReadCaseStudy={onReadCaseStudy}
             readLabel={readLabel}

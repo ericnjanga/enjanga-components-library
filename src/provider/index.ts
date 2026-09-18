@@ -8,3 +8,5 @@ export {
   type LinkProps as ButtonLinkProps,
   type LinkProps as AnchorLinkProps,
 } from './LinkProvider';
+
+export { ImageProvider, LibraryImage, type ImageProps } from './ImageProvider';
