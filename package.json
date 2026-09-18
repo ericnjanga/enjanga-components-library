@@ -1,6 +1,6 @@
 {
   "name": "enjanga-components-library",
-  "version": "1.0.130",
+  "version": "1.0.130-image-adapter.1",
   "description": "Reusable, accessible navigation components for Enjanga applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
