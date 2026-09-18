@@ -6,6 +6,7 @@ import type { HomePageProps } from '../../../components/HomePage';
 import { Button } from '../../../components/Button';
 
 export const homePageFixture = {
+    revealDelayMs: 112.5,
     title: homeHeroFixture.title,
     description: homeHeroFixture.description,
     heroAction: homeHeroFixture.action,

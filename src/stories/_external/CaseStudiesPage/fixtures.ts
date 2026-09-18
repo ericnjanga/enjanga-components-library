@@ -3,6 +3,7 @@ import type { CaseStudiesPageProps } from '../../../components/CaseStudiesPage';
 
 /** Public Contentful Delivery API snapshot, 2026-09-06. No credentials or draft content. */
 export const caseStudiesPageFixture: CaseStudiesPageProps = {
+  revealDelayMs: 112.5,
   title: 'Engineering complex workflows into clear experiences.',
   caseStudies: contentful.blogPostCollection.items.map(study => ({
     id: study.sys.id,

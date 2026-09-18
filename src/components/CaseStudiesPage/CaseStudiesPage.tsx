@@ -9,10 +9,12 @@ export interface CaseStudiesPageProps extends Omit<ComponentPropsWithoutRef<'mai
   title: string;
   caseStudies: readonly CaseStudyListItem[];
   emptyMessage?: string;
+  /** Delay before each item reveals, in milliseconds. */
+  revealDelayMs?: number;
 }
 
 /** Presentational page: the consuming application owns CMS fetching and routing. */
-export function CaseStudiesPage({ title, caseStudies, emptyMessage = 'Case studies are coming soon. Check back for new work.', className, ...props }: CaseStudiesPageProps) {
+export function CaseStudiesPage({ title, caseStudies, revealDelayMs, emptyMessage = 'Case studies are coming soon. Check back for new work.', className, ...props }: CaseStudiesPageProps) {
   return <main {...props} className={clsx('enj-case-studies-page', className)}>
     <div className="enj-case-studies-page__container">
       <PageHero className="enj-case-studies-page__hero" title={title} />
@@ -20,7 +22,7 @@ export function CaseStudiesPage({ title, caseStudies, emptyMessage = 'Case studi
         {caseStudies.map((study, index) => (
           <Fragment key={study.id}>
             {index > 0 && <hr className="enj-case-studies-page__separator" />}
-            <ScrollReveal><CaseStudyCard {...study} /></ScrollReveal>
+            <ScrollReveal delayMs={revealDelayMs}><CaseStudyCard {...study} /></ScrollReveal>
           </Fragment>
         ))}
         {!caseStudies.length && <p>{emptyMessage}</p>}

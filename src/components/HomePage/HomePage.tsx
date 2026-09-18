@@ -13,6 +13,8 @@ export interface HomePageProps
   heroAction?: ReactNode;
   /** Enable decorative silhouettes for Expertise; other reveals use the shared default. */
   expertisePreview?: boolean;
+  /** Delay before each section reveals, in milliseconds. */
+  revealDelayMs?: number;
   expertise: {
     title: string;
     items: readonly { title: string; description: string }[];
@@ -26,7 +28,7 @@ export interface HomePageProps
     image?: ReactNode;
   };
   /** Optional application-owned animation wrapper for each lower section. */
-  SectionWrapper?: ComponentType<{ children: ReactNode; preview?: boolean }>;
+  SectionWrapper?: ComponentType<{ children: ReactNode; preview?: boolean; delayMs?: number }>;
 }
 
 /** Presentational home page. The application supplies content, links and media. */
@@ -35,6 +37,7 @@ export function HomePage({
   description,
   heroAction,
   expertisePreview = true,
+  revealDelayMs,
   expertise,
   about,
   SectionWrapper = ScrollReveal,
@@ -51,7 +54,7 @@ export function HomePage({
         >
           <PageHero title={title} description={description} action={heroAction} />
         </section>
-        <SectionWrapper preview={expertisePreview}>
+        <SectionWrapper preview={expertisePreview} delayMs={revealDelayMs}>
           <section id="expertise" className="enj-home-page__expertise">
             <div className="enj-home-page__expertiseCopy">
               <h2>{expertise.title}</h2>
@@ -72,7 +75,7 @@ export function HomePage({
             )}
           </section>
         </SectionWrapper>
-        <SectionWrapper>
+        <SectionWrapper delayMs={revealDelayMs}>
           <section id="about" className="enj-home-page__about">
             {about.image && (
               <div className="enj-home-page__portrait"><div className="enj-home-page__portraitFrame">{about.image}</div></div>
