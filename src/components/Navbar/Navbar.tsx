@@ -10,7 +10,7 @@ import {
   type MouseEvent,
 } from 'react';
 import type { NavbarItem, NavbarProps } from './libs/types';
-import { LinkContext } from '../../provider/LinkProvider';
+import { LinkContext } from '../../providers/LinkProvider';
 
 const MenuIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">

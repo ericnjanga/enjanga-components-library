@@ -9,9 +9,9 @@ import {
   type MouseEventHandler,
 } from 'react';
 import clsx from 'clsx';
-import { LibraryImage } from '../../provider/ImageProvider';
+import { LibraryImage } from '../../providers/ImageProvider';
 import { useCursorLabel } from './useCursorLabel';
-import { LinkContext } from '../../provider/LinkProvider';
+import { LinkContext } from '../../providers/LinkProvider';
 
 export interface InteractiveImageProps
   extends Omit<ComponentPropsWithoutRef<'a'>, 'children'> {

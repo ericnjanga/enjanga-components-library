@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { cleanup, render, screen, fireEvent } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { Footer } from './Footer';
-import { LinkProvider, type LinkProps } from '../../provider/LinkProvider';
+import { LinkProvider, type LinkProps } from '../../providers/LinkProvider';
 afterEach(cleanup);
 
 it('renders an accessible footer with safe external links and a home destination', () => {

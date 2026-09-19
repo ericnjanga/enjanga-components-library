@@ -1,6 +1,6 @@
 import { forwardRef, type ButtonHTMLAttributes, type AnchorHTMLAttributes, type Ref } from 'react';
 import { useContext } from 'react';
-import { LinkContext } from '../../provider/LinkProvider';
+import { LinkContext } from '../../providers/LinkProvider';
 import clsx from 'clsx';
 import { chevronRight, close } from './icons';
 

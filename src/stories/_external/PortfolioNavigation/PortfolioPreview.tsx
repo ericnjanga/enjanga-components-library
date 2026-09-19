@@ -9,7 +9,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { LinkProvider, type LinkProps } from '../../../provider/LinkProvider';
+import { LinkProvider, type LinkProps } from '../../../providers/LinkProvider';
 import { PageNavbar, NavbarThemeToggle } from '../../../components/Navbar';
 import { HomePage, type HomePageProps } from '../../../components/HomePage';
 import { CaseStudiesPage } from '../../../components/CaseStudiesPage';

@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { InteractiveImage } from './InteractiveImage';
-import { LinkProvider, type LinkProps } from '../../provider/LinkProvider';
+import { LinkProvider, type LinkProps } from '../../providers/LinkProvider';
 
 afterEach(() => {
   cleanup();

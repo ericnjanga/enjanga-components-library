@@ -2,7 +2,7 @@
 
 import { useContext, type ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
-import { LinkContext } from '../../provider/LinkProvider';
+import { LinkContext } from '../../providers/LinkProvider';
 
 export interface FooterLink {
   label: string;
