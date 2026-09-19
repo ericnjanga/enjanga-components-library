@@ -2,8 +2,8 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, expect, test } from 'vitest';
 import { ImageProvider, type ImageProps } from './ImageProvider';
-import { InteractiveImage } from '../components/InteractiveImage';
-import { CaseStudyCard } from '../components/CaseStudyCard';
+import { InteractiveImage } from '../../components/InteractiveImage';
+import { CaseStudyCard } from '../../components/CaseStudyCard';
 
 afterEach(cleanup);
 
