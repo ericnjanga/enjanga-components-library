@@ -1,1 +1,1 @@
-export { LinkContext, LinkProvider, type LinkProps } from './LinkProvider';
+export { LinkContext, LinkProvider, LibraryLink, type LinkProps } from './LinkProvider';

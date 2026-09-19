@@ -1,8 +1,8 @@
 'use client';
 
-import { useContext, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
-import { LinkContext } from '../../providers/LinkProvider';
+import { LibraryLink } from '../../providers/LinkProvider';
 
 export interface FooterLink {
   label: string;
@@ -32,17 +32,16 @@ export function Footer({
   className,
   ...props
 }: FooterProps) {
-  const Link = useContext(LinkContext) ?? 'a';
   return (
     <footer {...props} className={clsx('enj-footer', className)}>
       <div className="enj-footer__inner">
-        <Link
+        <LibraryLink
           href={homeHref}
           aria-label={brandLabel}
           className="enj-footer__brand"
         >
           {siteName}
-        </Link>
+        </LibraryLink>
         {(links.length > 0 || copyright) && (
           <div className="enj-footer__details">
             {links.length > 0 && (
@@ -50,7 +49,7 @@ export function Footer({
                 <ul className="enj-footer__links">
                   {links.map((link) => (
                     <li key={`${link.label}-${link.href}`}>
-                      <Link
+                      <LibraryLink
                         href={link.href}
                         aria-label={link.accessibleLabel || link.label}
                         target={link.openInNewTab ? '_blank' : undefined}
@@ -59,7 +58,7 @@ export function Footer({
                         }
                       >
                         {link.label}
-                      </Link>
+                      </LibraryLink>
                     </li>
                   ))}
                 </ul>

@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  useContext,
   useRef,
   useState,
   type ComponentPropsWithoutRef,
@@ -11,7 +10,7 @@ import {
 import clsx from 'clsx';
 import { LibraryImage } from '../../providers/ImageProvider';
 import { useCursorLabel } from './useCursorLabel';
-import { LinkContext } from '../../providers/LinkProvider';
+import { LibraryLink } from '../../providers/LinkProvider';
 
 export interface InteractiveImageProps
   extends Omit<ComponentPropsWithoutRef<'a'>, 'children'> {
@@ -51,7 +50,6 @@ export function InteractiveImage({
   onClick,
   ...props
 }: InteractiveImageProps) {
-  const Link = useContext(LinkContext) ?? 'a';
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   useCursorLabel(ref, labelRef, Boolean((href || action) && !action?.disabled), Boolean(action));
@@ -138,7 +136,7 @@ export function InteractiveImage({
       </div>
     );
   return (
-    <Link
+    <LibraryLink
       {...props}
       ref={(node) => {
         ref.current = node;
@@ -161,6 +159,6 @@ export function InteractiveImage({
       }}
     >
       {content}
-    </Link>
+    </LibraryLink>
   );
 }

@@ -1,4 +1,4 @@
-export { LinkContext, LinkProvider, type LinkProps } from './LinkProvider';
+export { LinkContext, LinkProvider, LibraryLink, type LinkProps } from './LinkProvider';
 // Compatibility names share one context. The nearest provider applies to all links.
 export {
   LinkProvider as ButtonLinkProvider,
@@ -10,3 +10,4 @@ export {
 } from './LinkProvider';
 
 export { ImageProvider, LibraryImage, type ImageProps } from './ImageProvider';
+export { ScrollRevealProvider } from './ScrollRevealProvider';

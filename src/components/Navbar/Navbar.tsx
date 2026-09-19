@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import {
-  useContext,
   useEffect,
   useId,
   useRef,
@@ -10,7 +9,7 @@ import {
   type MouseEvent,
 } from 'react';
 import type { NavbarItem, NavbarProps } from './libs/types';
-import { LinkContext } from '../../providers/LinkProvider';
+import { LibraryLink } from '../../providers/LinkProvider';
 
 const MenuIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -50,7 +49,6 @@ export const Navbar = ({
   const currentHref = activeHref ?? internalActiveHref;
 
   const closeMenu = () => setIsOpen(false);
-  const LinkComponent = useContext(LinkContext) ?? 'a';
 
   useEffect(() => {
     if (!isOpen) return;
@@ -125,7 +123,7 @@ export const Navbar = ({
       : {};
 
     return (
-      <LinkComponent
+      <LibraryLink
         key={item.id}
         href={item.href}
         aria-current={isActive ? 'page' : undefined}
@@ -139,7 +137,7 @@ export const Navbar = ({
         {...externalProps}
       >
         {item.label}
-      </LinkComponent>
+      </LibraryLink>
     );
   };
 
@@ -152,13 +150,13 @@ export const Navbar = ({
       )}
     >
       <nav className="enj-navbar__inner" aria-label={ariaLabel}>
-        <LinkComponent
+        <LibraryLink
           href={brandHref}
           aria-label={brandLabel}
           className="enj-navbar__brand"
         >
           {brand}
-        </LinkComponent>
+        </LibraryLink>
 
         <div className="enj-navbar__desktop">
           <div className="enj-navbar__links">{items.map(renderLink)}</div>
@@ -197,7 +195,7 @@ export const Navbar = ({
               className="enj-navbar__drawer"
             >
               <div className="enj-navbar__drawerHeader">
-                <LinkComponent
+                <LibraryLink
                   href={brandHref}
                   aria-label={brandLabel}
                   className="enj-navbar__brand"
@@ -207,7 +205,7 @@ export const Navbar = ({
                   }}
                 >
                   {brand}
-                </LinkComponent>
+                </LibraryLink>
                 <button
                   ref={closeRef}
                   type="button"

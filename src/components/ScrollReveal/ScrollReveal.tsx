@@ -3,7 +3,7 @@
 import { useContext, useLayoutEffect, useRef, type ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
 import { isSectionNavigating, sectionNavigationEvent } from './navigation';
-import { ScrollRevealRouteContext } from './ScrollRevealProvider';
+import { ScrollRevealRouteContext } from '../../providers/ScrollRevealProvider';
 
 export interface ScrollRevealProps extends ComponentPropsWithoutRef<'div'> {
   /** Minimum time content stays hidden after entering view, in milliseconds. */

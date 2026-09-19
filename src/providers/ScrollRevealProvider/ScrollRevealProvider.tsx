@@ -2,7 +2,7 @@
 
 import { createContext, useLayoutEffect, useRef, type ReactNode } from 'react';
 
-import { scrollRevealBootstrap } from './bootstrap';
+import { scrollRevealBootstrap } from '../../components/ScrollReveal/bootstrap';
 
 export const ScrollRevealRouteContext = createContext<string | undefined>(undefined);
 

@@ -4,7 +4,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { act, cleanup, render, screen } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { ScrollReveal } from './ScrollReveal';
-import { ScrollRevealProvider } from './ScrollRevealProvider';
+import { ScrollRevealProvider } from '../../providers/ScrollRevealProvider';
 import { scrollRevealBootstrap } from './bootstrap';
 
 let callback: IntersectionObserverCallback;

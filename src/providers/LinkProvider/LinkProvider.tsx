@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type RefAttributes } from 'react';
+import { createContext, forwardRef, useContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type RefAttributes } from 'react';
 
 export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
   RefAttributes<HTMLAnchorElement> & { href: string };
@@ -14,3 +14,9 @@ export function LinkProvider({ component, children }: {
 }) {
   return <LinkContext.Provider value={component}>{children}</LinkContext.Provider>;
 }
+
+/** Render through the nearest router adapter, or a native anchor without a provider. */
+export const LibraryLink = forwardRef<HTMLAnchorElement, LinkProps>(function LibraryLink(props, ref) {
+  const Link = useContext(LinkContext) ?? 'a';
+  return <Link {...props} ref={ref} />;
+});

@@ -4,7 +4,7 @@ import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import {
-  LinkProvider, AnchorLinkProvider, ButtonLinkProvider, Button, Navbar,
+  LinkProvider, LibraryLink, AnchorLinkProvider, ButtonLinkProvider, Button, Navbar,
   type LinkProps,
 } from '../../index';
 
@@ -36,6 +36,39 @@ function setup() {
 }
 
 describe('LinkProvider public API', () => {
+  it('renders LibraryLink as a native anchor with refs, attributes, and cancellable clicks', () => {
+    const ref = createRef<HTMLAnchorElement>();
+    const onClick = vi.fn(event => event.preventDefault());
+    render(<LibraryLink href="/download" ref={ref} download="guide.pdf" className="custom-link" aria-label="Download guide" onClick={onClick}>Guide</LibraryLink>);
+    const link = screen.getByRole('link', { name: 'Download guide' });
+    expect(ref.current).toBe(link);
+    expect(link.getAttribute('href')).toBe('/download');
+    expect(link.getAttribute('download')).toBe('guide.pdf');
+    expect(link.classList.contains('custom-link')).toBe(true);
+    expect(fireEvent.click(link)).toBe(false);
+    expect(onClick).toHaveBeenCalledOnce();
+  });
+
+  it('uses the nearest provider for LibraryLink and forwards its ref to the adapter', () => {
+    const Outer = forwardRef<HTMLAnchorElement, LinkProps>(function Outer(props, ref) {
+      return <a {...props} ref={ref} data-adapter="outer" />;
+    });
+    const Inner = forwardRef<HTMLAnchorElement, LinkProps>(function Inner(props, ref) {
+      return <a {...props} ref={ref} data-adapter="inner" />;
+    });
+    const ref = createRef<HTMLAnchorElement>();
+    render(<LinkProvider component={Outer}>
+      <LibraryLink href="/outer">Outer</LibraryLink>
+      <LinkProvider component={Inner}>
+        <LibraryLink href="/inner" ref={ref}>Inner</LibraryLink>
+      </LinkProvider>
+    </LinkProvider>);
+    expect(screen.getByRole('link', { name: 'Outer' }).getAttribute('data-adapter')).toBe('outer');
+    expect(ref.current).toBe(screen.getByRole('link', { name: 'Inner' }));
+    expect(ref.current?.getAttribute('data-adapter')).toBe('inner');
+    expect(ref.current?.getAttribute('href')).toBe('/inner');
+  });
+
   it('routes desktop menu and brand links through the adapter, preserving attributes', async () => {
     const { navigate, onNavigate } = setup();
     const work = screen.getByRole('link', { name: 'Work' });
