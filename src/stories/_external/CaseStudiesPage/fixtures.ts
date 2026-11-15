@@ -5,6 +5,7 @@ import type { CaseStudiesPageProps } from '../../../components/CaseStudiesPage';
 export const caseStudiesPageFixture: CaseStudiesPageProps = {
   revealDelayMs: 112.5,
   title: 'Engineering complex workflows into clear experiences.',
+  description: 'Explore how I turned complex requirements into accessible interfaces and reusable components, and how I worked with teams to bring them into production.',
   caseStudies: contentful.blogPostCollection.items.map(study => ({
     id: study.sys.id,
     title: study.title,

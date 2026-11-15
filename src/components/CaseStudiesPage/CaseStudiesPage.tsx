@@ -7,6 +7,7 @@ import { CaseStudyCard, type CaseStudyCardProps } from '../CaseStudyCard';
 export type CaseStudyListItem = CaseStudyCardProps & { id: string };
 export interface CaseStudiesPageProps extends Omit<ComponentPropsWithoutRef<'main'>, 'title' | 'children'> {
   title: string;
+  description?: string;
   caseStudies: readonly CaseStudyListItem[];
   emptyMessage?: string;
   /** Delay before each item reveals, in milliseconds. */
@@ -14,10 +15,10 @@ export interface CaseStudiesPageProps extends Omit<ComponentPropsWithoutRef<'mai
 }
 
 /** Presentational page: the consuming application owns CMS fetching and routing. */
-export function CaseStudiesPage({ title, caseStudies, revealDelayMs, emptyMessage = 'Case studies are coming soon. Check back for new work.', className, ...props }: CaseStudiesPageProps) {
+export function CaseStudiesPage({ title, description, caseStudies, revealDelayMs, emptyMessage = 'Case studies are coming soon. Check back for new work.', className, ...props }: CaseStudiesPageProps) {
   return <main {...props} className={clsx('enj-case-studies-page', className)}>
     <div className="enj-case-studies-page__container">
-      <PageHero className="enj-case-studies-page__hero" title={title} />
+      <PageHero className="enj-case-studies-page__hero" title={title} description={description} />
       <div className="enj-case-studies-page__list">
         {caseStudies.map((study, index) => (
           <Fragment key={study.id}>
